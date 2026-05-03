@@ -17,13 +17,10 @@
   <circle cx="1178" cy="538" r="20" fill="#E8C266"/>
   <path d="M1116 275L1245 380L1190 526" stroke="#E8C266" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-opacity="0.8"/>
   <rect x="190" y="438" width="358" height="118" rx="18" fill="#1E1914" stroke="#C29A2C" stroke-opacity="0.18"/>
-  <text x="226" y="484" fill="#F4E4C6" font-family="'DM Mono', monospace" font-size="26" letter-spacing="4">PUBLIC LEARNING REPORT</text>
   <text x="188" y="214" fill="#C29A2C" font-family="'DM Mono', monospace" font-size="24" letter-spacing="6">WORKSHOP PROJECT</text>
   <text x="188" y="390" fill="#F4E4C6" font-family="'Cormorant Garamond', serif" font-size="88" font-weight="700">The Architecture</text>
   <text x="188" y="470" fill="#D6A73B" font-family="'Cormorant Garamond', serif" font-size="88" font-style="italic" font-weight="700">of High-Performance</text>
   <text x="188" y="550" fill="#F4E4C6" font-family="'Cormorant Garamond', serif" font-size="88" font-weight="700">Learning</text>
-  <text x="226" y="526" fill="#D3C5AE" font-family="'Figtree', sans-serif" font-size="28">Read the story, take the tests,</text>
-  <text x="226" y="564" fill="#D3C5AE" font-family="'Figtree', sans-serif" font-size="28">and submit results from the page.</text>
   <defs>
     <linearGradient id="bg" x1="84" y1="84" x2="1512" y2="816" gradientUnits="userSpaceOnUse">
       <stop stop-color="#1F1913"/>
