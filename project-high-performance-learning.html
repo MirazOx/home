@@ -245,6 +245,68 @@ h2.chapter-title em { color: var(--gold); font-style: italic; }
 .card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; line-height: 1.2; }
 .card-body { font-size: .9rem; color: var(--ink3); line-height: 1.7; }
 .card-body strong { color: var(--ink2); }
+.concept-card {
+  padding: 0;
+  overflow: hidden;
+}
+.concept-card-media {
+  position: relative;
+  aspect-ratio: 1.18 / 1;
+  overflow: hidden;
+  background: var(--paper2);
+}
+.concept-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform .7s ease;
+}
+.concept-card:hover .concept-card-media img {
+  transform: scale(1.08);
+}
+.concept-card-media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,21,16,.06), rgba(26,21,16,.5));
+}
+.concept-card-kicker {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 1;
+  font-family: var(--mono);
+  font-size: .56rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.82);
+}
+.concept-card-content {
+  padding: 22px 24px 24px;
+}
+.concept-card.compact .concept-card-media {
+  aspect-ratio: 1.35 / 1;
+}
+.concept-card-source {
+  margin-top: 14px;
+  font-family: var(--mono);
+  font-size: .52rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--ink4);
+  line-height: 1.55;
+}
+.concept-card-source a {
+  color: var(--ink3);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(61,53,41,.18);
+}
+.concept-card-source a:hover {
+  border-bottom-color: rgba(61,53,41,.55);
+}
 
 /* VS compare */
 .vs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); margin: 24px 0; overflow: hidden; }
@@ -582,6 +644,412 @@ footer strong { color: var(--gold2); }
 ════════════════════════════ */
 .chart-wrap { background: #fff; border: 1px solid var(--border); padding: 28px; margin: 24px 0; }
 .chart-label { font-family: var(--mono); font-size: .62rem; letter-spacing: 2px; text-transform: uppercase; color: var(--ink4); margin-bottom: 16px; }
+
+/* ════════════════════════════
+   EDITORIAL PHOTO SYSTEM
+════════════════════════════ */
+.editorial-gallery {
+  margin: 36px 0 46px;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr .85fr;
+  gap: 12px;
+}
+.editorial-photo-card {
+  position: relative;
+  min-height: 240px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.editorial-photo-card.tall {
+  min-height: 280px;
+}
+.editorial-photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.04);
+  animation: slowDrift 14s ease-in-out infinite alternate;
+}
+.editorial-photo-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26,21,16,.04), rgba(26,21,16,.44));
+}
+.editorial-photo-meta {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 1;
+}
+.editorial-photo-kicker {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.72);
+  margin-bottom: 5px;
+}
+.editorial-photo-title {
+  font-family: var(--serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.08;
+  color: var(--paper);
+  margin-bottom: 4px;
+}
+.editorial-photo-caption {
+  font-size: .76rem;
+  color: rgba(245,240,232,.74);
+  line-height: 1.55;
+}
+.editorial-photo-source,
+.editorial-inline-source {
+  margin-top: 8px;
+  font-family: var(--mono);
+  font-size: .52rem;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.62);
+  line-height: 1.55;
+}
+.editorial-photo-source a,
+.editorial-inline-source a {
+  color: rgba(245,240,232,.82);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(245,240,232,.2);
+}
+.editorial-photo-source a:hover,
+.editorial-inline-source a:hover {
+  border-bottom-color: rgba(245,240,232,.7);
+}
+
+.editorial-inline-photo {
+  margin: 28px 0 30px;
+  position: relative;
+  min-height: 260px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+.editorial-inline-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+  display: block;
+  animation: slowDriftWide 18s ease-in-out infinite alternate;
+}
+.editorial-inline-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(26,21,16,.72), rgba(26,21,16,.1) 58%, rgba(26,21,16,.58));
+}
+.editorial-inline-copy {
+  position: absolute;
+  left: 22px;
+  bottom: 18px;
+  max-width: 420px;
+  z-index: 1;
+}
+.editorial-inline-label {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.72);
+  margin-bottom: 6px;
+}
+.editorial-inline-title {
+  font-family: var(--serif);
+  font-size: clamp(22px, 3.6vw, 34px);
+  line-height: 1.06;
+  font-weight: 700;
+  color: var(--paper);
+  margin-bottom: 6px;
+}
+.editorial-inline-text {
+  font-size: .82rem;
+  color: rgba(245,240,232,.78);
+  line-height: 1.65;
+}
+
+.photo-break {
+  margin: 38px 0 34px;
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--ink);
+}
+.photo-break img {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.92);
+  animation: slowDriftWide 18s ease-in-out infinite alternate;
+}
+.photo-break::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(15,13,10,.72), rgba(15,13,10,.18) 55%, rgba(15,13,10,.5));
+}
+.photo-break-copy {
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  z-index: 1;
+  max-width: 480px;
+}
+.photo-break-label {
+  font-family: var(--mono);
+  font-size: .6rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(245,240,232,.72);
+  margin-bottom: 8px;
+}
+.photo-break-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 700;
+  line-height: 1.04;
+  color: var(--paper);
+  margin-bottom: 8px;
+}
+.photo-break-text {
+  font-size: .88rem;
+  color: rgba(245,240,232,.78);
+  line-height: 1.72;
+}
+@keyframes slowDrift {
+  0% { transform: scale(1.04) translate3d(0, 0, 0); }
+  100% { transform: scale(1.09) translate3d(0, -8px, 0); }
+}
+@keyframes slowDriftWide {
+  0% { transform: scale(1.03) translate3d(0, 0, 0); }
+  100% { transform: scale(1.08) translate3d(-10px, -6px, 0); }
+}
+
+/* ════════════════════════════
+   MEMORY PATHWAY VISUAL
+════════════════════════════ */
+.memory-pathway {
+  margin: 34px 0 22px;
+  border: 1px solid var(--border);
+  background: #fff;
+  padding: 28px;
+}
+.memory-pathway-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.memory-pathway-title {
+  font-family: var(--serif);
+  font-size: clamp(24px, 3.4vw, 36px);
+  line-height: 1.08;
+  font-weight: 700;
+}
+.memory-pathway-sub {
+  font-size: .9rem;
+  color: var(--ink3);
+  line-height: 1.75;
+  max-width: 48ch;
+}
+.memory-stage-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.memory-stage-btn {
+  border: 1px solid var(--border);
+  background: var(--paper);
+  color: var(--ink3);
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+.memory-stage-btn.is-active,
+.memory-stage-btn:hover {
+  border-color: var(--gold);
+  color: var(--ink);
+  background: rgba(184,134,11,.08);
+}
+.memory-visual-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 1fr) minmax(0, .95fr);
+  gap: 18px;
+  margin: 20px 0 16px;
+}
+.memory-canvas {
+  position: relative;
+  min-height: 420px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 14% 20%, rgba(29,78,137,.08), transparent 18%),
+    linear-gradient(180deg, rgba(245,240,232,.9), #fff);
+}
+.memory-image-stage {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.memory-image-stage.is-visible { opacity: 1; }
+.memory-image-stage img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  padding: 24px;
+}
+.memory-stage-caption {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  max-width: 76%;
+  padding: 10px 12px;
+  background: rgba(255,255,255,.88);
+  border: 1px solid rgba(26,21,16,.08);
+  font-size: .78rem;
+  color: var(--ink3);
+  line-height: 1.55;
+  box-shadow: 0 8px 16px rgba(26,21,16,.06);
+}
+.memory-hotspot {
+  position: absolute;
+  border-radius: 999px;
+  border: 2px solid rgba(184,134,11,.82);
+  box-shadow: 0 0 0 0 rgba(184,134,11,.36);
+  opacity: 0;
+  transform: scale(.86);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.memory-hotspot.is-active {
+  opacity: 1;
+  transform: scale(1);
+  animation: hotspotPulse 2.2s ease-in-out infinite;
+}
+.memory-hotspot::after {
+  content: '';
+  position: absolute;
+  inset: 7px;
+  border-radius: inherit;
+  border: 1px dashed rgba(184,134,11,.54);
+}
+.memory-hotspot.working { left: 20%; top: 18%; width: 26%; height: 22%; }
+.memory-hotspot.cortex { left: 57%; top: 19%; width: 26%; height: 48%; }
+.memory-hotspot.hippocampus { left: 34%; top: 49%; width: 18%; height: 17%; }
+.memory-hotspot.sleep { left: 30%; top: 42%; width: 34%; height: 24%; }
+.memory-flow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.memory-flow svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.memory-flow path {
+  stroke: rgba(156,144,128,.4);
+  stroke-width: 4;
+  fill: none;
+  stroke-linecap: round;
+}
+.memory-flow path.active {
+  stroke: url(#memoryGradient);
+  stroke-dasharray: 12 12;
+  animation: driftWave 2.4s linear infinite;
+}
+.sleep-wave {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 14px;
+  height: 38px;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.sleep-wave.is-visible { opacity: 1; }
+.sleep-wave path {
+  stroke: rgba(45,106,79,.85);
+  stroke-width: 3;
+  fill: none;
+  stroke-dasharray: 10 10;
+  animation: driftWave 2.8s linear infinite;
+}
+.memory-explainer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.memory-explainer-card,
+.memory-support-card {
+  border: 1px solid var(--border);
+  background: var(--paper);
+  padding: 18px;
+}
+.memory-explainer-label,
+.memory-support-label {
+  font-family: var(--mono);
+  font-size: .58rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: 8px;
+}
+.memory-explainer-head {
+  font-family: var(--serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.08;
+  margin-bottom: 8px;
+}
+.memory-explainer-body,
+.memory-support-card li,
+.memory-support-card p {
+  font-size: .84rem;
+  color: var(--ink3);
+  line-height: 1.7;
+}
+.memory-support-card ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+.memory-support-card li strong { color: var(--ink); }
+@keyframes hotspotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(184,134,11,.24); }
+  70% { box-shadow: 0 0 0 16px rgba(184,134,11,0); }
+}
+@keyframes driftWave {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -40; }
+}
+@media(max-width:768px){
+  .editorial-gallery { grid-template-columns: 1fr; }
+  .memory-pathway-top,
+  .memory-visual-grid { grid-template-columns: 1fr; display: grid; }
+  .memory-canvas { min-height: 340px; }
+  .memory-stage-caption { max-width: calc(100% - 36px); }
+}
 </style>
 </head>
 <body>
@@ -623,6 +1091,36 @@ footer strong { color: var(--gold2); }
     <a href="#ch7" class="ch-pill">07 Mindset</a>
   </div>
   <div class="hero-scroll"><span>Scroll to begin</span><div class="scroll-bar"></div></div>
+</section>
+
+<section class="editorial-gallery">
+  <figure class="editorial-photo-card tall">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Brain_Lateral_%28NIH_BioArt_60%29.png/1280px-Brain_Lateral_%28NIH_BioArt_60%29.png" alt="Lateral view of a human brain">
+    <figcaption class="editorial-photo-meta">
+      <p class="editorial-photo-kicker">Biology of learning</p>
+      <p class="editorial-photo-title">Memory is physical</p>
+      <p class="editorial-photo-caption">Learning is not motivation floating in the abstract. It happens in tissue, timing, and repeated activation.</p>
+      <p class="editorial-photo-source">Source: NIH BioArt brain illustration</p>
+    </figcaption>
+  </figure>
+  <figure class="editorial-photo-card">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/A%20student%20studying%20%285489375111%29.jpg" alt="Student studying at a desk">
+    <figcaption class="editorial-photo-meta">
+      <p class="editorial-photo-kicker">Attention</p>
+      <p class="editorial-photo-title">What you hold, you can encode</p>
+      <p class="editorial-photo-caption">Focused input is the gate through which learning begins.</p>
+      <p class="editorial-photo-source">Source: <a href="https://commons.wikimedia.org/wiki/File%3AA_student_studying_%285489375111%29.jpg">Wikimedia Commons</a></p>
+    </figcaption>
+  </figure>
+  <figure class="editorial-photo-card">
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Study%20desk%20%284484763664%29.jpg" alt="A study desk with books and notes">
+    <figcaption class="editorial-photo-meta">
+      <p class="editorial-photo-kicker">Environment</p>
+      <p class="editorial-photo-title">Systems beat mood</p>
+      <p class="editorial-photo-caption">A prepared desk changes behavior before discipline even has to intervene.</p>
+      <p class="editorial-photo-source">Source: <a href="https://commons.wikimedia.org/wiki/File%3AStudy_desk_%284484763664%29.jpg">Wikimedia Commons</a></p>
+    </figcaption>
+  </figure>
 </section>
 
 <!-- ══════════════════════════════════
@@ -788,6 +1286,76 @@ footer strong { color: var(--gold2); }
         <tr><td><div class="t-letter" style="color:#7b3f8c">R</div><small style="font-family:var(--mono);font-size:.58rem;color:var(--ink4);display:block;letter-spacing:1px;text-transform:uppercase;">Reference</small></td><td>Specific items to memorise</td><td>Dates, formulas, vocabulary</td><td style="font-weight:600;color:var(--ink);">Anki / Spaced Rep</td><td>Only efficient method for arbitrary associations in long-term memory</td></tr>
       </tbody>
     </table>
+
+    <div class="memory-pathway">
+      <div class="memory-pathway-top">
+        <div>
+          <div class="eyebrow" style="margin-bottom:10px;">Physical Memory Pathway</div>
+          <h3 class="memory-pathway-title">Where memory sits in the brain,<br>and how it moves</h3>
+        </div>
+        <p class="memory-pathway-sub">Short-term holding, hippocampal binding, cortical consolidation, sleep replay, and retrieval all involve different systems. Click through the stages to watch the pathway change.</p>
+      </div>
+
+      <div class="memory-stage-row" id="memory-stage-row">
+        <button class="memory-stage-btn is-active" type="button" data-stage="encode">Encoding</button>
+        <button class="memory-stage-btn" type="button" data-stage="rehearse">Practice</button>
+        <button class="memory-stage-btn" type="button" data-stage="sleep">Sleep</button>
+        <button class="memory-stage-btn" type="button" data-stage="retrieve">Retrieval</button>
+      </div>
+
+      <div class="memory-visual-grid">
+        <div class="memory-canvas" id="memory-canvas" data-stage="encode">
+          <div class="memory-image-stage is-visible" data-image-stage="brain">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Brain%20Lateral%20%28NIH%20BioArt%2060%29.png" alt="Lateral anatomical image of a human brain">
+            <div class="memory-hotspot working is-active" data-hotspot="working"></div>
+            <div class="memory-hotspot cortex" data-hotspot="cortex"></div>
+            <div class="memory-hotspot hippocampus" data-hotspot="hippocampus"></div>
+            <div class="memory-hotspot sleep" data-hotspot="sleep"></div>
+            <div class="memory-flow">
+              <svg viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="memoryGradient" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#d4a017"></stop>
+                    <stop offset="100%" stop-color="#52b788"></stop>
+                  </linearGradient>
+                </defs>
+                <path data-flow="encode" d="M220 215 C330 165, 430 170, 500 280"></path>
+                <path data-flow="practice" d="M500 280 C565 240, 660 220, 760 245"></path>
+                <path data-flow="sleep" d="M510 310 C590 355, 670 380, 760 370"></path>
+                <path data-flow="retrieve" d="M760 258 C640 258, 560 260, 430 210"></path>
+              </svg>
+            </div>
+            <svg class="sleep-wave" id="sleep-wave" viewBox="0 0 800 60" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0 30 C40 10, 80 10, 120 30 S200 50, 240 30 S320 10, 360 30 S440 50, 480 30 S560 10, 600 30 S680 50, 720 30 S760 10, 800 30"></path>
+            </svg>
+            <div class="memory-stage-caption" id="memory-stage-caption">Working memory is the conscious holding space: limited, fragile, and easily overloaded.</div>
+          </div>
+
+          <div class="memory-image-stage" data-image-stage="hippocampus">
+            <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Hippocampus.svg" alt="Anatomical image highlighting the hippocampus inside the human brain">
+            <div class="memory-stage-caption">The hippocampus does not store everything forever. It temporarily binds and indexes new declarative memory traces so they can later be reconstructed.</div>
+          </div>
+        </div>
+
+        <div class="memory-explainer-grid">
+          <div class="memory-explainer-card">
+            <div class="memory-explainer-label" id="memory-stage-label">Encoding</div>
+            <div class="memory-explainer-head" id="memory-stage-head">Attention decides what even gets a chance to become memory.</div>
+            <div class="memory-explainer-body" id="memory-stage-body">Raw input first enters short-lived sensory systems. If attention holds it, it enters working memory, which relies heavily on prefrontal networks and can only hold a few chunks at once. If you overload this stage with multitasking, almost nothing stabilises enough for the hippocampus to bind.</div>
+          </div>
+
+          <div class="memory-support-card">
+            <div class="memory-support-label">What this means for learning</div>
+            <ul id="memory-support-points">
+              <li><strong>Short-term memory is not storage.</strong> It is a temporary workspace.</li>
+              <li><strong>The hippocampus is essential for new declarative memories.</strong> Damage it, and new learning collapses.</li>
+              <li><strong>Long-term memories become cortical.</strong> The more connected they are, the more retrievable they are.</li>
+            </ul>
+            <p style="margin-top:12px;"><strong>Image note:</strong> left image uses NIH BioArt lateral brain anatomy; the hippocampus view is a separate anatomical illustration showing its internal location more clearly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -855,9 +1423,19 @@ footer strong { color: var(--gold2); }
       </div>
 
       <div class="callout">
-        <div class="callout-tag">📌 Practical Recommendation</div>
-        <div class="prose"><p><strong>Free resources:</strong> TypeRacer (typingclub.com), Keybr.com, Monkeytype.com. Minimum investment: 15 minutes daily for 4–6 weeks to reach functional touch-typing. Target: 50+ WPM before focusing on any other study system improvement. This is one of the highest-ROI skills a student can develop — you use it every day for the rest of your academic and professional life.</p></div>
+      <div class="callout-tag">📌 Practical Recommendation</div>
+      <div class="prose"><p><strong>Free resources:</strong> TypeRacer (typingclub.com), Keybr.com, Monkeytype.com. Minimum investment: 15 minutes daily for 4–6 weeks to reach functional touch-typing. Target: 50+ WPM before focusing on any other study system improvement. This is one of the highest-ROI skills a student can develop — you use it every day for the rest of your academic and professional life.</p></div>
       </div>
+
+      <figure class="editorial-inline-photo">
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pen-writing-notes-studying.jpg" alt="Hand writing notes in a notebook while studying">
+        <figcaption class="editorial-inline-copy">
+          <p class="editorial-inline-label">Encoding by hand</p>
+          <p class="editorial-inline-title">Notes should process,<br>not just preserve</p>
+          <p class="editorial-inline-text">When note-taking forces selection, paraphrase, and compression, it becomes part of learning rather than just a record of exposure.</p>
+          <p class="editorial-inline-source">Source: <a href="https://commons.wikimedia.org/wiki/File%3APen-writing-notes-studying.jpg">Wikimedia Commons</a></p>
+        </figcaption>
+      </figure>
     </div>
 
     <!-- STRATEGIC NOTE-TAKING -->
@@ -932,6 +1510,16 @@ footer strong { color: var(--gold2); }
   </div>
 </div>
 
+<section class="photo-break">
+  <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Asleep%20on%20a%20study%20desk%20%282341911944%29.jpg" alt="Student asleep at a study desk">
+  <div class="photo-break-copy">
+    <p class="photo-break-label">Recovery is not optional</p>
+    <h3 class="photo-break-title">Sleep finishes<br>what study begins</h3>
+    <p class="photo-break-text">A strong study session creates a fragile trace. Sleep is what turns that trace into something more durable, more connected, and more retrievable the next day.</p>
+    <p class="editorial-inline-source">Source: <a href="https://commons.wikimedia.org/wiki/File%3AAsleep_on_a_study_desk_%282341911944%29.jpg">Wikimedia Commons</a></p>
+  </div>
+</section>
+
 <!-- ══════════════════════════════════
      CHAPTER 4 — ENVIRONMENT
 ══════════════════════════════════ -->
@@ -946,6 +1534,16 @@ footer strong { color: var(--gold2); }
       <div class="sci-tag">⚗ Ward, Duke, Gneezy & Bos — Journal of Consumer Research (2017)</div>
       <div class="prose"><p>In a series of experiments, participants who kept their phone in another room during a cognitive task performed <strong>significantly better</strong> than those whose phones were on the desk — even face-down, even powered off. The researchers concluded that the phone creates a "brain drain" by drawing on limited attentional resources through its mere potential to distract. <strong>Removing the phone from the room completely eliminated this effect.</strong> The cost of doing nothing with your phone — just having it present — is measurable and real.</p></div>
     </div>
+
+    <figure class="editorial-inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Distracted%20by%20Phones.jpg" alt="People distracted by their phones">
+        <figcaption class="editorial-inline-copy">
+          <p class="editorial-inline-label">Attention residue</p>
+          <p class="editorial-inline-title">The device does not need<br>to buzz to cost you focus</p>
+          <p class="editorial-inline-text">The mere potential for interruption consumes cognitive resources. The page is making the same argument the research does: remove temptation before you negotiate with it.</p>
+          <p class="editorial-inline-source">Source: <a href="https://commons.wikimedia.org/wiki/File%3ADistracted_by_Phones.jpg">Wikimedia Commons</a></p>
+        </figcaption>
+    </figure>
 
     <div class="grid2">
       <div>
@@ -1040,6 +1638,16 @@ footer strong { color: var(--gold2); }
       <div class="callout-tag">Parkinson's Law (1955) + Temptation Bundling (Milkman, 2014)</div>
       <div class="prose"><p><strong>Parkinson's Law:</strong> Work expands to fill the time available. If you allow 3 hours for a 1-hour task, it will take 3 hours. Deliberate time constraints force prioritisation. <strong>Temptation Bundling:</strong> Pair something you want (specific coffee, specific show) with something you need to do. Only allowed the "want" while doing the "need." Milkman's research found a 51% increase in gym attendance using this method. Same principle applies to studying.</p></div>
     </div>
+
+    <figure class="editorial-inline-photo">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Focused%20Students%20at%20Cebu%20City%20Library.jpg" alt="Focused students studying inside a public library">
+      <figcaption class="editorial-inline-copy">
+        <p class="editorial-inline-label">Deep work atmosphere</p>
+        <p class="editorial-inline-title">Focus benefits from<br>the architecture around it</p>
+        <p class="editorial-inline-text">A quiet, purpose-built environment does not create discipline by magic, but it removes friction and helps sustained attention last longer.</p>
+        <p class="editorial-inline-source">Source: <a href="https://commons.wikimedia.org/wiki/File%3AFocused_Students_at_Cebu_City_Library.jpg">Wikimedia Commons</a></p>
+      </figcaption>
+    </figure>
   </div>
 </div>
 
@@ -1106,31 +1714,66 @@ footer strong { color: var(--gold2); }
     <p class="chapter-subtitle">External motivation — grades, rankings, approval — is fragile. Identity-based motivation is durable because it is tied to who you believe yourself to be, not what you are trying to get.</p>
 
     <div class="grid2">
-      <div class="card" style="border-top:2px solid var(--gold);">
-        <div class="card-tag" style="color:var(--gold);">James Clear — Atomic Habits (2018)</div>
-        <div class="card-title">Identity-Based Habits</div>
-        <div class="card-body">Three layers: outcomes (what you want), processes (what you do), identity (who you believe you are). Most people focus on outcomes. The most durable change targets identity. <strong>Each study session becomes evidence for the identity you are building.</strong> "I want an A" is fragile. "I am someone who takes intellectual development seriously" is self-reinforcing.</div>
-      </div>
-      <div class="card" style="border-top:2px solid var(--blue);">
-        <div class="card-tag" style="color:var(--blue);">Carol Dweck — Mindset (2006, Stanford)</div>
-        <div class="card-title">Growth vs Fixed Mindset</div>
-        <div class="card-body">Students with a fixed mindset avoid challenges to protect their identity. Students with a growth mindset lean into challenges as evidence of learning in progress. <strong>Struggling is not evidence of low ability — it is evidence of learning happening.</strong> Teaching this explicitly improved grades and persistence in longitudinal studies across multiple countries.</div>
-      </div>
+      <article class="card concept-card" style="border-top:2px solid var(--gold);">
+        <div class="concept-card-media">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Atomic%20habits.jpg" alt="Atomic Habits book cover">
+          <div class="concept-card-kicker">Identity shifts through repeated evidence</div>
+        </div>
+        <div class="concept-card-content">
+          <div class="card-tag" style="color:var(--gold);">James Clear — Atomic Habits (2018)</div>
+          <div class="card-title">Identity-Based Habits</div>
+          <div class="card-body">Three layers: outcomes (what you want), processes (what you do), identity (who you believe you are). Most people focus on outcomes. The most durable change targets identity. <strong>Each study session becomes evidence for the identity you are building.</strong> "I want an A" is fragile. "I am someone who takes intellectual development seriously" is self-reinforcing.</div>
+          <div class="concept-card-source">Visual source: <a href="https://commons.wikimedia.org/wiki/File%3AAtomic_habits.jpg">Atomic habits.jpg on Wikimedia Commons</a></div>
+        </div>
+      </article>
+      <article class="card concept-card" style="border-top:2px solid var(--blue);">
+        <div class="concept-card-media">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Carol%20Dweck%20for%20Innovation%20documentary.jpg" alt="Carol Dweck speaking">
+          <div class="concept-card-kicker">Challenge becomes proof of growth</div>
+        </div>
+        <div class="concept-card-content">
+          <div class="card-tag" style="color:var(--blue);">Carol Dweck — Mindset (2006, Stanford)</div>
+          <div class="card-title">Growth vs Fixed Mindset</div>
+          <div class="card-body">Students with a fixed mindset avoid challenges to protect their identity. Students with a growth mindset lean into challenges as evidence of learning in progress. <strong>Struggling is not evidence of low ability — it is evidence of learning happening.</strong> Teaching this explicitly improved grades and persistence in longitudinal studies across multiple countries.</div>
+          <div class="concept-card-source">Visual source: <a href="https://commons.wikimedia.org/wiki/File%3ACarol_Dweck_for_Innovation_documentary.jpg">Carol Dweck for Innovation documentary.jpg</a></div>
+        </div>
+      </article>
     </div>
 
     <div class="grid3" style="margin-top:16px;">
-      <div class="card" style="border-top:2px solid var(--gold);">
-        <div style="font-size:.82rem;font-weight:600;color:var(--gold);margin-bottom:6px;">80/20 Rule</div>
-        <div class="card-body">20% of content generates 80% of exam points. Identify the high-yield material first. Master it completely before the remaining 80%. This is triage, not laziness.</div>
-      </div>
-      <div class="card" style="border-top:2px solid var(--green);">
-        <div style="font-size:.82rem;font-weight:600;color:var(--green);margin-bottom:6px;">Reading Backwards</div>
-        <div class="card-body">Read chapter summaries and end-questions <em>before</em> the chapter text. Pre-questioning activates a schema that makes your brain prioritise relevant information as you encounter it.</div>
-      </div>
-      <div class="card" style="border-top:2px solid var(--blue);">
-        <div style="font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:6px;">Directness Principle</div>
-        <div class="card-body">Practice in the exact format of your exam. MCQ exam → do MCQs under timed conditions. Essay exam → write timed essays. Notes don't transfer to production under pressure.</div>
-      </div>
+      <article class="card concept-card compact" style="border-top:2px solid var(--gold);">
+        <div class="concept-card-media">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Pareto%20principle.svg" alt="Pareto principle diagram">
+          <div class="concept-card-kicker">Find the highest-yield material first</div>
+        </div>
+        <div class="concept-card-content">
+          <div style="font-size:.82rem;font-weight:600;color:var(--gold);margin-bottom:6px;">80/20 Rule</div>
+          <div class="card-body">20% of content generates 80% of exam points. Identify the high-yield material first. Master it completely before the remaining 80%. This is triage, not laziness.</div>
+          <div class="concept-card-source">Visual source: <a href="https://commons.wikimedia.org/wiki/File%3APareto_principle.svg">Pareto principle.svg</a></div>
+        </div>
+      </article>
+      <article class="card concept-card compact" style="border-top:2px solid var(--green);">
+        <div class="concept-card-media">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Book%20Table%20of%20Contents.jpg" alt="Book table of contents">
+          <div class="concept-card-kicker">Start with the map, not page one</div>
+        </div>
+        <div class="concept-card-content">
+          <div style="font-size:.82rem;font-weight:600;color:var(--green);margin-bottom:6px;">Reading Backwards</div>
+          <div class="card-body">Read chapter summaries and end-questions <em>before</em> the chapter text. Pre-questioning activates a schema that makes your brain prioritise relevant information as you encounter it.</div>
+          <div class="concept-card-source">Visual source: <a href="https://commons.wikimedia.org/wiki/File%3ABook_Table_of_Contents.jpg">Book Table of Contents.jpg</a></div>
+        </div>
+      </article>
+      <article class="card concept-card compact" style="border-top:2px solid var(--blue);">
+        <div class="concept-card-media">
+          <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Students%20writing%20exams.jpg" alt="Students writing exams">
+          <div class="concept-card-kicker">Practice in the same form you must perform</div>
+        </div>
+        <div class="concept-card-content">
+          <div style="font-size:.82rem;font-weight:600;color:var(--blue);margin-bottom:6px;">Directness Principle</div>
+          <div class="card-body">Practice in the exact format of your exam. MCQ exam → do MCQs under timed conditions. Essay exam → write timed essays. Notes don't transfer to production under pressure.</div>
+          <div class="concept-card-source">Visual source: <a href="https://commons.wikimedia.org/wiki/File%3AStudents_writing_exams.jpg">Students writing exams.jpg</a></div>
+        </div>
+      </article>
     </div>
   </div>
 </div>
@@ -1353,6 +1996,115 @@ function buildResponsesText() {
       `Timestamp: ${response.ts}`
     ].join('\n');
   }).join('\n\n---\n\n');
+}
+
+function initMemoryPathway() {
+  const root = document.getElementById('memory-canvas');
+  const row = document.getElementById('memory-stage-row');
+  if (!root || !row) return;
+
+  const label = document.getElementById('memory-stage-label');
+  const head = document.getElementById('memory-stage-head');
+  const body = document.getElementById('memory-stage-body');
+  const support = document.getElementById('memory-support-points');
+  const wave = document.getElementById('sleep-wave');
+  const caption = document.getElementById('memory-stage-caption');
+  const imageStages = root ? root.querySelectorAll('[data-image-stage]') : [];
+  const hotspots = root ? root.querySelectorAll('[data-hotspot]') : [];
+  const flows = root ? root.querySelectorAll('[data-flow]') : [];
+
+  const stageData = {
+    encode: {
+      label: 'Encoding',
+      head: 'Attention decides what even gets a chance to become memory.',
+      body: 'Raw input first enters short-lived sensory systems. If attention holds it, it enters working memory, which relies heavily on prefrontal networks and can only hold a few chunks at once. If you overload this stage with multitasking, almost nothing stabilises enough for the hippocampus to bind.',
+      image: 'brain',
+      caption: 'Working memory is the conscious holding space: limited, fragile, and easily overloaded.',
+      hotspots: ['working', 'hippocampus'],
+      flows: ['encode'],
+      sleep: false,
+      support: [
+        '<strong>Short-term memory is not storage.</strong> It is a temporary workspace.',
+        '<strong>The hippocampus is essential for new declarative memories.</strong> Damage it, and new learning collapses.',
+        '<strong>Focused attention is the gatekeeper.</strong> Distracted input rarely survives long enough to bind.'
+      ]
+    },
+    rehearse: {
+      label: 'Practice',
+      head: 'Practice keeps reactivating the trace before it fades.',
+      body: 'Retrieval practice and elaboration repeatedly force working memory and the hippocampus to reconstruct the material. Each successful reconstruction strengthens the indexing pathway and links the memory to more cortical cues. Re-reading feels smooth because it reduces effort; retrieval works because it requires reconstruction.',
+      image: 'hippocampus',
+      caption: 'Repeated reconstruction helps the hippocampus link new material to broader cortical meaning networks.',
+      hotspots: [],
+      flows: [],
+      sleep: false,
+      support: [
+        '<strong>Active recall beats passive review.</strong> Reconstruction strengthens the route.',
+        '<strong>Spacing matters.</strong> Letting the trace weaken slightly makes retrieval more productive.',
+        '<strong>Generation helps.</strong> Trying before checking creates deeper encoding than just seeing the answer.'
+      ]
+    },
+    sleep: {
+      label: 'Sleep Consolidation',
+      head: 'During slow-wave sleep, the hippocampus replays and teaches the cortex.',
+      body: 'New memories do not become durable by willpower. During slow-wave sleep, hippocampal activity replays recently encoded patterns, helping distribute them into neocortical networks. This is why post-learning sleep is biologically part of studying, not a break from it.',
+      image: 'brain',
+      caption: 'Sleep replay helps shift fragile hippocampal traces toward more stable cortical storage patterns.',
+      hotspots: ['sleep', 'cortex'],
+      flows: ['sleep'],
+      sleep: true,
+      support: [
+        '<strong>Sleep is active memory work.</strong> Consolidation happens offline.',
+        '<strong>All-nighters are costly.</strong> Lost consolidation cannot simply be rescheduled later.',
+        '<strong>Good study + bad sleep is incomplete learning.</strong> The trace remains fragile.'
+      ]
+    },
+    retrieve: {
+      label: 'Retrieval',
+      head: 'Strong memories come back from cortical networks through the hippocampal index.',
+      body: 'When you answer a question from memory, the brain is not opening a file cabinet. It is reassembling a distributed pattern. Early on, the hippocampus is heavily involved in reactivation. With repeated successful retrieval, the cortical pattern becomes faster, more stable, and less dependent on cramming.',
+      image: 'brain',
+      caption: 'Retrieval pulls distributed cortical patterns back into conscious working memory through cue-driven reconstruction.',
+      hotspots: ['cortex', 'working'],
+      flows: ['retrieve'],
+      sleep: false,
+      support: [
+        '<strong>Memory retrieval is reconstruction.</strong> That is why cues matter.',
+        '<strong>Interleaving improves discrimination.</strong> It forces the brain to choose the right pattern, not just repeat one routine.',
+        '<strong>Repeated retrieval builds fluency honestly.</strong> Recognition alone usually does not.'
+      ]
+    }
+  };
+
+  function renderStage(stage) {
+    const config = stageData[stage];
+    if (!config) return;
+    root.dataset.stage = stage;
+    row.querySelectorAll('.memory-stage-btn').forEach((btn) => {
+      btn.classList.toggle('is-active', btn.dataset.stage === stage);
+    });
+    imageStages.forEach((block) => {
+      block.classList.toggle('is-visible', block.dataset.imageStage === config.image);
+    });
+    hotspots.forEach((spot) => {
+      spot.classList.toggle('is-active', config.hotspots.includes(spot.dataset.hotspot));
+    });
+    flows.forEach((flow) => {
+      flow.classList.toggle('active', config.flows.includes(flow.dataset.flow));
+    });
+    if (wave) wave.classList.toggle('is-visible', config.sleep);
+    if (label) label.textContent = config.label;
+    if (head) head.textContent = config.head;
+    if (body) body.textContent = config.body;
+    if (caption) caption.textContent = config.caption;
+    if (support) support.innerHTML = config.support.map((item) => `<li>${item}</li>`).join('');
+  }
+
+  row.querySelectorAll('.memory-stage-btn').forEach((btn) => {
+    btn.addEventListener('click', () => renderStage(btn.dataset.stage));
+  });
+
+  renderStage('encode');
 }
 
 async function submitResults(event) {
@@ -1632,6 +2384,8 @@ function toggleAcc(btn) {
   item.closest('.accordion').querySelectorAll('.acc-item.open').forEach(i=>i.classList.remove('open'));
   if (!isOpen) item.classList.add('open');
 }
+
+initMemoryPathway();
 </script>
 </body>
 </html>
