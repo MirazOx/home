@@ -2878,3 +2878,283 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   margin-bottom: 1.25rem;
 }
 .about-portrait img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ═══════════════════════════════════════════
+   HERO LAYOUT FIX — larger photo, text left
+═══════════════════════════════════════════ */
+.hero-identity {
+  grid-template-columns: 1fr 300px !important;
+}
+.hero-identity .hero-photo-creative {
+  order: 2;
+  width: 300px !important;
+  height: 300px !important;
+  justify-self: end;
+}
+.hero-identity .hero-identity-right {
+  order: 1;
+}
+@media (max-width: 720px) {
+  .hero-identity {
+    grid-template-columns: 110px 1fr !important;
+  }
+  .hero-identity .hero-photo-creative {
+    order: -1;
+    width: 110px !important;
+    height: 110px !important;
+    justify-self: start;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   STATUS TRINITY LAYOUT
+═══════════════════════════════════════════ */
+.status-trinity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+.status-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.status-stats-col {
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 1.5rem 1.75rem;
+  background: var(--bg2);
+  position: relative;
+  overflow: hidden;
+}
+.status-stats-col::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+  background: var(--accent-amber);
+}
+.status-stats-eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.sh-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+.sh-item {
+  text-align: center;
+  padding: 0.85rem 0.5rem;
+  border: 0.5px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  transition: border-color 0.25s;
+}
+.sh-item:hover { border-color: var(--accent-amber); }
+.sh-n {
+  display: block;
+  font-family: 'DM Serif Display', serif;
+  font-size: 26px;
+  color: var(--accent-amber);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.sh-l {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text3);
+  line-height: 1.4;
+}
+.sh-item.accent-teal .sh-n { color: var(--accent-teal); }
+.sh-item.accent-teal:hover { border-color: var(--accent-teal); }
+@media (max-width: 720px) {
+  .status-trinity { grid-template-columns: 1fr; }
+  .sh-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   AWARD FAN GALLERY
+═══════════════════════════════════════════ */
+.award-fan-section {
+  margin-bottom: 2.5rem;
+}
+.award-fan-wrap {
+  position: relative;
+  height: 440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+}
+.award-fan-card {
+  position: absolute;
+  width: 210px;
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1),
+              opacity 0.4s ease,
+              box-shadow 0.3s ease;
+  will-change: transform, opacity;
+}
+.award-fan-card.is-front {
+  z-index: 10;
+  transform: translateX(0) rotate(0deg) scale(1);
+}
+.award-fan-card.is-front:hover {
+  box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+}
+.award-fan-card[data-wing] {
+  opacity: 0;
+  transform: translateX(0) rotate(0deg) scale(0.88);
+  z-index: 1;
+  pointer-events: none;
+}
+/* Opened state — cards fan sideways */
+.award-fan-wrap.is-open .award-fan-card[data-wing="1"] {
+  opacity: 1;
+  transform: translateX(-255px) rotate(-9deg) scale(0.92);
+  z-index: 7;
+  pointer-events: auto;
+}
+.award-fan-wrap.is-open .award-fan-card[data-wing="2"] {
+  opacity: 1;
+  transform: translateX(255px) rotate(9deg) scale(0.92);
+  z-index: 6;
+  pointer-events: auto;
+}
+.award-fan-wrap.is-open .award-fan-card[data-wing="3"] {
+  opacity: 1;
+  transform: translateX(-500px) rotate(-17deg) scale(0.85);
+  z-index: 5;
+  pointer-events: auto;
+}
+.award-fan-hint {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: var(--text3);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+}
+.award-fan-wrap.is-open .award-fan-hint { opacity: 0.4; }
+
+/* ═══════════════════════════════════════════
+   TESTIMONIALS SECTION
+═══════════════════════════════════════════ */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-top: 0;
+}
+.tcard {
+  background: var(--bg2);
+  border: 0.5px solid var(--border);
+  border-radius: 8px;
+  padding: 1.75rem 1.75rem 1.5rem;
+  position: relative;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+.tcard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border2);
+}
+.tcard::before {
+  content: '\201C';
+  position: absolute;
+  top: 0.75rem;
+  left: 1.5rem;
+  font-family: 'DM Serif Display', serif;
+  font-size: 64px;
+  color: var(--accent-teal);
+  opacity: 0.18;
+  line-height: 1;
+  pointer-events: none;
+}
+.tcard-quote {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+  margin: 0 0 1.25rem;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+.tcard-byline {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  color: var(--text3);
+  letter-spacing: 0.05em;
+  border-top: 0.5px solid var(--border);
+  padding-top: 0.85rem;
+}
+.tcard-byline strong { color: var(--text2); }
+@media (max-width: 720px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ═══════════════════════════════════════════
+   HISTORY INTEREST CARD
+═══════════════════════════════════════════ */
+.interest-card.history-card .interest-photo {
+  background-image: url('assets/images/beyond-literature.jpg');
+}
+
+/* ═══════════════════════════════════════════
+   FUTURE GOALS GRID — interventions page
+═══════════════════════════════════════════ */
+.future-goals-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+.future-goal-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.75rem 1.5rem;
+  position: relative;
+}
+.future-goal-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--accent-amber);
+  letter-spacing: 0.08em;
+  margin: 0 0 0.75rem;
+}
+.future-goal-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.05rem;
+  color: var(--text1);
+  margin: 0 0 0.75rem;
+  line-height: 1.4;
+}
+.future-goal-body {
+  font-size: 13.5px;
+  color: var(--text2);
+  line-height: 1.7;
+  margin: 0;
+}
+@media (max-width: 720px) {
+  .future-goals-grid { grid-template-columns: 1fr; }
+}

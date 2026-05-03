@@ -39,9 +39,9 @@
   "literature": {
     "slug": "literature",
     "icon": "📚",
-    "title": "Literature & narrative theory",
-    "subtitle": "On why we read, and why the stories we tell each other matter.",
-    "intro": "I came to media studies through literature. My undergraduate years at the University of Dhaka were spent inside English departments and little magazines, reading postcolonial fiction and narrative theory. This folder holds the books, essays, and memories that still shape how I think about truth, narrative, and attention.",
+    "title": "Literature, Language & Theories",
+    "subtitle": "On why we read, how languages open archives, and why narrative theory matters for journalism.",
+    "intro": "I came to media studies through literature. My undergraduate years at the University of Dhaka were spent inside English departments and little magazines, reading postcolonial fiction and narrative theory. Language learning is not separate from this — each new language opens a different archive of thought. Spanish gave me Bolaño and a Colombian journalist whose English was exquisite but whose Spanish was a whole other octave. This folder holds the books, essays, languages, and theories that still shape how I think about truth, narrative, and attention.",
     "sections": [
       {
         "kind": "reading-now",
@@ -49,7 +49,7 @@
         "items": [
           { "text": "Rebecca Solnit — <em>A Field Guide to Getting Lost</em>", "meta": "Essays · 2026" },
           { "text": "Italo Calvino — <em>Six Memos for the Next Millennium</em>", "meta": "Revisiting · Lightness & Quickness" },
-          { "text": "Maria Popova — <em>Figuring</em>", "meta": "Slow read since February" }
+          { "text": "María Dueñas — <em>El tiempo entre costuras</em>", "meta": "Spanish · A2 reading practice" }
         ]
       },
       {
@@ -64,6 +64,15 @@
           { "text": "Zadie Smith — <em>Fail Better</em>", "meta": "The Guardian, 2007" },
           { "text": "Amitav Ghosh — <em>The Great Derangement</em>", "meta": "On climate and the failure of literary imagination" },
           { "text": "John Berger — <em>Ways of Seeing</em>, Ch. 1", "meta": "Still the best 15 minutes on the politics of the image" }
+        ]
+      },
+      {
+        "kind": "notes",
+        "title": "Languages",
+        "items": [
+          { "text": "Bangla — native", "meta": "First language, first archive" },
+          { "text": "English — fluent", "meta": "Working and academic language" },
+          { "text": "Spanish — A2, building toward B1", "meta": "Daily practice · News in Slow Spanish, Anki deck" }
         ]
       }
     ]
@@ -196,9 +205,9 @@
   "philosophy": {
     "slug": "philosophy",
     "icon": "🧩",
-    "title": "Philosophy & ethics",
-    "subtitle": "The slow questions behind the fast news cycle.",
-    "intro": "Journalism throws up ethical puzzles every week. This folder is where I try to sit with them properly — in conversation with epistemology, ethics of AI, and the Bengali humanist tradition.",
+    "title": "Philosophy & Maths",
+    "subtitle": "The slow questions and the precise ones — logic, ethics, probability, and the structures underneath both.",
+    "intro": "Journalism throws up ethical puzzles every week. I've found that the tools to sit with them properly come from two places: philosophy, which teaches you to be precise about premises and consequences, and mathematics, which teaches you to be honest about uncertainty. I'm a serious amateur in both — building a reading group habit in philosophy and working through probability and graph theory on the maths side.",
     "sections": [
       {
         "kind": "reading-now",
@@ -206,7 +215,7 @@
         "items": [
           { "text": "Miranda Fricker — <em>Epistemic Injustice</em>", "meta": "Re-reading · testimonial injustice" },
           { "text": "Shannon Vallor — <em>Technology and the Virtues</em>", "meta": "For the algorithm paper" },
-          { "text": "Rabindranath Tagore — <em>The Religion of Man</em>", "meta": "Because I always come back" }
+          { "text": "Nassim Nicholas Taleb — <em>The Black Swan</em>", "meta": "On probability and narrative fallacy" }
         ]
       },
       {
@@ -216,10 +225,52 @@
       },
       {
         "kind": "notes",
+        "title": "Maths I'm actually using",
+        "items": [
+          { "text": "Graph theory — NetworkX for media-citation networks", "meta": "Applied to the research pilot" },
+          { "text": "Basic probability and Bayesian reasoning", "meta": "For verification decision-making" },
+          { "text": "Statistics for social research", "meta": "Queen Mary University · Coursera" }
+        ]
+      },
+      {
+        "kind": "notes",
         "title": "Writing in progress",
         "items": [
           { "text": "Algorithmic epistemic injustice in South Asian feeds", "meta": "Working paper · Fricker + Bhaskar" },
           { "text": "On the virtue of slowness in investigative work", "meta": "Essay draft" }
+        ]
+      }
+    ]
+  },
+  "history": {
+    "slug": "history",
+    "icon": "🗺️",
+    "title": "History & Geopolitics",
+    "subtitle": "How the present got here — and what the map of power actually looks like.",
+    "intro": "I read history the way I read good journalism: as a method for understanding causation without collapsing complexity. South Asian history, the Cold War's long shadow over the Global South, the British Empire's archival traces in current media structures, and the geopolitics of the Indian Ocean — these are the threads I keep pulling. Geopolitics is not background reading. For anyone writing about platform power, algorithmic governance, or digital rights in Bangladesh, it is the context.",
+    "sections": [
+      {
+        "kind": "reading-now",
+        "title": "Reading now",
+        "items": [
+          { "text": "Pankaj Mishra — <em>From the Ruins of Empire</em>", "meta": "On Asian intellectuals and Western modernity" },
+          { "text": "William Dalrymple — <em>The Anarchy</em>", "meta": "East India Company and corporate power" },
+          { "text": "Yuval Noah Harari — <em>Sapiens</em>", "meta": "Re-reading for the long arc argument" }
+        ]
+      },
+      {
+        "kind": "memory",
+        "title": "Why this started",
+        "body": "In 2022, covering the Ukrainian crisis for TBS, I kept encountering readers who had no framework for why NATO expansion mattered or why Bangladesh's position was what it was. I started reading geopolitics properly then — not as ideology, but as geography, history, and interest. Three years later I can't report on digital policy without it."
+      },
+      {
+        "kind": "notes",
+        "title": "Areas of particular interest",
+        "items": [
+          { "text": "Partition of Bengal (1905, 1947) and its media legacy", "meta": "Archive research ongoing" },
+          { "text": "South China Sea and Indo-Pacific power shifts", "meta": "Regular reading · IISS, The Diplomat" },
+          { "text": "Cold War and Third World media systems", "meta": "For the platform-power research context" },
+          { "text": "Bangladesh's non-alignment tradition", "meta": "Foreign policy history, 1971–present" }
         ]
       }
     ]
