@@ -1,7 +1,7 @@
 window.HPL_RESULTS_CONFIG = {
   // Paste your deployed Google Apps Script web app URL here.
   // Leave empty to use email fallback instead.
-  appsScriptUrl: '',
+  https://script.google.com/macros/s/AKfycbzfseCJXlpp3wuC8FqyOTNBQJVdnZEqLq7FUmNON6AZ5RsDdEKvdGuuTBpsKJWXIHPNog/exec: '',
 
   // Email fallback used only when appsScriptUrl is empty.
   emailEndpoint: 'https://formsubmit.co/ajax/miraz8395@gmail.com',
