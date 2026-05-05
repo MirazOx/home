@@ -479,6 +479,26 @@ h2.chapter-title em { color: var(--gold); font-style: italic; }
 }
 .dashboard.revealed { opacity: 1; transform: none; }
 .dash-inner { max-width: 1000px; margin: 0 auto; }
+.admin-only { display: none !important; }
+body.is-admin .admin-only { display: block !important; }
+body.is-admin .admin-inline { display: flex !important; }
+.student-results-note,
+.teacher-mode-note {
+  margin: 0 0 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(26,21,16,.12);
+  background: rgba(255,255,255,.58);
+  font-size: .88rem;
+  color: var(--ink3);
+  line-height: 1.65;
+}
+.student-results-note strong,
+.teacher-mode-note strong {
+  color: var(--ink);
+}
+.teacher-mode-note {
+  border-left: 3px solid var(--gold);
+}
 .dash-title { font-family: var(--serif); font-size: clamp(28px, 4vw, 44px); font-weight: 700; margin-bottom: 8px; }
 .dash-sub { font-size: .92rem; color: var(--ink3); margin-bottom: 36px; line-height: 1.6; }
 
@@ -596,6 +616,12 @@ h2.chapter-title em { color: var(--gold); font-style: italic; }
 }
 .submit-status.ok { color: var(--green); }
 .submit-status.bad { color: var(--red); }
+.submit-meta {
+  margin-top: 10px;
+  font-size: .82rem;
+  color: var(--ink3);
+  line-height: 1.6;
+}
 
 /* Export button */
 .export-btn {
@@ -1941,6 +1967,21 @@ footer strong { color: var(--gold2); }
   </div>
 </div>
 
+<!-- Quiz 6 -->
+<div class="quiz-section" id="quiz6" data-chapter="6" data-title="Recovery Architecture">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapter 6 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Recovery as Strategic Architecture</div>
+      <div class="quiz-desc">Questions on sleep consolidation, bad-day strategy, and recovery design.</div>
+    </div>
+    <div class="quiz-dots" id="qd6"></div>
+    <div id="qa6"></div>
+    <div class="quiz-score" id="qs6"></div>
+  </div>
+</div>
+
+
 <!-- ══════════════════════════════════
      CHAPTER 7 — MINDSET
 ══════════════════════════════════ -->
@@ -2016,19 +2057,34 @@ footer strong { color: var(--gold2); }
   </div>
 </div>
 
-<!-- Quiz 5 (covers chs 5+6+7) -->
-<div class="quiz-section" id="quiz5" data-chapter="5" data-title="Scheduling, Recovery & Mindset">
+<!-- Quiz 5 -->
+<div class="quiz-section" id="quiz5" data-chapter="5" data-title="Scheduling & Rhythms">
   <div class="quiz-inner">
     <div class="quiz-header">
-      <div class="quiz-eyebrow">Chapters 5–7 · Retrieval Practice</div>
-      <div class="quiz-title">Test: Scheduling, Recovery & Mindset</div>
-      <div class="quiz-desc">5 questions spanning the final three chapters.</div>
+      <div class="quiz-eyebrow">Chapter 5 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Scheduling & Biological Rhythms</div>
+      <div class="quiz-desc">Questions on ultradian cycles, attention residue, and time architecture.</div>
     </div>
     <div class="quiz-dots" id="qd5"></div>
     <div id="qa5"></div>
     <div class="quiz-score" id="qs5"></div>
   </div>
 </div>
+
+<!-- Quiz 7 -->
+<div class="quiz-section" id="quiz7" data-chapter="7" data-title="Identity-Based Motivation">
+  <div class="quiz-inner">
+    <div class="quiz-header">
+      <div class="quiz-eyebrow">Chapter 7 · Retrieval Practice</div>
+      <div class="quiz-title">Test: Identity, Mindset & Exam Strategy</div>
+      <div class="quiz-desc">Questions on identity-based habits, growth mindset, and strategic studying.</div>
+    </div>
+    <div class="quiz-dots" id="qd7"></div>
+    <div id="qa7"></div>
+    <div class="quiz-score" id="qs7"></div>
+  </div>
+</div>
+
 
 <!-- ══════════════════════════════════
      CONCLUSION
@@ -2062,9 +2118,11 @@ footer strong { color: var(--gold2); }
 ══════════════════════════════════ -->
 <div class="dashboard" id="dashboard">
   <div class="dash-inner">
-    <div class="eyebrow">Student Performance Dashboard</div>
+    <div class="eyebrow">Results & Submission</div>
     <div class="dash-title">Your Quiz Results</div>
-    <div class="dash-sub">Responses are still saved in the visitor's browser for convenience, but this public version also lets readers submit their test results directly from the page.</div>
+    <div class="dash-sub">Students can see their score here immediately. When they submit the form below, their result is sent to the project owner by email with identity details, session code, chapter breakdown, and a full response log.</div>
+    <div class="student-results-note"><strong>For students:</strong> this dashboard shows your current attempt on this device. If you want to improve, use the retake option inside each quiz before you submit.</div>
+    <div class="teacher-mode-note admin-only"><strong>Teacher mode:</strong> export, full response log, and device reset controls are hidden from students and shown only when you open the page in admin mode.</div>
 
     <div class="dash-overview" id="dash-overview">
       <div class="dash-stat"><div class="ds-n" id="d-total">—</div><div class="ds-l">Total Questions</div></div>
@@ -2076,17 +2134,17 @@ footer strong { color: var(--gold2); }
     <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin-bottom:12px;">Score by Chapter</div>
     <div class="dash-sections" id="dash-sections"></div>
 
-    <div style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin:24px 0 12px;">Full Response Log</div>
-    <div style="overflow-x:auto;">
+    <div class="admin-only" style="font-family:var(--mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--ink4);margin:24px 0 12px;">Full Response Log</div>
+    <div class="admin-only" style="overflow-x:auto;">
       <table class="resp-table" id="resp-table">
         <thead><tr><th>Chapter</th><th>#</th><th>Question</th><th>Your Answer</th><th>Correct Answer</th><th>Result</th><th>Timestamp</th></tr></thead>
         <tbody id="resp-body"></tbody>
       </table>
     </div>
 
-    <div style="margin-top:8px;display:flex;align-items:center;flex-wrap:wrap;gap:8px;">
+    <div class="admin-only admin-inline" style="margin-top:8px;align-items:center;flex-wrap:wrap;gap:8px;">
       <button class="export-btn" onclick="exportCSV()">⬇ Export as CSV</button>
-      <button class="clear-btn" onclick="clearAll()">Clear All Data</button>
+      <button class="clear-btn" onclick="clearAll()">Clear This Device</button>
       <span id="export-confirm" style="font-family:var(--mono);font-size:.62rem;color:var(--green);opacity:0;transition:opacity .3s;margin-left:8px;">✓ Downloaded</span>
     </div>
 
@@ -2094,7 +2152,7 @@ footer strong { color: var(--gold2); }
       <div class="submit-head">
         <div>
           <div class="submit-title">Submit your results</div>
-          <p class="submit-note">Readers can leave a name, email, and short note before sending their quiz log. This sends the score summary and detailed response record to the project owner.</p>
+          <p class="submit-note">Each student should submit once they are satisfied with their attempt. The submission sends the score summary, chapter-level performance, and detailed answer log to the project owner.</p>
         </div>
       </div>
 
@@ -2102,11 +2160,19 @@ footer strong { color: var(--gold2); }
         <div class="submit-grid">
           <div class="submit-field">
             <label for="visitor-name">Name</label>
-            <input id="visitor-name" name="visitorName" type="text" placeholder="Your name">
+            <input id="visitor-name" name="visitorName" type="text" placeholder="Your name" required>
+          </div>
+          <div class="submit-field">
+            <label for="visitor-id">Student ID</label>
+            <input id="visitor-id" name="visitorId" type="text" placeholder="Your student ID" required>
           </div>
           <div class="submit-field">
             <label for="visitor-email">Email</label>
             <input id="visitor-email" name="visitorEmail" type="email" placeholder="name@example.com">
+          </div>
+          <div class="submit-field">
+            <label for="session-code">Session Code</label>
+            <input id="session-code" name="sessionCode" type="text" placeholder="e.g. CLS-May-05-AM" required>
           </div>
           <div class="submit-field full">
             <label for="visitor-note">Note</label>
@@ -2117,6 +2183,7 @@ footer strong { color: var(--gold2); }
           <button class="submit-btn" id="submit-results-btn" type="submit">Send Results</button>
           <span id="submit-status" class="submit-status">Complete at least one quiz section, then submit.</span>
         </div>
+        <p class="submit-meta" id="submit-destination">Destination details will appear here.</p>
       </form>
     </div>
   </div>
@@ -2127,9 +2194,10 @@ footer strong { color: var(--gold2); }
   <div>Evidence-Based Learning Series · All citations available on request</div>
 </footer>
 
+<script src="assets/js/hpl-results-config.js"></script>
 <script>
 // ════════════════════════════════════
-//  QUIZ DATA — 5 questions × 5 quizzes
+//  QUIZ DATA — chapter-by-chapter quizzes
 // ════════════════════════════════════
 const QUIZZES = {
   1: [
@@ -2142,44 +2210,75 @@ const QUIZZES = {
   2: [
     {q:"Roediger & Karpicke (2006) found that retrieval practice produced how much better long-term retention than re-reading?",opts:["About 30% better","About 75% better","About 150% better","About the same"],ans:2,exp:"Retrieval practice produced approximately 150% better retention at the 1-week delayed test. The re-reading group actually scored higher on an immediate (5-minute) test, which explains why students believe re-reading works — they are measuring short-term fluency, not long-term retrievability."},
     {q:"What is the 'desirable difficulty' principle (Bjork, 1994)?",opts:["Studying harder material builds more resilience","Strategies that feel difficult in the short term tend to produce better long-term retention","Difficulty indicates a mismatch between skill level and material","The harder the exam, the more you learn"],ans:1,exp:"Desirable difficulties are learning conditions that slow initial performance but enhance long-term retention. The counterintuitive implication: if your study session feels smooth and easy, it is usually a sign you are not learning effectively. Productive struggle — not comfort — is the signal of real learning."},
-    {q:"What does the Generation Effect (Slamecka & Graf, 1978) tell us about creating your own examples?",opts:["Self-generated examples are harder to remember because they are idiosyncratic","Information you generate yourself is remembered significantly better than information passively received","Generated examples only help with procedural knowledge","The generation effect only applies to verbal, not written, material"],ans:1,exp:"Even generating a wrong answer before seeing the correct one produces better final retention than receiving the correct answer directly. The effortful attempt creates a stronger memory trace. This is why writing your own examples, definitions, and summaries outperforms copying the textbook's."},
-    {q:"According to the PACER framework, what is the correct strategy for reference knowledge (dates, formulas, vocabulary)?",opts:["Mind mapping","Immediate practice","Application rehearsal","Anki / spaced repetition"],ans:3,exp:"Reference knowledge (arbitrary associations — dates, vocabulary, formulas, constants) requires spaced retrieval systems like Anki. This is the only efficient method for building and maintaining arbitrary associations in long-term memory. Other strategies like mind-mapping or practice are appropriate for different knowledge types but not for reference material."},
-    {q:"Why do interleaved learners typically rate their study sessions as less productive — yet score higher on tests?",opts:["They study more hours overall","They benefit from the illusion of competence","Interleaving creates productive confusion that is the actual learning event","They are better at test-taking strategies"],ans:2,exp:"Interleaving forces the brain to identify which strategy to use with each problem, not just execute one strategy repeatedly. This is a desirable difficulty — the confusion is the learning. Students who use blocked practice feel more fluent during study (recognising material they've seen recently) and rate their learning higher, but perform worse on delayed tests."},
+    {q:"What does the Generation Effect (Slamecka & Graf, 1978) tell us about creating your own examples?",opts:["Self-generated examples are harder to remember because they are idiosyncratic","Information you generate yourself is remembered significantly better than information passively received","Generated examples only help with procedural knowledge","The generation effect only applies to verbal, not written, material"],ans:1,exp:"The generation effect shows that information you generate yourself is remembered better than passively received material. The mechanism is simple: generation forces retrieval, elaboration, and encoding depth. This is why creating your own examples, analogies, and explanations is so much more powerful than copying the teacher's."},
+    {q:"In the physical memory model, what role does the hippocampus primarily play?",opts:["It permanently stores all long-term memories","It acts as a temporary binding/indexing system for new memories","It controls dopamine release during study","It is where working memory is located"],ans:1,exp:"The hippocampus acts as a binding and indexing system for newly encoded experiences. Over time, especially during sleep, those memories are replayed and integrated across the neocortex for more distributed long-term storage."},
+    {q:"Why is sleep important immediately after learning?",opts:["It increases short-term motivation","It allows hippocampal replay and systems consolidation to occur","It keeps working memory active for longer","It replaces the need for retrieval practice"],ans:1,exp:"Sleep matters because it is an active consolidation phase. During slow-wave sleep, recently encoded information is replayed and stabilised. Once that night is lost, the missed consolidation cannot simply be made up later."},
   ],
   3: [
-    {q:"When touch typing shifts from 'controlled processing' to 'automatic processing', what is the primary cognitive benefit?",opts:["You type faster which saves time","Full working memory capacity is freed for idea generation, argumentation, and analysis","Your spelling improves significantly","You experience less physical fatigue"],ans:1,exp:"The shift to automatic processing means the transcription layer disappears entirely. For a hunt-and-peck typist, a significant portion of working memory is allocated to locating keys. When typing becomes automatic, that resource is entirely available for higher-order thinking — the actual intellectual work."},
-    {q:"According to the Weintraub et al. (2015) study on higher-education students, what was the primary academic consequence of poor keyboarding skills?",opts:["Students took longer to complete assignments","Students allocated attention to key-searching instead of planning, organising, and revising their writing","Students made more spelling errors","Students preferred to handwrite instead"],ans:1,exp:"Non-proficient typists directed cognitive resources toward the physical mechanics of typing (key location, error correction) rather than the higher cognitive processes of writing — planning, organising ideas, and revising text. The written outputs of non-proficient typists were measurably lower quality as a result."},
-    {q:"Mueller & Oppenheimer (2014) found that laptop note-takers performed worse on conceptual questions than handwriters, even when allowed to review notes. Why?",opts:["Handwriting activates different and superior brain regions","Laptop typists typed too much content which was confusing","The physical constraint of handwriting forced real-time processing and paraphrasing rather than verbatim transcription","Handwriters studied their notes for longer"],ans:2,exp:"The mechanism is encoding depth. Laptop users who type verbatim are transcribing, not processing. Handwriters are forced to paraphrase and select in real time — an active encoding operation. The medium is not the cause; the cognitive activity is. A laptop typist who deliberately paraphrases rather than transcribes would produce similarly deep encoding."},
-    {q:"In the Cornell note-taking system, the cue column is added at which stage?",opts:["During the lecture, alongside the main notes","Before the lecture as a preparation step","After the lecture, as questions that test recall of the main notes","During the first review session"],ans:2,exp:"The cue column is added after the lecture. This is what converts passive notes into a retrieval practice tool. You cover the notes column, read the cue question, and attempt to recall aloud. The cue column requires no extra study preparation — it transforms the notes you already have into a self-testing resource."},
-    {q:"Which note-taking approach should be avoided entirely according to the evidence?",opts:["Cornell Method","Mind Mapping","Verbatim transcription","Outline Method"],ans:2,exp:"Verbatim transcription produces passive recording with no active encoding. You are operating as a court reporter, not a learner. The material passes through your attention without being processed. Mueller & Oppenheimer's research showed this produces worse conceptual understanding than any organised note-taking method, even when the verbatim notes are available for review."},
+    {q:"The Cornell note-taking method becomes powerful only after which additional step?",opts:["Colour-coding the notes","Adding the cue column after class and using it for recall","Rewriting the notes neatly at home","Sharing the notes with a classmate"],ans:1,exp:"The cue column is what transforms Cornell notes from storage into a retrieval system. You cover the main notes, read the cue, and try to recall aloud. The power is not in the template itself, but in how it turns notes into self-testing prompts."},
+    {q:"Why is the Feynman technique effective for learning?",opts:["It encourages memorising exact textbook language","It reveals gaps in understanding by forcing simple explanation","It works only for science subjects","It replaces the need for problem-solving practice"],ans:1,exp:"The Feynman technique works because simplifying an idea exposes what you do not actually understand. If you cannot explain it in plain language, you likely have recognition without deep understanding."},
+    {q:"Retrieval practice feels harder than re-reading mainly because it does what?",opts:["Makes the material longer","Forces the brain to reconstruct information without support","Depends on visual memory only","Requires group study"],ans:1,exp:"Retrieval practice removes the cues that make material feel familiar. That discomfort is exactly why it works better: reconstructing the answer strengthens access paths to the memory."},
+    {q:"Interleaving improves learning because it trains which ability?",opts:["Reading faster","Recognising which strategy or method fits a given problem","Studying for longer without rest","Avoiding all mistakes during practice"],ans:1,exp:"Interleaving improves strategy selection. Instead of mindlessly repeating one method, you must first identify what kind of problem you are facing and which solution path belongs to it."},
+    {q:"Why are passive notes alone usually insufficient for mastery?",opts:["They are too short","They store information but do not require retrieval or generation","They are only useful in mathematics","They overload the hippocampus immediately"],ans:1,exp:"Passive notes capture information, but they do not force recall. Unless notes are turned into questions, prompts, explanations, or problems, they remain storage rather than training."},
   ],
   4: [
-    {q:"In the Ward et al. (2017) 'brain drain' study, which condition most effectively eliminated the cognitive cost of smartphone presence?",opts:["Phone turned off and face-down on the desk","Phone in a bag or pocket","Phone in another room","Phone in silent mode in a drawer"],ans:2,exp:"Only removing the phone from the room entirely eliminated the brain drain effect. Phone on desk (even off, face-down), phone in pocket, and phone in a bag all showed measurable cognitive cost compared to the phone-in-another-room condition. The potential for distraction — not actual distraction — is what consumes cognitive resources."},
-    {q:"The 'Illegal Focus' Protocol uses classical conditioning to create automatic focus responses. Which step creates the conditioned stimulus?",opts:["The physical activation (push-ups or jumping jacks)","The fixed location (same desk, same spot)","The countdown and declaration","The brain anchor (same playlist used exclusively for study)"],ans:3,exp:"The brain anchor — a specific playlist used exclusively for studying — becomes a conditioned stimulus through Pavlovian conditioning. Each time you study to this music, the association strengthens. Eventually, just hearing the first few seconds of the track triggers the attentional narrowing associated with focus. This only works if the playlist is reserved exclusively for study sessions."},
-    {q:"Gollwitzer's (1999) research on implementation intentions found that if-then specific plans produce how much higher follow-through compared to general intentions?",opts:["About the same as general intentions","About 50% higher","2–3× higher","10× higher"],ans:2,exp:"Implementation intentions — specific if-then plans ('When X occurs, I will do Y') — produced 2–3 times higher follow-through rates compared to general goal intentions ('I will study more'). The countdown and declaration step of the focus protocol is an implementation intention: a specific behavioural cue that signals the beginning of the focused work state."},
-    {q:"What is the purpose of the one-tab rule in digital study environments?",opts:["To save memory on your computer","To prevent your computer from slowing down","To eliminate the temptation of one-click distraction access","To improve your typing speed"],ans:2,exp:"The one-tab rule ensures that switching to a distraction requires deliberate action — opening a new tab, navigating to a site. This friction is the entire point. BJ Fogg's behaviour design principle: make desired behaviours require zero friction and undesired behaviours require maximum friction. The one-tab rule creates asymmetric friction between studying and distraction."},
-    {q:"Why is notification silence during study important even if you choose not to check the notifications?",opts:["Notifications make sounds that break concentration","The act of deciding not to check a notification still consumes executive function","Notifications create FOMO which increases anxiety","All of the above"],ans:1,exp:"The decision not to check a notification — even when you successfully resist — uses executive function resources. Each suppressed impulse depletes the same cognitive budget you need for study. This is the 'ego depletion' effect: self-control is a limited resource. Eliminating the notifications eliminates the need for repeated self-control decisions throughout the session."},
+    {q:"What is the main reason notifications damage focus even if you do not open them?",opts:["The screen light hurts concentration","The decision not to check still consumes executive function","Notifications create FOMO which increases anxiety","All of the above"],ans:1,exp:"The decision not to check a notification still uses executive function resources. Each suppressed impulse depletes the same cognitive budget you need for study. Eliminating the trigger is better than repeatedly resisting it."},
+    {q:"Why does a dedicated study location improve focus over time?",opts:["It makes the room physically quieter","It builds a conditioned association between that place and concentration","It increases dopamine permanently","It removes the need for breaks"],ans:1,exp:"Using the same study location repeatedly creates a conditioned response. Over time, the place itself becomes a cue for focus, reducing the activation energy needed to begin."},
+    {q:"In the 'illegal focus' protocol, why is a fixed playlist useful?",opts:["It entertains you during study","It becomes a conditioned auditory anchor for concentration","It prevents all distraction automatically","It works only for language learning"],ans:1,exp:"The same playlist, used only for study, becomes a cue associated with deep work. Like the location cue, it reduces startup friction by signalling the brain that the same mode is beginning."},
+    {q:"What is the main point of putting the phone in another room?",opts:["To make the desk look cleaner","To remove temptation entirely rather than rely on self-control","To improve internet speed","To preserve battery life"],ans:1,exp:"The design principle is environmental engineering: remove the trigger rather than negotiate with it. A phone within reach keeps demanding micro-decisions. A phone in another room removes that cognitive tax."},
+    {q:"Which best captures the argument of the environment chapter?",opts:["Motivation is enough if you want success badly enough","Good performance depends on building systems that make focus the default","Only naturally disciplined people can sustain concentration","The best study environment is always the library"],ans:1,exp:"The chapter argues that environment should be designed so focus is the path of least resistance. High performance comes less from heroic willpower and more from deliberate architecture."},
   ],
   5: [
-    {q:"Kleitman's Basic Rest-Activity Cycle (BRAC) established that the brain cycles through performance peaks and troughs approximately how often?",opts:["Every 45 minutes","Every 90 minutes","Every 2 hours","Every 30 minutes"],ans:1,exp:"Kleitman's BRAC research established a ~90-minute cycle that continues while awake — the same rhythm that governs sleep stages. This is why the 90-minute work block followed by genuine rest maps to biological reality rather than arbitrary productivity advice. Working in alignment with this cycle produces better output with the same invested time."},
-    {q:"Sophie Leroy's (2009) concept of 'attention residue' describes what phenomenon?",opts:["The feeling of tiredness after a long study session","A 10–15 minute period of reduced performance on a new task after switching from a previous one","The tendency to remember the last thing you studied best","The cognitive cost of multitasking across three or more tasks simultaneously"],ans:1,exp:"Attention residue: when you switch tasks before fully completing the previous one, part of your attention remains on the prior task for 10–15 minutes. This invisibly degrades performance on the new task. The practical implication: batch similar cognitive tasks (all reading, then all writing) and minimise task switches throughout the day."},
-    {q:"Walker's sleep research found that the amount of hippocampal SWS reactivation during sleep is directly proportional to what?",opts:["How many hours you slept","Next-day memory consolidation and task improvement","How difficult the material was during study","The emotional significance of what you learned"],ans:1,exp:"The quantity of hippocampal replay during slow-wave sleep is directly proportional to next-day performance improvement — even without additional waking practice. This is why an all-nighter permanently destroys that night's consolidation: the replay cannot be rescheduled to the following night. Sleep is not rest from learning; it is an active phase of it."},
-    {q:"James Clear's identity-based habit formation suggests the most durable behaviour change targets which layer?",opts:["Outcomes — what you want to achieve","Processes — what actions you take","Identity — who you believe you are","Environment — what triggers your behaviour"],ans:2,exp:"Clear's three-layer model: outcomes (what you want), processes (what you do), identity (who you are). Most people set outcome goals. Identity-based habits are most durable because each action becomes evidence for the identity rather than progress toward an external goal. 'I am a serious learner' is self-reinforcing in a way that 'I want an A' is not."},
-    {q:"Dweck's growth mindset research found that teaching students that intelligence is developable (not fixed) produced what measurable outcome?",opts:["Students reported feeling less anxious about exams","Students improved in grades and persistence in longitudinal studies across multiple countries","Students spent more time studying each day","Students developed better relationships with their teachers"],ans:1,exp:"Teaching the growth mindset explicitly — that the brain is malleable and struggles are productive — improved grades and persistence in longitudinal studies replicated across multiple countries. The mechanism: students with a fixed mindset avoid challenges to protect their identity. Students with a growth mindset lean into challenges as evidence of growth in progress, choosing harder problems and recovering faster from setbacks."},
+    {q:"Kleitman's Basic Rest-Activity Cycle (BRAC) established that the brain cycles through performance peaks and troughs approximately how often?",opts:["Every 45 minutes","Every 90 minutes","Every 2 hours","Every 30 minutes"],ans:1,exp:"Kleitman's BRAC research established a ~90-minute cycle that continues while awake — the same rhythm that governs sleep stages. This is why the 90-minute work block followed by genuine rest maps to biological reality rather than arbitrary productivity advice."},
+    {q:"Sophie Leroy's (2009) concept of 'attention residue' describes what phenomenon?",opts:["The feeling of tiredness after a long study session","A 10–15 minute period of reduced performance on a new task after switching from a previous one","The tendency to remember the last thing you studied best","The cognitive cost of multitasking across three or more tasks simultaneously"],ans:1,exp:"Attention residue means part of your attention remains stuck on the previous task after you switch. That residue quietly degrades the quality of the next task, which is why batching similar work matters."},
+    {q:"What is the key logic behind the 52/17 work-rest rhythm mentioned in the scheduling chapter?",opts:["Long breaks are more important than work blocks","Deep work should be followed by genuine rest so attention can reset","Any break with social media works equally well","The goal is to maximise total hours rather than quality"],ans:1,exp:"The scheduling chapter emphasises that performance depends on cycles of strain and recovery. A strict work block followed by real rest helps attention reset instead of slowly degrading through endless partial effort."},
+    {q:"Parkinson's Law suggests what about study sessions?",opts:["Hard tasks should always be avoided","Work expands to fill the time available, so constraints can increase focus","The brain learns best only at night","Schedules should stay completely flexible"],ans:1,exp:"Parkinson's Law says work expands to fill the time available. Deliberate time constraints force prioritisation and reduce drift, which is why bounded sessions are often more effective than vague all-day plans."},
+  ],
+  6: [
+    {q:"Walker's sleep research found that the amount of hippocampal slow-wave sleep reactivation is directly proportional to what?",opts:["How many hours you slept","Next-day memory consolidation and task improvement","How difficult the material was during study","The emotional significance of what you learned"],ans:1,exp:"The quantity of hippocampal replay during slow-wave sleep is directly proportional to next-day performance improvement. Sleep is not time away from learning; it is one of the phases of learning itself."},
+    {q:"Why is an all-nighter especially damaging according to the recovery chapter?",opts:["It only affects mood, not memory","It permanently removes that night's consolidation window","It makes you forget older memories only","It stops dopamine from working forever"],ans:1,exp:"The consolidation window provided by post-learning sleep cannot simply be moved to the following night. An all-nighter destroys that night's replay and stabilisation process for newly learned material."},
+    {q:"What is the purpose of the 'Entry' rung for bad days?",opts:["To master details quickly","To build orientation and momentum without demanding full comprehension","To replace all later review","To avoid opening the material at all"],ans:1,exp:"The entry rung lowers the barrier to starting. On bad days, simply opening the material, skimming structure, and orienting yourself can preserve continuity and create momentum for deeper work later."},
+    {q:"Which sequence reflects the recovery chapter's learning ladder?",opts:["Depth → Entry → Framework","Framework → Depth → Entry","Entry → Framework → Depth","Depth → Framework → Entry"],ans:2,exp:"The ladder begins with entry, moves to framework, and then goes to depth. Structure comes before detail. Once a conceptual skeleton exists, deeper nuance has somewhere to attach."},
+  ],
+  7: [
+    {q:"James Clear's identity-based habit formation suggests the most durable behaviour change targets which layer?",opts:["Outcomes — what you want to achieve","Processes — what actions you take","Identity — who you believe you are","Environment — what triggers your behaviour"],ans:2,exp:"Clear's three-layer model: outcomes, processes, and identity. Identity-based habits are most durable because each action becomes evidence of the kind of person you are becoming."},
+    {q:"Dweck's growth mindset research found that teaching students intelligence is developable produced what measurable outcome?",opts:["Students reported feeling less anxious about exams","Students improved in grades and persistence in longitudinal studies across multiple countries","Students spent more time studying each day","Students developed better relationships with teachers"],ans:1,exp:"Teaching the growth mindset explicitly improved grades and persistence in longitudinal research. Students with a growth mindset interpret struggle as part of learning rather than as proof of inability."},
+    {q:"What is the core message of the 80/20 rule in exam preparation?",opts:["Study every topic equally to be safe","Identify and master the highest-yield material first","Only revise the easiest chapters","Skip difficult topics entirely"],ans:1,exp:"The 80/20 principle here is strategic triage. Some material carries disproportionate value in exams, so high performers identify and master that first before expanding outward."},
+    {q:"What does 'reading backwards' mean in this chapter?",opts:["Starting from the last page and reading in reverse order","Reading summaries and end-questions before the full chapter to activate a schema","Reading silently instead of aloud","Reading only highlighted text"],ans:1,exp:"Reading backwards means studying the map before the terrain. Summaries and end-questions create a mental schema that helps the brain prioritise relevant information during the main reading."},
+    {q:"The directness principle says the best preparation is to do what?",opts:["Memorise notes as neatly as possible","Practice in the same format you will be assessed in","Study only with friends","Avoid timed conditions until the real exam"],ans:1,exp:"Directness means the training task should resemble the performance task. If the exam is essays, write essays. If it is MCQs, solve MCQs under realistic conditions. Recognition does not automatically transfer to performance."},
   ]
 };
 
 // ════════════════════════════════════
 //  STATE — stored in localStorage
 // ════════════════════════════════════
-const RESULTS_ENDPOINT = 'https://formsubmit.co/ajax/miraz8395@gmail.com';
+const DEFAULT_EMAIL_ENDPOINT = 'https://formsubmit.co/ajax/miraz8395@gmail.com';
+const HPL_RESULTS_CONFIG = window.HPL_RESULTS_CONFIG || {};
+const RESULTS_ENDPOINT = HPL_RESULTS_CONFIG.appsScriptUrl || '';
+const EMAIL_FALLBACK_ENDPOINT = HPL_RESULTS_CONFIG.emailEndpoint || DEFAULT_EMAIL_ENDPOINT;
+const RESULTS_PROVIDER = RESULTS_ENDPOINT ? 'apps-script' : 'email';
+const RESULTS_LABEL = HPL_RESULTS_CONFIG.teacherEmail || 'miraz8395@gmail.com';
+const STORAGE_KEY = 'hpl_v4_state';
+const QUIZ_VERSION = '2026-05-05-c';
+const URL_PARAMS = new URLSearchParams(window.location.search);
+const ADMIN_MODE = URL_PARAMS.get('admin') === '1';
+const PRESET_SESSION_CODE = URL_PARAMS.get('session') || HPL_RESULTS_CONFIG.defaultSessionCode || '';
 
 function loadState() {
-  try { return JSON.parse(localStorage.getItem('hpl_v3_state') || '{}'); }
-  catch(e) { return {}; }
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    const parsed = raw ? JSON.parse(raw) : {};
+    if (!parsed || parsed.version !== QUIZ_VERSION) {
+      return { version: QUIZ_VERSION, responses: [], scores: {}, lastSubmittedAt: '' };
+    }
+    return parsed;
+  } catch (e) {
+    return { version: QUIZ_VERSION, responses: [], scores: {}, lastSubmittedAt: '' };
+  }
 }
 function saveState(state) {
-  localStorage.setItem('hpl_v3_state', JSON.stringify(state));
+  state.version = QUIZ_VERSION;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
 let state = loadState();
@@ -2187,6 +2286,8 @@ let state = loadState();
 if (!state.responses) state.responses = [];
 if (!state.scores) state.scores = {};
 if (!state.lastSubmittedAt) state.lastSubmittedAt = '';
+state.version = QUIZ_VERSION;
+document.body.classList.toggle('is-admin', ADMIN_MODE);
 
 function escapeHtml(value) {
   return String(value)
@@ -2198,7 +2299,7 @@ function escapeHtml(value) {
 }
 
 function getScoreSummary() {
-  const chIds = [1, 2, 3, 4, 5];
+  const chIds = QUIZ_IDS;
   let totalQ = 0;
   let totalC = 0;
   let done = 0;
@@ -2218,6 +2319,113 @@ function getScoreSummary() {
     overallPercent: totalQ ? Math.round(totalC / totalQ * 100) : 0,
     sectionsComplete: done
   };
+}
+
+function buildChapterSummaryText() {
+  return QUIZ_IDS.map((id) => {
+    const score = state.scores[id];
+    if (!score || !score.total) {
+      return `${CHAPTER_LABELS[id]}: Not taken`;
+    }
+    const pct = Math.round((score.correct / score.total) * 100);
+    return `${CHAPTER_LABELS[id]}: ${score.correct}/${score.total} (${pct}%)`;
+  }).join('\n');
+}
+
+function buildAttemptId() {
+  return `HPL-${Date.now()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+}
+
+function initSubmissionFields() {
+  const sessionField = document.getElementById('session-code');
+  if (sessionField && PRESET_SESSION_CODE) {
+    sessionField.value = PRESET_SESSION_CODE;
+  }
+}
+
+function updateSubmissionMeta() {
+  const meta = document.getElementById('submit-destination');
+  if (!meta) return;
+  meta.textContent = RESULTS_PROVIDER === 'apps-script'
+    ? `Google Sheets backend active. Results route through Apps Script and are owned by ${RESULTS_LABEL}.`
+    : `Email fallback active. Results are sent to ${RESULTS_LABEL}.`;
+}
+
+function buildSubmissionPayload(summary, visitorName, visitorId, visitorEmail, sessionCode, visitorNote, attemptId) {
+  return {
+    attemptId,
+    project: 'The Architecture of High-Performance Learning',
+    quizVersion: QUIZ_VERSION,
+    provider: RESULTS_PROVIDER,
+    visitorName,
+    visitorId,
+    visitorEmail: visitorEmail || '',
+    sessionCode,
+    visitorNote: visitorNote || '',
+    submittedAt: new Date().toISOString(),
+    submittedAtLocal: new Date().toLocaleString(),
+    overallScore: `${summary.totalCorrect}/${summary.totalQuestions} (${summary.overallPercent}%)`,
+    totalCorrect: summary.totalCorrect,
+    totalQuestions: summary.totalQuestions,
+    overallPercent: summary.overallPercent,
+    sectionsComplete: summary.sectionsComplete,
+    totalSections: QUIZ_IDS.length,
+    chapterScoresText: buildChapterSummaryText(),
+    responsesLogged: state.responses.length,
+    sourcePage: window.location.href,
+    userAgent: navigator.userAgent,
+    responses: state.responses.slice()
+  };
+}
+
+async function sendResultsToAppsScript(payloadObject) {
+  const response = await fetch(RESULTS_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'text/plain;charset=utf-8'
+    },
+    body: JSON.stringify(payloadObject)
+  });
+
+  if (!response.ok) {
+    throw new Error(`Apps Script submission failed with status ${response.status}`);
+  }
+
+  const data = await response.json().catch(() => ({ ok: true }));
+  if (data && data.ok === false) {
+    throw new Error(data.message || 'Apps Script rejected the submission');
+  }
+  return data;
+}
+
+async function sendResultsByEmail(payloadObject) {
+  const payload = new FormData();
+  payload.append('_subject', `New HPL quiz submission · ${payloadObject.sessionCode}`);
+  payload.append('_captcha', 'false');
+  payload.append('project', payloadObject.project);
+  payload.append('attempt_id', payloadObject.attemptId);
+  payload.append('quiz_version', payloadObject.quizVersion);
+  payload.append('visitor_name', payloadObject.visitorName);
+  payload.append('visitor_id', payloadObject.visitorId);
+  payload.append('visitor_email', payloadObject.visitorEmail || 'Not provided');
+  payload.append('session_code', payloadObject.sessionCode);
+  payload.append('visitor_note', payloadObject.visitorNote || 'No note left.');
+  payload.append('overall_score', payloadObject.overallScore);
+  payload.append('sections_complete', `${payloadObject.sectionsComplete}/${payloadObject.totalSections}`);
+  payload.append('chapter_scores', payloadObject.chapterScoresText);
+  payload.append('responses_logged', String(payloadObject.responsesLogged));
+  payload.append('submitted_at', payloadObject.submittedAtLocal);
+  payload.append('response_log', buildResponsesText());
+
+  const response = await fetch(EMAIL_FALLBACK_ENDPOINT, {
+    method: 'POST',
+    body: payload,
+    headers: { Accept: 'application/json' }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Email submission failed with status ${response.status}`);
+  }
 }
 
 function buildResponsesText() {
@@ -2359,46 +2567,48 @@ async function submitResults(event) {
 
   const summary = getScoreSummary();
   const visitorName = document.getElementById('visitor-name').value.trim();
+  const visitorId = document.getElementById('visitor-id').value.trim();
   const visitorEmail = document.getElementById('visitor-email').value.trim();
+  const sessionCode = document.getElementById('session-code').value.trim();
   const visitorNote = document.getElementById('visitor-note').value.trim();
+  const attemptId = buildAttemptId();
+
+  if (!visitorName || !visitorId || !sessionCode) {
+    status.textContent = 'Name, student ID, and session code are required.';
+    status.className = 'submit-status bad';
+    return;
+  }
 
   button.disabled = true;
-  status.textContent = 'Sending results...';
+  status.textContent = RESULTS_PROVIDER === 'apps-script' ? 'Sending to Google Sheets...' : 'Sending results...';
   status.className = 'submit-status';
 
-  const payload = new FormData();
-  payload.append('_subject', 'New HPL quiz submission');
-  payload.append('_captcha', 'false');
-  payload.append('project', 'The Architecture of High-Performance Learning');
-  payload.append('visitor_name', visitorName || 'Anonymous visitor');
-  payload.append('visitor_email', visitorEmail || 'Not provided');
-  payload.append('visitor_note', visitorNote || 'No note left.');
-  payload.append('overall_score', `${summary.totalCorrect}/${summary.totalQuestions} (${summary.overallPercent}%)`);
-  payload.append('sections_complete', `${summary.sectionsComplete}/5`);
-  payload.append('responses_logged', String(state.responses.length));
-  payload.append('submitted_at', new Date().toLocaleString());
-  payload.append('response_log', buildResponsesText());
+  const payloadObject = buildSubmissionPayload(
+    summary,
+    visitorName,
+    visitorId,
+    visitorEmail,
+    sessionCode,
+    visitorNote,
+    attemptId
+  );
 
   try {
-    const response = await fetch(RESULTS_ENDPOINT, {
-      method: 'POST',
-      body: payload,
-      headers: {
-        Accept: 'application/json'
-      }
-    });
-
-    if (!response.ok) {
-      throw new Error(`Submission failed with status ${response.status}`);
+    if (RESULTS_PROVIDER === 'apps-script') {
+      await sendResultsToAppsScript(payloadObject);
+      status.textContent = 'Results sent to the class record successfully.';
+    } else {
+      await sendResultsByEmail(payloadObject);
+      status.textContent = 'Results sent successfully by email.';
     }
-
     state.lastSubmittedAt = new Date().toISOString();
     saveState(state);
-    status.textContent = 'Results sent successfully. Thank you.';
     status.className = 'submit-status ok';
   } catch (error) {
     console.error(error);
-    status.textContent = 'Submission could not be completed right now. Export the CSV instead as a fallback.';
+    status.textContent = RESULTS_PROVIDER === 'apps-script'
+      ? 'Google Sheets submission failed. If needed, switch to the email fallback or export locally in teacher mode.'
+      : 'Submission could not be completed right now. Export the CSV instead as a fallback.';
     status.className = 'submit-status bad';
   } finally {
     button.disabled = false;
@@ -2408,105 +2618,163 @@ async function submitResults(event) {
 // ════════════════════════════════════
 //  RENDER QUIZZES
 // ════════════════════════════════════
-function renderQuiz(chId) {
-  const qs = QUIZZES[chId];
-  let cur = 0, answered = false;
-  const qaEl = document.getElementById('qa'+chId);
-  const qdEl = document.getElementById('qd'+chId);
-  const qsEl = document.getElementById('qs'+chId);
+const QUIZ_IDS = Object.keys(QUIZZES).map(Number).sort((a, b) => a - b);
+const quizRuntime = {};
 
-  function renderDots() {
-    qdEl.innerHTML = '';
-    qs.forEach((_, i) => {
-      const d = document.createElement('div');
-      d.className = 'qdot' + (i < cur ? ' done' : i === cur ? ' active' : '');
-      qdEl.appendChild(d);
-    });
+function getQuizMeta(chId) {
+  if (!quizRuntime[chId]) {
+    quizRuntime[chId] = { cur: 0, answered: false };
   }
-
-  function renderQ() {
-    if (cur >= qs.length) { showScore(); return; }
-    renderDots();
-    const q = qs[cur];
-    qaEl.innerHTML = `
-      <div class="quiz-q-text">${cur+1}. ${escapeHtml(q.q)}</div>
-      <div class="quiz-opts">${q.opts.map((o,i)=>`<button class="quiz-opt" onclick="pickOpt(${chId},${i},this)">${escapeHtml(o)}</button>`).join('')}</div>
-      <div class="quiz-feedback" id="qfb${chId}"></div>
-      <div class="quiz-nav">
-        <button class="q-btn" id="qnext${chId}" disabled onclick="nextQ(${chId})">Next →</button>
-        <span class="quiz-counter">${cur+1} / ${qs.length}</span>
-      </div>`;
-    answered = false;
-  }
-
-  window[`pickOpt`] = function(ch, idx, el) {
-    if (ch !== chId || answered) return;
-    answered = true;
-    const q = qs[cur];
-    const ok = idx === q.ans;
-    document.querySelectorAll(`#qa${ch} .quiz-opt`).forEach((b,i) => {
-      b.classList.add(i === q.ans ? 'correct' : (i === idx && !ok ? 'wrong' : ''));
-      b.disabled = true;
-    });
-    const fb = document.getElementById(`qfb${ch}`);
-    fb.className = `quiz-feedback show ${ok?'ok':'bad'}`;
-    fb.innerHTML = `<strong>${ok ? '✓ Correct' : '✗ Incorrect'}</strong>${q.exp}`;
-    document.getElementById(`qnext${ch}`).disabled = false;
-
-    // save response
-    state.responses.push({
-      chapter: ch,
-      chapterTitle: document.querySelector(`#quiz${ch}`).dataset.title,
-      qIndex: cur+1,
-      question: q.q,
-      chosen: q.opts[idx],
-      answer: q.opts[q.ans],
-      correct: ok,
-      ts: new Date().toLocaleString()
-    });
-    if (!state.scores[ch]) state.scores[ch] = {correct:0, total:0};
-    state.scores[ch].total++;
-    if (ok) state.scores[ch].correct++;
-    saveState(state);
-    renderDashboard();
-  };
-
-  window[`nextQ`] = function(ch) {
-    if (ch !== chId) return;
-    cur++;
-    if (cur >= qs.length) showScore();
-    else renderQ();
-  };
-
-  function showScore() {
-    qaEl.innerHTML = '';
-    qdEl.innerHTML = '';
-    const sc = state.scores[chId] || {correct:0, total: qs.length};
-    const pct = Math.round(sc.correct / qs.length * 100);
-    const msg = pct >= 80 ? "Excellent retrieval. The memory traces are forming." :
-                pct >= 60 ? "Good — review the questions you missed, then test again in 24 hours." :
-                "That's the forgetting curve in action. Re-read the chapter, then come back and test again. The second attempt will be significantly better.";
-    qsEl.innerHTML = `
-      <div class="qs-num">${pct}%</div>
-      <div class="qs-label">${sc.correct} / ${qs.length} correct</div>
-      <div class="qs-msg">${msg}</div>
-      <button class="q-btn outline" onclick="retakeQuiz(${chId})">Retake Quiz</button>`;
-    qsEl.className = 'quiz-score show';
-    renderDashboard();
-  }
-
-  window[`retakeQuiz`] = function(ch) {
-    if (ch !== chId) return;
-    cur = 0; answered = false;
-    qsEl.className = 'quiz-score';
-    renderQ();
-  };
-
-  renderQ();
+  return quizRuntime[chId];
 }
 
-// Init all quizzes
-[1,2,3,4,5].forEach(renderQuiz);
+function getQuizEls(chId) {
+  return {
+    qaEl: document.getElementById(`qa${chId}`),
+    qdEl: document.getElementById(`qd${chId}`),
+    qsEl: document.getElementById(`qs${chId}`)
+  };
+}
+
+function renderDots(chId) {
+  const qs = QUIZZES[chId];
+  const meta = getQuizMeta(chId);
+  const { qdEl } = getQuizEls(chId);
+  if (!qdEl) return;
+  qdEl.innerHTML = '';
+  qs.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'qdot' + (i < meta.cur ? ' done' : i === meta.cur ? ' active' : '');
+    qdEl.appendChild(d);
+  });
+}
+
+function recordResponse(chId, q, idx, ok) {
+  state.responses.push({
+    chapter: chId,
+    chapterTitle: document.querySelector(`#quiz${chId}`).dataset.title,
+    qIndex: getQuizMeta(chId).cur + 1,
+    question: q.q,
+    chosen: q.opts[idx],
+    answer: q.opts[q.ans],
+    correct: ok,
+    ts: new Date().toLocaleString()
+  });
+  if (!state.scores[chId]) state.scores[chId] = { correct: 0, total: 0 };
+  state.scores[chId].total++;
+  if (ok) state.scores[chId].correct++;
+  saveState(state);
+  renderDashboard();
+}
+
+function showScore(chId) {
+  const qs = QUIZZES[chId];
+  const { qaEl, qdEl, qsEl } = getQuizEls(chId);
+  if (!qaEl || !qdEl || !qsEl) return;
+  qaEl.innerHTML = '';
+  qdEl.innerHTML = '';
+  const sc = state.scores[chId] || { correct: 0, total: qs.length };
+  const pct = Math.round((sc.correct / qs.length) * 100);
+  const msg = pct >= 80 ? 'Excellent retrieval. The memory traces are forming.' :
+    pct >= 60 ? 'Good — review the questions you missed, then test again in 24 hours.' :
+    "That's the forgetting curve in action. Re-read the chapter, then come back and test again. The second attempt will be significantly better.";
+  qsEl.innerHTML = `
+    <div class="qs-num">${pct}%</div>
+    <div class="qs-label">${sc.correct} / ${qs.length} correct</div>
+    <div class="qs-msg">${msg}</div>
+    <button class="q-btn outline" type="button" data-quiz-action="retake" data-quiz="${chId}">Retake Quiz</button>`;
+  qsEl.className = 'quiz-score show';
+  renderDashboard();
+}
+
+function renderQuiz(chId) {
+  const qs = QUIZZES[chId];
+  const meta = getQuizMeta(chId);
+  const { qaEl, qdEl, qsEl } = getQuizEls(chId);
+  if (!qaEl || !qdEl || !qsEl || !Array.isArray(qs) || qs.length === 0) return;
+
+  qsEl.className = 'quiz-score';
+  qsEl.innerHTML = '';
+
+  if (meta.cur >= qs.length) {
+    showScore(chId);
+    return;
+  }
+
+  meta.answered = false;
+  renderDots(chId);
+  const q = qs[meta.cur];
+  qaEl.innerHTML = `
+    <div class="quiz-q-text">${meta.cur + 1}. ${escapeHtml(q.q)}</div>
+    <div class="quiz-opts">${q.opts.map((o, idx) => `<button class="quiz-opt" type="button" data-quiz-action="answer" data-quiz="${chId}" data-opt="${idx}">${escapeHtml(o)}</button>`).join('')}</div>
+    <div class="quiz-feedback" id="qfb${chId}"></div>
+    <div class="quiz-nav">
+      <button class="q-btn" id="qnext${chId}" type="button" data-quiz-action="next" data-quiz="${chId}" disabled>Next →</button>
+      <span class="quiz-counter">${meta.cur + 1} / ${qs.length}</span>
+    </div>`;
+}
+
+function handleQuizAnswer(chId, idx) {
+  const meta = getQuizMeta(chId);
+  if (meta.answered) return;
+  const { qaEl } = getQuizEls(chId);
+  const q = QUIZZES[chId][meta.cur];
+  if (!qaEl || !q) return;
+
+  meta.answered = true;
+  const ok = idx === q.ans;
+  qaEl.querySelectorAll('.quiz-opt').forEach((button, optionIndex) => {
+    button.disabled = true;
+    if (optionIndex === q.ans) button.classList.add('correct');
+    if (optionIndex === idx && !ok) button.classList.add('wrong');
+  });
+
+  const fb = document.getElementById(`qfb${chId}`);
+  if (fb) {
+    fb.className = `quiz-feedback show ${ok ? 'ok' : 'bad'}`;
+    fb.innerHTML = `<strong>${ok ? '✓ Correct' : '✗ Incorrect'}</strong>${escapeHtml(q.exp)}`;
+  }
+
+  const nextBtn = document.getElementById(`qnext${chId}`);
+  if (nextBtn) nextBtn.disabled = false;
+  recordResponse(chId, q, idx, ok);
+}
+
+function handleQuizNext(chId) {
+  const meta = getQuizMeta(chId);
+  if (!meta.answered) return;
+  meta.cur += 1;
+  renderQuiz(chId);
+}
+
+function handleQuizRetake(chId) {
+  quizRuntime[chId] = { cur: 0, answered: false };
+  const { qaEl, qdEl, qsEl } = getQuizEls(chId);
+  if (qaEl) qaEl.innerHTML = '';
+  if (qdEl) qdEl.innerHTML = '';
+  if (qsEl) {
+    qsEl.className = 'quiz-score';
+    qsEl.innerHTML = '';
+  }
+  renderQuiz(chId);
+}
+
+QUIZ_IDS.forEach(renderQuiz);
+
+document.addEventListener('click', (event) => {
+  const target = event.target.closest('[data-quiz-action]');
+  if (!target) return;
+  const chId = Number(target.dataset.quiz);
+  if (!QUIZ_IDS.includes(chId)) return;
+  const action = target.dataset.quizAction;
+  if (action === 'answer') {
+    handleQuizAnswer(chId, Number(target.dataset.opt));
+  } else if (action === 'next') {
+    handleQuizNext(chId);
+  } else if (action === 'retake') {
+    handleQuizRetake(chId);
+  }
+});
 
 // ════════════════════════════════════
 //  DASHBOARD
@@ -2516,17 +2784,19 @@ const CHAPTER_LABELS = {
   2: 'Memory Science',
   3: 'Underrated Skills',
   4: 'Environment',
-  5: 'Scheduling / Recovery / Mindset'
+  5: 'Scheduling & Rhythms',
+  6: 'Recovery Architecture',
+  7: 'Identity-Based Motivation'
 };
 
 function renderDashboard() {
   const scores = state.scores;
-  const chIds = [1,2,3,4,5];
+  const chIds = QUIZ_IDS;
   const summary = getScoreSummary();
   document.getElementById('d-total').textContent = summary.totalQuestions || '—';
   document.getElementById('d-correct').textContent = summary.totalCorrect || '—';
   document.getElementById('d-pct').textContent = summary.totalQuestions > 0 ? summary.overallPercent + '%' : '—';
-  document.getElementById('d-done').textContent = summary.sectionsComplete + '/5';
+  document.getElementById('d-done').textContent = summary.sectionsComplete + '/' + QUIZ_IDS.length;
 
   // Section bars
   const secEl = document.getElementById('dash-sections');
@@ -2582,11 +2852,15 @@ function exportCSV() {
 }
 
 function clearAll() {
+  if (!ADMIN_MODE) return;
   if (!confirm('Clear all quiz responses? This cannot be undone.')) return;
-  state = {responses:[], scores:{}};
+  state = { version: QUIZ_VERSION, responses: [], scores: {}, lastSubmittedAt: '' };
+  QUIZ_IDS.forEach((id) => {
+    quizRuntime[id] = { cur: 0, answered: false };
+  });
   saveState(state);
   renderDashboard();
-  [1,2,3,4,5].forEach(renderQuiz);
+  QUIZ_IDS.forEach(renderQuiz);
 }
 
 // ════════════════════════════════════
@@ -2624,6 +2898,8 @@ function toggleAcc(btn) {
 }
 
 initMemoryPathway();
+initSubmissionFields();
+updateSubmissionMeta();
 </script>
 </body>
 </html>
