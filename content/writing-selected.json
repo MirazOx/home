@@ -1,72 +1,92 @@
 [
   {
-    "title": "Jatiya Nagorik Committee: A new dawn for Bangladesh?",
+    "title": "Cops, camera, cannabis",
     "outlet": "Netra News",
-    "date": "2025",
-    "link": "https://netra.news/2025/jatiya-nagorik-committee-a-new-dawn-bangladesh/",
-    "blurb": "Long-form investigation into the rise of a new political formation and its implications for Bangladesh's post-authoritarian transition."
+    "date": "2026-05-08",
+    "category": "Criminal justice",
+    "link": "https://netra.news/2026/cannabis-war-bangladesh/",
+    "blurb": "A reported investigation into Bangladesh's cannabis enforcement machinery, showing how policing, spectacle, and public policy collide around ordinary citizens.",
+    "image": ""
   },
   {
-    "title": "The job verification trap",
+    "title": "The job \"verification\" trap",
     "outlet": "Netra News",
-    "date": "2025",
+    "date": "2025-10-23",
+    "category": "OSINT investigation",
     "link": "https://netra.news/2025/the-job-verification-trap/",
-    "blurb": "OSINT investigation exposing how informal verification rackets exploit young Bangladeshi jobseekers."
+    "blurb": "An investigation into informal verification rackets and the way jobseekers are made vulnerable by opaque employment-screening systems.",
+    "image": ""
   },
   {
-    "title": "Campus Cold War: Chhatra Dal vs. Shibir",
+    "title": "Bangladesh is building a digital economy on a floor that is giving way",
+    "outlet": "The Business Standard",
+    "date": "2026-05-07",
+    "category": "Digital governance",
+    "link": "https://www.tbsnews.net/thoughts/bangladesh-building-digital-economy-floor-giving-way-1431946",
+    "blurb": "A policy-facing essay connecting AI ambition, infrastructure fragility, and the hidden exclusions beneath Bangladesh's digital-economy narrative.",
+    "image": ""
+  },
+  {
+    "title": "How Bangladesh's local NGOs are surviving the foreign aid collapse",
+    "outlet": "The Business Standard",
+    "date": "2026-05-11",
+    "category": "Development sector",
+    "link": "https://www.tbsnews.net/features/panorama/how-bangladeshs-local-ngos-are-surviving-foreign-aid-collapse-1435376",
+    "blurb": "Field-sensitive reporting on institutional survival, shrinking aid, and the pressure local NGOs face while serving communities after donor retreat.",
+    "image": ""
+  },
+  {
+    "title": "Arrests over social media posts: Who decides what speech is acceptable?",
+    "outlet": "The Business Standard",
+    "date": "2026-04-21",
+    "category": "Free speech",
+    "link": "https://www.tbsnews.net/features/panorama/arrests-over-social-media-posts-who-decides-what-speech-acceptable-1418011",
+    "blurb": "A sharp public-rights piece on social media policing, legal ambiguity, and the uneven power to define acceptable speech online.",
+    "image": ""
+  },
+  {
+    "title": "Chalaiden: Misinformation war grips social media",
+    "outlet": "The Business Standard",
+    "date": "2024-08-05",
+    "category": "Misinformation",
+    "link": "https://www.tbsnews.net/bangladesh/chalaiden-misinformation-war-grips-social-media-909926",
+    "blurb": "A timely account of how rumour, coded language, and platform dynamics moved through Bangladesh's information space during national crisis.",
+    "image": ""
+  },
+  {
+    "title": "Not so 'digital' Bangladesh",
+    "outlet": "The Business Standard",
+    "date": "2024-10-27",
+    "category": "Technology policy",
+    "link": "https://www.tbsnews.net/features/panorama/not-so-digital-bangladesh-977551",
+    "blurb": "A systems critique of digital public-service promises, showing where infrastructure, access, and governance fail the people they claim to serve.",
+    "image": ""
+  },
+  {
+    "title": "Jatiya Nagorik Committee: A New Dawn in Bangladesh's Politics?",
     "outlet": "Netra News",
-    "date": "2024",
+    "date": "2025-01-19",
+    "category": "Politics",
+    "link": "https://netra.news/2025/jatiya-nagorik-committee-a-new-dawn-bangladesh/",
+    "blurb": "Long-form political reporting on a new civic formation and the uncertain shape of Bangladesh's post-authoritarian transition.",
+    "image": ""
+  },
+  {
+    "title": "Campus cold war: Chhatra Dal vs. Shibir",
+    "outlet": "Netra News",
+    "date": "2024-12-30",
+    "category": "Campus politics",
     "link": "https://netra.news/2024/campus-cold-war-chhatra-dal-vs-shibir-en/",
-    "blurb": "Ground-level reporting on the ideological battle reshaping Bangladeshi universities after the July uprising."
+    "blurb": "Ground-level reporting on ideological competition inside universities and what campus politics reveals about the national moment.",
+    "image": ""
   },
   {
-    "title": "Hindu nationalist mob storms Bangladesh mission in India amid escalating tension",
-    "outlet": "Netra News",
-    "date": "2024",
-    "link": "https://netra.news/2024/hindu-nationalist-mob-storms-bangladesh-mission-in-india-amid-escalating-tension/",
-    "blurb": "Breaking-news investigation using cross-source verification of India-Bangladesh diplomatic flashpoint."
-  },
-  {
-    "title": "The truce that never came: Why Israel keeps sabotaging peace despite negotiations",
+    "title": "The politics of election affidavits: Why asset declarations no longer reveal the truth",
     "outlet": "The Business Standard",
-    "date": "2026-04-11",
-    "link": "https://www.tbsnews.net/features/panorama/truce-never-came-why-israel-repeatedly-keeps-sabotaging-peace-despite-negotiations",
-    "blurb": "Panorama analysis tracing the structural reasons each round of Israel–Palestine diplomacy collapses."
-  },
-  {
-    "title": "Bodies, waste, and the weight of a nation",
-    "outlet": "The Business Standard",
-    "date": "2026-04-19",
-    "link": "https://www.tbsnews.net/splash/bodies-waste-and-weight-nation-1415851",
-    "blurb": "Splash feature on public sanitation, dignity, and urban policy failure in Dhaka."
-  },
-  {
-    "title": "When salt wins against agricultural innovation",
-    "outlet": "The Business Standard",
-    "date": "2026-04-10",
-    "link": "https://www.tbsnews.net/features/panorama/when-salt-wins-against-agricultural-innovation-1408166",
-    "blurb": "Climate-and-agriculture reporting from Bangladesh's coastal belt, where salinity is outpacing policy response."
-  },
-  {
-    "title": "Tinder Swindler: A captivating cautionary tale",
-    "outlet": "The Business Standard",
-    "date": "2022-02-17",
-    "link": "https://www.tbsnews.net/splash/tinder-swindler-captivating-cautionary-tale-372019",
-    "blurb": "Early feature on digital deception and the psychology of online trust — a theme that would later define the research trajectory."
-  },
-  {
-    "title": "How to make your CV stand out",
-    "outlet": "The Business Standard",
-    "date": "2022-03-24",
-    "link": "https://www.tbsnews.net/features/pursuit/how-make-your-cv-stand-out-390450",
-    "blurb": "Pursuit column piece; one of the most-shared career features in the author's TBS archive."
-  },
-  {
-    "title": "What does it take to get into MIT?",
-    "outlet": "The Business Standard",
-    "date": "2022-02-24",
-    "link": "https://www.tbsnews.net/features/pursuit/what-does-it-take-get-mit-375151",
-    "blurb": "Deep-dive profile of Bangladeshi MIT admits — part of a longer body of work on education and access."
+    "date": "2026-01-11",
+    "category": "Accountability",
+    "link": "https://www.tbsnews.net/features/panorama/politics-election-affidavits-why-asset-declarations-no-longer-reveal-truth-1330986",
+    "blurb": "A governance piece tracing how transparency instruments can become ritual paperwork when political incentives reward opacity.",
+    "image": ""
   }
 ]

@@ -1,26 +1,184 @@
-[
-  {
-    "course": "Methods of Social Research · ULAB · Fall 2025",
-    "title": "Algorithmic News Feeds and Misinformation Susceptibility — Research Proposal",
-    "desc": "Sequential explanatory mixed-methods proposal submitted for the MOSR midterm. Establishes the theoretical grounding, sampling logic, and instrument design for the ongoing Dhaka study.",
-    "grade": "A",
-    "file": "pdfs/midterm-project.pdf",
-    "file_label": "Read proposal (PDF)"
-  },
-  {
-    "course": "Communication Research · ULAB · Spring 2025",
-    "title": "Literature Review — Platform Studies and Epistemic Equity",
-    "desc": "Integrative review of the platform studies literature, with a focus on how epistemic equity has been operationalised in Global South contexts.",
-    "grade": "A",
-    "file": "pdfs/comm-research-paper.docx",
-    "file_label": "Read paper (DOCX)"
-  },
-  {
-    "course": "Data Journalism · ULAB · Spring 2025",
-    "title": "Team Data Decoder — Final Project",
-    "desc": "Collaborative data-journalism capstone. Team investigation of an open public-data source, producing a reproducible notebook and a publishable feature-length narrative.",
-    "grade": "A",
-    "file": "pdfs/team-data-decoder.pdf",
-    "file_label": "Read project (PDF)"
-  }
-]
+{
+  "stats": [
+    {
+      "label": "CGPA",
+      "value": "3.99"
+    },
+    {
+      "label": "Credits completed",
+      "value": "81"
+    },
+    {
+      "label": "Completed courses",
+      "value": "27"
+    },
+    {
+      "label": "Dean's List",
+      "value": "4x"
+    }
+  ],
+  "showcase": [
+    {
+      "title": "Algorithmic News Feeds and Misinformation Susceptibility",
+      "type": "Research proposal",
+      "course": "SSC4142 - Methods of Social Research",
+      "session": "Spring 2026",
+      "grade": "A",
+      "desc": "Sequential explanatory mixed-methods proposal on algorithmic exposure, trust, and misinformation vulnerability among Dhaka university students.",
+      "file": "pdfs/midterm-project.pdf",
+      "fileLabel": "Read proposal",
+      "media": "image"
+    },
+    {
+      "title": "Platform Studies and Epistemic Equity",
+      "type": "Literature review",
+      "course": "MSJ1201 - Communication Research",
+      "session": "Spring 2024",
+      "grade": "A",
+      "desc": "A literature-review project connecting platform power, information inequality, and Global South knowledge production.",
+      "file": "pdfs/comm-research-paper.docx",
+      "fileLabel": "Read paper",
+      "media": "image"
+    },
+    {
+      "title": "Team Data Decoder",
+      "type": "Data journalism project",
+      "course": "MSJ3253 - Data Journalism",
+      "session": "Fall 2025",
+      "grade": "A",
+      "desc": "Collaborative data-journalism capstone with a reproducible evidence trail and publishable public-interest narrative.",
+      "file": "pdfs/team-data-decoder.pdf",
+      "fileLabel": "Read project",
+      "media": "image"
+    },
+    {
+      "title": "Convergence Communication I - Video Project",
+      "type": "Video project",
+      "course": "MSJ2102 - Convergence Communication I",
+      "session": "Spring 2025",
+      "grade": "A+",
+      "desc": "A video-first coursework project exploring how reporting, scripting, shooting, and editing converge into a single story package.",
+      "file": "",
+      "fileLabel": "Video placeholder",
+      "media": "video"
+    },
+    {
+      "title": "Convergence Communication II - Video Project",
+      "type": "Video project",
+      "course": "MSJ2202 - Convergence Communication II",
+      "session": "Summer 2025",
+      "grade": "A",
+      "desc": "Second convergence video project, extending the workflow into tighter production planning, post-production, and audience-facing packaging.",
+      "file": "",
+      "fileLabel": "Video placeholder",
+      "media": "video"
+    },
+    {
+      "title": "Digital Audience Mapping Portfolio",
+      "type": "Audience analysis",
+      "course": "MSJ2252 - Digital Audience",
+      "session": "Spring 2026",
+      "grade": "A",
+      "desc": "Audience-behaviour coursework focused on digital attention, engagement signals, and how platform metrics shape editorial choices.",
+      "file": "",
+      "fileLabel": "Details coming soon",
+      "media": "image"
+    },
+    {
+      "title": "Media Law Case Briefs",
+      "type": "Legal analysis",
+      "course": "MSJ4101 - Media and the Law",
+      "session": "Spring 2025",
+      "grade": "A+",
+      "desc": "Case-led portfolio on media regulation, rights, and legal constraints around journalism practice in Bangladesh.",
+      "file": "",
+      "fileLabel": "Details coming soon",
+      "media": "image"
+    },
+    {
+      "title": "Communication and Technology Essay",
+      "type": "Theory essay",
+      "course": "MSJ2101 - Communication and Technology",
+      "session": "Summer 2024",
+      "grade": "A",
+      "desc": "Analytical coursework on the social consequences of communication technologies and the politics embedded in technical systems.",
+      "file": "",
+      "fileLabel": "Details coming soon",
+      "media": "image"
+    },
+    {
+      "title": "Grassroots Economic Development Field Notes",
+      "type": "Field essay",
+      "course": "SSC3150 - Seminar on Grassroots Economic Development",
+      "session": "Fall 2024",
+      "grade": "A+",
+      "desc": "Social-science coursework on community economies, development practice, and how local institutions negotiate scarcity.",
+      "file": "",
+      "fileLabel": "Details coming soon",
+      "media": "image"
+    },
+    {
+      "title": "Investigative Journalism II Dossier",
+      "type": "Reporting dossier",
+      "course": "MSJ4152 - Investigative Journalism-II",
+      "session": "Summer 2026",
+      "grade": "Registered",
+      "desc": "Reserved showcase slot for the advanced investigation portfolio currently in progress.",
+      "file": "",
+      "fileLabel": "In progress",
+      "media": "image"
+    }
+  ],
+  "more": [
+    {
+      "title": "The Listening City",
+      "course": "MSJ3151 - News Sourcing and Gathering",
+      "session": "Spring 2026"
+    },
+    {
+      "title": "Public Memory After the Uprising",
+      "course": "HUM2204 - History of Modern South Asia",
+      "session": "Fall 2024"
+    },
+    {
+      "title": "Ethics of Seeing",
+      "course": "HUM2112 - Introduction to Photography",
+      "session": "Fall 2024"
+    },
+    {
+      "title": "Conflict, Rumour, and Everyday Survival",
+      "course": "SSC2252 - Living with Conflict",
+      "session": "Summer 2025"
+    },
+    {
+      "title": "Film Form and Public Feeling",
+      "course": "HUM3101 - Aesthetic of Film",
+      "session": "Fall 2025"
+    },
+    {
+      "title": "Statistics for Newsroom Decisions",
+      "course": "GEF2101 - Introduction to Data and Statistics",
+      "session": "Spring 2026"
+    },
+    {
+      "title": "Mass Communication Theory Notebook",
+      "course": "MSJ2201 - Mass Communication",
+      "session": "Spring 2025"
+    },
+    {
+      "title": "Biodiversity, Risk, and Public Communication",
+      "course": "NSC2282 - Biodiversity and Nature Conservation",
+      "session": "Summer 2025"
+    },
+    {
+      "title": "Public Health Explainers",
+      "course": "NSC3282 - Public Health and Epidemiology",
+      "session": "Summer 2026"
+    },
+    {
+      "title": "Advanced Bangla Writing Portfolio",
+      "course": "GEF1203 - Advanced Bangla Writing Skills",
+      "session": "Summer 2026"
+    }
+  ]
+}

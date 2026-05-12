@@ -4,19 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Academic Work — Md. Miraz Hossain</title>
-<meta name="description" content="Coursework, papers, and essays written during undergraduate studies at ULAB and the University of Dhaka.">
+<meta name="description" content="Coursework, papers, video projects, and academic portfolio by Md. Miraz Hossain.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body data-page="academic">
 
 <nav class="nav-modern" id="siteNav">
   <div class="nav-inner">
-
     <div class="nav-left">
-      <a href="index.html" class="nav-home">
+      <a href="index.html" class="nav-home" aria-label="Home">
         <span class="nav-home-icon">M</span>
       </a>
     </div>
@@ -31,45 +30,54 @@
       <a href="services.html">Services</a>
       <a href="about.html">About</a>
     </div>
-
     <div class="nav-actions">
       <button id="themeToggle" class="nav-theme-toggle" aria-label="Toggle dark mode">
         <span class="toggle-track">
           <span class="toggle-thumb">
-            <svg class="icon-moon" viewBox="0 0 24 24">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-            </svg>
-            <svg class="icon-sun" viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="4"/>
-            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
           </span>
         </span>
       </button>
     </div>
-
   </div>
 </nav>
 
 <main>
-  <div class="container">
-
-    <section class="page-header">
-      <p class="page-eyebrow">Academic</p>
-      <h1 class="page-title">Coursework, <em>essays</em> &amp; papers</h1>
-      <p class="page-subtitle">Selected academic work from ULAB and the University of Dhaka — the writing that mapped the transition from journalism into social-science research.</p>
+  <div class="container-wide">
+    <section class="page-header academic-hero-header">
+      <p class="page-eyebrow">Academic portfolio</p>
+      <h1 class="page-title">Coursework, <em>papers</em> &amp; video projects</h1>
+      <p class="page-subtitle">Selected academic work from ULAB and the University of Dhaka, mapped to course code, course title, session, and current result status.</p>
+      <div class="academic-stat-strip" id="academic-stats"></div>
     </section>
 
-    <div id="academic-list"></div>
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">Showcase</h2>
+        <span class="section-meta">10 selected works</span>
+      </div>
+      <div class="academic-showcase-grid" id="academic-showcase"></div>
+    </section>
+
+    <section class="mt-4">
+      <div class="section-header">
+        <h2 class="section-title">More highlights</h2>
+        <span class="section-meta">placeholder names to refine later</span>
+      </div>
+      <ul class="academic-more-list" id="academic-more"></ul>
+    </section>
 
     <section class="mt-4">
       <div class="section-header">
         <h2 class="section-title">Education</h2>
+        <span class="section-meta">transcript snapshot</span>
       </div>
       <ul class="writing-list">
         <li class="writing-item">
           <div style="flex:1;">
             <p class="writing-outlet">University of Liberal Arts Bangladesh (ULAB)</p>
-            <p class="writing-title-text">BSS in Media Studies and Journalism · CGPA 3.99 · Dean's List × 4</p>
+            <p class="writing-title-text">BSS in Media Studies and Journalism · CGPA 3.99 · 81 credits completed · Dean's List × 4</p>
           </div>
           <span class="writing-date">2023–2027</span>
         </li>
@@ -80,185 +88,93 @@
           </div>
           <span class="writing-date">2017–2023</span>
         </li>
-        <li class="writing-item">
-          <div style="flex:1;">
-            <p class="writing-outlet">Oxford Saïd Business School · UNESCO</p>
-            <p class="writing-title-text">AI and Digital Transformation in Government</p>
-          </div>
-          <span class="writing-date">2025</span>
-        </li>
       </ul>
     </section>
 
     <div class="cta-box">
-      <h3>Want to discuss a paper?</h3>
+      <h3>Want to discuss a project?</h3>
       <p>Happy to share drafts, annotated bibliographies, or class materials on request.</p>
       <a href="mailto:miraz8395@gmail.com" class="hero-cta">get in touch</a>
     </div>
-
   </div>
 </main>
 
 <footer>
-  <div class="container">
+  <div class="container-wide">
     <p class="footer-text">© 2026 Md. Miraz Hossain · Dhaka, Bangladesh</p>
     <div class="footer-links">
       <a href="mailto:miraz8395@gmail.com">email</a>
-      <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank">linkedin</a>
+      <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener">linkedin</a>
     </div>
   </div>
 </footer>
 
-<script type="application/json" id="inline-academic-data">[{"course": "Methods of Social Research · ULAB · Fall 2025", "title": "Algorithmic News Feeds and Misinformation Susceptibility — Research Proposal", "desc": "Sequential explanatory mixed-methods proposal submitted for the MOSR midterm. Establishes the theoretical grounding, sampling logic, and instrument design for the ongoing Dhaka study.", "grade": "A", "file": "pdfs/midterm-project.pdf", "file_label": "Read proposal (PDF)"}, {"course": "Communication Research · ULAB · Spring 2025", "title": "Literature Review — Platform Studies and Epistemic Equity", "desc": "Integrative review of the platform studies literature, with a focus on how epistemic equity has been operationalised in Global South contexts.", "grade": "A", "file": "pdfs/comm-research-paper.docx", "file_label": "Read paper (DOCX)"}, {"course": "Data Journalism · ULAB · Spring 2025", "title": "Team Data Decoder — Final Project", "desc": "Collaborative data-journalism capstone. Team investigation of an open public-data source, producing a reproducible notebook and a publishable feature-length narrative.", "grade": "A", "file": "pdfs/team-data-decoder.pdf", "file_label": "Read project (PDF)"}]</script>
-
+<script src="assets/js/main.js?v=4"></script>
 <script>
-Promise.resolve(JSON.parse(document.getElementById('inline-academic-data').textContent))
-  .then(items => {
-    document.getElementById('academic-list').innerHTML = items.map(it => `
-      <div class="academic-card">
-        <p class="academic-course">${it.course}</p>
-        <h3 class="academic-title">${it.title}</h3>
-        <p class="academic-desc">${it.desc}</p>
-        <div class="academic-meta">
-          <span>Grade: ${it.grade}</span>
-          <span>·</span>
-          <a href="${it.file}" target="_blank">${it.file_label}</a>
+function escapeHTML(value) {
+  return String(value || '').replace(/[&<>"']/g, ch => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  }[ch]));
+}
+
+function renderAcademic(data) {
+  document.getElementById('academic-stats').innerHTML = data.stats.map(stat => `
+    <div>
+      <strong>${escapeHTML(stat.value)}</strong>
+      <span>${escapeHTML(stat.label)}</span>
+    </div>
+  `).join('');
+
+  document.getElementById('academic-showcase').innerHTML = data.showcase.map((item, index) => {
+    const num = String(index + 1).padStart(2, '0');
+    const isVideo = item.media === 'video';
+    const action = item.file
+      ? `<a href="${escapeHTML(item.file)}" target="_blank" rel="noopener">${escapeHTML(item.fileLabel)} ↗</a>`
+      : `<span>${escapeHTML(item.fileLabel)}</span>`;
+
+    return `
+      <article class="academic-showcase-card reveal">
+        <div class="academic-media-placeholder ${isVideo ? 'is-video' : ''}">
+          <span>${isVideo ? '▶' : num}</span>
+          <small>${isVideo ? 'video slot' : 'image slot'}</small>
         </div>
-      </div>
-    `).join('');
+        <div class="academic-card-copy">
+          <p class="academic-course">${escapeHTML(item.course)} · ${escapeHTML(item.session)}</p>
+          <h3>${escapeHTML(item.title)}</h3>
+          <p>${escapeHTML(item.desc)}</p>
+          <div class="academic-card-meta">
+            <span>${escapeHTML(item.type)}</span>
+            <span>Grade: ${escapeHTML(item.grade)}</span>
+            ${action}
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  document.getElementById('academic-more').innerHTML = data.more.map(item => `
+    <li>
+      <span>${escapeHTML(item.title)}</span>
+      <em>${escapeHTML(item.course)} · ${escapeHTML(item.session)}</em>
+    </li>
+  `).join('');
+
+  if (window.__reInitReveal) window.__reInitReveal();
+}
+
+fetch('content/academic.json')
+  .then(response => {
+    if (!response.ok) throw new Error('Could not load academic content');
+    return response.json();
   })
+  .then(renderAcademic)
   .catch(() => {
-    document.getElementById('academic-list').innerHTML = '<p style="color:var(--text3);font-family:DM Mono,monospace;font-size:12px;">Content will load when the site is served over HTTP.</p>';
+    document.getElementById('academic-showcase').innerHTML = '<p class="result-count">Academic work loads when the site is served over HTTP.</p>';
   });
-</script>
-
-<script>
-(function initTheme() {
-  const saved = localStorage.getItem('miraz-theme');
-  if (saved === 'dark' || saved === 'light') {
-    document.documentElement.setAttribute('data-theme', saved);
-  }
-})();
-
-function toggleTheme() {
-  const current = document.documentElement.getAttribute('data-theme');
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  let next;
-  if (current === 'dark') next = 'light';
-  else if (current === 'light') next = 'dark';
-  else next = prefersDark ? 'light' : 'dark';
-
-  document.documentElement.setAttribute('data-theme', next);
-  localStorage.setItem('miraz-theme', next);
-}
-
-function bindThemeToggle() {
-  const btn = document.getElementById('themeToggle');
-  if (!btn || btn.dataset.bound === 'true') return;
-
-  btn.dataset.bound = 'true';
-  btn.addEventListener('click', toggleTheme);
-}
-
-function initModernNav() {
-  const nav = document.getElementById('siteNav');
-  const more = document.querySelector('.nav-more');
-  const moreBtn = document.getElementById('navMoreBtn');
-
-  if (!nav) return;
-
-  function setCompactNav() {
-    if (window.scrollY > 18) nav.classList.add('is-compact');
-    else nav.classList.remove('is-compact');
-  }
-
-  setCompactNav();
-  window.addEventListener('scroll', setCompactNav, { passive: true });
-
-  if (more && moreBtn) {
-    moreBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      const open = more.classList.toggle('is-open');
-      moreBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!more.contains(e.target)) {
-        more.classList.remove('is-open');
-        moreBtn.setAttribute('aria-expanded', 'false');
-      }
-    });
-  }
-
-  const current = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
-
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === current || (current === '' && href === 'index.html')) {
-      link.classList.add('is-active');
-    }
-  });
-}
-
-function initReveal() {
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('is-visible');
-        obs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => obs.observe(el));
-}
-
-window.__reInitReveal = initReveal;
-
-function initRotatingTags() {
-  const box = document.querySelector('.rotating-tag-box');
-  if (!box) return;
-
-  const items = Array.from(box.querySelectorAll('.rotating-tag-item'));
-  if (!items.length) return;
-
-  let idx = 0;
-  items[0].classList.add('is-active');
-
-  setInterval(() => {
-    const current = items[idx];
-    idx = (idx + 1) % items.length;
-    const next = items[idx];
-
-    current.classList.remove('is-active');
-    current.classList.add('is-leaving');
-    next.classList.add('is-active');
-
-    setTimeout(() => current.classList.remove('is-leaving'), 700);
-  }, 1800);
-}
-
-function initLightbox() {
-  const cards = document.querySelectorAll('.award-card[data-full]');
-  const box = document.getElementById('lightbox');
-
-  if (!cards.length || !box) return;
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-  bindThemeToggle();
-  initModernNav();
-  initReveal();
-  initRotatingTags();
-  initLightbox();
-});
 </script>
 
 </body>

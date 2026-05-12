@@ -1,46 +1,184 @@
-[
-  {
-    "title": "EN ↔ BN Translation",
-    "price": "from USD 0.06 / word",
-    "desc": "Development-sector, governance, and policy translation with strong domain fluency. Registered World Bank vendor; regular translator for The Business Standard source documents and NGO reports.",
-    "includes": [
-      "Reports, briefs, and policy documents (EN ⇄ BN)",
-      "Source statements, testimony transcripts, and verified quotes",
-      "Sensitive editorial material (NDA on request)",
-      "Turnaround: 1,500–2,000 words per working day"
+{
+  "hero": {
+    "eyebrow": "Freelance - Dhaka",
+    "title": "Work that gets you taken seriously.",
+    "intro": "Portfolio websites, sharp English writing, and research support. Done properly, delivered on time.",
+    "availability": "Taking new work",
+    "rotating": [
+      "Portfolio Websites",
+      "SOP Writing",
+      "CV Editing",
+      "Research Proposals",
+      "Literature Reviews",
+      "English Copywriting",
+      "Annual Reports",
+      "Content Analysis"
     ]
   },
-  {
-    "title": "SOP & Motivation Letter Editing",
-    "price": "from USD 40 / document",
-    "desc": "Structural and line-level editing of graduate application documents. Informed by 500+ student consultations at SI-UK Bangladesh and ongoing independent advising for applicants to the UK, EU, and North American universities.",
-    "includes": [
-      "Two rounds of structural feedback",
-      "Line-by-line language editing",
-      "Programme-specific fit audit (Oxford, LSE, Harvard, Ivy+, Russell Group)",
-      "Turnaround: 3–5 working days per round"
-    ]
+  "sections": [
+    {
+      "id": "websites",
+      "number": "01",
+      "title": "Portfolio Websites",
+      "columns": [
+        "Package",
+        "What's included",
+        "Price"
+      ],
+      "rows": [
+        {
+          "name": "Basic",
+          "sub": "3 revisions included",
+          "detail": "Single page - 3 sections - clean layout, mobile-ready",
+          "price": "৳3,500"
+        },
+        {
+          "name": "Standard",
+          "sub": "3 revisions included",
+          "detail": "Multi-page - CV + Projects + Contact - most popular",
+          "price": "৳6,000",
+          "highlight": "Most popular"
+        },
+        {
+          "name": "Premium",
+          "sub": "3 revisions included",
+          "detail": "Custom design - Blog - LinkedIn integration - for those who want to stand out",
+          "price": "৳9,000"
+        }
+      ],
+      "addons": [
+        {
+          "price": "৳500",
+          "label": "Per extra revision or content update after delivery"
+        },
+        {
+          "price": "৳800 / month",
+          "label": "Monthly maintenance - edits, updates, uptime"
+        },
+        {
+          "price": "৳1,500 / year",
+          "label": "Domain + hosting support, annually"
+        }
+      ]
+    },
+    {
+      "id": "writing",
+      "number": "02",
+      "title": "Writing & Editing",
+      "columns": [
+        "Service",
+        "Details",
+        "Price"
+      ],
+      "rows": [
+        {
+          "name": "Statement of Purpose",
+          "sub": "Full draft from scratch",
+          "detail": "Written around your background and target programme",
+          "price": "৳3,000"
+        },
+        {
+          "name": "SOP Editing",
+          "sub": "Your draft, sharpened",
+          "detail": "Argument, clarity, and flow improved",
+          "price": "৳1,500"
+        },
+        {
+          "name": "CV - Full Draft",
+          "sub": "Written from scratch",
+          "detail": "Structured, formatted, ready to send",
+          "price": "৳1,200"
+        },
+        {
+          "name": "CV Editing",
+          "sub": "Cleanup + restructure",
+          "detail": "Formatting, language, and layout fixed",
+          "price": "৳600"
+        },
+        {
+          "name": "English Copywriting",
+          "sub": "Per 500 words",
+          "detail": "Web copy, reports, social media posts",
+          "price": "৳1,000"
+        },
+        {
+          "name": "Annual Report / NGO Content",
+          "sub": "Per page",
+          "detail": "Written and proofed to publication standard",
+          "price": "৳800"
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "number": "03",
+      "title": "Research Support",
+      "columns": [
+        "Service",
+        "Details",
+        "Price"
+      ],
+      "rows": [
+        {
+          "name": "Literature Review",
+          "sub": "20-30 sources",
+          "detail": "Synthesised, cited, and properly formatted",
+          "price": "৳5,000"
+        },
+        {
+          "name": "Research Proposal",
+          "sub": "Full draft",
+          "detail": "Rationale, research questions, and methodology",
+          "price": "৳6,000"
+        },
+        {
+          "name": "Data Journalism",
+          "sub": "Content analysis",
+          "detail": "Framing, coding framework, and basic visualisation",
+          "price": "৳4,000"
+        }
+      ]
+    }
+  ],
+  "process": [
+    {
+      "title": "Brief",
+      "body": "A quick message or 15-minute call. Tell me what you need and when."
+    },
+    {
+      "title": "Advance",
+      "body": "50% upfront. Work begins the same day or next morning."
+    },
+    {
+      "title": "Deliver",
+      "body": "3-5 days for writing. 7-14 days for websites. 3 revisions included."
+    },
+    {
+      "title": "Done",
+      "body": "Final payment on delivery. Ongoing retainer available if needed."
+    }
+  ],
+  "contact": {
+    "email": "miraz8395@gmail.com",
+    "phone": "+880 1969 500739",
+    "location": "Dhaka, Bangladesh"
   },
-  {
-    "title": "Education Consulting",
-    "price": "from USD 60 / hour",
-    "desc": "One-on-one advising on undergraduate and postgraduate applications — programme shortlisting, profile strategy, scholarship positioning, and timeline planning.",
-    "includes": [
-      "60-minute discovery call + written action plan",
-      "Programme shortlist with fit rationale",
-      "Scholarship mapping (Chevening, Clarendon, Commonwealth, DAAD, Fulbright, etc.)",
-      "Referee brief and timeline template"
-    ]
-  },
-  {
-    "title": "Academic Writing Coaching",
-    "price": "from USD 50 / hour",
-    "desc": "Coaching for undergraduate and early-graduate writers on academic structure, argumentation, and the fossilised errors that most often undercut South Asian applicants to Western programmes.",
-    "includes": [
-      "Live editing sessions (online)",
-      "Targeted exercises for recurring errors",
-      "Writing diagnostic report",
-      "Optional: 4-week programme (weekly 60-min sessions + written feedback)"
-    ]
-  }
-]
+  "finePrint": [
+    {
+      "label": "Turnaround",
+      "value": "Writing: 3-5 days\nWebsites: 7-14 days"
+    },
+    {
+      "label": "Payment",
+      "value": "50% advance\n50% on delivery"
+    },
+    {
+      "label": "Revisions",
+      "value": "3 included\n৳500 per extra"
+    },
+    {
+      "label": "Language",
+      "value": "English - Bengali\non request"
+    }
+  ]
+}

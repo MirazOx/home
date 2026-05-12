@@ -68,8 +68,11 @@ function initModernNav() {
   const current = window.location.pathname.split('/').pop() || 'index.html';
   const bodyPage = document.body && document.body.dataset ? document.body.dataset.page : '';
   const pageAliases = {
+    academic: 'academic.html',
     projects: 'projects.html',
-    interventions: 'interventions.html'
+    interventions: 'interventions.html',
+    services: 'services.html',
+    writing: 'writing.html'
   };
   const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
   let matched = false;
@@ -90,6 +93,61 @@ function initModernNav() {
       }
     });
   }
+}
+
+// ---------- MOBILE NAV PANEL ----------
+function initResponsiveNav() {
+  const nav = document.getElementById('siteNav');
+  if (!nav || nav.dataset.mobileNavReady === 'true') return;
+
+  const navMain = nav.querySelector('.nav-main');
+  const navActions = nav.querySelector('.nav-actions');
+  if (!navMain || !navActions) return;
+
+  nav.dataset.mobileNavReady = 'true';
+
+  const button = document.createElement('button');
+  button.className = 'nav-menu-toggle';
+  button.type = 'button';
+  button.setAttribute('aria-expanded', 'false');
+  button.setAttribute('aria-controls', 'mobileNavPanel');
+  button.textContent = 'Menu';
+
+  const panel = document.createElement('div');
+  panel.className = 'nav-mobile-panel';
+  panel.id = 'mobileNavPanel';
+  panel.hidden = true;
+
+  Array.from(navMain.querySelectorAll('a')).forEach(link => {
+    const clone = link.cloneNode(true);
+    if (link.classList.contains('is-active')) clone.classList.add('is-active');
+    panel.appendChild(clone);
+  });
+
+  navActions.insertBefore(button, navActions.firstChild);
+  nav.appendChild(panel);
+
+  function closePanel() {
+    panel.hidden = true;
+    nav.classList.remove('is-menu-open');
+    button.setAttribute('aria-expanded', 'false');
+  }
+
+  button.addEventListener('click', event => {
+    event.stopPropagation();
+    const open = panel.hidden;
+    panel.hidden = !open;
+    nav.classList.toggle('is-menu-open', open);
+    button.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  document.addEventListener('click', event => {
+    if (!nav.contains(event.target)) closePanel();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') closePanel();
+  });
 }
 
 // ---------- REVEAL ON SCROLL ----------
@@ -209,6 +267,7 @@ function initLightbox() {
 document.addEventListener('DOMContentLoaded', () => {
   bindThemeToggle();
   initModernNav();
+  initResponsiveNav();
   initReveal();
   initRotatingTags();
   initLightbox();
