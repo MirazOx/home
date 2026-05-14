@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Academic Work — Md. Miraz Hossain</title>
-<meta name="description" content="Coursework, papers, video projects, and academic portfolio by Md. Miraz Hossain.">
+<meta name="description" content="Course-born projects, papers, video work, and academic portfolio by Md. Miraz Hossain.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=12">
 </head>
 <body data-page="academic">
 
@@ -22,7 +22,7 @@
     <div class="nav-main">
       <a href="research.html">Research</a>
       <a href="academic.html">Academic</a>
-      <a href="writing.html">Writing</a>
+      <a href="writing.html">Reportage</a>
       <a href="interventions.html">Interventions</a>
       <a href="quickblog.html">QuickBlog</a>
       <a href="projects.html">Projects</a>
@@ -45,50 +45,32 @@
 
 <main>
   <div class="container-wide">
-    <section class="page-header academic-hero-header">
+    <section class="page-header academic-hero-header compact-page-header">
       <p class="page-eyebrow">Academic portfolio</p>
-      <h1 class="page-title">Coursework, <em>papers</em> &amp; video projects</h1>
-      <p class="page-subtitle">Selected academic work from ULAB and the University of Dhaka, mapped to course code, course title, session, and current result status.</p>
-      <div class="academic-stat-strip" id="academic-stats"></div>
+      <h1 class="page-title">Coursework-born <em>projects</em></h1>
     </section>
 
     <section>
       <div class="section-header">
-        <h2 class="section-title">Showcase</h2>
-        <span class="section-meta">10 selected works</span>
+        <h2 class="section-title">Coursework map</h2>
+        <span class="section-meta">search by code, course, work, grade</span>
       </div>
-      <div class="academic-showcase-grid" id="academic-showcase"></div>
-    </section>
 
-    <section class="mt-4">
-      <div class="section-header">
-        <h2 class="section-title">More highlights</h2>
-        <span class="section-meta">placeholder names to refine later</span>
+      <div class="academic-tools" role="search">
+        <label class="sr-only" for="academicSearch">Search academic coursework</label>
+        <input id="academicSearch" class="academic-search" type="search" placeholder="Search courses, projects, codes, grades...">
+        <div class="academic-filter-row" id="academicFilters" aria-label="Course group filters"></div>
       </div>
-      <ul class="academic-more-list" id="academic-more"></ul>
+
+      <div class="academic-course-map" id="academic-course-map"></div>
     </section>
 
     <section class="mt-4">
       <div class="section-header">
         <h2 class="section-title">Education</h2>
-        <span class="section-meta">transcript snapshot</span>
+        <span class="section-meta">formal study</span>
       </div>
-      <ul class="writing-list">
-        <li class="writing-item">
-          <div style="flex:1;">
-            <p class="writing-outlet">University of Liberal Arts Bangladesh (ULAB)</p>
-            <p class="writing-title-text">BSS in Media Studies and Journalism · CGPA 3.99 · 81 credits completed · Dean's List × 4</p>
-          </div>
-          <span class="writing-date">2023–2027</span>
-        </li>
-        <li class="writing-item">
-          <div style="flex:1;">
-            <p class="writing-outlet">University of Dhaka</p>
-            <p class="writing-title-text">BA in English · President, English Dept. Art &amp; Literary Club (2022–23)</p>
-          </div>
-          <span class="writing-date">2017–2023</span>
-        </li>
-      </ul>
+      <ul class="writing-list" id="academic-education"></ul>
     </section>
 
     <div class="cta-box">
@@ -105,11 +87,13 @@
     <div class="footer-links">
       <a href="mailto:miraz8395@gmail.com">email</a>
       <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://x.com/Miraz8395" target="_blank" rel="noopener">x</a>
+      <a href="https://signal.me/#eu/ylklb4x-Gx18h3DzQjtP-vHmFn4lwtTe9dqiCG3wpY0onLpReQBBxoRr0dsrwCoA" target="_blank" rel="noopener">signal</a>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=6"></script>
 <script>
 function escapeHTML(value) {
   return String(value || '').replace(/[&<>"']/g, ch => ({
@@ -121,59 +105,125 @@ function escapeHTML(value) {
   }[ch]));
 }
 
-function renderAcademic(data) {
-  document.getElementById('academic-stats').innerHTML = data.stats.map(stat => `
-    <div>
-      <strong>${escapeHTML(stat.value)}</strong>
-      <span>${escapeHTML(stat.label)}</span>
-    </div>
-  `).join('');
+let academicGroups = [];
+let activeAcademicFilter = 'all';
 
-  document.getElementById('academic-showcase').innerHTML = data.showcase.map((item, index) => {
-    const num = String(index + 1).padStart(2, '0');
-    const isVideo = item.media === 'video';
-    const action = item.file
-      ? `<a href="${escapeHTML(item.file)}" target="_blank" rel="noopener">${escapeHTML(item.fileLabel)} ↗</a>`
-      : `<span>${escapeHTML(item.fileLabel)}</span>`;
+function courseSearchText(group, course) {
+  return [
+    group.category,
+    group.summary,
+    course.code,
+    course.name,
+    course.tier,
+    course.session,
+    course.grade,
+    course.workTitle,
+    course.type,
+    course.desc
+  ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function renderAcademicFilters(groups) {
+  const host = document.getElementById('academicFilters');
+  host.innerHTML = [
+    '<button class="academic-filter is-active" type="button" data-filter="all">All</button>',
+    ...groups.map(group => `<button class="academic-filter" type="button" data-filter="${escapeHTML(group.category)}">${escapeHTML(group.category.replace('General Education ', '').replace('Communication ', 'Comm. '))}</button>`)
+  ].join('');
+
+  host.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', () => {
+      activeAcademicFilter = button.dataset.filter || 'all';
+      host.querySelectorAll('button').forEach(btn => btn.classList.toggle('is-active', btn === button));
+      renderCourseMap();
+    });
+  });
+}
+
+function renderCourseMap() {
+  const query = document.getElementById('academicSearch').value.trim().toLowerCase();
+  const host = document.getElementById('academic-course-map');
+
+  const sections = academicGroups.map(group => {
+    if (activeAcademicFilter !== 'all' && activeAcademicFilter !== group.category) return '';
+
+    const courses = group.courses.filter(course => {
+      if (!query) return true;
+      return courseSearchText(group, course).includes(query);
+    });
+
+    if (!courses.length) return '';
 
     return `
-      <article class="academic-showcase-card reveal">
-        <div class="academic-media-placeholder ${isVideo ? 'is-video' : ''}">
-          <span>${isVideo ? '▶' : num}</span>
-          <small>${isVideo ? 'video slot' : 'image slot'}</small>
-        </div>
-        <div class="academic-card-copy">
-          <p class="academic-course">${escapeHTML(item.course)} · ${escapeHTML(item.session)}</p>
-          <h3>${escapeHTML(item.title)}</h3>
-          <p>${escapeHTML(item.desc)}</p>
-          <div class="academic-card-meta">
-            <span>${escapeHTML(item.type)}</span>
-            <span>Grade: ${escapeHTML(item.grade)}</span>
-            ${action}
+      <section class="academic-course-group">
+        <div class="academic-course-group-head">
+          <div>
+            <p>${escapeHTML(group.summary)}</p>
+            <h3>${escapeHTML(group.category)}</h3>
           </div>
+          <span>${courses.length} shown</span>
         </div>
-      </article>
+        <div class="course-slot-grid">
+          ${courses.map(course => {
+            const isAPlus = String(course.grade || '').toUpperCase() === 'A+';
+            const isVideo = course.media === 'video';
+            const actionUrl = course.file || course.externalUrl || course.projectUrl || '';
+            const action = actionUrl
+              ? `<a class="course-resource-link" href="${escapeHTML(actionUrl)}" target="_blank" rel="noopener">${escapeHTML(course.fileLabel || course.linkLabel || 'Open project')} ↗</a>`
+              : '<span class="course-resource-placeholder">Project link slot</span>';
+
+            return `
+              <article class="course-slot ${isAPlus ? 'is-aplus' : ''}">
+                <div class="course-slot-top">
+                  <span class="course-code">${escapeHTML(course.code)}</span>
+                  <span class="course-grade">${escapeHTML(course.grade || 'Slot')}</span>
+                </div>
+                <p class="course-category">${escapeHTML(course.tier || group.category)}</p>
+                <h4>${escapeHTML(course.name)}</h4>
+                <p class="course-project-title">${isVideo ? '▶ ' : ''}${escapeHTML(course.workTitle)}</p>
+                <p class="course-desc">${escapeHTML(course.desc)}</p>
+                <div class="course-slot-meta">
+                  <span>${escapeHTML(course.type)}</span>
+                  <span>${escapeHTML(course.session)}</span>
+                  ${action}
+                </div>
+              </article>
+            `;
+          }).join('')}
+        </div>
+      </section>
     `;
   }).join('');
 
-  document.getElementById('academic-more').innerHTML = data.more.map(item => `
-    <li>
-      <span>${escapeHTML(item.title)}</span>
-      <em>${escapeHTML(item.course)} · ${escapeHTML(item.session)}</em>
-    </li>
-  `).join('');
-
-  if (window.__reInitReveal) window.__reInitReveal();
+  host.innerHTML = sections || '<p class="result-count">No coursework matched that search.</p>';
 }
 
-fetch('content/academic.json')
+function renderEducation(items) {
+  document.getElementById('academic-education').innerHTML = items.map(item => `
+    <li class="writing-item">
+      <div style="flex:1;">
+        <p class="writing-outlet">${escapeHTML(item.institution)}</p>
+        <p class="writing-title-text">${escapeHTML(item.detail)}</p>
+      </div>
+      <span class="writing-date">${escapeHTML(item.date)}</span>
+    </li>
+  `).join('');
+}
+
+fetch('content/academic.json?v=4')
   .then(response => {
     if (!response.ok) throw new Error('Could not load academic content');
     return response.json();
   })
-  .then(renderAcademic)
+  .then(data => {
+    academicGroups = data.courseGroups || [];
+    renderAcademicFilters(academicGroups);
+    renderCourseMap();
+    renderEducation(data.education || []);
+    document.getElementById('academicSearch').addEventListener('input', renderCourseMap);
+    if (window.__reInitReveal) window.__reInitReveal();
+  })
   .catch(() => {
-    document.getElementById('academic-showcase').innerHTML = '<p class="result-count">Academic work loads when the site is served over HTTP.</p>';
+    document.getElementById('academic-course-map').innerHTML = '<p class="result-count">Academic work loads when the site is served over HTTP.</p>';
   });
 </script>
 

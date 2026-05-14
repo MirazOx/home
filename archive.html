@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Writing Archive — Md. Miraz Hossain</title>
-<meta name="description" content="Full searchable archive of 218 journalism pieces by Md. Miraz Hossain.">
+<title>Reportage Archive — Md. Miraz Hossain</title>
+<meta name="description" content="Full searchable archive of 219 journalism pieces by Md. Miraz Hossain.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=12">
 </head>
 <body data-page="writing">
 
@@ -22,7 +22,7 @@
     <div class="nav-main">
       <a href="research.html">Research</a>
       <a href="academic.html">Academic</a>
-      <a href="writing.html">Writing</a>
+      <a href="writing.html">Reportage</a>
       <a href="interventions.html">Interventions</a>
       <a href="quickblog.html">QuickBlog</a>
       <a href="projects.html">Projects</a>
@@ -46,9 +46,9 @@
 <main>
   <div class="container-wide">
     <section class="page-header archive-header">
-      <p class="page-eyebrow"><a href="writing.html">← selected writing</a></p>
+      <p class="page-eyebrow"><a href="writing.html">← selected reportage</a></p>
       <h1 class="page-title">Full <em>archive</em></h1>
-      <p class="page-subtitle">Every piece of journalism published under my byline. Search by title or topic signal; filter by outlet and year; sort by recency or title.</p>
+      <p class="page-subtitle">Every piece of journalism published under my byline. Search by title, outlet, or theme; filter by outlet, theme, and year; sort by recency or title.</p>
     </section>
 
     <section class="archive-panel">
@@ -56,6 +56,9 @@
         <input type="text" id="search" class="search-input" placeholder="Search titles, topics, or outlets…" />
         <select id="outlet" class="select-input">
           <option value="">All outlets</option>
+        </select>
+        <select id="theme" class="select-input">
+          <option value="">All themes</option>
         </select>
         <select id="year" class="select-input">
           <option value="">All years</option>
@@ -79,11 +82,13 @@
     <div class="footer-links">
       <a href="mailto:miraz8395@gmail.com">email</a>
       <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://x.com/Miraz8395" target="_blank" rel="noopener">x</a>
+      <a href="https://signal.me/#eu/ylklb4x-Gx18h3DzQjtP-vHmFn4lwtTe9dqiCG3wpY0onLpReQBBxoRr0dsrwCoA" target="_blank" rel="noopener">signal</a>
     </div>
   </div>
 </footer>
 
-<script src="assets/js/main.js?v=4"></script>
+<script src="assets/js/main.js?v=6"></script>
 <script>
 let ALL_ARTICLES = [];
 
@@ -100,13 +105,15 @@ function escapeHTML(value) {
 function renderArchive() {
   const q = (document.getElementById('search').value || '').toLowerCase().trim();
   const outlet = document.getElementById('outlet').value;
+  const theme = document.getElementById('theme').value;
   const year = document.getElementById('year').value;
   const sort = document.getElementById('sort').value;
 
   let items = ALL_ARTICLES.filter(article => {
-    const haystack = `${article.title || ''} ${article.outlet || ''}`.toLowerCase();
+    const haystack = `${article.title || ''} ${article.outlet || ''} ${article.theme || ''}`.toLowerCase();
     if (q && !haystack.includes(q)) return false;
     if (outlet && article.outlet !== outlet) return false;
+    if (theme && article.theme !== theme) return false;
     if (year && !(article.date || '').startsWith(year)) return false;
     return true;
   });
@@ -124,7 +131,7 @@ function renderArchive() {
     <li class="writing-item archive-item">
       <a href="${escapeHTML(article.link)}" target="_blank" rel="noopener">
         <div class="archive-item-copy">
-          <p class="writing-outlet">${escapeHTML(article.outlet)}</p>
+          <p class="writing-outlet">${escapeHTML(article.outlet)} · <span>${escapeHTML(article.theme || 'Features & Explainers')}</span></p>
           <p class="writing-title-text">${escapeHTML(article.title)}</p>
         </div>
         <span class="writing-date">${escapeHTML(article.date || '—')}</span>
@@ -134,10 +141,30 @@ function renderArchive() {
   `).join('');
 }
 
+function applyInitialFilters() {
+  const params = new URLSearchParams(window.location.search);
+  const mappings = {
+    q: 'search',
+    outlet: 'outlet',
+    theme: 'theme',
+    year: 'year',
+    sort: 'sort'
+  };
+
+  Object.entries(mappings).forEach(([param, id]) => {
+    const value = params.get(param);
+    const field = document.getElementById(id);
+    if (!value || !field) return;
+    field.value = value;
+  });
+}
+
 function hydrateFilters(data) {
   const outletSelect = document.getElementById('outlet');
+  const themeSelect = document.getElementById('theme');
   const yearSelect = document.getElementById('year');
   const outlets = [...new Set(data.map(item => item.outlet).filter(Boolean))].sort();
+  const themes = [...new Set(data.map(item => item.theme).filter(Boolean))].sort();
   const years = [...new Set(data.map(item => (item.date || '').slice(0, 4)).filter(Boolean))].sort((a, b) => b.localeCompare(a));
 
   outlets.forEach(item => {
@@ -147,15 +174,24 @@ function hydrateFilters(data) {
     outletSelect.appendChild(option);
   });
 
+  themes.forEach(item => {
+    const option = document.createElement('option');
+    option.value = item;
+    option.textContent = item;
+    themeSelect.appendChild(option);
+  });
+
   years.forEach(item => {
     const option = document.createElement('option');
     option.value = item;
     option.textContent = item;
     yearSelect.appendChild(option);
   });
+
+  applyInitialFilters();
 }
 
-['search', 'outlet', 'year', 'sort'].forEach(id => {
+['search', 'outlet', 'theme', 'year', 'sort'].forEach(id => {
   document.getElementById(id).addEventListener('input', renderArchive);
   document.getElementById(id).addEventListener('change', renderArchive);
 });

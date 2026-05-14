@@ -9,7 +9,7 @@ mirazhossain-site/
 ├── index.html            Homepage (matches original design)
 ├── research.html         All research projects
 ├── writing.html          10 selected features + bylines
-├── archive.html          Searchable archive of 214 articles
+├── archive.html          Searchable archive of 219 articles
 ├── academic.html         Coursework and papers
 ├── credentials.html      72 certifications, grouped and filterable
 ├── services.html         Translation + SOP editing + consulting
@@ -19,7 +19,7 @@ mirazhossain-site/
 │   ├── js/partials.js    (optional) shared nav/footer injector
 │   └── images/           
 ├── content/              ← Edit these JSON files to update the site
-│   ├── articles.json     214 published pieces
+│   ├── articles.json     219 published pieces
 │   ├── certificates.json 72 certifications
 │   ├── writing-selected.json  10 featured writings
 │   ├── research.json     Research projects

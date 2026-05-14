@@ -123,7 +123,7 @@
 
   // Run the checks in sequence
   (async function () {
-    await checkAsset('assets/css/style.css',      'CSS',             'css');
+    await checkAsset('assets/css/style.css?v=12',      'CSS',             'css');
     await checkAsset('assets/js/main.js',         'JS (main)',       'js');
     await checkAsset('assets/js/beyond.js',       'JS (beyond)',     'js');
     await checkAsset('content/beyond.json',       'JSON (beyond)',   'json');
@@ -143,7 +143,7 @@
     var s = getComputedStyle(probe);
     var cssOk = s.opacity && parseFloat(s.opacity) < 1;
     add('Reveal-animation CSS rule present', cssOk ? 'ok' : 'fail',
-        cssOk ? 'opacity=' + s.opacity : 'opacity=' + s.opacity + ' (style.css did not apply .reveal)');
+        cssOk ? 'opacity=' + s.opacity : 'opacity=' + s.opacity + ' (style.css?v=12 did not apply .reveal)');
     document.body.removeChild(probe);
   })();
 
