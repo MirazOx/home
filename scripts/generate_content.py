@@ -25,6 +25,35 @@ def iso_date(value) -> str:
     return dt.strftime("%Y-%m-%d")
 
 
+JULY_MOVEMENT_LINK_MARKERS = [
+    "chalaiden-misinformation-war-grips-social-media",
+    "hasina-out-jubilation-air",
+    "surviving-city-without-police",
+    "abdul-kader-mastermind-behind-nine-point-demand",
+    "kind-student-politics-campuses-need",
+    "viral-photo-woman-tied-tree-not-azimpur",
+    "teen-handcuffs-and-and-ropes-police-brutality-17-year-old-faiyaz",
+    "they-made-me-listen-they-tortured-him-tale-mother-son-duo-who-braved-july",
+    "july-18-day-pvt-uni-students-etched-their-names",
+    "how-augusts-volunteer-vanguards-sent-out-191-trucks",
+    "unsung-hijra-heroes-july-uprising",
+    "price-sight-muhaimins-fight-against-pellet-guns",
+    "hindu-nationalist-mob-storms-bangladesh-mission",
+    "campus-cold-war-chhatra-dal-vs-shibir",
+    "jatiya-nagorik-committee-a-new-dawn-bangladesh",
+    "watch?v=fnetpf5zl_w",
+    "watch?v=2chkfswo3lg",
+    "sheikh-hasina-call-recordings-bn",
+]
+
+
+def is_july_movement_article(article: dict[str, str]) -> bool:
+    link = (article.get("link") or "").lower()
+    title = (article.get("title") or "").lower()
+    text = f"{title} {link}"
+    return any(marker in text for marker in JULY_MOVEMENT_LINK_MARKERS)
+
+
 def records_from_sheet(sheet_name: str, outlet: str) -> list[dict[str, str]]:
     df = pd.read_excel(WORKBOOK, sheet_name=sheet_name, header=1)
     out = []
@@ -44,10 +73,90 @@ def records_from_sheet(sheet_name: str, outlet: str) -> list[dict[str, str]]:
     return out
 
 
+def article_theme(title: str, link: str, outlet: str) -> str:
+    text = f"{title} {link}".lower()
+
+    checks = [
+        ("Misinformation & Verification", ["misinformation", "verification", "fact-check", "fact check", "rumour", "rumor", "viral", "চালাইদেন", "ভেরিফিকেশন", "যাচাই"]),
+        ("Public Health & Drugs", ["drug", "drugs", "cannabis", "ganja", "গাঁজা", "mdma", "lsd", "ketamine", "fentanyl", "health", "vaccine", "mushroom", "yaba", "mental health", "epidemiology"]),
+        ("Digital Rights & Platform Power", ["digital", "algorithm", "facebook", "twitter", "threads", "social media", "internet", "platform", "podcast", "ai", "technology", "tech", "neir", "camera"]),
+        ("Accountability & Governance", ["affidavit", "attestation", "brta", "police", "cops", "arrest", "court", "law", "governance", "corruption", "mission", "hasina", "আয়নাঘর", "call-recordings", "rights"]),
+        ("Politics & Democracy", ["election", "jatiya", "nagorik", "student politics", "chhatra", "shibir", "dissanayake", "trump", "awami", "july", "uprising", "গণঅভ্যুত্থান", "politics"]),
+        ("Climate & Environment", ["climate", "environment", "flood", "heat wave", "salinity", "salt", "sundarbans", "deer", "tiger", "water", "microplastic", "green", "recycle", "agricultural"]),
+        ("Education & Student Life", ["student", "students", "university", "school", "mit", "harvard", "caltech", "gre", "cv", "sop", "classroom", "olympiad", "academic", "study", "ramadan", "english", "pursuit"]),
+        ("Profile", ["journey", "profile", "story of", "meet ", "woman who", "helped deliver", "founder", "built", "made a name", "mastermind", "dreamwater", "tale of"]),
+        ("Work & Career", ["work", "career", "internship", "cold emailing", "ceo", "credit card", "job", "business", "startup", "office", "vendor"]),
+        ("Economy & Development", ["economy", "aid", "ngo", "development", "bank", "loan", "startup", "migration", "cashless", "remittance", "poverty", "foreign aid"]),
+        ("Urban Life & Public Services", ["dhaka", "traffic", "mohammadpur", "dakshinkhan", "airport road", "canteen", "elevator", "road", "city", "public", "bodies, waste"]),
+        ("Food & Lifestyle", ["food", "rooh afza", "lounge", "bakery", "kavva", "cuisine", "restaurant", "coffee", "street food"]),
+        ("Science & Technology", ["mrna", "lab-grown", "physicists", "wormhole", "robot", "shape-shifting", "khanmigo", "data journalism", "amateur radio", "radio"]),
+        ("Culture & Literature", ["book", "literature", "sapiens", "booker", "translation", "qawwali", "poem", "novel", "essay", "literary", "jewellery", "puthi"]),
+        ("Film & Entertainment", ["film", "movie", "series", "trailer", "watcher", "karagar", "enola", "blonde", "john wick", "punorjonmo", "silence", "vicky", "splash"]),
+        ("Rights & Society", ["hijra", "women", "muslim women", "apartheid", "israel", "truce", "conflict", "mother", "pellet", "brutality", "minority", "society"]),
+    ]
+
+    for theme, needles in checks:
+        if any(needle in text for needle in needles):
+            return theme
+    if "netra.news" in link:
+        return "Accountability & Governance"
+    return "Features & Explainers"
+
+
+manual_articles = [
+    {
+        "title": "শেখ হাসিনার নিজ জবানীতে",
+        "date": "2025-09-05",
+        "link": "https://interactive.netra.news/sheikh-hasina-call-recordings-bn/",
+        "outlet": "Netra News",
+    },
+    {
+        "title": "The quiet rise of new drugs in Bangladesh",
+        "date": "2026-05-12",
+        "link": "https://www.tbsnews.net/features/panorama/quiet-rise-new-drugs-bangladesh-1436601",
+        "outlet": "The Business Standard",
+    },
+]
+
+
 articles = records_from_sheet("Sheet1", "The Business Standard")
 articles.extend(records_from_sheet("Sheet3", "Netra News"))
+articles.extend(manual_articles)
+
+seen_links = set()
+deduped_articles = []
+for article in articles:
+    link = article["link"]
+    if link in seen_links:
+        continue
+    seen_links.add(link)
+    article["theme"] = "July Movement" if is_july_movement_article(article) else article_theme(article["title"], article["link"], article["outlet"])
+    deduped_articles.append(article)
+articles = deduped_articles
 
 selected_writing = [
+    {
+        "title": "শেখ হাসিনার নিজ জবানীতে",
+        "outlet": "Netra News",
+        "date": "2025-09-05",
+        "category": "Interactive accountability",
+        "link": "https://interactive.netra.news/sheikh-hasina-call-recordings-bn/",
+        "blurb": "An interactive Netra analysis built around leaked call recordings, placing Sheikh Hasina's own words inside the record of the July crackdown.",
+        "image": "assets/images/writing/sheikh-hasina-call-recordings.jpg",
+        "imageAlt": "Netra News graphic for the Sheikh Hasina call recordings interactive.",
+        "imagePosition": "50% 42%",
+    },
+    {
+        "title": "The quiet rise of new drugs in Bangladesh",
+        "outlet": "The Business Standard",
+        "date": "2026-05-12",
+        "category": "Public health & crime",
+        "link": "https://www.tbsnews.net/features/panorama/quiet-rise-new-drugs-bangladesh-1436601",
+        "blurb": "A deeply reported Panorama feature on MDMA, LSD, ketamine, fentanyl, elite drug markets, and enforcement systems still playing catch-up.",
+        "image": "assets/images/writing/quiet-rise-new-drugs.webp",
+        "imageAlt": "Illustration for the quiet rise of new drugs in Bangladesh.",
+        "imagePosition": "46% 50%",
+    },
     {
         "title": "Cops, camera, cannabis",
         "outlet": "Netra News",
@@ -55,7 +164,9 @@ selected_writing = [
         "category": "Criminal justice",
         "link": "https://netra.news/2026/cannabis-war-bangladesh/",
         "blurb": "A reported investigation into Bangladesh's cannabis enforcement machinery, showing how policing, spectacle, and public policy collide around ordinary citizens.",
-        "image": "",
+        "image": "assets/images/writing/cops-camera-cannabis.jpg",
+        "imageAlt": "A stylised illustration of hands passing a cannabis joint.",
+        "imagePosition": "64% 50%",
     },
     {
         "title": "The job \"verification\" trap",
@@ -64,7 +175,9 @@ selected_writing = [
         "category": "OSINT investigation",
         "link": "https://netra.news/2025/the-job-verification-trap/",
         "blurb": "An investigation into informal verification rackets and the way jobseekers are made vulnerable by opaque employment-screening systems.",
-        "image": "",
+        "image": "assets/images/writing/job-verification-trap.jpg",
+        "imageAlt": "A fraud stamp over Bangladeshi documents and money.",
+        "imagePosition": "54% 50%",
     },
     {
         "title": "Bangladesh is building a digital economy on a floor that is giving way",
@@ -73,7 +186,9 @@ selected_writing = [
         "category": "Digital governance",
         "link": "https://www.tbsnews.net/thoughts/bangladesh-building-digital-economy-floor-giving-way-1431946",
         "blurb": "A policy-facing essay connecting AI ambition, infrastructure fragility, and the hidden exclusions beneath Bangladesh's digital-economy narrative.",
-        "image": "",
+        "image": "assets/images/writing/bangladesh-digital-economy.jpg",
+        "imageAlt": "A robotic hand holding a map of Bangladesh.",
+        "imagePosition": "42% 50%",
     },
     {
         "title": "How Bangladesh's local NGOs are surviving the foreign aid collapse",
@@ -82,7 +197,9 @@ selected_writing = [
         "category": "Development sector",
         "link": "https://www.tbsnews.net/features/panorama/how-bangladeshs-local-ngos-are-surviving-foreign-aid-collapse-1435376",
         "blurb": "Field-sensitive reporting on institutional survival, shrinking aid, and the pressure local NGOs face while serving communities after donor retreat.",
-        "image": "",
+        "image": "assets/images/writing/ngo-foreign-aid-collapse.jpg",
+        "imageAlt": "An illustration about shrinking foreign funding for NGOs.",
+        "imagePosition": "44% 50%",
     },
     {
         "title": "Arrests over social media posts: Who decides what speech is acceptable?",
@@ -91,7 +208,9 @@ selected_writing = [
         "category": "Free speech",
         "link": "https://www.tbsnews.net/features/panorama/arrests-over-social-media-posts-who-decides-what-speech-acceptable-1418011",
         "blurb": "A sharp public-rights piece on social media policing, legal ambiguity, and the uneven power to define acceptable speech online.",
-        "image": "",
+        "image": "assets/images/writing/speech-acceptable.jpg",
+        "imageAlt": "An illustration of police action tied to a Facebook post.",
+        "imagePosition": "50% 50%",
     },
     {
         "title": "Chalaiden: Misinformation war grips social media",
@@ -100,16 +219,9 @@ selected_writing = [
         "category": "Misinformation",
         "link": "https://www.tbsnews.net/bangladesh/chalaiden-misinformation-war-grips-social-media-909926",
         "blurb": "A timely account of how rumour, coded language, and platform dynamics moved through Bangladesh's information space during national crisis.",
-        "image": "",
-    },
-    {
-        "title": "Not so 'digital' Bangladesh",
-        "outlet": "The Business Standard",
-        "date": "2024-10-27",
-        "category": "Technology policy",
-        "link": "https://www.tbsnews.net/features/panorama/not-so-digital-bangladesh-977551",
-        "blurb": "A systems critique of digital public-service promises, showing where infrastructure, access, and governance fail the people they claim to serve.",
-        "image": "",
+        "image": "assets/images/writing/chalaiden-misinformation.jpg",
+        "imageAlt": "An illustration of misinformation being checked on a phone.",
+        "imagePosition": "50% 50%",
     },
     {
         "title": "Jatiya Nagorik Committee: A New Dawn in Bangladesh's Politics?",
@@ -118,7 +230,9 @@ selected_writing = [
         "category": "Politics",
         "link": "https://netra.news/2025/jatiya-nagorik-committee-a-new-dawn-bangladesh/",
         "blurb": "Long-form political reporting on a new civic formation and the uncertain shape of Bangladesh's post-authoritarian transition.",
-        "image": "",
+        "image": "assets/images/writing/jatiya-nagorik-committee.jpg",
+        "imageAlt": "A political illustration featuring the Bangladesh Parliament and civic figures.",
+        "imagePosition": "50% 50%",
     },
     {
         "title": "Campus cold war: Chhatra Dal vs. Shibir",
@@ -127,16 +241,9 @@ selected_writing = [
         "category": "Campus politics",
         "link": "https://netra.news/2024/campus-cold-war-chhatra-dal-vs-shibir-en/",
         "blurb": "Ground-level reporting on ideological competition inside universities and what campus politics reveals about the national moment.",
-        "image": "",
-    },
-    {
-        "title": "The politics of election affidavits: Why asset declarations no longer reveal the truth",
-        "outlet": "The Business Standard",
-        "date": "2026-01-11",
-        "category": "Accountability",
-        "link": "https://www.tbsnews.net/features/panorama/politics-election-affidavits-why-asset-declarations-no-longer-reveal-truth-1330986",
-        "blurb": "A governance piece tracing how transparency instruments can become ritual paperwork when political incentives reward opacity.",
-        "image": "",
+        "image": "assets/images/writing/campus-cold-war.jpg",
+        "imageAlt": "A chessboard illustration representing campus political competition.",
+        "imagePosition": "52% 50%",
     },
 ]
 
@@ -464,6 +571,10 @@ academic = {
         },
     ],
 }
+
+academic_content_path = ROOT / "content/academic.json"
+if academic_content_path.exists():
+    academic = json.loads(academic_content_path.read_text(encoding="utf-8"))
 
 
 def save_json(path: Path, data) -> None:
