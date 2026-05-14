@@ -197,7 +197,7 @@ function initRotatingTags() {
     setTimeout(() => {
       current.classList.remove('is-leaving');
     }, 700);
-  }, 1800);
+  }, 7200);
 }
 
 // ---------- LIGHTBOX ----------
@@ -205,7 +205,7 @@ function initLightbox() {
   const cards = document.querySelectorAll('.award-card[data-full]');
   const box = document.getElementById('lightbox');
 
-  if (!cards.length || !box) return;
+  if (!box) return;
 
   const img = box.querySelector('.lightbox-img');
   const cap = box.querySelector('.lightbox-cap');
@@ -240,17 +240,19 @@ function initLightbox() {
     img.src = '';
   }
 
-  cards.forEach(card => {
-    card.addEventListener('click', () => open(card));
-    card.setAttribute('tabindex', '0');
+  if (cards.length) {
+    cards.forEach(card => {
+      card.addEventListener('click', () => open(card));
+      card.setAttribute('tabindex', '0');
 
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        open(card);
-      }
+      card.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          open(card);
+        }
+      });
     });
-  });
+  }
 
   if (close) close.addEventListener('click', closeBox);
 

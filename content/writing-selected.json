@@ -1,12 +1,36 @@
 [
   {
+    "title": "শেখ হাসিনার নিজ জবানীতে",
+    "outlet": "Netra News",
+    "date": "2025-09-05",
+    "category": "Interactive accountability",
+    "link": "https://interactive.netra.news/sheikh-hasina-call-recordings-bn/",
+    "blurb": "An interactive Netra analysis built around leaked call recordings, placing Sheikh Hasina's own words inside the record of the July crackdown.",
+    "image": "assets/images/writing/sheikh-hasina-call-recordings.jpg",
+    "imageAlt": "Netra News graphic for the Sheikh Hasina call recordings interactive.",
+    "imagePosition": "50% 42%"
+  },
+  {
+    "title": "The quiet rise of new drugs in Bangladesh",
+    "outlet": "The Business Standard",
+    "date": "2026-05-12",
+    "category": "Public health & crime",
+    "link": "https://www.tbsnews.net/features/panorama/quiet-rise-new-drugs-bangladesh-1436601",
+    "blurb": "A deeply reported Panorama feature on MDMA, LSD, ketamine, fentanyl, elite drug markets, and enforcement systems still playing catch-up.",
+    "image": "assets/images/writing/quiet-rise-new-drugs.webp",
+    "imageAlt": "Illustration for the quiet rise of new drugs in Bangladesh.",
+    "imagePosition": "46% 50%"
+  },
+  {
     "title": "Cops, camera, cannabis",
     "outlet": "Netra News",
     "date": "2026-05-08",
     "category": "Criminal justice",
     "link": "https://netra.news/2026/cannabis-war-bangladesh/",
     "blurb": "A reported investigation into Bangladesh's cannabis enforcement machinery, showing how policing, spectacle, and public policy collide around ordinary citizens.",
-    "image": ""
+    "image": "assets/images/writing/cops-camera-cannabis.jpg",
+    "imageAlt": "A stylised illustration of hands passing a cannabis joint.",
+    "imagePosition": "64% 50%"
   },
   {
     "title": "The job \"verification\" trap",
@@ -15,7 +39,9 @@
     "category": "OSINT investigation",
     "link": "https://netra.news/2025/the-job-verification-trap/",
     "blurb": "An investigation into informal verification rackets and the way jobseekers are made vulnerable by opaque employment-screening systems.",
-    "image": ""
+    "image": "assets/images/writing/job-verification-trap.jpg",
+    "imageAlt": "A fraud stamp over Bangladeshi documents and money.",
+    "imagePosition": "54% 50%"
   },
   {
     "title": "Bangladesh is building a digital economy on a floor that is giving way",
@@ -24,7 +50,9 @@
     "category": "Digital governance",
     "link": "https://www.tbsnews.net/thoughts/bangladesh-building-digital-economy-floor-giving-way-1431946",
     "blurb": "A policy-facing essay connecting AI ambition, infrastructure fragility, and the hidden exclusions beneath Bangladesh's digital-economy narrative.",
-    "image": ""
+    "image": "assets/images/writing/bangladesh-digital-economy.jpg",
+    "imageAlt": "A robotic hand holding a map of Bangladesh.",
+    "imagePosition": "42% 50%"
   },
   {
     "title": "How Bangladesh's local NGOs are surviving the foreign aid collapse",
@@ -33,7 +61,9 @@
     "category": "Development sector",
     "link": "https://www.tbsnews.net/features/panorama/how-bangladeshs-local-ngos-are-surviving-foreign-aid-collapse-1435376",
     "blurb": "Field-sensitive reporting on institutional survival, shrinking aid, and the pressure local NGOs face while serving communities after donor retreat.",
-    "image": ""
+    "image": "assets/images/writing/ngo-foreign-aid-collapse.jpg",
+    "imageAlt": "An illustration about shrinking foreign funding for NGOs.",
+    "imagePosition": "44% 50%"
   },
   {
     "title": "Arrests over social media posts: Who decides what speech is acceptable?",
@@ -42,7 +72,9 @@
     "category": "Free speech",
     "link": "https://www.tbsnews.net/features/panorama/arrests-over-social-media-posts-who-decides-what-speech-acceptable-1418011",
     "blurb": "A sharp public-rights piece on social media policing, legal ambiguity, and the uneven power to define acceptable speech online.",
-    "image": ""
+    "image": "assets/images/writing/speech-acceptable.jpg",
+    "imageAlt": "An illustration of police action tied to a Facebook post.",
+    "imagePosition": "50% 50%"
   },
   {
     "title": "Chalaiden: Misinformation war grips social media",
@@ -51,16 +83,9 @@
     "category": "Misinformation",
     "link": "https://www.tbsnews.net/bangladesh/chalaiden-misinformation-war-grips-social-media-909926",
     "blurb": "A timely account of how rumour, coded language, and platform dynamics moved through Bangladesh's information space during national crisis.",
-    "image": ""
-  },
-  {
-    "title": "Not so 'digital' Bangladesh",
-    "outlet": "The Business Standard",
-    "date": "2024-10-27",
-    "category": "Technology policy",
-    "link": "https://www.tbsnews.net/features/panorama/not-so-digital-bangladesh-977551",
-    "blurb": "A systems critique of digital public-service promises, showing where infrastructure, access, and governance fail the people they claim to serve.",
-    "image": ""
+    "image": "assets/images/writing/chalaiden-misinformation.jpg",
+    "imageAlt": "An illustration of misinformation being checked on a phone.",
+    "imagePosition": "50% 50%"
   },
   {
     "title": "Jatiya Nagorik Committee: A New Dawn in Bangladesh's Politics?",
@@ -69,7 +94,9 @@
     "category": "Politics",
     "link": "https://netra.news/2025/jatiya-nagorik-committee-a-new-dawn-bangladesh/",
     "blurb": "Long-form political reporting on a new civic formation and the uncertain shape of Bangladesh's post-authoritarian transition.",
-    "image": ""
+    "image": "assets/images/writing/jatiya-nagorik-committee.jpg",
+    "imageAlt": "A political illustration featuring the Bangladesh Parliament and civic figures.",
+    "imagePosition": "50% 50%"
   },
   {
     "title": "Campus cold war: Chhatra Dal vs. Shibir",
@@ -78,15 +105,8 @@
     "category": "Campus politics",
     "link": "https://netra.news/2024/campus-cold-war-chhatra-dal-vs-shibir-en/",
     "blurb": "Ground-level reporting on ideological competition inside universities and what campus politics reveals about the national moment.",
-    "image": ""
-  },
-  {
-    "title": "The politics of election affidavits: Why asset declarations no longer reveal the truth",
-    "outlet": "The Business Standard",
-    "date": "2026-01-11",
-    "category": "Accountability",
-    "link": "https://www.tbsnews.net/features/panorama/politics-election-affidavits-why-asset-declarations-no-longer-reveal-truth-1330986",
-    "blurb": "A governance piece tracing how transparency instruments can become ritual paperwork when political incentives reward opacity.",
-    "image": ""
+    "image": "assets/images/writing/campus-cold-war.jpg",
+    "imageAlt": "A chessboard illustration representing campus political competition.",
+    "imagePosition": "52% 50%"
   }
 ]

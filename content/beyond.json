@@ -242,6 +242,95 @@
       }
     ]
   },
+  "coffee": {
+    "slug": "coffee",
+    "icon": "☕",
+    "title": "Coffee rituals",
+    "subtitle": "A small engine for reading, reporting, and thinking out loud.",
+    "intro": "Coffee is not a personality. It is a working rhythm: the table, the book, the draft, the second attempt at a difficult sentence. This folder can hold the cafes, cups, and rituals that quietly keep the work moving.",
+    "sections": [
+      {
+        "kind": "reading-now",
+        "title": "Current rituals",
+        "items": [
+          { "text": "Coffee plus a book", "meta": "Best for slow reading and marginal notes" },
+          { "text": "One cafe, one draft", "meta": "Useful when a piece refuses to start" },
+          { "text": "No laptop for the first cup", "meta": "Thinking before typing" }
+        ]
+      },
+      {
+        "kind": "memory",
+        "title": "Why it belongs here",
+        "body": "Some people keep playlists. I keep tables: a book, a cup, a half-formed idea, and the possibility that the next paragraph will finally behave."
+      }
+    ]
+  },
+  "running": {
+    "slug": "running",
+    "icon": "🏃",
+    "title": "Running log",
+    "subtitle": "Endurance, discipline, and the clean little happiness of finishing a run.",
+    "intro": "Running gives the mind a different kind of order. It is not glamorous, which is exactly why it helps: lace up, go out, come back a little steadier. This folder is for pace notes, routes, and the ordinary discipline of showing up.",
+    "sections": [
+      {
+        "kind": "reading-now",
+        "title": "What I track",
+        "items": [
+          { "text": "Weekly consistency", "meta": "Frequency before intensity" },
+          { "text": "Easy runs", "meta": "Building the base without drama" },
+          { "text": "Routes around Dhaka", "meta": "Finding breathable pockets in the city" }
+        ]
+      },
+      {
+        "kind": "memory",
+        "title": "Why it belongs here",
+        "body": "Running is one of the few habits that cannot be performed into existence. You either went out or you did not. I like that honesty."
+      }
+    ]
+  },
+  "newness": {
+    "slug": "newness",
+    "icon": "✨",
+    "title": "Exploring newness",
+    "subtitle": "New food, new places, new people — every person is a story.",
+    "intro": "I travel to be made unfamiliar. When I land somewhere I haven't been, three things keep me honest: try a dish I can't pronounce, walk a street that doesn't end at the hotel, and let one stranger talk longer than the conversation politely calls for. Newness isn't an aesthetic for me; it's a way of staying interested in the world. The reporting habit started here. So did most of the friendships I still keep.",
+    "sections": [
+      {
+        "kind": "reading-now",
+        "title": "The three I look for",
+        "items": [
+          { "text": "New food", "meta": "Whatever the table near me is having — start there." },
+          { "text": "New place", "meta": "The alley behind the famous street is usually where the place actually lives." },
+          { "text": "New people", "meta": "One real conversation is worth more than five photographs." }
+        ]
+      },
+      {
+        "kind": "memory",
+        "title": "Why every person is a story",
+        "body": "On a long bus ride I once asked the man next to me what he did. He said he repaired sewing machines in three districts and had seen every model since 1978. He spoke for an hour. I learned how a small spring works, how a town's tailoring economy shifted after the floods, and why he insisted his daughter learn English. I had boarded that bus to get somewhere. I got off having reported a story I never wrote down. After that I stopped treating strangers like background."
+      },
+      {
+        "kind": "notes",
+        "title": "Travel rules I keep coming back to",
+        "items": [
+          { "text": "Eat where it's crowded and locals are smiling", "meta": "Tourist menus survive; tourist food rarely does." },
+          { "text": "Get lost for at least one afternoon", "meta": "Don't open the map until you have to." },
+          { "text": "Learn five words in the local language before you land", "meta": "Hello, thank you, please, sorry, delicious. That's the whole grammar of being a guest." },
+          { "text": "Sit at the counter, not the corner table", "meta": "The counter is where people talk." },
+          { "text": "Carry a notebook, not a checklist", "meta": "Trips are for noticing, not completing." }
+        ]
+      },
+      {
+        "kind": "notes",
+        "title": "Newness lately",
+        "items": [
+          { "text": "First time eating jhol momo in Kathmandu", "meta": "The chilli outlasted the conversation." },
+          { "text": "Late-night ferry crossing of the Padma", "meta": "Two strangers, three cups of tea, one argument about cricket." },
+          { "text": "Working day from a Sylhet tea estate", "meta": "Got my best draft in three weeks done there." }
+        ]
+      }
+    ]
+  },
   "history": {
     "slug": "history",
     "icon": "🗺️",
