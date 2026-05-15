@@ -27,9 +27,11 @@
           "name": "Digital Audience",
           "session": "Spring 2026",
           "grade": "A",
-          "workTitle": "Digital Audience Mapping Portfolio",
-          "type": "Audience analysis",
-          "desc": "A platform-attention portfolio on engagement signals, metrics, and editorial judgement."
+          "workTitle": "Easeparenting and Institutional Design",
+          "type": "Framework essay",
+          "desc": "A Digital Audience essay on screen time, algorithmic convenience, and the structural conditions that make passive media feel like the easy choice.",
+          "projectUrl": "project-easeparenting.html",
+          "linkLabel": "Open essay"
         },
         {
           "code": "MSJ3151",
