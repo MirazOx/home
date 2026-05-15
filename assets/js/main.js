@@ -69,9 +69,13 @@ function initModernNav() {
   const bodyPage = document.body && document.body.dataset ? document.body.dataset.page : '';
   const pageAliases = {
     academic: 'academic.html',
-    projects: 'projects.html',
+    projects: 'interventions.html',
     interventions: 'interventions.html',
-    services: 'services.html',
+    services: 'about.html',
+    credentials: 'about.html',
+    about: 'about.html',
+    beyond: 'about.html',
+    research: 'research.html',
     writing: 'writing.html'
   };
   const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
@@ -87,8 +91,10 @@ function initModernNav() {
   });
 
   if (!matched && pageAliases[bodyPage]) {
+    const alias = pageAliases[bodyPage];
     navLinks.forEach(link => {
-      if (link.getAttribute('href') === pageAliases[bodyPage]) {
+      const href = link.getAttribute('href');
+      if (href === alias || href === `../${alias}`) {
         link.classList.add('is-active');
       }
     });
@@ -197,7 +203,7 @@ function initRotatingTags() {
     setTimeout(() => {
       current.classList.remove('is-leaving');
     }, 700);
-  }, 7200);
+  }, 1500);
 }
 
 // ---------- LIGHTBOX ----------
