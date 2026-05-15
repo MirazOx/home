@@ -11,236 +11,464 @@
 <link rel="stylesheet" href="assets/css/style.css?v=13">
 <style>
 /* ============================================
-   Easeparenting Essay - Custom Styles
+   Easeparenting Essay - Creative Design
    ============================================ */
 
-.essay-header {
-  padding: 4rem 0 3rem 0;
+.essay-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 3rem 0 4rem 0;
   border-bottom: 1px solid var(--border);
 }
 
-.essay-metadata {
+.essay-hero-content {
+  max-width: 550px;
+}
+
+.essay-hero-content .page-eyebrow {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1.2px;
+  color: var(--accent-teal);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.essay-hero-content h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+
+.essay-hero-content h1 em {
+  font-style: italic;
+  color: var(--accent-amber);
+}
+
+.essay-hero-content .subtitle {
+  font-size: 1.2rem;
+  color: var(--text2);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.essay-hero-image {
+  position: relative;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f0f2f4 0%, #e6e9ec 100%);
   display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin: 2rem 0;
-  padding: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.essay-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.essay-metadata-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 2rem;
   background: var(--surface);
   border-radius: 8px;
   border: 1px solid var(--border);
-  font-size: 0.95rem;
+  margin-bottom: 3rem;
 }
 
 .metadata-item {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.5rem;
 }
 
 .metadata-label {
   color: var(--text3);
   font-weight: 500;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 }
 
 .metadata-value {
   color: var(--text);
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
-.essay-body {
-  max-width: 750px;
-  margin: 3rem auto;
-  padding: 0 2rem;
+.essay-container {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.essay-body h2 {
+.essay-section {
+  margin: 4rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.essay-section.text-left {
+  grid-template-columns: 1fr 1fr;
+}
+
+.essay-section.text-right {
+  grid-template-columns: 1fr 1fr;
+}
+
+.essay-section.text-right > *:first-child {
+  order: 2;
+}
+
+.essay-section.text-right > *:last-child {
+  order: 1;
+}
+
+.essay-text h2 {
   font-family: 'DM Serif Display', serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   line-height: 1.2;
-  margin: 3rem 0 1.5rem 0;
+  margin-bottom: 1.5rem;
   color: var(--text);
 }
 
-.essay-body h3 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.5rem;
-  line-height: 1.3;
-  margin: 2.5rem 0 1rem 0;
-  color: var(--text);
+.essay-text h2 em {
+  font-style: italic;
+  color: var(--accent-teal);
 }
 
-.essay-body p {
+.essay-text p {
   font-size: 1.05rem;
   line-height: 1.8;
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
   color: var(--text);
 }
 
-.essay-body strong {
+.essay-text strong {
   font-weight: 600;
   color: var(--text);
 }
 
-.essay-pullquote {
-  margin: 3rem 0;
-  padding: 2rem;
-  border-left: 4px solid var(--accent-teal);
-  background: var(--surface);
-  font-size: 1.15rem;
-  font-style: italic;
-  line-height: 1.8;
-  color: var(--text2);
-}
-
-.essay-pullquote-attribution {
-  margin-top: 1rem;
-  font-size: 0.95rem;
-  font-style: normal;
-  color: var(--text3);
-}
-
-.essay-figure {
-  margin: 2.5rem 0;
-  padding: 0;
-  border-radius: 8px;
+.essay-visual {
+  position: relative;
+  height: 400px;
+  border-radius: 12px;
   overflow: hidden;
+  background: linear-gradient(135deg, #f0f2f4 0%, #e6e9ec 100%);
 }
 
-.essay-figure img {
+.essay-visual img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  object-fit: cover;
 }
 
-.essay-figcaption {
+.essay-visual-caption {
   margin-top: 0.75rem;
   font-size: 0.9rem;
   color: var(--text3);
   font-style: italic;
-  text-align: center;
 }
 
 .framework-box {
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   padding: 2rem;
   background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  border-left: 4px solid var(--accent-amber);
+  border: 2px solid var(--accent-amber);
+  border-radius: 12px;
+  position: relative;
 }
 
-.framework-box h4 {
+.framework-box::before {
+  content: "FRAMEWORK";
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--bg);
+  padding: 0 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: var(--accent-amber);
+  text-transform: uppercase;
+}
+
+.framework-box h3 {
   font-family: 'DM Serif Display', serif;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
   color: var(--text);
 }
 
-.framework-box ul,
-.framework-box ol {
+.framework-box ul {
   margin: 1rem 0;
   padding-left: 2rem;
+  list-style: none;
 }
 
 .framework-box li {
-  margin: 0.75rem 0;
+  margin: 1rem 0;
   color: var(--text);
+  position: relative;
+  padding-left: 1rem;
 }
 
-.framework-box li strong {
+.framework-box li::before {
+  content: "→";
+  position: absolute;
+  left: -1.5rem;
   color: var(--accent-amber);
+  font-weight: 600;
 }
 
-.essay-list {
-  margin: 1.5rem 0;
-  padding-left: 2rem;
+.essay-pullquote-section {
+  margin: 4rem 0;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.08) 0%, rgba(180, 83, 9, 0.08) 100%);
+  border-left: 6px solid var(--accent-teal);
+  border-radius: 12px;
 }
 
-.essay-list li {
-  margin: 0.75rem 0;
+.essay-pullquote {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.8rem;
+  line-height: 1.5;
   color: var(--text);
+  margin-bottom: 1.5rem;
+  font-style: italic;
 }
 
-.essay-callout {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: rgba(15, 118, 110, 0.08);
-  border-radius: 6px;
-  border-left: 3px solid var(--accent-teal);
-}
-
-.essay-callout strong {
-  color: var(--accent-teal);
-}
-
-.citation-note {
-  margin: 3rem 0;
-  padding: 1.5rem;
+.essay-pullquote-attribution {
   font-size: 0.95rem;
-  background: var(--bg2);
-  border-radius: 6px;
-  border: 1px solid var(--border);
   color: var(--text2);
+  font-style: normal;
 }
 
-.citation-note strong {
+.three-column-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.three-column-item {
+  padding: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  border-top: 4px solid var(--accent-teal);
+}
+
+.three-column-item strong {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
   color: var(--text);
 }
 
-.essay-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid var(--border);
+.three-column-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text2);
+  line-height: 1.6;
+}
+
+.data-highlight {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  padding: 2rem;
+  background: var(--bg2);
+  border-radius: 10px;
+}
+
+.data-item {
   text-align: center;
+}
+
+.data-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.5rem;
+  color: var(--accent-teal);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.data-label {
+  font-size: 0.85rem;
+  color: var(--text2);
+  line-height: 1.5;
+}
+
+.callout-alert {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: rgba(180, 83, 9, 0.08);
+  border-left: 5px solid var(--accent-amber);
+  border-radius: 8px;
+}
+
+.callout-alert strong {
+  color: var(--accent-amber);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.section-divider {
+  margin: 4rem 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--border), transparent);
+  border: none;
+}
+
+.essay-footer-section {
+  margin-top: 5rem;
+  padding: 3rem;
+  background: var(--surface);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  text-align: center;
+}
+
+.citation-box {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.citation-box strong {
+  display: block;
+  margin-bottom: 0.75rem;
+  color: var(--text);
+}
+
+.citation-format {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  background: var(--surface);
+  border-radius: 4px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text2);
 }
 
 .footer-cta {
   display: inline-block;
   margin-top: 1.5rem;
-  padding: 1rem 2rem;
+  padding: 1rem 2.5rem;
   background: var(--accent-teal);
   color: white;
   text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: background 0.25s ease;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.25s ease;
 }
 
 .footer-cta:hover {
   background: var(--accent-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(15, 118, 110, 0.2);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .essay-header {
-    padding: 2rem 0 1.5rem 0;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .essay-hero {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .essay-body h2 {
+  .essay-section {
+    grid-template-columns: 1fr;
+  }
+
+  .essay-section.text-right > *:first-child,
+  .essay-section.text-right > *:last-child {
+    order: unset;
+  }
+
+  .three-column-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .data-highlight {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .essay-metadata-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .essay-hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .essay-text h2 {
     font-size: 1.6rem;
   }
 
-  .essay-body h3 {
-    font-size: 1.2rem;
+  .essay-pullquote {
+    font-size: 1.3rem;
   }
 
-  .essay-body {
-    margin: 2rem auto;
-    padding: 0 1rem;
+  .essay-hero-image,
+  .essay-visual {
+    height: 300px;
   }
 
-  .essay-metadata {
-    flex-direction: column;
+  .essay-metadata-bar {
+    grid-template-columns: 1fr;
     gap: 1rem;
   }
 
-  .essay-pullquote {
-    font-size: 1rem;
-    padding: 1.5rem;
+  .data-highlight {
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
+
+  .essay-section {
+    margin: 2.5rem 0;
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.essay-section {
+  animation: fadeInUp 0.6s ease;
+}
+
+.framework-box {
+  animation: fadeInUp 0.6s ease 0.1s backwards;
+}
+
+.essay-pullquote-section {
+  animation: fadeInUp 0.6s ease 0.2s backwards;
 }
 </style>
 </head>
@@ -276,17 +504,20 @@
 <main>
   <div class="container-wide">
     
-    <!-- HEADER -->
-    <section class="essay-header">
-      <p class="page-eyebrow">Research Framework · May 15, 2026</p>
-      <h1 class="page-title">Easeparenting <em>and the design of convenience</em></h1>
-      <p style="font-size: 1.2rem; color: var(--text2); margin-top: 1rem; max-width: 700px;">
-        How institutional constraints and deliberate design shape parental choice, and why this matters for child development in an era of algorithmic mediation.
-      </p>
+    <!-- HERO SECTION -->
+    <section class="essay-hero">
+      <div class="essay-hero-content">
+        <p class="page-eyebrow">Framework · Research · May 15, 2026</p>
+        <h1>Easeparenting<br><em>and institutional design</em></h1>
+        <p class="subtitle">How structural constraints and algorithmic convenience shape parental choice—and why this threatens epistemic capacity across a generation.</p>
+      </div>
+      <figure class="essay-hero-image">
+        <img src="https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&q=80" alt="A child with a smartphone, looking away">
+      </figure>
     </section>
 
-    <!-- METADATA -->
-    <div class="essay-metadata">
+    <!-- METADATA BAR -->
+    <div class="essay-metadata-bar">
       <div class="metadata-item">
         <span class="metadata-label">Original Publication</span>
         <span class="metadata-value">May 15, 2026</span>
@@ -296,7 +527,7 @@
         <span class="metadata-value">Md. Miraz Hossain</span>
       </div>
       <div class="metadata-item">
-        <span class="metadata-label">Framework Status</span>
+        <span class="metadata-label">Status</span>
         <span class="metadata-value">Original Concept</span>
       </div>
       <div class="metadata-item">
@@ -305,243 +536,282 @@
       </div>
     </div>
 
-    <!-- ESSAY BODY -->
-    <div class="essay-body">
+    <div class="essay-container">
 
-      <h2>Introduction: A Missing Term</h2>
-
-      <p>
-        In January 2026, I was reporting on children's screen time usage across Dhaka. The data was clear and troubling: families with greater financial resources were using significantly <em>more</em> screens than lower-income families, not less. Parents with greater purchasing power were choosing to substitute digital devices for active engagement.
-      </p>
-
-      <p>
-        This pattern contradicted a prevailing narrative—that screen time is a problem of poverty or neglect. But the data told a different story. Wealthy parents were deliberately choosing screens. Why?
-      </p>
-
-      <p>
-        The answer, I realized, required a term that didn't yet exist. <strong>Easeparenting</strong: the deliberate parental choice to substitute digital screens and algorithmic convenience for active engagement and real-world interaction, in order to reduce parental workload and cognitive burden.
-      </p>
-
-      <p>
-        This is not negligence. This is not addiction. This is choice—constrained choice, but choice nonetheless—made within structural conditions that make ease feel like the only rational option.
-      </p>
-
-      <div class="essay-figure">
-        <img src="https://images.unsplash.com/photo-1565634566394-ef4242d3b664?w=800&q=80" alt="A child holding a smartphone while looking away">
-        <p class="essay-figcaption">Screen time has become a normalized default for millions of families in Bangladesh, particularly in urban centers where work intensification and social atomization make active parenting feel impossible.</p>
-      </div>
-
-      <h2>The Data: Choice, Not Poverty</h2>
-
-      <p>
-        The icddr,b (International Centre for Diarrhoeal Disease Research, Bangladesh) conducted a comprehensive survey on children's screen time in 2025. The findings were stark:
-      </p>
+      <!-- SECTION 1 -->
+      <section class="essay-section text-left">
+        <div class="essay-text">
+          <h2>A <em>missing term</em></h2>
+          <p>
+            In January 2026, I was reporting on children's screen time usage across Dhaka. The pattern was unexpected: families with greater financial resources were using <strong>significantly more screens</strong> than lower-income families—not less.
+          </p>
+          <p>
+            Wealthy parents were deliberately choosing screens over active engagement. This contradicted everything the narrative had told us about screen time as a poverty problem.
+          </p>
+          <p>
+            The answer required a term that didn't yet exist.
+          </p>
+        </div>
+        <figure class="essay-visual">
+          <img src="https://images.unsplash.com/photo-1534288286776-b7d1b7c2d7a5?w=800&q=80" alt="Urban skyline at dusk with apartment buildings lit up">
+          <p class="essay-visual-caption">Dhaka's urban landscape: where childcare infrastructure has collapsed and screens have become a parenting necessity.</p>
+        </figure>
+      </section>
 
       <div class="framework-box">
-        <h4>Key Findings from icddr,b Study</h4>
-        <ul>
-          <li><strong>83% of children exceed recommended limits</strong> (average 4.6 hours daily, vs. 2-hour WHO recommendation)</li>
-          <li><strong>Socioeconomic gradient:</strong> Wealthier families use screens MORE, not less. Upper-income children: 5.5 hours/day. Lower-income: 3.7 hours/day.</li>
-          <li><strong>No meaningful difference in behavioral outcomes</strong> between supervised and unsupervised screen use—the displacement of activity itself, not supervision quality, drives outcomes.</li>
-          <li><strong>Sleep disruption is secondary:</strong> The primary harm is epistemic—the loss of time spent in unstructured play, conversation, problem-solving, and exposure to constraint.</li>
-        </ul>
+        <h3>Easeparenting (Definition)</h3>
+        <p>
+          <strong>The deliberate parental choice to substitute digital screens and algorithmic convenience for active engagement and real-world interaction, in order to reduce parental workload and cognitive burden.</strong>
+        </p>
+        <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text2);">
+          This is not negligence. This is not addiction. This is rational choice—constrained choice, made within structural conditions that make ease feel like the only option.
+        </p>
       </div>
 
-      <p>
-        This pattern is crucial: <strong>if screen use were driven by poverty or lack of alternatives, we would expect lower-income families to use MORE screens. They use fewer.</strong> This is direct evidence of parental choice.
-      </p>
+      <!-- SECTION 2: THE DATA -->
+      <hr class="section-divider">
 
-      <div class="essay-pullquote">
-        "Wealthier parents are not choosing screens because they lack resources. They are choosing screens because screens work. They reduce parental burden, they maintain compliance without negotiation, they provide a respite that feels, in the moment, rational."
+      <section class="essay-section text-right">
+        <div class="essay-text">
+          <h2><em>The data</em> tells a different story</h2>
+          <p>
+            The icddr,b conducted a comprehensive survey on children's screen time in 2025. The findings were stark—and they prove that screen use is a <strong>choice of the wealthy, not a function of poverty.</strong>
+          </p>
+          <p>
+            If screens were a poverty substitute, lower-income families would use more. They don't. Wealthier families choose screens because screens work. They reduce parental burden. They maintain compliance without negotiation.
+          </p>
+        </div>
+        <div class="data-highlight">
+          <div class="data-item">
+            <div class="data-number">83%</div>
+            <div class="data-label">exceed WHO screen time limits</div>
+          </div>
+          <div class="data-item">
+            <div class="data-number">4.6h</div>
+            <div class="data-label">average daily exposure</div>
+          </div>
+          <div class="data-item">
+            <div class="data-number">5.5h</div>
+            <div class="data-label">upper-income children</div>
+          </div>
+          <div class="data-item">
+            <div class="data-number">3.7h</div>
+            <div class="data-label">lower-income children</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="essay-pullquote-section">
+        <p class="essay-pullquote">
+          "If screen use were driven by poverty or lack of alternatives, we would expect lower-income families to use more screens. They use fewer. This is direct evidence of parental choice."
+        </p>
         <p class="essay-pullquote-attribution">— Observation from TBS fieldwork, January 2026</p>
       </div>
 
-      <h2>Why This Happens: The Structural Context</h2>
+      <!-- SECTION 3: STRUCTURAL CONTEXT -->
+      <section class="essay-section text-left">
+        <div class="essay-text">
+          <h2>Why <em>this happens</em></h2>
+          <p>
+            Easeparenting is not irrational. Parents are responding to genuine structural constraints that make ease a rational choice.
+          </p>
+          <p>
+            This distinction matters for policy. If the problem is individual parents, the solution is guilt and judgment. If the problem is structural design, the solution is system redesign.
+          </p>
+        </div>
+        <div class="three-column-grid">
+          <div class="three-column-item">
+            <strong>Work Intensification</strong>
+            <p>Urban employment demands longer hours and greater cognitive load. Parents return home exhausted.</p>
+          </div>
+          <div class="three-column-item">
+            <strong>Childcare Collapse</strong>
+            <p>Formal childcare is expensive and limited. Extended family networks have fractured due to urbanization.</p>
+          </div>
+          <div class="three-column-item">
+            <strong>Urban Isolation</strong>
+            <p>Apartment living and traffic make outdoor play impossible. Parents feel individually responsible for entertainment.</p>
+          </div>
+        </div>
+      </section>
 
-      <p>
-        Easeparenting is not irrational. It is a rational response to genuine structural constraints:
-      </p>
+      <!-- SECTION 4: EPISTEMIC COST -->
+      <hr class="section-divider">
 
-      <div class="essay-list">
-        <li><strong>Work intensification:</strong> Urban employment in Bangladesh increasingly demands longer hours, greater cognitive load, and reduced flexibility. Parents return home exhausted.</li>
-        <li><strong>Childcare infrastructure collapse:</strong> Formal childcare is expensive and limited. Extended family networks (traditional support) have fractured due to urbanization. Single parents and dual-working couples face impossible tradeoffs.</li>
-        <li><strong>Urban isolation:</strong> Apartment living, traffic-clogged streets, and lack of safe outdoor play spaces mean unstructured outdoor play has become practically impossible.</li>
-        <li><strong>Social atomization:</strong> Neighborhood cohesion and informal community childcare have eroded. Parents feel individually responsible for entertainment and supervision.</li>
-        <li><strong>App design for ease:</strong> Notification systems, auto-play, and engagement algorithms are deliberately designed to keep children occupied with minimal parental intervention.</li>
-      </ul>
+      <section class="essay-section text-right">
+        <div class="essay-text">
+          <h2>The epistemic <em>cost</em></h2>
+          <p>
+            The activities displaced by easeparenting are precisely those that build epistemic capacity—the ability to evaluate evidence, ask critical questions, and resist manipulation.
+          </p>
+          <p>
+            When children spend 4.6 hours daily on algorithmic media, they lose: unstructured play, conversation with adults, constraint and boredom, embodied learning.
+          </p>
+          <p>
+            Algorithmic media does the opposite: it rewards immediate gratification, bypasses questioning, eliminates boredom, and is entirely passive.
+          </p>
+        </div>
+        <figure class="essay-visual">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80" alt="Empty playground at dusk">
+          <p class="essay-visual-caption">Development through play: the displaced activity that algorithms cannot replace.</p>
+        </figure>
+      </section>
 
-      <p>
-        Within these constraints, screens are not a luxury. They are a coping mechanism. They are rational.
-      </p>
-
-      <p>
-        But they are also harmful—not because screens are intrinsically evil, but because sustained engagement with algorithmically mediated content displaces the developmental activities that build epistemic capacity: conversation, problem-solving, play-based learning, exposure to difficulty.
-      </p>
-
-      <h2>Easeparenting: A Definition</h2>
-
-      <div class="framework-box">
-        <h4>The Framework</h4>
-
-        <p><strong>Easeparenting</strong> is the parental choice to prioritize ease of parental management over active engagement with the child, specifically by substituting digital technologies for real-world interaction.</p>
-
-        <p><strong>Mechanism:</strong> Parents select activities (screen time, passive consumption) that require minimal parental labor, decision-making, or negotiation, over activities that require active engagement (conversation, play, constraint-setting, problem-solving).</p>
-
-        <p><strong>Driver:</strong> Not cruelty or incompetence, but rational response to work intensification, eroded childcare infrastructure, and app design optimized for ease.</p>
-
-        <p><strong>Consequence:</strong> The child's developmental time is reallocated from activities that build epistemic capacity (critical thinking, problem-solving, negotiation, tolerance for boredom) to activities that displace it (passive consumption, algorithmic curation, dopamine-driven engagement).</p>
-
-        <p><strong>Distinction from related concepts:</strong></p>
-        <ul>
-          <li><strong>Not neglect:</strong> Parents are actively choosing. The choice is deliberate.</li>
-          <li><strong>Not addiction:</strong> The problem is not the child's compulsion, but the parent's deliberate choice to enable it.</li>
-          <li><strong>Not permissiveness:</strong> Parents are not "letting it happen"; they are making a decision about where to direct parental labor.</li>
-          <li><strong>Not poverty:</strong> The socioeconomic gradient shows it's a choice of the wealthy, not a function of lack.</li>
-        </ul>
+      <div class="callout-alert">
+        <strong>Algorithmic epistemic vulnerability</strong>
+        <p>
+          A condition in which the child's capacity for critical thought has been systematically eroded, not through parental cruelty, but through the displacement of developmental activities. The problem is not the child's compulsion—it is the parent's deliberate choice to enable it.
+        </p>
       </div>
 
-      <h2>The Epistemic Cost</h2>
+      <!-- SECTION 5: INTERNATIONAL REVERSALS -->
+      <section class="essay-section text-left">
+        <div class="essay-text">
+          <h2><em>International evidence:</em> policy reversals</h2>
+          <p>
+            Several wealthy nations tried going digital-first. They have systematically reversed course after measuring long-term impacts.
+          </p>
+          <ul style="margin: 1.5rem 0; padding-left: 2rem;">
+            <li><strong>France (2018):</strong> Banned smartphones from elementary schools</li>
+            <li><strong>South Korea (2020):</strong> Reversed to paper-based learning</li>
+            <li><strong>Sweden (2023):</strong> Abandoned digital-heavy education</li>
+            <li><strong>Italy (2024):</strong> Restricted AI-generated imagery in schools</li>
+          </ul>
+          <p>
+            These are not Luddite countries rejecting technology. They are wealthy, digitally sophisticated nations that measured the cost and chose to reverse it.
+          </p>
+        </div>
+        <figure class="essay-visual">
+          <img src="https://images.unsplash.com/photo-1427504494785-cdaa41d4f3d9?w=800&q=80" alt="Classroom with books and students">
+          <p class="essay-visual-caption">South Korea's classroom: reversed to handwriting and embodied learning after measuring digital costs.</p>
+        </figure>
+      </section>
 
-      <p>
-        Why does this matter? Because the activities displaced by easeparenting are precisely those that build epistemic capacity—the human ability to evaluate evidence, ask critical questions, tolerate uncertainty, and resist manipulation.
-      </p>
-
-      <p>
-        When children spend 4.6 hours daily (instead of recommended 2) on algorithmic media, they lose:
-      </p>
-
-      <div class="essay-list">
-        <li><strong>Unstructured play:</strong> The space to invent problems, test hypotheses, learn from failure without external judgment.</li>
-        <li><strong>Conversation with adults:</strong> Real dialogue requires negotiation, question-asking, exposure to differing perspectives, and tolerance for not immediately understanding.</li>
-        <li><strong>Constraint and boredom:</strong> The ability to sit with difficulty, to solve problems without external rescue, to develop internal resources.</li>
-        <li><strong>Embodied learning:</strong> Physical play, spatial reasoning, sensory experience—the foundation of critical thinking.</li>
-      </ul>
-
-      <p>
-        Algorithmic media does the opposite. It:
-      </p>
-
-      <div class="essay-list">
-        <li>Rewards immediate gratification (swipe, watch, consume)</li>
-        <li>Bypasses questioning (feed curation removes the need to choose or evaluate)</li>
-        <li>Eliminates boredom (notifications, autoplay, algorithmic recommenders)</li>
-        <li>Is weightless, dimensionless, passive</li>
-      </ul>
-
-      <p>
-        Over time, sustained exposure produces what I call <strong>algorithmic epistemic vulnerability</strong>—a condition in which the child's capacity for critical thought has been systematically eroded, not through parental cruelty, but through the displacement of developmental activities.
-      </p>
-
-      <div class="essay-callout">
-        <strong>The key insight:</strong> Easeparenting is not a parental moral failure. It is a systemic design failure. Parents are responding rationally to impossible structural conditions. The problem is that the systems (work, childcare, urban design, app architecture) are designed for extraction, not for human flourishing.
-      </div>
-
-      <h2>International Evidence: Policy Reversals</h2>
-
-      <p>
-        Several wealthy nations tried going digital-first in education and parenting. They have systematically reversed course.
-      </p>
-
-      <ul class="essay-list">
-        <li><strong>France (2018):</strong> Banned smartphones from elementary schools after measuring impacts on attention and learning. Policy remains.</li>
-        <li><strong>South Korea (2020):</strong> After decades of high-tech integration in education, reversed course to emphasize critical thinking and reduced screen time. Introduced "no smartphone" curricula in elementary schools.</li>
-        <li><strong>Sweden (2023):</strong> Abandoned digital-heavy educational approach; returned to paper-based learning and reduced tech. National education policy now emphasizes embodied, conversational learning.</li>
-        <li><strong>Italy (2024):</strong> Restricted AI-generated image use in schools; limited classroom tech to preserve critical thinking development.</li>
-      </ul>
-
-      <p>
-        These are not Luddite countries rejecting technology. They are wealthy, digitally sophisticated nations that measured the long-term cost of digital substitution and chose to reverse it.
-      </p>
-
-      <p>
+      <p style="font-size: 1rem; color: var(--text2); line-height: 1.8; margin: 3rem 0; font-style: italic;">
         Bangladesh is accelerating into the trap these countries escaped.
       </p>
 
-      <h2>Individual vs. Structural</h2>
+      <!-- SECTION 6: INDIVIDUAL vs STRUCTURAL -->
+      <hr class="section-divider">
 
-      <p>
-        Here is the critical distinction that makes easeparenting a framework worth naming:
-      </p>
+      <section style="margin: 4rem 0;">
+        <h2 style="font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 2rem;">Individual <em>vs.</em> Structural</h2>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 2rem 0;">
+          <div style="padding: 2rem; background: var(--bg2); border-radius: 8px; border-left: 4px solid #666;">
+            <strong style="display: block; margin-bottom: 0.75rem; font-size: 1.05rem;">Individual Blame</strong>
+            <p style="margin: 0; color: var(--text2); font-size: 0.95rem;">
+              "Parents who use screens are lazy, incompetent, or don't care about their children."
+            </p>
+          </div>
+          
+          <div style="padding: 2rem; background: rgba(15, 118, 110, 0.08); border-radius: 8px; border-left: 4px solid var(--accent-teal);">
+            <strong style="display: block; margin-bottom: 0.75rem; font-size: 1.05rem;">Structural Approach</strong>
+            <p style="margin: 0; color: var(--text2); font-size: 0.95rem;">
+              "Parents are rational actors responding to systems that make ease the only option. Change the systems."
+            </p>
+          </div>
+        </div>
 
-      <p>
-        <strong>Individual blame approach:</strong> "Parents who use screens are lazy, incompetent, or don't care about their children."
-      </p>
+        <p style="margin: 2rem 0; font-size: 1.05rem; color: var(--text); line-height: 1.8;">
+          This distinction matters for policy. Most interventions target the individual. <strong>That is why they fail.</strong>
+        </p>
+      </section>
 
-      <p>
-        <strong>Structural approach (easeparenting):</strong> "Parents are rational actors responding to systems (work, childcare, urban design, app architecture) that make ease feel like the only option. Change the systems, and parental behavior will shift."
-      </p>
+      <!-- SECTION 7: POLICY IMPLICATIONS -->
+      <section class="essay-section text-right">
+        <div class="essay-text">
+          <h2>Implications for <em>education</em></h2>
+          <p>
+            If easeparenting is systematic—if it reflects structural constraints rather than parental pathology—then schools cannot solve it through curriculum alone.
+          </p>
+          <p>
+            But schools can respond by centering epistemic formation: teaching question-asking, evidence evaluation, tolerance for uncertainty. Not as a module, but as the foundation of all learning.
+          </p>
+        </div>
+        <div style="background: var(--surface); padding: 2rem; border-radius: 10px; border: 1px solid var(--border);">
+          <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text);">Schools need to:</h3>
+          <ul style="margin: 0; padding-left: 0; list-style: none;">
+            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-teal); font-weight: 600;">✓</span>
+              <strong>Center epistemic formation</strong> as foundation of all learning
+            </li>
+            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-teal); font-weight: 600;">✓</span>
+              <strong>Create developmental time</strong> for unstructured play and embodied learning
+            </li>
+            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-teal); font-weight: 600;">✓</span>
+              <strong>Limit screens in school</strong> to prevent doubling of algorithmic exposure
+            </li>
+            <li style="margin: 1rem 0; padding-left: 2rem; position: relative;">
+              <span style="position: absolute; left: 0; color: var(--accent-teal); font-weight: 600;">✓</span>
+              <strong>Address structural factors</strong> through policy: childcare, work options, urban design
+            </li>
+          </ul>
+        </div>
+      </section>
 
-      <p>
-        This distinction matters for policy. If the problem is individual parents, the solution is parent education and judgment. If the problem is structural design, the solution is system redesign: shorter working hours, universal childcare, urban planning that enables outdoor play, app design regulation.
-      </p>
+      <!-- CONCLUSION -->
+      <hr class="section-divider">
 
-      <p>
-        Most policy in Bangladesh targets the individual. That is why it fails.
-      </p>
+      <section style="margin: 4rem 0; max-width: 700px;">
+        <h2 style="font-family: 'DM Serif Display', serif; font-size: 2.2rem; margin-bottom: 2rem;">Why <em>this term matters</em></h2>
+        
+        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text); margin: 1.5rem 0;">
+          Coining "easeparenting" does three critical things:
+        </p>
 
-      <h2>Implications for Education Policy</h2>
+        <ol style="padding-left: 2rem; margin: 2rem 0;">
+          <li style="margin: 1.5rem 0; color: var(--text); font-size: 1rem; line-height: 1.7;">
+            <strong>Names a phenomenon without blame.</strong> It describes what is happening, not who is bad.
+          </li>
+          <li style="margin: 1.5rem 0; color: var(--text); font-size: 1rem; line-height: 1.7;">
+            <strong>Shifts responsibility to systems.</strong> The problem is not parents—it is work structure, childcare infrastructure, app design, educational policy.
+          </li>
+          <li style="margin: 1.5rem 0; color: var(--text); font-size: 1rem; line-height: 1.7;">
+            <strong>Makes policy intervention possible.</strong> You cannot solve what you cannot name. Once named, you can ask: What structural changes would reduce easeparenting?
+          </li>
+        </ol>
 
-      <p>
-        If easeparenting is systematic—if it reflects structural constraints rather than parental pathology—then schools cannot solve it through curriculum alone.
-      </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text); margin: 2.5rem 0; font-style: italic;">
+          Bangladesh's children are not being harmed by bad parents. They are being harmed by systems optimized for extraction—extraction of parental labor, extraction of children's attention, extraction of epistemic capacity.
+        </p>
 
-      <p>
-        But schools can respond by:
-      </p>
-
-      <ul class="essay-list">
-        <li><strong>Centering epistemic formation:</strong> Explicit teaching of question-asking, evidence evaluation, tolerance for uncertainty. Not as "critical thinking" module, but as the foundation of all learning.</li>
-        <li><strong>Creating developmental time:</strong> Unstructured play, embodied learning, real conversation. Time to be bored, to fail, to think.</li>
-        <li><strong>Training teachers in epistemic pedagogy:</strong> How to ask questions that invite thinking, rather than answer-seeking. How to tolerate not-knowing.</li>
-        <li><strong>Limiting screens in school:</strong> If students have 4.6 hours daily at home, school cannot be another screen environment.</li>
-      </ul>
-
-      <p>
-        And policy must address structure: subsidized childcare, flexible work options, urban design that enables outdoor play, regulation of app design targeting children.
-      </p>
-
-      <h2>Conclusion: Why This Term Matters</h2>
-
-      <p>
-        Coining "easeparenting" does three things:
-      </p>
-
-      <ol class="essay-list">
-        <li><strong>Names a real phenomenon</strong> without individual blame. It describes what is happening, not who is bad.</li>
-        <li><strong>Shifts responsibility</strong> from parents to systems. Which systems are failing? Work structure. Childcare infrastructure. App design. Educational policy.</li>
-        <li><strong>Makes policy intervention possible.</strong> You cannot solve a problem you cannot name. Once you can name it, you can ask: What structural changes would reduce easeparenting?</li>
-      </ol>
-
-      <p>
-        Bangladesh's children are not being harmed by bad parents. They are being harmed by systems optimized for extraction—extraction of parental labor, extraction of children's attention, extraction of epistemic capacity. These systems are working exactly as designed.
-      </p>
-
-      <p>
-        The question is not how to make parents feel guiltier. The question is how to redesign systems so that active parenting, critical thinking, and epistemic formation become the path of least resistance—not the luxury that only guilt-ridden, resourced parents can afford.
-      </p>
-
-      <p style="margin-top: 3rem; font-style: italic; color: var(--text2);">
-        Until we do that work, easeparenting will remain rational. And children will continue to inherit a world in which algorithmic ease has substituted for human difficulty—and with it, the capacity to think critically about that world.
-      </p>
+        <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text);">
+          The question is not how to make parents feel guiltier. The question is how to redesign systems so that active parenting and critical thinking become the path of least resistance—not the luxury that only guilt-ridden, resourced parents can afford.
+        </p>
+      </section>
 
     </div>
 
-    <!-- CITATION NOTE -->
-    <div class="citation-note">
-      <strong>How to cite this essay:</strong><br><br>
-      <strong>Chicago:</strong> Hossain, Miraz. "Easeparenting and the Design of Convenience." May 15, 2026. https://mirazhossain.com/easeparenting<br><br>
-      <strong>APA:</strong> Hossain, M. (2026, May 15). <em>Easeparenting and the design of convenience</em>. Retrieved from https://mirazhossain.com/easeparenting<br><br>
-      <strong>Author's Note:</strong> This framework and terminology were developed by the author in May 2026 as part of reporting on screen time and parental decision-making in Bangladesh. The concept "easeparenting" is introduced here as an original framework for understanding parental technology choices. All citations and references to this concept should attribute it to this original publication.
-    </div>
+    <!-- CITATION & FOOTER -->
+    <section class="essay-footer-section">
+      <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.6rem; margin-bottom: 1.5rem;">How to cite this essay</h3>
+      
+      <div class="citation-box">
+        <strong>Chicago Style</strong>
+        <div class="citation-format">
+          Hossain, Miraz. "Easeparenting and Institutional Design." May 15, 2026. https://mirazhossain.com/easeparenting
+        </div>
 
-    <!-- FOOTER ENGAGEMENT -->
-    <div class="essay-footer">
-      <h3>Questions or collaboration?</h3>
-      <p style="color: var(--text2); margin: 1rem 0;">
-        This framework is part of my broader research on epistemic formation across systems—algorithms, education, institutions. I'm open to feedback, extension, and collaborative research.
+        <strong>APA Style</strong>
+        <div class="citation-format">
+          Hossain, M. (2026, May 15). <em>Easeparenting and institutional design</em>. Retrieved from https://mirazhossain.com/easeparenting
+        </div>
+
+        <strong>Author's Note</strong>
+        <p style="margin: 1rem 0; color: var(--text2); font-size: 0.9rem; line-height: 1.6;">
+          This framework and terminology were developed by the author in May 2026 as part of reporting on screen time and parental decision-making in Bangladesh. The concept "easeparenting" is introduced here as an original framework for understanding parental technology choices. All citations and references to this concept should attribute it to this original publication.
+        </p>
+      </div>
+
+      <h3 style="font-family: 'DM Serif Display', serif; font-size: 1.4rem; margin: 2.5rem 0 1rem 0;">Questions? Ideas? Collaboration?</h3>
+      <p style="color: var(--text2); margin-bottom: 1.5rem;">
+        This framework is part of my research on epistemic formation across systems—algorithms, education, institutions. I'm open to feedback, extension, and collaborative research.
       </p>
       <a href="mailto:miraz8395@gmail.com" class="footer-cta">Get in touch</a>
-    </div>
+    </section>
 
   </div>
 </main>
