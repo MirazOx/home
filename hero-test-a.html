@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hero Test — Md. Miraz Hossain</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink: #eef5f6;
+  --muted: rgba(238, 245, 246, 0.72);
+  --soft: rgba(238, 245, 246, 0.5);
+  --teal: #2dd4bf;
+  --amber: #f2b705;
+  --panel: rgba(5, 9, 12, 0.46);
+  --line: rgba(238, 245, 246, 0.15);
+}
+
+html { scroll-behavior: smooth; }
+body {
+  min-height: 100vh;
+  background: #06090c;
+  color: var(--ink);
+  font-family: "Instrument Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+.test-note {
+  position: fixed;
+  left: 24px;
+  bottom: 24px;
+  z-index: 20;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(3, 7, 10, 0.68);
+  backdrop-filter: blur(18px);
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--soft);
+}
+
+.test-note a {
+  text-decoration: none;
+  color: var(--teal);
+}
+
+.hero-concept {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.hero-concept::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 65% 24%, rgba(45, 212, 191, 0.12), transparent 28%),
+    linear-gradient(180deg, rgba(4, 8, 11, 0.1), rgba(4, 8, 11, 0.72));
+  pointer-events: none;
+}
+
+.hero-nav {
+  position: absolute;
+  z-index: 10;
+  top: 28px;
+  left: clamp(22px, 5vw, 68px);
+  right: clamp(22px, 5vw, 68px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(238, 245, 246, 0.86);
+}
+
+.hero-brand {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.hero-links {
+  display: flex;
+  gap: clamp(16px, 2vw, 28px);
+  align-items: center;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-links a {
+  color: rgba(238, 245, 246, 0.78);
+  text-decoration: none;
+}
+
+.hero-links a:hover { color: var(--teal); }
+
+.hero-copy {
+  width: min(1180px, calc(100vw - 48px));
+  position: relative;
+  z-index: 4;
+}
+
+.option-kicker {
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.hero-name {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  line-height: 0.87;
+  letter-spacing: 0;
+  font-size: clamp(76px, 11vw, 158px);
+  color: #f4f7f6;
+  max-width: 7.5ch;
+}
+
+.hero-name em {
+  display: block;
+  font-style: italic;
+  color: var(--teal);
+}
+
+.hero-name::after {
+  content: "";
+  display: inline-block;
+  width: 0.55em;
+  height: 0.08em;
+  margin-left: 0.16em;
+  background: var(--amber);
+  vertical-align: middle;
+}
+
+.hero-roles {
+  margin-top: 24px;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(238, 245, 246, 0.58);
+}
+
+.hero-line {
+  margin-top: 28px;
+  max-width: 520px;
+  padding: 18px 20px 18px 22px;
+  border-left: 2px solid rgba(45, 212, 191, 0.78);
+  border-radius: 0 8px 8px 0;
+  background: var(--panel);
+  backdrop-filter: blur(16px);
+  color: var(--muted);
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.65;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-actions a {
+  min-width: 166px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 20px;
+  border: 1px solid rgba(238, 245, 246, 0.28);
+  color: #f4f7f6;
+  text-decoration: none;
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  background: rgba(4, 8, 11, 0.35);
+}
+
+.hero-actions a:first-child {
+  border-color: rgba(45, 212, 191, 0.6);
+  background: rgba(45, 212, 191, 0.12);
+}
+
+.hero-actions a:hover {
+  transform: translateY(-1px);
+  border-color: var(--teal);
+}
+
+.concept-a {
+  background:
+    linear-gradient(90deg, rgba(5, 8, 10, 0.98) 0%, rgba(5, 8, 10, 0.84) 34%, rgba(5, 8, 10, 0.34) 59%, rgba(5, 8, 10, 0.82) 100%),
+    url("assets/images/profile.jpg") center center / cover no-repeat;
+}
+
+.concept-a .hero-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(260px, 0.55fr);
+  align-items: center;
+  gap: clamp(30px, 7vw, 120px);
+}
+
+.concept-a .copy-panel { max-width: 620px; }
+
+.concept-b {
+  background:
+    radial-gradient(circle at 75% 22%, rgba(45, 212, 191, 0.11), transparent 30%),
+    linear-gradient(90deg, #030608 0%, #071014 48%, #030608 100%);
+}
+
+.concept-b .portrait-wall {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: min(48vw, 720px);
+  z-index: 1;
+  opacity: 0.86;
+  filter: grayscale(18%) contrast(1.08) brightness(0.72);
+  mask-image: linear-gradient(90deg, #000 0%, #000 62%, transparent 100%);
+}
+
+.concept-b .portrait-wall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 48% center;
+  display: block;
+}
+
+.concept-b .hero-copy {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.52fr) minmax(0, 0.7fr);
+  gap: clamp(42px, 7vw, 120px);
+  align-items: center;
+}
+
+.concept-b .copy-panel {
+  grid-column: 2;
+  max-width: 660px;
+}
+
+.concept-b .hero-name { max-width: 8ch; }
+
+.scroll-cue {
+  position: absolute;
+  right: clamp(22px, 5vw, 68px);
+  bottom: 28px;
+  z-index: 10;
+  font-family: "DM Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(238, 245, 246, 0.44);
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .hero-links { display: none; }
+  .hero-concept { min-height: 880px; place-items: end center; padding-bottom: 64px; }
+  .concept-a,
+  .concept-b {
+    background-position: center top;
+  }
+  .concept-a .hero-copy,
+  .concept-b .hero-copy {
+    display: block;
+  }
+  .concept-b .portrait-wall {
+    width: 100%;
+    height: 54%;
+    mask-image: linear-gradient(180deg, #000 0%, #000 58%, transparent 100%);
+  }
+  .hero-name { font-size: clamp(64px, 19vw, 92px); }
+  .hero-line { max-width: none; }
+  .test-note { left: 14px; right: 14px; justify-content: center; bottom: 14px; }
+}
+</style>
+</head>
+<body>
+  <div class="test-note">
+    <span>temporary hero test</span>
+    <a href="index.html">back to live home</a>
+  </div>
+
+  <section class="hero-concept concept-a" id="rooftop">
+    <nav class="hero-nav" aria-label="Prototype navigation">
+      <a class="hero-brand" href="index.html">Md. Miraz Hossain</a>
+      <div class="hero-links">
+        <a href="research.html">Research</a>
+        <a href="writing.html">Reportage</a>
+        <a href="interventions.html">Interventions</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
+    <div class="hero-copy">
+      <div class="copy-panel">
+        <p class="option-kicker">Option A / current rooftop photo</p>
+        <h1 class="hero-name">Md. Miraz <em>Hossain</em></h1>
+        <p class="hero-roles">Researcher &middot; Journalist &middot; Educator</p>
+        <p class="hero-line">I study how algorithms reshape truth, trust, and public knowledge, with a focus on South Asia's digital information ecosystems. And I intervene.</p>
+        <div class="hero-actions">
+          <a href="writing.html">read selected work</a>
+          <a href="about.html#services">hire me</a>
+        </div>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#editorial">see option b</a>
+  </section>
+
+  
+</body>
+</html>
