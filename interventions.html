@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=15">
+<link rel="stylesheet" href="assets/css/style.css?v=16">
 </head>
 <body data-page="interventions">
 <nav class="nav-modern" id="siteNav">
@@ -147,9 +147,13 @@
       <p class="intervention-project-intro">Some projects I do out of passion, curiosity, and a wish to contribute where it matters. They do not always come directly from study or work, but they keep me alive to both.</p>
 
       <div class="projects-shell">
-        <a class="project-banner reveal" href="assets/images/projects/one-month-of-freedom-timeline.jpg" target="_blank" rel="noopener">
-          <div class="project-banner-media">
+        <article class="project-banner project-banner-poster reveal" data-poster-reveal>
+          <div class="project-banner-media poster-reveal-frame" style="--poster-window: 340px;">
             <img src="assets/images/projects/one-month-of-freedom-timeline.jpg" alt="One Month of Freedom timeline on the fall of Sheikh Hasina" style="object-position:center top;">
+            <div class="poster-reveal-shadow" aria-hidden="true"></div>
+            <button class="poster-reveal-handle" type="button" aria-label="Drag down to reveal more of the timeline poster" aria-valuemin="280" aria-valuemax="1180" aria-valuenow="340">
+              <span>drag down to reveal poster</span>
+            </button>
           </div>
           <div class="project-banner-content">
             <div>
@@ -166,7 +170,31 @@
                 <span class="project-banner-tag">timeline</span>
                 <span class="project-banner-tag">visual journalism</span>
               </div>
-              <span class="project-banner-cta">Open timeline →</span>
+              <a class="project-banner-cta" href="assets/images/projects/one-month-of-freedom-timeline.jpg" target="_blank" rel="noopener">Open full poster →</a>
+            </div>
+          </div>
+        </article>
+
+        <a class="project-banner reveal" href="project-easeparenting.html">
+          <div class="project-banner-media">
+            <img src="assets/images/projects/easeparenting-dhaka-family.jpeg" alt="A Dhaka family using screens at home">
+          </div>
+          <div class="project-banner-content">
+            <div>
+              <div class="project-banner-top">
+                <span class="project-banner-type">MSJ3252 · Digital Audience · coursework essay</span>
+                <span class="badge done">course project</span>
+              </div>
+              <h2 class="project-banner-title">Easeparenting</h2>
+              <p class="project-banner-brief">A framework essay on how digital convenience, urban pressure, and algorithmic design shape parental decisions around children's screen time.</p>
+            </div>
+            <div class="project-banner-footer">
+              <div class="project-banner-tags">
+                <span class="project-banner-tag">digital audience</span>
+                <span class="project-banner-tag">education</span>
+                <span class="project-banner-tag">algorithmic media</span>
+              </div>
+              <span class="project-banner-cta">Open essay →</span>
             </div>
           </div>
         </a>
@@ -285,5 +313,66 @@
 </footer>
 
 <script src="assets/js/main.js?v=8"></script>
+<script>
+document.querySelectorAll('[data-poster-reveal]').forEach(card => {
+  const frame = card.querySelector('.poster-reveal-frame');
+  const handle = card.querySelector('.poster-reveal-handle');
+  if (!frame || !handle) return;
+
+  const min = 280;
+  const max = 1180;
+  let startY = 0;
+  let startHeight = 340;
+  let dragging = false;
+
+  function setHeight(value) {
+    const next = Math.max(min, Math.min(max, Math.round(value)));
+    frame.style.setProperty('--poster-window', `${next}px`);
+    handle.setAttribute('aria-valuenow', String(next));
+    frame.classList.toggle('is-expanded', next > 760);
+  }
+
+  function pointerMove(event) {
+    if (!dragging) return;
+    event.preventDefault();
+    setHeight(startHeight + (event.clientY - startY));
+  }
+
+  function pointerUp() {
+    dragging = false;
+    document.removeEventListener('pointermove', pointerMove);
+    document.removeEventListener('pointerup', pointerUp);
+  }
+
+  handle.addEventListener('pointerdown', event => {
+    dragging = true;
+    startY = event.clientY;
+    startHeight = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
+    handle.setPointerCapture?.(event.pointerId);
+    document.addEventListener('pointermove', pointerMove);
+    document.addEventListener('pointerup', pointerUp);
+  });
+
+  handle.addEventListener('keydown', event => {
+    const current = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
+    if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      setHeight(current + 48);
+    }
+    if (event.key === 'ArrowUp' || event.key === 'ArrowLeft') {
+      event.preventDefault();
+      setHeight(current - 48);
+    }
+    if (event.key === 'Home') {
+      event.preventDefault();
+      setHeight(min);
+    }
+    if (event.key === 'End') {
+      event.preventDefault();
+      setHeight(max);
+    }
+  });
+});
+</script>
 </body>
 </html>
