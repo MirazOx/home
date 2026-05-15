@@ -1,6 +1,6 @@
 # mirazhossain.com — full site
 
-Static website for Md. Miraz Hossain. Extends the original single-page portfolio into a full seven-page site.
+Static website for Md. Miraz Hossain. The current information architecture keeps the public navigation focused on Research, Academic, Reportage, Interventions, and About, with services, credentials, projects, and the personal "Beyond the work" room tucked into those sections.
 
 ## What's inside
 
@@ -9,18 +9,20 @@ mirazhossain-site/
 ├── index.html            Homepage (matches original design)
 ├── research.html         All research projects
 ├── writing.html          10 selected features + bylines
-├── archive.html          Searchable archive of 219 articles
+├── archive.html          Searchable archive of 220 articles
 ├── academic.html         Coursework and papers
-├── credentials.html      72 certifications, grouped and filterable
-├── services.html         Translation + SOP editing + consulting
-├── about.html            Full bio, experience, references
+├── interventions.html    Trainings, workshops, community work + project shelf
+├── about.html            Bio hub with services, credentials, CV, contact
+├── beyond-the-work.html  Hidden personal room linked from About
+├── credentials.html      Detail page for 74 certifications
+├── services.html         Detailed services sheet linked from About
 ├── assets/
 │   ├── css/style.css     Shared stylesheet
 │   ├── js/partials.js    (optional) shared nav/footer injector
 │   └── images/           
 ├── content/              ← Edit these JSON files to update the site
-│   ├── articles.json     219 published pieces
-│   ├── certificates.json 72 certifications
+│   ├── articles.json     220 published pieces
+│   ├── certificates.json 74 certifications
 │   ├── writing-selected.json  10 featured writings
 │   ├── research.json     Research projects
 │   ├── academic.json     Academic papers
@@ -31,9 +33,6 @@ mirazhossain-site/
 │   ├── team-data-decoder.pdf
 │   └── comm-research-paper.docx
 ```
-
-
-The site references `assets/images/profile.jpg`. Drop your existing profile photo into that folder before uploading — the homepage hero already has a graceful fallback if it's missing, but the site looks better with it.
 
 ## How to update content
 
