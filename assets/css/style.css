@@ -2407,6 +2407,55 @@ a.timeline-item-title:hover {
 }
 .recog-link a:hover { color: var(--accent-amber); }
 
+.credential-glimmer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.credential-glimmer a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 1rem;
+  overflow: hidden;
+  border: 0.5px solid color-mix(in srgb, var(--accent-teal) 46%, var(--border));
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at 15% 20%, color-mix(in srgb, var(--accent-teal) 12%, transparent), transparent 40%),
+    color-mix(in srgb, var(--bg2) 74%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-teal) 10%, transparent),
+    0 12px 28px color-mix(in srgb, var(--accent-teal) 10%, transparent);
+}
+
+.credential-glimmer a::before {
+  content: "";
+  position: absolute;
+  top: -80%;
+  bottom: -80%;
+  width: 34px;
+  left: -42px;
+  transform: rotate(18deg);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.76), transparent);
+  animation: credentialRay 3.2s ease-in-out infinite;
+}
+
+.credential-glimmer a:hover {
+  color: var(--accent-teal);
+  border-color: var(--accent-teal);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent-teal) 24%, transparent),
+    0 18px 34px color-mix(in srgb, var(--accent-teal) 18%, transparent);
+}
+
+@keyframes credentialRay {
+  0%, 28% { left: -42px; opacity: 0; }
+  42% { opacity: 0.9; }
+  66%, 100% { left: calc(100% + 42px); opacity: 0; }
+}
+
 /* Lightbox */
 .lightbox {
   position: fixed;
@@ -2660,6 +2709,88 @@ a.timeline-item-title:hover {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   white-space: nowrap;
+  text-decoration: none;
+}
+
+.project-banner-poster {
+  align-items: start;
+}
+
+.project-banner-poster:hover .project-banner-media img {
+  transform: none;
+}
+
+.poster-reveal-frame {
+  height: var(--poster-window, 340px);
+  min-height: 280px;
+  max-height: 1180px;
+  background: #f6f4ed;
+  transition: height 220ms ease;
+}
+
+.poster-reveal-frame img {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.poster-reveal-shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 116px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.48));
+  pointer-events: none;
+}
+
+.poster-reveal-frame.is-expanded .poster-reveal-shadow {
+  opacity: 0.22;
+}
+
+.poster-reveal-handle {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: min(76%, 360px);
+  min-height: 38px;
+  border: 0.5px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  background: rgba(12, 18, 24, 0.72);
+  color: rgba(255, 255, 255, 0.88);
+  cursor: ns-resize;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.28);
+}
+
+.poster-reveal-handle span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.poster-reveal-handle span::before,
+.poster-reveal-handle span::after {
+  content: "";
+  width: 28px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.poster-reveal-handle:hover,
+.poster-reveal-handle:focus-visible {
+  outline: none;
+  border-color: rgba(45, 212, 191, 0.9);
+  color: #fff;
 }
 
 .project-hero {
