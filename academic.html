@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=16">
+<link rel="stylesheet" href="assets/css/style.css?v=17">
 </head>
 <body data-page="academic">
 
@@ -55,7 +55,13 @@
       <div class="academic-tools" role="search">
         <label class="sr-only" for="academicSearch">Search academic coursework</label>
         <input id="academicSearch" class="academic-search" type="search" placeholder="Search courses, projects, codes, grades...">
-        <div class="academic-filter-row" id="academicFilters" aria-label="Course group filters"></div>
+        <div class="academic-filter-wrap">
+          <button class="academic-filter-toggle" id="academicFilterToggle" type="button" aria-expanded="false" aria-controls="academicFilters">
+            <span>Filter</span>
+            <strong id="academicFilterLabel">All</strong>
+          </button>
+          <div class="academic-filter-menu" id="academicFilters" aria-label="Course group filters" hidden></div>
+        </div>
       </div>
 
       <div class="academic-course-map" id="academic-course-map"></div>
@@ -104,6 +110,11 @@ function escapeHTML(value) {
 let academicGroups = [];
 let activeAcademicFilter = 'all';
 
+function formatAcademicFilterLabel(value) {
+  if (!value || value === 'all') return 'All';
+  return value.replace('General Education ', '').replace('Communication ', 'Comm. ');
+}
+
 function courseSearchText(group, course) {
   return [
     group.category,
@@ -121,15 +132,41 @@ function courseSearchText(group, course) {
 
 function renderAcademicFilters(groups) {
   const host = document.getElementById('academicFilters');
+  const toggle = document.getElementById('academicFilterToggle');
+  const label = document.getElementById('academicFilterLabel');
+
+  function setOpen(isOpen) {
+    host.hidden = !isOpen;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  }
+
+  function syncLabel() {
+    label.textContent = formatAcademicFilterLabel(activeAcademicFilter);
+  }
+
   host.innerHTML = [
     '<button class="academic-filter is-active" type="button" data-filter="all">All</button>',
-    ...groups.map(group => `<button class="academic-filter" type="button" data-filter="${escapeHTML(group.category)}">${escapeHTML(group.category.replace('General Education ', '').replace('Communication ', 'Comm. '))}</button>`)
+    ...groups.map(group => `<button class="academic-filter" type="button" data-filter="${escapeHTML(group.category)}">${escapeHTML(formatAcademicFilterLabel(group.category))}</button>`)
   ].join('');
+  syncLabel();
+
+  if (!host.dataset.ready) {
+    toggle.addEventListener('click', () => setOpen(host.hidden));
+    document.addEventListener('click', event => {
+      if (!event.target.closest('.academic-filter-wrap')) setOpen(false);
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') setOpen(false);
+    });
+    host.dataset.ready = 'true';
+  }
 
   host.querySelectorAll('button').forEach(button => {
     button.addEventListener('click', () => {
       activeAcademicFilter = button.dataset.filter || 'all';
       host.querySelectorAll('button').forEach(btn => btn.classList.toggle('is-active', btn === button));
+      syncLabel();
+      setOpen(false);
       renderCourseMap();
     });
   });
