@@ -4,14 +4,14 @@
 function injectNav(activePage) {
   const nav = `
     <div class="container">
-      <a class="nav-logo" href="index.html">mirazhossain.com</a>
+      <a class="nav-logo" href="/">mirazhossain.com</a>
       <ul class="nav-links">
-        <li><a href="research.html" class="${activePage==='research'?'active':''}">research</a></li>
-        <li><a href="academic.html" class="${activePage==='academic'?'active':''}">academic</a></li>
-        <li><a href="writing.html" class="${activePage==='writing'?'active':''}">reportage</a></li>
-        <li><a href="interventions.html" class="${activePage==='interventions' || activePage==='projects'?'active':''}">interventions</a></li>
-        <li><a href="about.html" class="${activePage==='about'?'active':''}">about</a></li>
-        <li><a href="pdfs/miraz_cv.pdf" target="_blank">cv ↓</a></li>
+        <li><a href="/research/" class="${activePage==='research'?'active':''}">research</a></li>
+        <li><a href="/academic/" class="${activePage==='academic'?'active':''}">academic</a></li>
+        <li><a href="/writing/" class="${activePage==='writing'?'active':''}">reportage</a></li>
+        <li><a href="/interventions/" class="${activePage==='interventions' || activePage==='projects'?'active':''}">interventions</a></li>
+        <li><a href="/about/" class="${activePage==='about'?'active':''}">about</a></li>
+        <li><a href="/pdfs/miraz_cv.pdf" target="_blank">cv ↓</a></li>
       </ul>
     </div>`;
   const navEl = document.querySelector('nav');
@@ -25,7 +25,7 @@ function injectFooter() {
       <div class="footer-links">
         <a href="mailto:miraz8395@gmail.com">email</a>
         <a href="https://linkedin.com/in/miraz-hossain" target="_blank">linkedin</a>
-        <a href="pdfs/miraz_cv.pdf" target="_blank">cv ↓</a>
+        <a href="/pdfs/miraz_cv.pdf" target="_blank">cv ↓</a>
       </div>
     </div>`;
   const footerEl = document.querySelector('footer');

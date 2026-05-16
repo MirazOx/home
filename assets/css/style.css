@@ -4081,7 +4081,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
    HISTORY INTEREST CARD
 ═══════════════════════════════════════════ */
 .interest-card.history-card .interest-photo {
-  background-image: url('assets/images/beyond-literature.jpg');
+  background-image: url('/assets/images/beyond-literature.jpg');
 }
 
 /* ═══════════════════════════════════════════

@@ -7,23 +7,23 @@ case-sensitive on ExonHost's Linux server.
 
   1) BRICK WALL + TOTE BAG (daytime, red brick)
      →  save as:  beyond-community.jpg
-     appears on:  homepage Beyond card + beyond/community.html
+     appears on:  Beyond card + beyond/community/
 
   2) CAFE WITH CAPPUCCINO (interior, warm lights)
      →  save as:  beyond-philosophy.jpg
-     appears on:  homepage Beyond card + beyond/philosophy.html
+     appears on:  Beyond card + beyond/philosophy/
 
   3) MANGROVE / RIVER WITH CAMERA (Sundarbans)
      →  save as:  beyond-photography.jpg
-     appears on:  homepage Beyond card + beyond/photography.html
+     appears on:  Beyond card + beyond/photography/
 
   4) BEACH SILHOUETTE READING AT SUNSET
      →  save as:  beyond-literature.jpg
-     appears on:  homepage Beyond card + beyond/literature.html
+     appears on:  Beyond card + beyond/literature/
 
   5) SOFA PORTRAIT (brown polo, wooden floor)
      →  save as:  about-portrait.jpg
-     appears on:  about.html sidebar
+     appears on:  about/ sidebar
 
 NOTE — if a file is missing, the site gracefully hides
 that photo (no broken image icon) thanks to an onerror handler.

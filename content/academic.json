@@ -30,7 +30,7 @@
           "workTitle": "Easeparenting and Institutional Design",
           "type": "Framework essay",
           "desc": "A Digital Audience essay on screen time, algorithmic convenience, and the structural conditions that make passive media feel like the easy choice.",
-          "projectUrl": "project-easeparenting.html",
+          "projectUrl": "/projects/easeparenting/",
           "linkLabel": "Open essay"
         },
         {
@@ -59,7 +59,7 @@
           "workTitle": "Team Data Decoder",
           "type": "Data journalism project",
           "desc": "A collaborative data-journalism capstone with a reproducible evidence trail.",
-          "file": "pdfs/team-data-decoder.pdf",
+          "file": "/pdfs/team-data-decoder.pdf",
           "fileLabel": "Read project"
         },
         {
@@ -112,7 +112,7 @@
           "workTitle": "Platform Studies and Epistemic Equity",
           "type": "Literature review",
           "desc": "A literature-review project connecting platform power and Global South knowledge production.",
-          "file": "pdfs/comm-research-paper.docx",
+          "file": "/pdfs/comm-research-paper.docx",
           "fileLabel": "Read paper"
         },
         {
@@ -195,7 +195,7 @@
         { "code": "SSC2103", "name": "Introduction to Anthropology", "tier": "Social Sciences", "session": "Spring 2025", "grade": "A+", "workTitle": "Everyday Culture Field Notes", "type": "Field notes", "desc": "A slot for observing culture, identity, and everyday life." },
         { "code": "SSC2150", "name": "Seminar on Grassroots Economic Development", "tier": "Social Sciences", "session": "Fall 2024", "grade": "A+", "workTitle": "Grassroots Economic Development Field Notes", "type": "Field essay", "desc": "Community-economy coursework on scarcity, local institutions, and development practice." },
         { "code": "SSC2252", "name": "Living with Conflict", "tier": "Social Sciences", "session": "Summer 2025", "grade": "A", "workTitle": "Conflict, Rumour, and Everyday Survival", "type": "Analytical essay", "desc": "A slot for conflict, civic life, and survival under pressure." },
-        { "code": "SSC1102", "name": "Methods of Social Research", "tier": "Social Sciences", "session": "Spring 2026", "grade": "A", "workTitle": "Algorithmic News Feeds and Misinformation Susceptibility", "type": "Research proposal", "desc": "A mixed-methods proposal on algorithmic exposure and misinformation vulnerability.", "file": "pdfs/midterm-project.pdf", "fileLabel": "Read proposal" },
+        { "code": "SSC1102", "name": "Methods of Social Research", "tier": "Social Sciences", "session": "Spring 2026", "grade": "A", "workTitle": "Algorithmic News Feeds and Misinformation Susceptibility", "type": "Research proposal", "desc": "A mixed-methods proposal on algorithmic exposure and misinformation vulnerability.", "file": "/pdfs/midterm-project.pdf", "fileLabel": "Read proposal" },
         { "code": "NSC2203", "name": "Environmental Science", "tier": "Natural Sciences", "session": "Spring 2026", "grade": "A+", "workTitle": "Environmental Risk Explainer", "type": "Science communication", "desc": "A slot for translating environmental risk into public language." },
         { "code": "NSC2202", "name": "Biodiversity and Nature Conservation", "tier": "Natural Sciences", "session": "Summer 2025", "grade": "A+", "workTitle": "Biodiversity, Risk, and Public Communication", "type": "Science notes", "desc": "A slot for conservation, ecology, and public knowledge." },
         { "code": "NSC4102", "name": "Mathematics", "tier": "Natural Sciences", "session": "Summer 2026", "grade": "In progress", "workTitle": "Mathematics Notebook", "type": "Quantitative notes", "desc": "A slot for mathematical foundations behind data and modelling." },

@@ -3,6 +3,16 @@
    Theme toggle · reveal animations · rotating tags · lightbox
    ========================================================== */
 
+// ---------- HTTPS GUARD ----------
+(function enforceCanonicalHttps() {
+  const secureHosts = new Set(['mirazhossain.com', 'www.mirazhossain.com']);
+  const host = window.location.hostname;
+
+  if (window.location.protocol === 'http:' && secureHosts.has(host)) {
+    window.location.replace(`https://${host}${window.location.pathname}${window.location.search}${window.location.hash}`);
+  }
+})();
+
 // ---------- THEME ----------
 (function initTheme() {
   const saved = localStorage.getItem('miraz-theme');
@@ -65,18 +75,18 @@ function initModernNav() {
     });
   }
 
-  const current = window.location.pathname.split('/').pop() || 'index.html';
+  const current = window.location.pathname.replace(/\/index\.html$/, '/');
   const bodyPage = document.body && document.body.dataset ? document.body.dataset.page : '';
   const pageAliases = {
-    academic: 'academic.html',
-    projects: 'interventions.html',
-    interventions: 'interventions.html',
-    services: 'about.html',
-    credentials: 'about.html',
-    about: 'about.html',
-    beyond: 'about.html',
-    research: 'research.html',
-    writing: 'writing.html'
+    academic: '/academic/',
+    projects: '/interventions/',
+    interventions: '/interventions/',
+    services: '/services/',
+    credentials: '/credentials/',
+    about: '/about/',
+    beyond: '/beyond/',
+    research: '/research/',
+    writing: '/writing/'
   };
   const navLinks = document.querySelectorAll('.nav-main a, .nav-dropdown a');
   let matched = false;
@@ -84,7 +94,7 @@ function initModernNav() {
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
 
-    if (href === current || (current === '' && href === 'index.html')) {
+    if (href === current || (current === '' && href === '/')) {
       link.classList.add('is-active');
       matched = true;
     }
@@ -94,7 +104,7 @@ function initModernNav() {
     const alias = pageAliases[bodyPage];
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === alias || href === `../${alias}`) {
+      if (href === alias) {
         link.classList.add('is-active');
       }
     });
@@ -203,7 +213,7 @@ function initRotatingTags() {
     setTimeout(() => {
       current.classList.remove('is-leaving');
     }, 700);
-  }, 3600);
+  }, 1500);
 }
 
 // ---------- LIGHTBOX ----------
