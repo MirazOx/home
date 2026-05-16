@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<title>Reportage — Md. Miraz Hossain</title>
+<meta name="description" content="Selected reportage, investigations, and long-form features by Md. Miraz Hossain across The Business Standard and Netra News.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css?v=13">
+</head>
+<body data-page="writing">
+
+<nav class="nav-modern" id="siteNav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <a href="/" class="nav-home" aria-label="Home">
+        <span class="nav-home-icon">M</span>
+      </a>
+    </div>
+    <div class="nav-main">
+      <a href="/research/">Research</a>
+      <a href="/academic/">Academic</a>
+      <a href="/writing/">Reportage</a>
+      <a href="/interventions/">Interventions</a>
+      <a href="/about/">About</a>
+    </div>
+    <div class="nav-actions">
+      <button id="themeToggle" class="nav-theme-toggle" aria-label="Toggle dark mode">
+        <span class="toggle-track">
+          <span class="toggle-thumb">
+            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="container-wide">
+    <section class="page-header writing-hero-header compact-page-header">
+      <p class="page-eyebrow">Reportage · 220 pieces published</p>
+      <h1 class="page-title">Selected <em>works</em></h1>
+    </section>
+
+    <section class="july-movement-callout reveal">
+      <div>
+        <p class="july-kicker">Focused collection</p>
+        <h2>July Movement coverage</h2>
+        <p>In 2024, I covered Bangladesh's July Movement and its aftermath — the student-led uprising that led to the fall of Sheikh Hasina. This collection gathers the field reports, misinformation checks, post-uprising politics, accountability stories, and Netra investigations/interactives connected to that moment.</p>
+        <p style="margin-top:0.6rem;font-size:13px;color:var(--text3);">Reporting through those weeks came at a cost: on 4 August I was attacked while filing for TBS &mdash; named in a <a href="https://cpj.org/2024/08/cpj-urges-bangladesh-to-protect-journalists-as-protests-oust-pm/" target="_blank" rel="noopener">Committee to Protect Journalists alert</a> the next day and the subject of a longer <a href="https://www.tbsnews.net/features/panorama/journalists-under-attack-all-fronts-909996" target="_blank" rel="noopener">TBS Panorama feature</a>.</p>
+      </div>
+      <a href="/archive/?theme=July%20Movement" class="hero-cta">browse July Movement pieces →</a>
+    </section>
+
+    <section class="selected-writing-showcase" id="selected-writing" aria-live="polite"></section>
+
+    <div class="cta-box writing-archive-cta">
+      <h3>Looking for something specific?</h3>
+      <p>Search the full archive of 220 pieces by title, outlet, year, or theme.</p>
+      <a href="/archive/" class="hero-cta">browse full archive →</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="container-wide">
+    <p class="footer-text">© 2026 Md. Miraz Hossain · Dhaka, Bangladesh</p>
+    <div class="footer-links">
+      <a href="mailto:miraz8395@gmail.com">email</a>
+      <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener">linkedin</a>
+      <a href="https://x.com/Miraz8395" target="_blank" rel="noopener">x</a>
+      <a href="https://signal.me/#eu/ylklb4x-Gx18h3DzQjtP-vHmFn4lwtTe9dqiCG3wpY0onLpReQBBxoRr0dsrwCoA" target="_blank" rel="noopener">signal</a>
+    </div>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js?v=8"></script>
+<script>
+const selectedWritingEl = document.getElementById('selected-writing');
+
+function escapeHTML(value) {
+  return String(value || '').replace(/[&<>"']/g, ch => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  }[ch]));
+}
+
+function renderSelectedWriting(items) {
+  selectedWritingEl.innerHTML = items.map((item, index) => {
+    const style = item.imagePosition ? ` style="--article-image-position:${escapeHTML(item.imagePosition)}"` : '';
+    const imageClass = item.image ? ' has-image' : '';
+    const image = item.image ? `<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.imageAlt || item.title)}" loading="lazy">` : '';
+    const num = String(index + 1).padStart(2, '0');
+
+    return `
+      <article class="selected-article-card reveal">
+        <a href="${escapeHTML(item.link)}" target="_blank" rel="noopener">
+          <figure class="selected-article-media${imageClass}"${style}>
+            ${image}
+            <span class="media-slot-index">${num}</span>
+            <span class="media-slot-label">image slot</span>
+          </figure>
+          <div class="selected-article-copy">
+            <p class="selected-article-meta">${escapeHTML(item.category)} · ${escapeHTML(item.outlet)} · ${escapeHTML(item.date)}</p>
+            <h2>${escapeHTML(item.title)}</h2>
+            <p>${escapeHTML(item.blurb)}</p>
+            <span class="selected-article-link">read piece ↗</span>
+          </div>
+        </a>
+      </article>
+    `;
+  }).join('');
+
+  if (window.__reInitReveal) window.__reInitReveal();
+}
+
+fetch('/content/writing-selected.json?v=3')
+  .then(response => {
+    if (!response.ok) throw new Error('Could not load selected writing');
+    return response.json();
+  })
+  .then(renderSelectedWriting)
+  .catch(() => {
+    selectedWritingEl.innerHTML = '<p class="result-count">Selected writing loads when the site is served over HTTP.</p>';
+  });
+</script>
+
+</body>
+</html>
