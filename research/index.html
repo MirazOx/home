@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("miraz-theme") || "dark");</script>
 <title>Algorithm and Education — Md. Miraz Hossain</title>
 <meta name="description" content="Research projects by Md. Miraz Hossain on algorithmic media, misinformation, AI-assisted writing, and epistemic development in Bangladesh.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=13">
+<link rel="stylesheet" href="/assets/css/style.css?v=19">
 </head>
 <body data-page="research">
 <nav class="nav-modern" id="siteNav">
@@ -62,16 +63,32 @@
     <section class="reveal">
       <div class="section-header">
         <h2 class="section-title">Current research</h2>
-        <span class="section-meta">active + planned</span>
+        <span class="section-meta">active proposals</span>
       </div>
       <div id="research-list" class="research-visual-grid"></div>
     </section>
 
-    <div class="cta-box reveal">
-      <h3>Interested in collaborating?</h3>
-      <p>Open to co-authorship, platform audits, and supervised research assistantships.</p>
-      <a href="mailto:miraz8395@gmail.com" class="hero-cta">get in touch</a>
-    </div>
+    <section class="mini-research-section reveal" aria-labelledby="mini-research-title">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="mini-research-title">Mini Research &amp; Essays</h2>
+          <p class="section-note">Short analytical essays, interview-led notes, small-sample work, and quick research that needs a home before it becomes a full project.</p>
+        </div>
+        <span class="section-meta">notes + essays</span>
+      </div>
+      <a class="mini-research-card" href="/research/bangladesh-anti-lgbtq-education-problem/">
+        <figure class="mini-research-media">
+          <img src="/assets/images/research/anti-lgbtq-education-problem.png" alt="Illustration of students facing mob harassment near a university area in Dhaka" loading="lazy">
+        </figure>
+        <div class="mini-research-copy">
+          <p class="research-type">Analytical essay · education policy · 18 May 2026</p>
+          <h3>Bangladesh's anti-LGBTQ frenzy is an education problem</h3>
+          <p>A source-linked essay on Shahbagh, the removal of Sharifa's Story, and how curricular erasure becomes public dehumanisation.</p>
+          <span class="research-file-link">read the essay</span>
+        </div>
+      </a>
+    </section>
+
   </div>
 </main>
 
@@ -92,58 +109,34 @@
     "slug": "writing-without-writing",
     "status": "in-progress",
     "year": "2026",
-    "type": "Mixed methods · ULAB",
+    "type": "Mixed methods · ULAB CLS",
     "title": "Writing Without Writing",
-    "deck": "Generative AI substitution, performance gaps, and epistemic foreclosure among Bangladeshi undergraduates.",
-    "desc": "A proposed 200–250 student study comparing AI-assisted submissions with no-tech in-class diagnostics, supported by surveys, interviews, and NLP-based artefact analysis.",
-    "tags": ["generative AI", "academic writing", "NLP", "higher education", "Bangladesh"],
-    "supervisor": "Mohammad Shazzad Hossain, PhD",
-    "methods": "No-tech diagnostics, MATTR, syntactic complexity, interviews",
+    "deck": "Generative AI substitution, the performance gap, and the foreclosure of epistemic development among Bangladeshi undergraduates.",
+    "desc": "A pre-registered within-semester study with 200–250 ULAB undergraduates, comparing no-tech in-class diagnostics, no-AI take-home writing, AI-assisted writing, survey data, and follow-up interviews to ask what students can still produce independently once AI enters the writing process.",
+    "tags": ["generative AI", "academic writing", "epistemic development", "higher education", "Bangladesh"],
+    "supervisor": "Iram Mehrin, Senior Lecturer, CLS",
+    "methods": "No-tech diagnostics, AI/no-AI writing conditions, lexical-syntactic-argumentative analysis, interviews",
     "image": "/assets/images/research/writing-without-writing.png",
-    "file": "/pdfs/writing-without-writing-research-proposal.docx",
-    "fileLabel": "proposal draft"
+    "file": "/pdfs/writing-without-writing-v6.pdf",
+    "fileLabel": "latest proposal"
   },
   {
     "slug": "algorithmic-news-feeds",
     "status": "in-progress",
     "year": "2026",
-    "type": "Mixed methods · ULAB, Dhaka",
+    "type": "Mixed methods · six Dhaka universities",
     "title": "Algorithmic News Feeds and Misinformation Susceptibility",
-    "deck": "How curated feeds shape what young urban news consumers trust, doubt, and share.",
-    "desc": "A sequential explanatory study using survey and interview data to examine algorithmic exposure, epistemic vulnerability, and media-literacy behaviour among university students.",
-    "tags": ["platform studies", "media literacy", "Bangladesh", "misinformation"],
+    "deck": "How algorithmically ranked feeds shape what young urban news consumers trust, doubt, and share.",
+    "desc": "A pre-registered cross-sectional mixed-methods study recruiting 300–360 students across six Dhaka universities, measuring Facebook, TikTok, and AI-mediated news exposure against misinformation discernment, share intent, media-literacy training, and socioeconomic controls.",
+    "tags": ["platform studies", "media literacy", "MIST-20", "misinformation", "Dhaka"],
     "supervisor": "Andalib Rubayat (ULAB)",
-    "methods": "Survey instruments, qualitative interviews, Python data handling",
-    "image": "/assets/images/writing/chalaiden-misinformation.jpg"
-  },
-  {
-    "slug": "saalwatch",
-    "status": "planned",
-    "year": "2026",
-    "type": "Platform audit · Independent",
-    "title": "SAALWatch",
-    "deck": "A lightweight audit method for South Asian algorithmic literacy work.",
-    "desc": "A pilot framework for newsrooms: one event, one platform, scraped evidence, manual coding, and replication-ready notebooks.",
-    "tags": ["platform audit", "OSINT", "open methods", "South Asia"],
-    "supervisor": "Self-directed",
-    "methods": "Web scraping, content analysis, reproducible notebooks",
-    "image": "/assets/images/writing/bangladesh-digital-economy.jpg"
-  },
-  {
-    "slug": "thesis-2027",
-    "status": "planned",
-    "year": "2027",
-    "type": "Undergraduate thesis · ULAB",
-    "title": "Algorithms, media literacy and education in Bangladesh",
-    "deck": "A policy-facing argument for teaching algorithmic literacy before the next crisis.",
-    "desc": "A final-year thesis track extending the pilot work into curriculum design, education policy, and institutional responses to platform-shaped public knowledge.",
-    "tags": ["education policy", "curriculum", "algorithmic literacy"],
-    "supervisor": "TBC",
-    "methods": "Document analysis, stakeholder interviews, policy review",
-    "image": "/assets/images/research/algorithm-misinformation-bangladesh.jpeg"
+    "methods": "MIST-20, adapted AOT, Bangladesh headline task, share-intent ratings, 18 interviews",
+    "image": "/assets/images/research/algorithm-misinformation-bangladesh.jpeg",
+    "file": "/pdfs/algorithmic-news-feeds-misinformation-susceptibility-v10.pdf",
+    "fileLabel": "latest proposal"
   }
 ]</script>
-<script src="/assets/js/main.js?v=8"></script>
+<script src="/assets/js/main.js?v=9"></script>
 <script>
 function escapeHTML(value) {
   return String(value || '').replace(/[&<>"']/g, ch => ({
