@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=19">
+<link rel="stylesheet" href="/assets/css/style.css?v=25">
 </head>
 <body data-page="interventions">
 <nav class="nav-modern" id="siteNav">
@@ -59,12 +59,12 @@
         <span>Core intervention tracks</span>
       </div>
       <div class="projects-key-stat">
-        <strong>300+</strong>
-        <span>Journalists trained</span>
+        <strong>200+</strong>
+        <span>OSINT/digital verification training</span>
       </div>
       <div class="projects-key-stat">
-        <strong>100s</strong>
-        <span>Students facilitated</span>
+        <strong>100+</strong>
+        <span>Students counselled</span>
       </div>
     </section>
 
@@ -73,7 +73,7 @@
         <div class="intervention-focus-copy">
           <p class="intervention-focus-kicker">ForensIQ · digital investigations</p>
           <h2>Verification training, from evidence to method</h2>
-          <p>As Head of Digital Investigations at ForensIQ, I train students and journalists in OSINT, source tracing, visual verification, and misinformation analysis &mdash; building habits of evidence in a newsroom culture that increasingly runs on speed.</p>
+          <p>As Director at ForensIQ, after serving as Head of Digital Investigations from May 2025 to May 2026, I train journalism students and practitioners in OSINT, source tracing, visual verification, and misinformation analysis &mdash; building habits of evidence in a media culture that increasingly runs on speed.</p>
         </div>
         <div class="intervention-focus-media is-single">
           <img src="/assets/images/interventions/forensiq-training.jpg" alt="Miraz leading a classroom training session at ForensIQ">
@@ -118,7 +118,7 @@
 
       <article class="intervention-focus-card">
         <div class="intervention-focus-copy">
-          <p class="intervention-focus-kicker">Centre for Language Studies · ULAB · 2025&ndash;26</p>
+          <p class="intervention-focus-kicker">Centre for Language Studies · ULAB · May 2025&ndash;May 2026</p>
           <h2>Instructor, Academic English</h2>
           <p>Across three semesters, I taught Academic English to six sections at ULAB&rsquo;s Centre for Language Studies. The role is an instructor role, not a faculty appointment, but the work is the same in spirit: building structure, rhetorical clarity, and the long, patient correction of fossilized errors.</p>
         </div>
@@ -153,8 +153,8 @@
           <div class="project-banner-media poster-reveal-frame" style="--poster-window: 340px;">
             <img src="/assets/images/projects/one-month-of-freedom-timeline.jpg" alt="One Month of Freedom timeline on the fall of Sheikh Hasina" style="object-position:center top;">
             <div class="poster-reveal-shadow" aria-hidden="true"></div>
-            <button class="poster-reveal-handle" type="button" aria-label="Drag down to reveal more of the timeline poster" aria-valuemin="280" aria-valuemax="1180" aria-valuenow="340">
-              <span>drag down to reveal poster</span>
+            <button class="poster-reveal-handle" type="button" aria-label="Drag or tap to reveal more of the timeline poster" aria-valuemin="280" aria-valuemax="1180" aria-valuenow="340">
+              <span>drag / tap to reveal poster</span>
             </button>
           </div>
           <div class="project-banner-content">
@@ -319,43 +319,123 @@
 document.querySelectorAll('[data-poster-reveal]').forEach(card => {
   const frame = card.querySelector('.poster-reveal-frame');
   const handle = card.querySelector('.poster-reveal-handle');
+  const image = frame?.querySelector('img');
   if (!frame || !handle) return;
 
   const min = 280;
-  const max = 1180;
+  const fallbackMax = 1180;
+  let max = fallbackMax;
   let startY = 0;
   let startHeight = 340;
   let dragging = false;
+  let moved = false;
+  let skipNextClick = false;
+
+  function syncMaxHeight() {
+    if (!image || !image.naturalWidth || !image.naturalHeight) {
+      max = fallbackMax;
+      return;
+    }
+    const renderedPosterHeight = image.naturalHeight * (frame.clientWidth / image.naturalWidth);
+    max = Math.max(min, Math.min(fallbackMax, Math.floor(renderedPosterHeight)));
+    handle.setAttribute('aria-valuemax', String(max));
+    const current = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
+    if (current > max) setHeight(max);
+  }
 
   function setHeight(value) {
     const next = Math.max(min, Math.min(max, Math.round(value)));
     frame.style.setProperty('--poster-window', `${next}px`);
     handle.setAttribute('aria-valuenow', String(next));
-    frame.classList.toggle('is-expanded', next > 760);
+    frame.classList.toggle('is-expanded', next > Math.min(760, max - 80));
   }
 
   function pointerMove(event) {
     if (!dragging) return;
-    event.preventDefault();
+    if (event.cancelable) event.preventDefault();
+    moved = moved || Math.abs(event.clientY - startY) > 8;
     setHeight(startHeight + (event.clientY - startY));
   }
 
   function pointerUp() {
+    if (dragging && !moved) {
+      togglePoster();
+      skipNextClick = true;
+    }
     dragging = false;
+    frame.classList.remove('is-dragging');
     document.removeEventListener('pointermove', pointerMove);
     document.removeEventListener('pointerup', pointerUp);
   }
 
+  function touchMove(event) {
+    if (!dragging || !event.touches.length) return;
+    event.preventDefault();
+    const nextY = event.touches[0].clientY;
+    moved = moved || Math.abs(nextY - startY) > 8;
+    setHeight(startHeight + (nextY - startY));
+  }
+
+  function touchEnd() {
+    if (dragging && !moved) {
+      togglePoster();
+      skipNextClick = true;
+    }
+    dragging = false;
+    frame.classList.remove('is-dragging');
+    document.removeEventListener('touchmove', touchMove);
+    document.removeEventListener('touchend', touchEnd);
+    document.removeEventListener('touchcancel', touchEnd);
+  }
+
+  function togglePoster() {
+    const current = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
+    setHeight(current > min + 120 ? min : max);
+  }
+
   handle.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'touch') return;
+    syncMaxHeight();
     dragging = true;
+    moved = false;
     startY = event.clientY;
     startHeight = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
+    frame.classList.add('is-dragging');
     handle.setPointerCapture?.(event.pointerId);
     document.addEventListener('pointermove', pointerMove);
     document.addEventListener('pointerup', pointerUp);
   });
 
+  handle.addEventListener('touchstart', event => {
+    if (!event.touches.length) return;
+    syncMaxHeight();
+    dragging = true;
+    moved = false;
+    startY = event.touches[0].clientY;
+    startHeight = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
+    frame.classList.add('is-dragging');
+    document.addEventListener('touchmove', touchMove, { passive: false });
+    document.addEventListener('touchend', touchEnd);
+    document.addEventListener('touchcancel', touchEnd);
+  }, { passive: true });
+
+  handle.addEventListener('click', event => {
+    if (skipNextClick) {
+      skipNextClick = false;
+      return;
+    }
+    if (moved) return;
+    event.preventDefault();
+    syncMaxHeight();
+    togglePoster();
+  });
+
+  image?.addEventListener('load', syncMaxHeight, { once: true });
+  window.addEventListener('resize', syncMaxHeight);
+  syncMaxHeight();
+
   handle.addEventListener('keydown', event => {
+    syncMaxHeight();
     const current = parseFloat(getComputedStyle(frame).getPropertyValue('--poster-window')) || 340;
     if (event.key === 'ArrowDown' || event.key === 'ArrowRight') {
       event.preventDefault();

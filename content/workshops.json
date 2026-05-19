@@ -14,9 +14,9 @@
     "sortKey": "2026-04",
     "format": "Open series",
     "title": "OSINT fundamentals for newsrooms",
-    "audience": "Working journalists & fact-checkers",
+    "audience": "Journalism students, practitioners & fact-checkers",
     "location": "Dhaka · Khulna · Chattogram",
-    "note": "Six-part modular workshop covering reverse image search, geolocation, whois/DNS reconnaissance, social-media provenance, archive.today workflows, and source-chain documentation. 300+ participants trained to date.",
+    "note": "Six-part modular workshop covering reverse image search, geolocation, whois/DNS reconnaissance, social-media provenance, archive.today workflows, and source-chain documentation. 200+ participants trained to date.",
     "topics": ["OSINT", "verification", "geolocation", "provenance"]
   },
   {
@@ -60,13 +60,13 @@
     "topics": ["rumour", "misinformation", "case study"]
   },
   {
-    "date": "2024–present",
+    "date": "May 2025–May 2026",
     "sortKey": "2024-09",
     "format": "Monthly",
     "title": "Academic English for journalism students",
     "audience": "ULAB Centre for Language Studies",
     "location": "ULAB · Dhaka",
-    "note": "Ongoing teaching module on academic writing, fossilized-error correction, and argumentative structure for undergraduates in journalism tracks.",
+    "note": "Taught academic writing, fossilized-error correction, and argumentative structure for undergraduates in journalism tracks.",
     "topics": ["academic writing", "teaching", "rhetoric"]
   }
 ]
