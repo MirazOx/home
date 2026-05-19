@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("miraz-theme") || "dark");</script>
 <title>Md. Miraz Hossain — Researcher & Journalist</title>
 <meta name="description" content="Journalist turned researcher studying how algorithms reshape truth and public knowledge in South Asia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=17">
+<link rel="stylesheet" href="/assets/css/style.css?v=19">
 </head>
 <body data-page="home">
 
@@ -72,6 +73,11 @@
         <p class="hero-tagline"><a href="/research/">Researcher</a> · <a href="/writing/">Journalist</a> · <a href="/interventions/">Educator</a></p>
         <p class="hero-bio-new hero-statement">I study how algorithms reshape truth, trust, and public knowledge — with a focus on South Asia's digital information ecosystems. And I intervene.</p>
 
+        <div class="hero-action-row">
+          <a href="/writing/" class="hero-cta">read selected work</a>
+          <a href="/services/" class="hero-cta hero-cta-secondary">hire me</a>
+        </div>
+
         <div class="rotating-tag-wrap">
           <span class="rotating-tag-label">I work on →</span>
           <div class="rotating-tag-box">
@@ -82,11 +88,6 @@
             <div class="rotating-tag-item">platform accountability</div>
             <div class="rotating-tag-item">media literacy</div>
           </div>
-        </div>
-
-        <div class="hero-action-row">
-          <a href="/writing/" class="hero-cta">read selected work</a>
-          <a href="/services/" class="hero-cta hero-cta-secondary">hire me</a>
         </div>
       </div>
     </div>
@@ -100,13 +101,10 @@
         <div class="currently-box">
           <p class="box-label"><span class="dot"></span>Currently doing</p>
           <p class="box-title">BSS in Media Studies and Journalism — 9th Semester</p>
-            <p class="box-sub"><em>Major: Digital Journalism; Minor: Computer Science </em></p>
-          <p class="box-sub"><em>Taking this semester:</em> Public Health &amp; Epidemiology · Mathematics</p>
         </div>
         <div class="learning-box">
           <p class="box-label"><span class="dot"></span>Currently learning</p>
           <p class="box-title">Python &amp; NetworkX</p>
-          <p class="box-sub">90-day practice marathon — building graph analysis for media-citation networks</p>
         </div>
       </div>
 
@@ -232,7 +230,11 @@
         </article>
       </div>
 
-      <div class="recog-more">
+      <div class="section-action-row recog-drawer-toggle">
+        <button class="toggle-more-btn" type="button" data-toggle="recognition" aria-expanded="false">see more recognition ↓</button>
+      </div>
+
+      <div class="recog-more" hidden data-recognition-extra>
         <p class="recog-more-label">Also recognised</p>
         <ul class="recog-more-list">
           <li><span class="recog-more-year">2026</span> <span class="recog-more-item">Wrote the English interpretive labels for the <a href="https://july36.gov.bd/" target="_blank" rel="noopener">July Mass Uprising Memorial Museum</a>, contributing exhibition text for Bangladesh&rsquo;s Ministry of Cultural Affairs</span></li>
@@ -254,38 +256,73 @@
       </div>
       <ul class="timeline">
         <li class="timeline-item is-upcoming is-featured">
-          <div class="timeline-chipline">
-            <span class="timeline-chip">current</span>
-            <span class="timeline-chip">fact-checking</span>
-            <span class="timeline-chip">research support</span>
+          <div class="timeline-head">
+            <div>
+              <div class="timeline-chipline">
+                <span class="timeline-chip">current</span>
+                <span class="timeline-chip">fact-checking</span>
+                <span class="timeline-chip">research support</span>
+              </div>
+              <p class="timeline-item-date">May 2026 – Present <span class="tl-chip">new</span></p>
+              <a class="timeline-item-title" href="https://www.fact-watch.org/" target="_blank" rel="noopener">Research Assistant</a>
+              <p class="timeline-item-sub"><a href="https://www.fact-watch.org/" target="_blank" rel="noopener">FactWatch</a> · ULAB's fact-checking initiative</p>
+            </div>
+            <a class="timeline-logo" href="https://www.fact-watch.org/" target="_blank" rel="noopener" aria-label="FactWatch">
+              <img src="/assets/images/workplaces/factwatch-logo.png" alt="FactWatch logo">
+            </a>
           </div>
-          <p class="timeline-item-date">May 2026 – Present <span class="tl-chip">new</span></p>
-          <a class="timeline-item-title" href="https://www.fact-watch.org/" target="_blank" rel="noopener">Research Assistant</a>
-          <p class="timeline-item-sub"><a href="https://www.fact-watch.org/" target="_blank" rel="noopener">FactWatch</a> · ULAB's fact-checking initiative</p>
           <p class="timeline-item-desc">Supporting Bangladesh's pioneering fact-checking organisation with misinformation tracking, rumour-cascade analysis, verification workflows, and research-facing documentation around the Bangla-language information ecosystem.</p>
         </li>
         <li class="timeline-item is-inline-card" hidden data-work-extra>
-          <p class="timeline-item-date">Dec 2024 – Nov 2025</p>
-          <a class="timeline-item-title" href="https://netra.news/authors/miraz/" target="_blank" rel="noopener">Staff Correspondent</a>
-          <p class="timeline-item-sub"><a href="https://netra.news/authors/miraz/" target="_blank" rel="noopener">Netra News</a> · Sweden-based</p>
+          <div class="timeline-head">
+            <div>
+              <p class="timeline-item-date">Dec 2024 – Nov 2025</p>
+              <a class="timeline-item-title" href="https://netra.news/authors/miraz/" target="_blank" rel="noopener">Staff Correspondent</a>
+              <p class="timeline-item-sub"><a href="https://netra.news/authors/miraz/" target="_blank" rel="noopener">Netra News</a> · Sweden-based</p>
+            </div>
+            <a class="timeline-logo is-wide" href="https://netra.news/authors/miraz/" target="_blank" rel="noopener" aria-label="Netra News">
+              <img src="/assets/images/workplaces/netra-logo.jpg" alt="Netra News logo">
+            </a>
+          </div>
           <p class="timeline-item-desc">Investigated political corruption, military misconduct, and governance failures using OSINT, cross-source verification, and accountability reporting techniques. <a href="/archive/?outlet=Netra%20News">Browse Netra pieces</a>.</p>
         </li>
         <li class="timeline-item is-inline-card" hidden data-work-extra>
-          <p class="timeline-item-date">Sep 2022 – Nov 2024; Jan 2026 – Present</p>
-          <a class="timeline-item-title" href="https://www.tbsnews.net/author/md-miraz-hossain" target="_blank" rel="noopener">Staff Feature Writer</a>
-          <p class="timeline-item-sub"><a href="https://www.tbsnews.net/author/md-miraz-hossain" target="_blank" rel="noopener">The Business Standard</a> · Dhaka</p>
+          <div class="timeline-head">
+            <div>
+              <p class="timeline-item-date">Sep 2022 – Nov 2024; Jan 2026 – Present</p>
+              <a class="timeline-item-title" href="https://www.tbsnews.net/author/md-miraz-hossain" target="_blank" rel="noopener">Staff Feature Writer</a>
+              <p class="timeline-item-sub"><a href="https://www.tbsnews.net/author/md-miraz-hossain" target="_blank" rel="noopener">The Business Standard</a> · Dhaka</p>
+            </div>
+            <a class="timeline-logo" href="https://www.tbsnews.net/author/md-miraz-hossain" target="_blank" rel="noopener" aria-label="The Business Standard">
+              <img src="/assets/images/workplaces/tbs-logo.webp" alt="The Business Standard logo">
+            </a>
+          </div>
           <p class="timeline-item-desc">Published 200+ in-depth features on governance, digital rights, technology, and freedom of expression. Also sub-edited 50+ stories and was named among <em>TBS Best Profiles 2022</em>. <a href="/archive/?outlet=The%20Business%20Standard">Browse TBS archive</a>.</p>
         </li>
         <li class="timeline-item is-inline-card" hidden data-work-extra>
-          <p class="timeline-item-date">May 2025 – Present</p>
-          <a class="timeline-item-title" href="https://www.facebook.com/forensiqulab" target="_blank" rel="noopener">Head of Investigations</a>
-          <p class="timeline-item-sub"><a href="https://www.facebook.com/forensiqulab" target="_blank" rel="noopener">ForensIQ</a> · ULAB</p>
+          <div class="timeline-head">
+            <div>
+              <p class="timeline-item-date">May 2025 – Present</p>
+              <a class="timeline-item-title" href="https://www.facebook.com/forensiqulab" target="_blank" rel="noopener">Head of Investigations</a>
+              <p class="timeline-item-sub"><a href="https://www.facebook.com/forensiqulab" target="_blank" rel="noopener">ForensIQ</a> · ULAB</p>
+            </div>
+            <a class="timeline-logo is-wide" href="https://www.facebook.com/forensiqulab" target="_blank" rel="noopener" aria-label="ForensIQ">
+              <img src="/assets/images/workplaces/forensiq-logo.jpg" alt="ForensIQ logo">
+            </a>
+          </div>
           <p class="timeline-item-desc">Leading misinformation and propaganda investigations, training journalists in OSINT and verification, and building public-interest methods around digital evidence.</p>
         </li>
         <li class="timeline-item is-inline-card" hidden data-work-extra>
-          <p class="timeline-item-date">May 2025 – Present</p>
-          <a class="timeline-item-title" href="https://ulab.edu.bd/" target="_blank" rel="noopener">Instructor, Academic English</a>
-          <p class="timeline-item-sub">Centre for Language Studies · <a href="https://ulab.edu.bd/" target="_blank" rel="noopener">ULAB</a></p>
+          <div class="timeline-head">
+            <div>
+              <p class="timeline-item-date">May 2025 – Present</p>
+              <a class="timeline-item-title" href="https://ulab.edu.bd/" target="_blank" rel="noopener">Instructor, Academic English</a>
+              <p class="timeline-item-sub">Centre for Language Studies · <a href="https://ulab.edu.bd/" target="_blank" rel="noopener">ULAB</a></p>
+            </div>
+            <a class="timeline-logo" href="https://ulab.edu.bd/" target="_blank" rel="noopener" aria-label="ULAB">
+              <img src="/assets/images/workplaces/ulab-logo.jpg" alt="ULAB logo">
+            </a>
+          </div>
           <p class="timeline-item-desc">Teaching undergraduate academic writing, rhetorical structure, critical communication, and fossilized-error correction across multiple cohorts.</p>
         </li>
         <li class="timeline-item is-inline-card" hidden data-work-extra>
@@ -441,15 +478,17 @@
   </div>
 </footer>
 
-<script src="/assets/js/main.js?v=8"></script>
+<script src="/assets/js/main.js?v=9"></script>
 <script>
 // Fan gallery
 document.addEventListener('DOMContentLoaded', () => {
   const fan = document.getElementById('awardFan');
   if (fan) {
+    const hint = fan.querySelector('.award-fan-hint');
     const toggle = () => {
       const open = fan.classList.toggle('is-open');
       fan.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (hint) hint.textContent = open ? 'Click to collapse' : 'Click to spread';
     };
     fan.addEventListener('click', toggle);
     fan.addEventListener('keydown', (e) => {
@@ -492,7 +531,12 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-toggle]').forEach((button) => {
     const type = button.getAttribute('data-toggle');
-    const targets = document.querySelectorAll(type === 'work' ? '[data-work-extra]' : '[data-education-extra]');
+    const selector = type === 'work'
+      ? '[data-work-extra]'
+      : type === 'education'
+        ? '[data-education-extra]'
+        : '[data-recognition-extra]';
+    const targets = document.querySelectorAll(selector);
 
     button.addEventListener('click', () => {
       const expanded = button.getAttribute('aria-expanded') === 'true';
@@ -500,7 +544,11 @@ document.addEventListener('DOMContentLoaded', () => {
         item.hidden = expanded;
       });
       button.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-      button.textContent = expanded ? `read more ${type} ↓` : `show less ${type} ↑`;
+      if (type === 'recognition') {
+        button.textContent = expanded ? 'see more recognition ↓' : 'hide recognition ↑';
+      } else {
+        button.textContent = expanded ? `read more ${type} ↓` : `show less ${type} ↑`;
+      }
     });
   });
 });
