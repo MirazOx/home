@@ -4480,6 +4480,9 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
   cursor: pointer;
   transition: border-color var(--trans), background var(--trans), color var(--trans), transform var(--trans);
 }
+.nav-menu-toggle[hidden] {
+  display: none !important;
+}
 .nav-menu-toggle:hover {
   transform: translateY(-1px);
   border-color: rgba(15, 139, 130, 0.30);
@@ -5957,12 +5960,40 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
     padding-right: 1.5rem;
   }
   .nav-main {
+    display: flex;
+    flex: 1 1 auto;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    gap: 2px;
+    overflow: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .nav-main::-webkit-scrollbar {
+    display: none;
+  }
+  .nav-main a {
+    flex: 0 0 auto;
+    padding: 6px 7px;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+  }
+  .nav-main a.is-overflowed {
     display: none;
   }
   .nav-menu-toggle {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    width: 34px;
+    padding: 0;
+    font-size: 0;
+  }
+  .nav-menu-toggle::before {
+    content: "•••";
+    font-size: 13px;
+    letter-spacing: 0.08em;
   }
   .nav-mobile-panel {
     position: absolute;
@@ -6238,14 +6269,7 @@ footer .container-wide { display: flex; justify-content: space-between; align-it
 
 @media (max-width: 440px) {
   .nav-menu-toggle {
-    width: 42px;
-    padding: 0;
-    font-size: 0;
-  }
-  .nav-menu-toggle::before {
-    content: "•••";
-    font-size: 13px;
-    letter-spacing: 0.08em;
+    width: 34px;
   }
   .nav-mobile-panel {
     left: 10px;
