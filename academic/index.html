@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,600;6..72,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=21">
+<link rel="stylesheet" href="/assets/css/style.css?v=27">
 </head>
 <body data-page="academic">
 
@@ -131,6 +131,10 @@ function getGradeFilters(groups) {
 }
 
 function courseSearchText(group, course) {
+  const resourceText = Array.isArray(course.resources)
+    ? course.resources.map(resource => [resource.label, resource.type].filter(Boolean).join(' ')).join(' ')
+    : '';
+
   return [
     group.category,
     group.summary,
@@ -141,8 +145,28 @@ function courseSearchText(group, course) {
     course.grade,
     course.workTitle,
     course.type,
-    course.desc
+    course.desc,
+    resourceText
   ].filter(Boolean).join(' ').toLowerCase();
+}
+
+function getCourseResources(course) {
+  if (Array.isArray(course.resources) && course.resources.length) {
+    return course.resources
+      .filter(resource => resource && resource.url)
+      .map(resource => ({
+        label: resource.label || course.workTitle || resource.type || 'Open work',
+        url: resource.url
+      }));
+  }
+
+  const actionUrl = course.file || course.externalUrl || course.projectUrl || '';
+  if (!actionUrl) return [];
+
+  return [{
+    label: course.resourceLabel || course.workTitle || course.type || 'Open work',
+    url: actionUrl
+  }];
 }
 
 function renderAcademicFilters(groups) {
@@ -222,10 +246,10 @@ function renderCourseMap() {
           ${courses.map(course => {
             const isAPlus = String(course.grade || '').toUpperCase() === 'A+';
             const isVideo = course.media === 'video';
-            const actionUrl = course.file || course.externalUrl || course.projectUrl || '';
-            const action = actionUrl
-              ? `<a class="course-resource-link" href="${escapeHTML(actionUrl)}" target="_blank" rel="noopener">${escapeHTML(course.fileLabel || course.linkLabel || 'Open project')} ↗</a>`
-              : '<span class="course-resource-placeholder">Project link slot</span>';
+            const resources = getCourseResources(course);
+            const outcomes = resources.length
+              ? resources.map(resource => `<a class="course-resource-link" href="${escapeHTML(resource.url)}" target="_blank" rel="noopener">${escapeHTML(resource.label)} ↗</a>`).join('')
+              : '<span class="course-resource-placeholder">Work sample pending</span>';
 
             return `
               <article class="course-slot ${isAPlus ? 'is-aplus' : ''}">
@@ -237,9 +261,10 @@ function renderCourseMap() {
                 <p class="course-project-title">${isVideo ? '▶ ' : ''}${escapeHTML(course.workTitle)}</p>
                 <p class="course-desc">${escapeHTML(course.desc)}</p>
                 <div class="course-slot-meta">
-                  <span>${escapeHTML(course.session)}</span>
-                  <span>${escapeHTML(course.type)}</span>
-                  ${action}
+                  <span class="course-session">${escapeHTML(course.session)}</span>
+                  <div class="course-outcome-list" aria-label="Course outcomes">
+                    ${outcomes}
+                  </div>
                 </div>
               </article>
             `;
@@ -252,7 +277,7 @@ function renderCourseMap() {
   host.innerHTML = sections || '<p class="result-count">No coursework matched that search.</p>';
 }
 
-fetch('/content/academic.json?v=8')
+fetch('/content/academic.json?v=12')
   .then(response => {
     if (!response.ok) throw new Error('Could not load academic content');
     return response.json();
