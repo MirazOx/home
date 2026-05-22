@@ -129,26 +129,91 @@ function initResponsiveNav() {
   button.type = 'button';
   button.setAttribute('aria-expanded', 'false');
   button.setAttribute('aria-controls', 'mobileNavPanel');
-  button.textContent = 'Menu';
+  button.setAttribute('aria-label', 'More pages');
+  button.innerHTML = '<span class="sr-only">More pages</span>';
 
   const panel = document.createElement('div');
   panel.className = 'nav-mobile-panel';
   panel.id = 'mobileNavPanel';
   panel.hidden = true;
 
-  Array.from(navMain.querySelectorAll('a')).forEach(link => {
-    const clone = link.cloneNode(true);
-    if (link.classList.contains('is-active')) clone.classList.add('is-active');
-    panel.appendChild(clone);
-  });
-
   navActions.insertBefore(button, navActions.firstChild);
   nav.appendChild(panel);
+
+  const links = Array.from(navMain.querySelectorAll('a'));
+  const mobileQuery = window.matchMedia('(max-width: 720px)');
 
   function closePanel() {
     panel.hidden = true;
     nav.classList.remove('is-menu-open');
     button.setAttribute('aria-expanded', 'false');
+  }
+
+  function cloneLink(link) {
+    const clone = link.cloneNode(true);
+    if (link.classList.contains('is-active')) clone.classList.add('is-active');
+    clone.addEventListener('click', closePanel);
+    return clone;
+  }
+
+  function syncResponsiveNav() {
+    links.forEach(link => link.classList.remove('is-overflowed'));
+    panel.innerHTML = '';
+
+    if (!mobileQuery.matches) {
+      button.hidden = true;
+      closePanel();
+      return;
+    }
+
+    button.hidden = false;
+
+    const available = navMain.clientWidth;
+    const widths = new Map(links.map(link => [
+      link,
+      Math.ceil(link.getBoundingClientRect().width) + 4
+    ]));
+    const visible = [];
+    const overflow = [];
+    let used = 0;
+
+    links.forEach(link => {
+      const width = widths.get(link) || 0;
+      if (used + width <= available) {
+        visible.push(link);
+        used += width;
+      } else {
+        overflow.push(link);
+      }
+    });
+
+    const active = links.find(link => link.classList.contains('is-active'));
+    if (active && overflow.includes(active)) {
+      const activeWidth = widths.get(active) || 0;
+
+      while (used + activeWidth > available && visible.length) {
+        const candidate = [...visible].reverse().find(link => link !== active);
+        if (!candidate) break;
+        visible.splice(visible.indexOf(candidate), 1);
+        overflow.unshift(candidate);
+        used -= widths.get(candidate) || 0;
+      }
+
+      if (used + activeWidth <= available) {
+        overflow.splice(overflow.indexOf(active), 1);
+        visible.push(active);
+        used += activeWidth;
+      }
+    }
+
+    links.forEach(link => {
+      const isOverflowed = !visible.includes(link);
+      link.classList.toggle('is-overflowed', isOverflowed);
+    });
+
+    overflow.forEach(link => panel.appendChild(cloneLink(link)));
+    button.hidden = overflow.length === 0;
+    if (!overflow.length) closePanel();
   }
 
   button.addEventListener('click', event => {
@@ -166,6 +231,10 @@ function initResponsiveNav() {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') closePanel();
   });
+
+  window.addEventListener('resize', () => window.requestAnimationFrame(syncResponsiveNav), { passive: true });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncResponsiveNav);
+  window.requestAnimationFrame(syncResponsiveNav);
 }
 
 // ---------- REVEAL ON SCROLL ----------
