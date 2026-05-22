@@ -10,28 +10,30 @@
           "session": "Summer 2026",
           "grade": "Registered",
           "workTitle": "Journalism and Society Reading Dossier",
-          "type": "Theory notes",
-          "desc": "A first framework for connecting journalism, institutions, and public accountability."
+          "type": "Reading dossier",
+          "desc": "A reading dossier connecting journalism, institutions, public accountability, and the social role of the press.",
+          "externalUrl": "https://docs.google.com/document/d/1SgKI6JZOFJJBoaipDnql9l6hggteoHdM/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ3151",
           "name": "News Sourcing and Gathering",
           "session": "Spring 2026",
           "grade": "A+",
-          "workTitle": "The Listening City",
+          "workTitle": "After the Aid",
           "type": "Reporting exercise",
-          "desc": "Source maps, interview trails, and a compact reporting workflow for urban stories."
+          "desc": "A sourcing and gathering coursework document built around source maps, interview trails, and a compact reporting workflow.",
+          "externalUrl": "https://docs.google.com/document/d/1NI6o9lk_NdvhbuY6fXQM9XesdUmPkk6m/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ2252",
           "name": "Digital Audience",
           "session": "Spring 2026",
           "grade": "A",
-          "workTitle": "Easeparenting and Institutional Design",
+          "workTitle": "The Extracted Audience",
           "type": "Framework essay",
-          "desc": "A Digital Audience essay on screen time, algorithmic convenience, and the structural conditions that make passive media feel like the easy choice.",
+          "desc": "A Digital Audience coursework essay on audience extraction, platform design, and the economics of attention.",
           "projectUrl": "/projects/easeparenting/",
-          "linkLabel": "Open essay"
+          "externalUrl": "https://docs.google.com/document/d/1j1UzcVSYFuE04D2Ftumv05vamLI0E5bn/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ3151",
@@ -56,11 +58,10 @@
           "name": "Data Journalism",
           "session": "Fall 2025",
           "grade": "A",
-          "workTitle": "Team Data Decoder",
+          "workTitle": "The Bachelor Economy",
           "type": "Data journalism project",
-          "desc": "A collaborative data-journalism capstone with a reproducible evidence trail.",
-          "file": "/pdfs/team-data-decoder.pdf",
-          "fileLabel": "Read project"
+          "desc": "A data-journalism coursework document on bachelor housing, cost pressure, and the everyday economics of living solo in Dhaka.",
+          "externalUrl": "https://docs.google.com/document/d/14DKJ7odw9Y0kZ_r-bne5R5LSsP2HDTdP/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ3252",
@@ -78,7 +79,8 @@
           "grade": "Not taken yet",
           "workTitle": "Investigation Design Dossier",
           "type": "Reporting dossier",
-          "desc": "A reserved slot for source protection, evidence chains, and investigation planning."
+          "desc": "A dossier for source protection, evidence chains, investigation planning, and the architecture of a serious reporting project.",
+          "externalUrl": "https://docs.google.com/document/d/1VgyX-4gaaNTNU3MBEAxjNKaIzSkkHER6/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ4152",
@@ -109,20 +111,20 @@
           "name": "Communication Research",
           "session": "Spring 2024",
           "grade": "A",
-          "workTitle": "Platform Studies and Epistemic Equity",
-          "type": "Literature review",
-          "desc": "A literature-review project connecting platform power and Global South knowledge production.",
-          "file": "/pdfs/comm-research-paper.docx",
-          "fileLabel": "Read paper"
+          "workTitle": "Misinformation Science Reporting Proposal",
+          "type": "Research proposal",
+          "desc": "A communication research proposal on misinformation, science reporting, and public understanding.",
+          "externalUrl": "https://docs.google.com/document/d/197MHMwy_Yah2uQ-eHwusEWwPf5iyp-71/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ4101",
           "name": "Media and the Law",
           "session": "Spring 2025",
           "grade": "A+",
-          "workTitle": "Media Law Case Briefs",
-          "type": "Legal analysis",
-          "desc": "Case-led work on rights, regulation, and legal constraints around journalism practice."
+          "workTitle": "Communication and Technology Essay",
+          "type": "Theory essay",
+          "desc": "A coursework essay on communication, technology, and the politics embedded in technical systems.",
+          "externalUrl": "https://docs.google.com/document/d/1UWWPnp2y17fgSaoD6apfsgyHTRBdeJ86/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ2201",
@@ -130,28 +132,31 @@
           "session": "Spring 2025",
           "grade": "A",
           "workTitle": "Mass Communication Theory Notebook",
-          "type": "Theory notes",
-          "desc": "A slot for models, institutions, effects, and public communication debates."
+          "type": "Theory notebook",
+          "desc": "A theory notebook covering models, institutions, effects, and public communication debates.",
+          "externalUrl": "https://docs.google.com/document/d/1hRffbgqxD8Qj2PjGXwx2edAsX0kUJppp/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ2102",
           "name": "Convergence Communication 1",
           "session": "Spring 2025",
           "grade": "A+",
-          "workTitle": "Convergence Communication I - Video Project",
-          "type": "Video project",
-          "desc": "A video-first coursework project connecting reporting, scripting, shooting, and editing.",
-          "media": "video"
+          "workTitle": "Convergence Communication I Production Notebook",
+          "type": "Production notebook",
+          "desc": "A production notebook connecting scripting, planning, shooting, editing, and reflection.",
+          "media": "video",
+          "externalUrl": "https://docs.google.com/document/d/1gZw2Y70F7uGqhUyMsbqJyByeVvoSG_wr/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ2202",
           "name": "Convergence Communication 2",
           "session": "Summer 2025",
           "grade": "A",
-          "workTitle": "Convergence Communication II - Video Project",
-          "type": "Video project",
-          "desc": "A second video project focused on production planning, post-production, and packaging.",
-          "media": "video"
+          "workTitle": "STILL: Video Art",
+          "type": "Video art project",
+          "desc": "A second convergence coursework project focused on visual rhythm, production planning, and post-production choices.",
+          "media": "video",
+          "externalUrl": "https://docs.google.com/document/d/1o_3gSeUG3gSluO1yV6blU8MSmS7zqDLF/edit?usp=drivesdk&rtpof=true&sd=true"
         },
         {
           "code": "MSJ2101",
@@ -168,57 +173,305 @@
       "category": "General Education Foundation - GEF",
       "summary": "5 courses / 15 credits",
       "courses": [
-        { "code": "GEF1101", "name": "Academic English I", "session": "Fall 2023", "grade": "A", "workTitle": "Academic Argument Portfolio", "type": "Writing portfolio", "desc": "Argument structure, source use, and academic prose." },
-        { "code": "GEF1201", "name": "Academic English II", "session": "Spring 2024", "grade": "A", "workTitle": "Research Writing Portfolio", "type": "Writing portfolio", "desc": "A slot for long-form academic writing and source synthesis." },
-        { "code": "GEF2101", "name": "Introduction to Data and Statistics", "session": "Spring 2026", "grade": "A", "workTitle": "Statistics for Newsroom Decisions", "type": "Quantitative notes", "desc": "A slot for statistical reasoning, data literacy, and public-interest interpretation." },
-        { "code": "GEF2203", "name": "Advanced Bangla Writing Skills", "session": "TBD", "grade": "Not taken yet", "workTitle": "Advanced Bangla Writing Portfolio", "type": "Writing portfolio", "desc": "Bangla-language writing practice for clarity, argument, and public communication." },
-        { "code": "GEF1202", "name": "Advanced English Writing Skills", "session": "Summer 2024", "grade": "A", "workTitle": "Advanced English Writing Portfolio", "type": "Writing portfolio", "desc": "A slot for advanced argumentative writing and rhetorical control." }
+        {
+          "code": "GEF1101",
+          "name": "Academic English I",
+          "session": "Fall 2023",
+          "grade": "A",
+          "workTitle": "Academic Argument Portfolio",
+          "type": "Writing portfolio",
+          "desc": "Argument structure, source use, and academic prose."
+        },
+        {
+          "code": "GEF1201",
+          "name": "Academic English II",
+          "session": "Spring 2024",
+          "grade": "A",
+          "workTitle": "Research Writing Portfolio",
+          "type": "Writing portfolio",
+          "desc": "A slot for long-form academic writing and source synthesis."
+        },
+        {
+          "code": "GEF2101",
+          "name": "Introduction to Data and Statistics",
+          "session": "Spring 2026",
+          "grade": "A",
+          "workTitle": "Data and Statistics Project Pair",
+          "type": "Research report + quantitative notes",
+          "desc": "Two coursework outputs connecting statistical reasoning with research design, newsroom judgment, and public-interest interpretation.",
+          "resources": [
+            {
+              "label": "Active Listening & Friendship Quality",
+              "url": "https://docs.google.com/document/d/1WMl5ZCdl1GgdabsW0U6b3o3hkgLde9L-/edit?usp=drivesdk&rtpof=true&sd=true"
+            },
+            {
+              "label": "Statistics for Newsroom Decisions",
+              "url": "https://docs.google.com/document/d/1Zv_eYaE_jKQHWr7zNRhNeLLr7BFtaeOL/edit?usp=drivesdk&rtpof=true&sd=true"
+            }
+          ]
+        },
+        {
+          "code": "GEF2203",
+          "name": "Advanced Bangla Writing Skills",
+          "session": "TBD",
+          "grade": "Not taken yet",
+          "workTitle": "Advanced Bangla Writing Portfolio",
+          "type": "Writing portfolio",
+          "desc": "Bangla-language writing practice for clarity, argument, and public communication."
+        },
+        {
+          "code": "GEF1202",
+          "name": "Advanced English Writing Skills",
+          "session": "Summer 2024",
+          "grade": "A",
+          "workTitle": "Advanced English Writing Portfolio",
+          "type": "Writing portfolio",
+          "desc": "A slot for advanced argumentative writing and rhetorical control."
+        }
       ]
     },
     {
       "category": "ULAB Core Courses - UCC",
       "summary": "3 courses / 9 credits",
       "courses": [
-        { "code": "UCC1101", "name": "Bangla Bhasha O Sahitya", "session": "Fall 2023", "grade": "A-", "workTitle": "Language and Literature Notebook", "type": "Coursework slot", "desc": "A slot for Bangla language, literature, and cultural grounding." },
-        { "code": "UCC1201", "name": "History of the Emergence of Independent Bangladesh", "session": "Spring 2024", "grade": "A-", "workTitle": "Public Memory After Independence", "type": "History notes", "desc": "A slot for historical evidence and national memory." },
-        { "code": "UCC1202", "name": "Ethics", "session": "Summer 2024", "grade": "A", "workTitle": "Ethics Case Notebook", "type": "Case notes", "desc": "A slot for ethical reasoning across public life and professional practice." }
+        {
+          "code": "UCC1101",
+          "name": "Bangla Bhasha O Sahitya",
+          "session": "Fall 2023",
+          "grade": "A-",
+          "workTitle": "Language and Literature Notebook",
+          "type": "Coursework slot",
+          "desc": "A slot for Bangla language, literature, and cultural grounding."
+        },
+        {
+          "code": "UCC1201",
+          "name": "History of the Emergence of Independent Bangladesh",
+          "session": "Spring 2024",
+          "grade": "A-",
+          "workTitle": "Public Memory After Independence",
+          "type": "History notes",
+          "desc": "A slot for historical evidence and national memory."
+        },
+        {
+          "code": "UCC1202",
+          "name": "Ethics",
+          "session": "Summer 2024",
+          "grade": "A",
+          "workTitle": "Ethics Case Notebook",
+          "type": "Case notes",
+          "desc": "A slot for ethical reasoning across public life and professional practice."
+        }
       ]
     },
     {
       "category": "General Education Electives - GED",
       "summary": "12 courses / 36 credits",
       "courses": [
-        { "code": "HUM2112", "name": "Introduction to Photography", "tier": "Arts & Humanities", "session": "Fall 2024", "grade": "A", "workTitle": "Ethics of Seeing", "type": "Visual portfolio", "desc": "A slot for image-making, composition, and visual ethics." },
-        { "code": "HUM2204", "name": "History of Modern South Asia", "tier": "Arts & Humanities", "session": "Fall 2024", "grade": "A", "workTitle": "Public Memory After the Uprising", "type": "History essay", "desc": "A slot for regional history, power, and memory." },
-        { "code": "HUM2111", "name": "Introduction to Philosophy", "tier": "Arts & Humanities", "session": "Spring 2025", "grade": "A", "workTitle": "Philosophy Notebook", "type": "Theory notes", "desc": "A slot for argument, ethics, knowledge, and method." },
-        { "code": "HUM3101", "name": "Aesthetics of Film", "tier": "Arts & Humanities", "session": "Fall 2025", "grade": "A+", "workTitle": "Film Form and Public Feeling", "type": "Film analysis", "desc": "A slot for film form, feeling, and visual culture." },
-        { "code": "SSC2149", "name": "Introduction to Anthropology", "tier": "Social Sciences", "session": "Fall 2024", "grade": "A+", "workTitle": "Everyday Culture Field Notes", "type": "Field notes", "desc": "A slot for observing culture, identity, and everyday life." },
-        { "code": "SSC3150", "name": "Seminar on Grassroots Economic Development", "tier": "Social Sciences", "session": "Fall 2024", "grade": "A+", "workTitle": "Grassroots Economic Development Field Notes", "type": "Field essay", "desc": "Community-economy coursework on scarcity, local institutions, and development practice." },
-        { "code": "SSC2252", "name": "Living with Conflict", "tier": "Social Sciences", "session": "Summer 2025", "grade": "A", "workTitle": "Conflict, Rumour, and Everyday Survival", "type": "Analytical essay", "desc": "A slot for conflict, civic life, and survival under pressure." },
-        { "code": "SSC4142", "name": "Methods of Social Research", "tier": "Social Sciences", "session": "Spring 2026", "grade": "A", "workTitle": "Algorithmic News Feeds and Misinformation Susceptibility", "type": "Research proposal", "desc": "A mixed-methods proposal on algorithmic exposure and misinformation vulnerability.", "file": "/pdfs/midterm-project.pdf", "fileLabel": "Read proposal" },
-        { "code": "NSC2283", "name": "Environmental Science", "tier": "Natural Sciences", "session": "Spring 2025", "grade": "A+", "workTitle": "Environmental Risk Explainer", "type": "Science communication", "desc": "A slot for translating environmental risk into public language." },
-        { "code": "NSC2282", "name": "Biodiversity and Nature Conservation", "tier": "Natural Sciences", "session": "Summer 2025", "grade": "A+", "workTitle": "Biodiversity, Risk, and Public Communication", "type": "Science notes", "desc": "A slot for conservation, ecology, and public knowledge." },
-        { "code": "NSC4182", "name": "Mathematics", "tier": "Natural Sciences", "session": "Summer 2026", "grade": "Registered", "workTitle": "Mathematics Notebook", "type": "Quantitative notes", "desc": "A slot for mathematical foundations behind data and modelling." },
-        { "code": "NSC3282", "name": "Public Health and Epidemiology", "tier": "Natural Sciences", "session": "Summer 2026", "grade": "Registered", "workTitle": "Public Health Explainers", "type": "Science communication", "desc": "A slot for health data, epidemiological reasoning, and public explanation." }
+        {
+          "code": "HUM2112",
+          "name": "Introduction to Photography",
+          "tier": "Arts & Humanities",
+          "session": "Fall 2024",
+          "grade": "A",
+          "workTitle": "Poverty Trap Photo Essay",
+          "type": "Photo essay",
+          "desc": "A photography coursework document using image sequence, captioning, and visual argument to examine poverty and constraint.",
+          "externalUrl": "https://docs.google.com/document/d/1BCY9P2g752qoDBVDsCglW-Sw98FHdkIu/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "HUM2204",
+          "name": "History of Modern South Asia",
+          "tier": "Arts & Humanities",
+          "session": "Fall 2024",
+          "grade": "A",
+          "workTitle": "Astir: Two Essays",
+          "type": "History essays",
+          "desc": "Two coursework essays on South Asian history, memory, and public life.",
+          "externalUrl": "https://docs.google.com/document/d/11UeVmD_mXO86LnCX5xoty-6TWoM6fozi/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "HUM2111",
+          "name": "Introduction to Philosophy",
+          "tier": "Arts & Humanities",
+          "session": "Spring 2025",
+          "grade": "A",
+          "workTitle": "Great Expectations",
+          "type": "Analytical essay",
+          "desc": "A humanities coursework essay built around close reading, argument, and interpretation.",
+          "externalUrl": "https://docs.google.com/document/d/1CsL13-hKb9fg_iPrjZAljUsWGvnhAk9l/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "HUM3101",
+          "name": "Aesthetics of Film",
+          "tier": "Arts & Humanities",
+          "session": "Fall 2025",
+          "grade": "A+",
+          "workTitle": "Om-Dar-B-Dar Video Essay",
+          "type": "Video essay",
+          "desc": "A film-studies coursework document on form, feeling, and visual interpretation.",
+          "externalUrl": "https://docs.google.com/document/d/1m0R8KDT4m7FpGTsZQy3Z8KLghW1iQwQ3/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "SSC2149",
+          "name": "Introduction to Anthropology",
+          "tier": "Social Sciences",
+          "session": "Fall 2024",
+          "grade": "A+",
+          "workTitle": "The Long Shadow of Night and Fog",
+          "type": "Analytical essay",
+          "desc": "An anthropology coursework essay using cultural analysis, memory, and representation as its frame.",
+          "externalUrl": "https://docs.google.com/document/d/1kRPgL21mk93oNAOGdJPt_lNGSzjD0kbq/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "SSC3150",
+          "name": "Seminar on Grassroots Economic Development",
+          "tier": "Social Sciences",
+          "session": "Fall 2024",
+          "grade": "A+",
+          "workTitle": "The Miracle and the Mirror",
+          "type": "Field essay",
+          "desc": "A grassroots economic development essay on development narratives, local institutions, and the mirror they hold up to public policy.",
+          "externalUrl": "https://docs.google.com/document/d/1yLQRGyu7B3ovNd7F77gIu1cnJjTreUan/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "SSC2252",
+          "name": "Living with Conflict",
+          "tier": "Social Sciences",
+          "session": "Summer 2025",
+          "grade": "A",
+          "workTitle": "Whose Partition?",
+          "type": "Analytical essay",
+          "desc": "A conflict-studies coursework essay on partition, memory, identity, and the politics of historical ownership.",
+          "externalUrl": "https://docs.google.com/document/d/1XYUL3jjtanSS2BonWyMa4QbW58kMn5nJ/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "SSC4142",
+          "name": "Methods of Social Research",
+          "tier": "Social Sciences",
+          "session": "Spring 2026",
+          "grade": "A",
+          "workTitle": "Precarity of Food Delivery Riders",
+          "type": "Research proposal",
+          "desc": "A social research proposal on platform work, labour precarity, and the everyday risks facing food delivery riders.",
+          "externalUrl": "https://docs.google.com/document/d/1w5l14XTT8EjQnNee4qr6ttu5FiR6LNZp/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "NSC2283",
+          "name": "Environmental Science",
+          "tier": "Natural Sciences",
+          "session": "Spring 2025",
+          "grade": "A+",
+          "workTitle": "Construction Pollution Brief",
+          "type": "Science brief",
+          "desc": "An environmental science brief translating construction pollution and urban risk into public-facing language.",
+          "externalUrl": "https://docs.google.com/document/d/1UhBK-29btU-EldGh79U1ep5a4Fx7_Vwt/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "NSC2282",
+          "name": "Biodiversity and Nature Conservation",
+          "tier": "Natural Sciences",
+          "session": "Summer 2025",
+          "grade": "A+",
+          "workTitle": "The Uncounted Forest",
+          "type": "Science communication",
+          "desc": "A biodiversity and conservation coursework document on ecological risk, loss, and public communication.",
+          "externalUrl": "https://docs.google.com/document/d/1tO5bz11i_O0glfzJ_18WmA3D29oAVNLY/edit?usp=drivesdk&rtpof=true&sd=true"
+        },
+        {
+          "code": "NSC4182",
+          "name": "Mathematics",
+          "tier": "Natural Sciences",
+          "session": "Summer 2026",
+          "grade": "Registered",
+          "workTitle": "Mathematics Notebook",
+          "type": "Quantitative notes",
+          "desc": "A slot for mathematical foundations behind data and modelling."
+        },
+        {
+          "code": "NSC3282",
+          "name": "Public Health and Epidemiology",
+          "tier": "Natural Sciences",
+          "session": "Summer 2026",
+          "grade": "Registered",
+          "workTitle": "Public Health Explainers",
+          "type": "Science communication",
+          "desc": "A slot for health data, epidemiological reasoning, and public explanation."
+        }
       ]
     },
     {
       "category": "Minor: Computer Science",
       "summary": "5 courses / 15 credits",
       "courses": [
-        { "code": "CSE1202", "name": "Structured Programming Lab", "session": "TBD", "grade": "Not taken yet", "workTitle": "Programming Lab Archive", "type": "Code portfolio", "desc": "A slot for structured programming exercises and debugging practice." },
-        { "code": "CSE1301", "name": "Data Structure", "session": "TBD", "grade": "Not taken yet", "workTitle": "Data Structure Notebook", "type": "Code notes", "desc": "A slot for arrays, lists, trees, graphs, and algorithmic thinking." },
-        { "code": "CSE2203", "name": "Computer Organization and Architecture", "session": "TBD", "grade": "Not taken yet", "workTitle": "Architecture Notes", "type": "Technical notes", "desc": "A slot for the hardware logic underneath computation." },
-        { "code": "CSE3201", "name": "Artificial Intelligence & Machine Learning", "session": "TBD", "grade": "Not taken yet", "workTitle": "AI/ML Lab Notes", "type": "Technical portfolio", "desc": "A slot for model logic, classification, and applied machine learning." },
-        { "code": "CSE4459", "name": "Natural Language Processing", "session": "TBD", "grade": "Not taken yet", "workTitle": "NLP Methods Notebook", "type": "Technical portfolio", "desc": "A slot for text analysis methods used in research and journalism." }
+        {
+          "code": "CSE1202",
+          "name": "Structured Programming Lab",
+          "session": "TBD",
+          "grade": "Not taken yet",
+          "workTitle": "Programming Lab Archive",
+          "type": "Code portfolio",
+          "desc": "A slot for structured programming exercises and debugging practice."
+        },
+        {
+          "code": "CSE1301",
+          "name": "Data Structure",
+          "session": "TBD",
+          "grade": "Not taken yet",
+          "workTitle": "Data Structure Notebook",
+          "type": "Code notes",
+          "desc": "A slot for arrays, lists, trees, graphs, and algorithmic thinking."
+        },
+        {
+          "code": "CSE2203",
+          "name": "Computer Organization and Architecture",
+          "session": "TBD",
+          "grade": "Not taken yet",
+          "workTitle": "Architecture Notes",
+          "type": "Technical notes",
+          "desc": "A slot for the hardware logic underneath computation."
+        },
+        {
+          "code": "CSE3201",
+          "name": "Artificial Intelligence & Machine Learning",
+          "session": "TBD",
+          "grade": "Not taken yet",
+          "workTitle": "AI/ML Lab Notes",
+          "type": "Technical portfolio",
+          "desc": "A slot for model logic, classification, and applied machine learning."
+        },
+        {
+          "code": "CSE4459",
+          "name": "Natural Language Processing",
+          "session": "TBD",
+          "grade": "Not taken yet",
+          "workTitle": "NLP Methods Notebook",
+          "type": "Technical portfolio",
+          "desc": "A slot for text analysis methods used in research and journalism."
+        }
       ]
     },
     {
       "category": "Internship and Portfolio",
       "summary": "2 courses / 6 credits",
       "courses": [
-        { "code": "MSJ4298", "name": "Internship", "session": "2027", "grade": "Upcoming", "workTitle": "Internship Portfolio", "type": "Professional portfolio", "desc": "Reserved slot for supervised professional work." },
-        { "code": "MSJ4299", "name": "Portfolio", "session": "2027", "grade": "Upcoming", "workTitle": "Graduation Portfolio", "type": "Portfolio", "desc": "Reserved slot for the final academic and professional portfolio." }
+        {
+          "code": "MSJ4298",
+          "name": "Internship",
+          "session": "2027",
+          "grade": "Upcoming",
+          "workTitle": "Internship Portfolio",
+          "type": "Professional portfolio",
+          "desc": "Reserved slot for supervised professional work."
+        },
+        {
+          "code": "MSJ4299",
+          "name": "Portfolio",
+          "session": "2027",
+          "grade": "Upcoming",
+          "workTitle": "Graduation Portfolio",
+          "type": "Portfolio",
+          "desc": "Reserved slot for the final academic and professional portfolio."
+        }
       ]
     }
   ],

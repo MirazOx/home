@@ -1,672 +1,926 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-<script>document.documentElement.setAttribute("data-theme", localStorage.getItem("miraz-theme") || "dark");</script>
-<title>Easeparenting — Md. Miraz Hossain</title>
-<meta name="description" content="A Digital Audience coursework essay by Md. Miraz Hossain on easeparenting, screen time, and structural design.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=19">
-<style>
-.ease-page {
-  --ease-cream: #f4efe6;
-  --ease-ink: #171b1d;
-  --ease-muted: #5e6668;
-  --ease-teal: #0f766e;
-  --ease-amber: #b45309;
-  --ease-line: rgba(23, 27, 29, 0.12);
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easeparenting — Infographic Essay | Md. Miraz Hossain</title>
+  <meta name="description" content="Easeparenting — a coined framework by Md. Miraz Hossain. An infographic-style essay on screen-based care, parental fatigue, and the design of modern childhood." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f8f1e6;
+      --paper-2: #fdf8f1;
+      --ink: #102027;
+      --ink-soft: #41515a;
+      --line: rgba(16, 32, 39, 0.13);
+      --card: #fffaf2;
+      --sage: #d9eadb;
+      --sage-deep: #587769;
+      --coral: #d66a4f;
+      --amber: #d8a236;
+      --navy: #183849;
+      --teal: #2d7f7a;
+      --red: #8f3e2d;
+      --shadow: 0 14px 40px rgba(21, 30, 32, 0.10);
+      --radius: 24px;
+    }
 
-.ease-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 0.96fr) minmax(360px, 1.04fr);
-  gap: clamp(2rem, 6vw, 5rem);
-  align-items: stretch;
-  padding: clamp(2rem, 5vw, 4rem) 0 3rem;
-}
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background:
+        radial-gradient(circle at 0% 0%, rgba(214,106,79,0.08), transparent 22%),
+        radial-gradient(circle at 100% 10%, rgba(45,127,122,0.10), transparent 18%),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Manrope", system-ui, sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.22;
+      background-image: radial-gradient(rgba(16,32,39,.18) .4px, transparent .4px);
+      background-size: 11px 11px;
+      mask: linear-gradient(180deg, rgba(0,0,0,.45), transparent 16%, transparent 84%, rgba(0,0,0,.35));
+      z-index: -1;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    .container { width: min(1220px, calc(100% - 36px)); margin: 0 auto; }
+    .mono { font-family: "IBM Plex Mono", monospace; letter-spacing: .12em; text-transform: uppercase; }
+    .display { font-family: "Fraunces", Georgia, serif; }
 
-.ease-hero-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: rgba(248,241,230,.88);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar-inner {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: #fff;
+      font-family: "Fraunces";
+      font-weight: 700;
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,.15);
+    }
+    .brand-text small {
+      display: block;
+      color: var(--ink-soft);
+      font-size: 11px;
+      line-height: 1.3;
+    }
+    .brand-text strong {
+      display: block;
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .topnav { display: flex; flex-wrap: wrap; gap: 14px; }
+    .topnav a {
+      text-decoration: none;
+      color: var(--ink-soft);
+      font-size: 11px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition: .2s ease;
+    }
+    .topnav a:hover {
+      border-color: var(--line);
+      color: var(--ink);
+      background: rgba(255,255,255,.46);
+    }
 
-.ease-kicker,
-.ease-meta,
-.ease-chip,
-.ease-label,
-.ease-control-label {
-  font-family: "DM Mono", monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
+    .hero {
+      padding: clamp(32px, 5vw, 56px) 0 30px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, .98fr);
+      gap: clamp(20px, 4vw, 46px);
+      align-items: start;
+    }
+    .hero-copy {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+      padding-top: 10px;
+    }
+    .eyebrow {
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(56px, 8vw, 112px);
+      line-height: .90;
+      letter-spacing: -0.04em;
+      max-width: 10ch;
+    }
+    .hero h1 em { color: var(--teal); font-style: normal; }
+    .hero-lead {
+      font-size: clamp(18px, 2.1vw, 24px);
+      color: var(--ink-soft);
+      line-height: 1.56;
+      max-width: 52ch;
+    }
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 8px;
+    }
+    .meta-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 14px 12px;
+      background: rgba(255,255,255,.48);
+      box-shadow: var(--shadow);
+    }
+    .meta-card span { display: block; font-size: 10px; color: var(--ink-soft); margin-bottom: 5px; }
+    .meta-card strong { font-size: 14px; line-height: 1.4; }
 
-.ease-kicker {
-  color: var(--accent-teal);
-  font-size: 11px;
-  margin-bottom: 1.1rem;
-}
+    .mosaic {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      grid-template-rows: 360px 160px;
+      gap: 14px;
+      min-height: 540px;
+    }
+    .mosaic-card {
+      position: relative;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(24,56,73,.12);
+      box-shadow: var(--shadow);
+      background: var(--card);
+    }
+    .mosaic-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.92) contrast(1.02);
+    }
+    .mosaic-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 38%, rgba(16,32,39,.82));
+    }
+    .mosaic-note {
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 2;
+      color: #fff9f1;
+    }
+    .mosaic-note strong {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+    }
+    .mosaic-note p { font-size: 13px; line-height: 1.45; opacity: .92; }
+    .definition-tile {
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 88% 16%, rgba(214,106,79,.18), transparent 23%),
+        linear-gradient(180deg, #fffdf9, #f5ece0);
+      padding: 24px;
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      box-shadow: var(--shadow);
+    }
+    .definition-tile .k {
+      color: var(--ink-soft);
+      font-size: 10px;
+      margin-bottom: 14px;
+    }
+    .definition-tile h2 {
+      font-family: "Fraunces";
+      font-size: clamp(28px, 2vw, 40px);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .definition-tile p {
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .definition-tile .stamp {
+      align-self: end;
+      justify-self: end;
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 1px dashed rgba(16,32,39,.22);
+      display: grid;
+      place-items: center;
+      color: var(--red);
+      font-size: 12px;
+      text-align: center;
+    }
 
-.ease-title {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(52px, 6.3vw, 88px);
-  line-height: 0.94;
-  letter-spacing: -0.015em;
-  color: var(--text);
-  margin-bottom: 1.2rem;
-}
+    .quick-thesis {
+      padding: 20px 0 0;
+    }
+    .quick-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+    }
+    .quick-card {
+      border-radius: 22px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.56);
+      box-shadow: var(--shadow);
+    }
+    .quick-card .num {
+      width: 32px; height: 32px; border-radius: 50%;
+      display: grid; place-items: center;
+      margin-bottom: 14px;
+      background: var(--navy); color: #fff;
+      font-size: 12px;
+    }
+    .quick-card h3 {
+      font-size: 18px;
+      line-height: 1.28;
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+    .quick-card p { color: var(--ink-soft); font-size: 14px; }
 
-.ease-title em {
-  display: block;
-  font-size: 0.82em;
-  color: var(--accent-amber);
-}
+    .section {
+      padding: clamp(52px, 7vw, 84px) 0;
+      position: relative;
+    }
+    .section + .section { border-top: 1px solid var(--line); }
+    .section-grid {
+      display: grid;
+      grid-template-columns: 260px minmax(0,1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .section-side {
+      position: sticky;
+      top: 98px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+    .section-side .label {
+      color: var(--red);
+      font-size: 11px;
+    }
+    .section-side h2 {
+      font-family: "Fraunces";
+      font-size: clamp(30px, 3vw, 46px);
+      line-height: .98;
+      letter-spacing: -0.03em;
+    }
+    .section-side p {
+      color: var(--ink-soft);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .section-main {
+      display: grid;
+      gap: 18px;
+    }
 
-.ease-lead {
-  max-width: 620px;
-  color: var(--text2);
-  font-size: clamp(18px, 1.8vw, 23px);
-  line-height: 1.62;
-}
+    .essay-card,
+    .info-card,
+    .diagram-card,
+    .stats-card,
+    .quote-card,
+    .sources-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.60);
+      box-shadow: var(--shadow);
+    }
+    .essay-card { padding: 28px; }
+    .essay-card p { font-size: 18px; color: var(--ink-soft); line-height: 1.86; }
+    .essay-card p + p { margin-top: 16px; }
+    .essay-card p strong { color: var(--ink); }
 
-.ease-hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-top: 1.6rem;
-}
+    .info-row {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+    }
 
-.ease-hero-media {
-  position: relative;
-  min-height: 540px;
-  border: 0.5px solid var(--border);
-  border-radius: 24px;
-  overflow: hidden;
-  background: var(--bg2);
-  box-shadow: var(--shadow-md);
-}
+    .quote-card {
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(88,119,105,.10), rgba(214,106,79,.08));
+    }
+    .quote-card blockquote {
+      font-family: "Fraunces";
+      font-size: clamp(32px, 4vw, 50px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      max-width: 15ch;
+    }
+    .quote-card cite {
+      display: block;
+      margin-top: 18px;
+      color: var(--ink-soft);
+      font-size: 13px;
+      font-style: normal;
+    }
 
-.ease-hero-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: saturate(0.95) contrast(1.02);
-}
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 16px;
+    }
+    .stats-card { padding: 24px; }
+    .stats-card .value {
+      display: block;
+      font-family: "Fraunces";
+      font-size: clamp(42px, 5vw, 72px);
+      line-height: .92;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+    .stats-card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      line-height: 1.24;
+      font-weight: 800;
+    }
+    .stats-card p { color: var(--ink-soft); font-size: 14px; line-height: 1.6; }
+    .stats-card small { display: block; margin-top: 12px; color: var(--ink-soft); font-size: 11px; }
 
-.ease-hero-media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.58)),
-    radial-gradient(circle at 88% 88%, rgba(45, 212, 191, 0.22), transparent 28%);
-  pointer-events: none;
-}
+    .diagram-card { padding: 24px; }
+    .diagram-card h3 {
+      font-size: 19px;
+      margin-bottom: 14px;
+      line-height: 1.3;
+      font-weight: 800;
+    }
+    .diagram-card p { color: var(--ink-soft); font-size: 15px; }
 
-.ease-photo-note {
-  position: absolute;
-  left: 1.2rem;
-  right: 1.2rem;
-  bottom: 1.2rem;
-  z-index: 2;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 13px;
-  line-height: 1.55;
-  max-width: 48ch;
-}
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .flow-step {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px;
+      background: var(--paper-2);
+      position: relative;
+      min-height: 152px;
+    }
+    .flow-step:not(:last-child)::after {
+      content: "→";
+      position: absolute;
+      right: -9px;
+      top: 18px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--paper);
+      color: var(--coral);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 12px;
+      border: 1px solid var(--line);
+    }
+    .flow-step .tag { font-size: 10px; color: var(--red); margin-bottom: 10px; }
+    .flow-step h4 { font-size: 17px; line-height: 1.25; margin-bottom: 8px; }
+    .flow-step p { font-size: 13px; color: var(--ink-soft); line-height: 1.55; }
 
-.ease-meta-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin: 1rem 0 3rem;
-}
+    .matrix {
+      display: grid;
+      grid-template-columns: 160px repeat(2, minmax(0,1fr));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      background: rgba(255,255,255,.55);
+    }
+    .matrix > div {
+      padding: 18px;
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      min-height: 120px;
+    }
+    .matrix > div:nth-child(3n) { border-right: none; }
+    .matrix > div:nth-last-child(-n+3) { border-bottom: none; }
+    .matrix .head {
+      background: rgba(24,56,73,.08);
+      font-size: 11px;
+      color: var(--ink-soft);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .matrix .side {
+      background: rgba(214,106,79,.08);
+      font-size: 13px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+    }
+    .matrix h4 { font-size: 17px; line-height: 1.25; margin-bottom: 6px; }
+    .matrix p { color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
 
-.ease-meta-card {
-  border: 0.5px solid var(--border);
-  border-radius: 14px;
-  padding: 1rem;
-  background: var(--bg);
-}
+    .displacement-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .displacement-list {
+      display: grid;
+      gap: 12px;
+    }
+    .disp-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+      background: var(--paper-2);
+    }
+    .disp-item h4 { font-size: 17px; margin-bottom: 4px; }
+    .disp-item p { color: var(--ink-soft); font-size: 14px; }
+    .wheel {
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background:
+        conic-gradient(var(--coral) 0 72deg, var(--sage-deep) 72deg 144deg, var(--amber) 144deg 216deg, var(--teal) 216deg 288deg, var(--navy) 288deg 360deg);
+      position: relative;
+      margin: 10px auto;
+      width: min(100%, 370px);
+      box-shadow: var(--shadow);
+    }
+    .wheel::before {
+      content: "Easeparenting\Adefault";
+      white-space: pre;
+      position: absolute;
+      inset: 50% auto auto 50%;
+      transform: translate(-50%,-50%);
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background: var(--paper-2);
+      border: 12px solid rgba(255,255,255,.72);
+      box-shadow: 0 8px 18px rgba(0,0,0,.08);
+      font-family: "Fraunces";
+      font-size: 28px;
+      line-height: 1.0;
+      color: var(--navy);
+    }
+    .wheel-label {
+      position: absolute;
+      background: rgba(255,255,255,.9);
+      padding: 8px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .wheel-label.one { top: 8%; left: 50%; transform: translateX(-50%); }
+    .wheel-label.two { top: 28%; right: -2%; }
+    .wheel-label.three { bottom: 20%; right: 2%; }
+    .wheel-label.four { bottom: 9%; left: 50%; transform: translateX(-50%); }
+    .wheel-label.five { top: 28%; left: -2%; }
 
-.ease-label {
-  display: block;
-  color: var(--text3);
-  font-size: 10px;
-  margin-bottom: 0.35rem;
-}
+    .photo-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 16px;
+    }
+    .photo-figure {
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      min-height: 360px;
+      background: var(--card);
+    }
+    .photo-figure img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .photo-figure::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 44%, rgba(16,32,39,.80));
+    }
+    .photo-figure figcaption {
+      position: absolute;
+      z-index: 2;
+      left: 18px;
+      right: 18px;
+      bottom: 16px;
+      color: #fffaf2;
+      font-size: 14px;
+      line-height: 1.45;
+    }
 
-.ease-meta-card strong {
-  display: block;
-  color: var(--text);
-  font-size: 14px;
-  line-height: 1.45;
-}
+    .policy-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 14px;
+    }
+    .policy-card {
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.58);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+    .policy-card .icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(24,56,73,.1);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      font-size: 18px;
+    }
+    .policy-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .policy-card p { color: var(--ink-soft); font-size: 14px; line-height: 1.65; }
 
-.ease-layout {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.32fr) minmax(0, 0.68fr);
-  gap: clamp(1.5rem, 4vw, 3rem);
-  align-items: start;
-}
+    .sources-card {
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.64), rgba(255,255,255,.48));
+    }
+    .sources-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .sources-list a {
+      display: block;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,.65);
+      font-size: 14px;
+      transition: .2s ease;
+    }
+    .sources-list a:hover { transform: translateY(-1px); background: #fff; }
+    .sources-card p,
+    .footnote { color: var(--ink-soft); font-size: 14px; }
 
-.ease-sticky {
-  position: sticky;
-  top: 110px;
-  border: 0.5px solid var(--border);
-  border-radius: 18px;
-  padding: 1.1rem;
-  background: var(--bg);
-}
+    .footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 56px;
+      color: var(--ink-soft);
+    }
+    .footer strong { color: var(--ink); }
 
-.ease-sticky h2 {
-  font-family: "DM Serif Display", serif;
-  font-size: 25px;
-  line-height: 1.1;
-  margin-bottom: 0.8rem;
-}
-
-.ease-sticky p {
-  color: var(--text2);
-  font-size: 13px;
-  line-height: 1.65;
-}
-
-.ease-progress {
-  height: 6px;
-  border-radius: 999px;
-  overflow: hidden;
-  background: var(--bg2);
-  margin-top: 1rem;
-}
-
-.ease-progress span {
-  display: block;
-  height: 100%;
-  width: 62%;
-  background: linear-gradient(90deg, var(--accent-teal), var(--accent-amber));
-}
-
-.ease-article {
-  display: grid;
-  gap: 1.2rem;
-}
-
-.ease-section {
-  border: 0.5px solid var(--border);
-  border-radius: 20px;
-  padding: clamp(1.4rem, 3vw, 2.2rem);
-  background: var(--bg);
-}
-
-.ease-section h2 {
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(30px, 4vw, 48px);
-  line-height: 1.05;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-
-.ease-section p,
-.ease-section li {
-  color: var(--text2);
-  font-size: 16px;
-  line-height: 1.78;
-}
-
-.ease-section p + p {
-  margin-top: 0.9rem;
-}
-
-.ease-definition {
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent-teal) 16%, transparent), transparent 38%),
-    var(--bg2);
-}
-
-.ease-definition strong {
-  display: block;
-  font-family: "DM Serif Display", serif;
-  font-size: clamp(26px, 3vw, 38px);
-  line-height: 1.2;
-  color: var(--text);
-  margin-bottom: 1rem;
-}
-
-.ease-photo-strip {
-  display: grid;
-  grid-template-columns: 0.86fr 1.14fr;
-  gap: 1rem;
-}
-
-.ease-photo-strip figure {
-  min-height: 300px;
-  border-radius: 18px;
-  overflow: hidden;
-  position: relative;
-  background: var(--bg2);
-}
-
-.ease-photo-strip img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.ease-photo-strip figcaption {
-  position: absolute;
-  left: 1rem;
-  right: 1rem;
-  bottom: 1rem;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 12px;
-  line-height: 1.55;
-  z-index: 2;
-}
-
-.ease-photo-strip figure::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.62));
-}
-
-.ease-data-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-  margin-top: 1.2rem;
-}
-
-.ease-data-card {
-  border: 0.5px solid var(--border);
-  border-radius: 14px;
-  padding: 1rem;
-  background: var(--bg2);
-}
-
-.ease-data-card strong {
-  display: block;
-  font-family: "DM Serif Display", serif;
-  font-size: 34px;
-  line-height: 1;
-  color: var(--accent-teal);
-  margin-bottom: 0.45rem;
-}
-
-.ease-data-card span {
-  color: var(--text2);
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-.ease-interactive {
-  display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(260px, 0.62fr);
-  gap: 1.2rem;
-  align-items: stretch;
-}
-
-.ease-control-panel {
-  border: 0.5px solid var(--border);
-  border-radius: 18px;
-  padding: 1.2rem;
-  background: var(--bg2);
-}
-
-.ease-control-label {
-  display: block;
-  color: var(--text3);
-  font-size: 10px;
-  margin-bottom: 0.75rem;
-}
-
-.ease-chip-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-}
-
-.ease-chip {
-  border: 0.5px solid var(--border2);
-  border-radius: 999px;
-  background: var(--bg);
-  color: var(--text2);
-  padding: 0.55rem 0.78rem;
-  font-size: 10px;
-  cursor: pointer;
-  transition: transform var(--trans), border-color var(--trans), color var(--trans), background var(--trans);
-}
-
-.ease-chip:hover,
-.ease-chip.is-active {
-  transform: translateY(-1px);
-  border-color: var(--accent-teal);
-  color: var(--text);
-  background: color-mix(in srgb, var(--accent-teal) 8%, var(--bg));
-}
-
-.ease-output {
-  border-left: 3px solid var(--accent-teal);
-  padding-left: 1rem;
-  margin-top: 1rem;
-}
-
-.ease-output strong {
-  display: block;
-  font-size: 17px;
-  color: var(--text);
-  margin-bottom: 0.4rem;
-}
-
-.ease-slider {
-  width: 100%;
-  accent-color: var(--accent-teal);
-  margin: 1rem 0 0.6rem;
-}
-
-.ease-lens-labels {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  font-family: "DM Mono", monospace;
-  font-size: 10px;
-  color: var(--text3);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-}
-
-.ease-policy-output {
-  min-height: 160px;
-  border-radius: 18px;
-  padding: 1.2rem;
-  border: 0.5px solid var(--border);
-  background:
-    radial-gradient(circle at var(--policy-x, 70%) 10%, color-mix(in srgb, var(--accent-amber) 16%, transparent), transparent 32%),
-    var(--bg);
-}
-
-.ease-policy-output strong {
-  display: block;
-  font-family: "DM Serif Display", serif;
-  font-size: 24px;
-  line-height: 1.16;
-  margin-bottom: 0.7rem;
-}
-
-.ease-list {
-  display: grid;
-  gap: 0.75rem;
-  list-style: none;
-}
-
-.ease-list li {
-  border-left: 2px solid color-mix(in srgb, var(--accent-amber) 70%, transparent);
-  padding: 0.15rem 0 0.15rem 0.85rem;
-}
-
-.ease-cite {
-  font-size: 13px;
-  color: var(--text3);
-  margin-top: 1rem;
-}
-
-@media (max-width: 980px) {
-  .ease-hero,
-  .ease-layout,
-  .ease-interactive,
-  .ease-photo-strip {
-    grid-template-columns: 1fr;
-  }
-  .ease-hero-media { min-height: 360px; }
-  .ease-sticky { position: static; }
-  .ease-meta-grid,
-  .ease-data-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-
-@media (max-width: 620px) {
-  .ease-meta-grid,
-  .ease-data-grid { grid-template-columns: 1fr; }
-  .ease-title { font-size: 56px; }
-  .ease-hero-media { min-height: 280px; border-radius: 18px; }
-}
-</style>
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .section-grid,
+      .info-row,
+      .displacement-grid { grid-template-columns: 1fr; }
+      .hero-meta,
+      .quick-grid,
+      .stats-strip,
+      .policy-grid,
+      .photo-panel { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .mosaic { grid-template-columns: 1fr 1fr; grid-template-rows: 320px 160px; }
+      .section-side { position: static; }
+      .flow { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .flow-step:nth-child(2)::after,
+      .flow-step:nth-child(4)::after { display: none; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 24px, 1220px); }
+      .topnav { display: none; }
+      .hero-meta,
+      .quick-grid,
+      .stats-strip,
+      .policy-grid,
+      .photo-panel,
+      .flow { grid-template-columns: 1fr; }
+      .mosaic {
+        grid-template-columns: 1fr;
+        grid-template-rows: 320px 260px 160px;
+      }
+      .matrix { grid-template-columns: 1fr; }
+      .matrix > div { border-right: none !important; }
+      .matrix .head { display: none; }
+      .matrix .side { min-height: unset; }
+      .hero h1 { max-width: none; }
+    }
+  </style>
 </head>
-<body data-page="academic" class="ease-page">
-
-<nav class="nav-modern" id="siteNav">
-  <div class="nav-inner">
-    <div class="nav-left">
-      <a href="/" class="nav-home" aria-label="Home">
-        <span class="nav-home-icon">M</span>
-      </a>
-    </div>
-    <div class="nav-main">
-      <a href="/research/">Research</a>
-      <a href="/academic/">Academic</a>
-      <a href="/writing/">Reportage</a>
-      <a href="/interventions/">Interventions</a>
-      <a href="/about/">About</a>
-    </div>
-    <div class="nav-actions">
-      <button id="themeToggle" class="nav-theme-toggle" aria-label="Toggle dark mode">
-        <span class="toggle-track">
-          <span class="toggle-thumb">
-            <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-            <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/></svg>
-          </span>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="/" class="brand" aria-label="Md. Miraz Hossain home">
+        <span class="brand-mark">M</span>
+        <span class="brand-text">
+          <small class="mono">Portfolio project</small>
+          <strong>Md. Miraz Hossain</strong>
         </span>
-      </button>
+      </a>
+      <nav class="topnav mono" aria-label="Section navigation">
+        <a href="#definition">Definition</a>
+        <a href="#argument">Argument</a>
+        <a href="#pressure">Pressure Map</a>
+        <a href="#evidence">Evidence</a>
+        <a href="#redesign">Redesign</a>
+        <a href="#sources">Sources</a>
+      </nav>
     </div>
-  </div>
-</nav>
+  </header>
 
-<main>
-  <div class="container-wide">
-    <section class="ease-hero">
-      <div class="ease-hero-copy">
-        <p class="ease-kicker">MSJ3252 · Digital Audience · coursework essay</p>
-        <h1 class="ease-title">Easeparenting <em>and institutional design</em></h1>
-        <p class="ease-lead">A framework essay on how digital convenience, urban pressure, and algorithmic design shape parental decisions around children's screen time.</p>
-        <div class="ease-hero-actions">
-          <a class="hero-cta" href="#framework">read the framework</a>
-          <a class="hero-cta hero-cta-secondary" href="/academic/">back to academic work</a>
-        </div>
-      </div>
-      <figure class="ease-hero-media">
-        <img src="/assets/images/projects/easeparenting-dhaka-family.jpeg" alt="A family in Dhaka using screens at home">
-        <figcaption class="ease-photo-note">The question is not whether parents are careless. The question is why screens become the path of least resistance.</figcaption>
-      </figure>
-    </section>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow mono">Coined framework · media, care, and modern childhood</p>
+          <h1>Ease<em>parenting</em></h1>
+          <p class="hero-lead">A name for what happens when screens become the cheapest available form of calm, distraction, and temporary care — not because parents do not care, but because care itself has been made difficult.</p>
 
-    <div class="ease-meta-grid" aria-label="Project metadata">
-      <div class="ease-meta-card">
-        <span class="ease-label">Course</span>
-        <strong>MSJ3252 · Digital Audience</strong>
-      </div>
-      <div class="ease-meta-card">
-        <span class="ease-label">Session</span>
-        <strong>Spring 2026</strong>
-      </div>
-      <div class="ease-meta-card">
-        <span class="ease-label">Format</span>
-        <strong>Framework essay + interactive explainer</strong>
-      </div>
-      <div class="ease-meta-card">
-        <span class="ease-label">Status</span>
-        <strong>Original concept draft</strong>
-      </div>
-    </div>
-
-    <section class="ease-layout">
-      <aside class="ease-sticky">
-        <h2>What this project argues</h2>
-        <p>Screen time is usually framed as a household discipline problem. This essay reframes it as a design problem: families act inside work, childcare, urban, and algorithmic systems.</p>
-        <div class="ease-progress" aria-hidden="true"><span></span></div>
-      </aside>
-
-      <div class="ease-article">
-        <article class="ease-section" id="framework">
-          <h2>A missing term</h2>
-          <p>While reporting on children's screen time across Dhaka, I kept noticing a pattern that complicated the usual story. Families with more resources were not always using fewer screens. In some cases, they were using more.</p>
-          <p>That does not make sense if screen time is only a poverty substitute. It makes more sense if screens are also a convenience technology for exhausted households.</p>
-        </article>
-
-        <article class="ease-section ease-definition">
-          <span class="ease-label">Definition</span>
-          <strong>Easeparenting is the deliberate parental choice to substitute digital screens and algorithmic convenience for active engagement, because the surrounding system makes active engagement expensive.</strong>
-          <p>This is not a moral accusation. It is a way to name a constrained choice. Once the choice is named, policy can move beyond guilt and toward redesign.</p>
-        </article>
-
-        <div class="ease-photo-strip">
-          <figure>
-            <img src="/assets/images/projects/easeparenting-global-family.jpeg" alt="A family in a modern apartment, each person using a device">
-            <figcaption>A global version of the pattern: attention is outsourced to devices even inside the family room.</figcaption>
-          </figure>
-          <figure>
-            <img src="/assets/images/projects/easeparenting-dhaka-family.jpeg" alt="A Dhaka family with a child and parents using digital devices">
-            <figcaption>The Dhaka version is not just about technology. It is about work pressure, childcare scarcity, and urban isolation.</figcaption>
-          </figure>
+          <div class="hero-meta">
+            <div class="meta-card"><span class="mono">Format</span><strong>Infographic essay</strong></div>
+            <div class="meta-card"><span class="mono">Field</span><strong>Digital audience</strong></div>
+            <div class="meta-card"><span class="mono">Claim</span><strong>From blame to systems</strong></div>
+            <div class="meta-card"><span class="mono">Author</span><strong>Md. Miraz Hossain</strong></div>
+          </div>
         </div>
 
-        <article class="ease-section">
-          <h2>The evidence problem</h2>
-          <p>The icddr,b screen-time findings make the pattern sharper: children exceed recommended limits across class lines, and upper-income children can receive even more daily exposure. That matters because it shifts the explanation away from simple deprivation.</p>
-          <div class="ease-data-grid">
-            <div class="ease-data-card">
-              <strong>83%</strong>
-              <span>exceed recommended screen-time limits</span>
-            </div>
-            <div class="ease-data-card">
-              <strong>4.6h</strong>
-              <span>average daily exposure reported in the dataset</span>
-            </div>
-            <div class="ease-data-card">
-              <strong>5.5h</strong>
-              <span>upper-income children in the reported pattern</span>
-            </div>
-            <div class="ease-data-card">
-              <strong>3.7h</strong>
-              <span>lower-income children in the reported pattern</span>
-            </div>
+        <div class="mosaic" aria-label="Hero collage of article visuals">
+          <figure class="mosaic-card" style="grid-row: span 2;">
+            <img src="assets/easeparenting-photo-1.png" alt="A domestic daytime scene where a child uses a tablet while adults are occupied in the background." />
+            <figcaption class="mosaic-note">
+              <strong>The room is the story.</strong>
+              <p>Work, chores, fatigue, and a quiet child held in place by a glowing screen.</p>
+            </figcaption>
+          </figure>
+          <figure class="mosaic-card">
+            <img src="assets/easeparenting-photo-2.png" alt="An evening family scene where a child and father are absorbed by screens while the mother works in the kitchen." />
+            <figcaption class="mosaic-note">
+              <strong>Not villainy. Infrastructure.</strong>
+              <p>Easeparenting is best read as a care arrangement, not merely a character flaw.</p>
+            </figcaption>
+          </figure>
+          <div class="definition-tile" id="definition">
+            <span class="k mono">Coined term</span>
+            <h2>Easeparenting</h2>
+            <p>The use of screens as a low-friction care substitute when adult attention, safe play, time, and social support are structurally scarce.</p>
+            <div class="stamp mono">coined<br>concept</div>
           </div>
-          <p class="ease-cite">Figures retained from the original coursework/reporting draft; final source note can be expanded later.</p>
-        </article>
-
-        <section class="ease-section ease-interactive">
-          <div>
-            <h2>Why it happens</h2>
-            <p>Use the chips to change the pressure point. The essay's argument is that each pressure makes screen-based parenting feel less like failure and more like the rational option inside a badly designed environment.</p>
-            <div class="ease-control-panel">
-              <span class="ease-control-label">Choose a pressure</span>
-              <div class="ease-chip-row" id="easePressureChips">
-                <button class="ease-chip is-active" type="button" data-pressure="work">Work intensification</button>
-                <button class="ease-chip" type="button" data-pressure="care">Childcare scarcity</button>
-                <button class="ease-chip" type="button" data-pressure="city">Urban isolation</button>
-              </div>
-              <div class="ease-output" id="easePressureOutput">
-                <strong>Parents return home already cognitively spent.</strong>
-                <p>When work consumes the best hours and the remaining attention, screens become a low-friction way to keep children occupied without another negotiation.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="ease-control-panel">
-            <span class="ease-control-label">Move the policy lens</span>
-            <input class="ease-slider" id="easePolicySlider" type="range" min="0" max="100" value="72" aria-label="Move from individual blame to system redesign">
-            <div class="ease-lens-labels">
-              <span>individual blame</span>
-              <span>system redesign</span>
-            </div>
-            <div class="ease-policy-output" id="easePolicyOutput">
-              <strong>Redesign the conditions around parents.</strong>
-              <p>The practical question becomes: what childcare, work, school, platform, and urban changes would make active parenting easier than passive outsourcing?</p>
-            </div>
-          </div>
-        </section>
-
-        <article class="ease-section">
-          <h2>The epistemic cost</h2>
-          <p>The activities displaced by easeparenting are exactly the activities that build epistemic capacity: conversation, boredom, open-ended play, embodied learning, adult feedback, and the slow practice of asking why.</p>
-          <p>Algorithmic media is not neutral here. It rewards immediate gratification, reduces friction, and quietly trains attention away from uncertainty.</p>
-        </article>
-
-        <article class="ease-section">
-          <h2>What schools and policy can do</h2>
-          <ul class="ease-list">
-            <li><strong>Center epistemic formation</strong>: make evidence evaluation and question-asking foundational, not ornamental.</li>
-            <li><strong>Create developmental time</strong>: protect unstructured play and embodied learning from being crowded out.</li>
-            <li><strong>Limit passive screens</strong>: stop doubling algorithmic exposure inside school.</li>
-            <li><strong>Address structure</strong>: childcare, work flexibility, platform design, and urban space all belong in the solution.</li>
-          </ul>
-        </article>
+        </div>
       </div>
     </section>
-  </div>
-</main>
 
-<footer>
-  <div class="container-wide">
-    <p class="footer-text">© 2026 Md. Miraz Hossain · Dhaka, Bangladesh</p>
-    <div class="footer-links">
-      <a href="mailto:miraz8395@gmail.com">email</a>
-      <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener">linkedin</a>
-      <a href="https://x.com/Miraz8395" target="_blank" rel="noopener">x</a>
-      <a href="https://signal.me/#eu/ylklb4x-Gx18h3DzQjtP-vHmFn4lwtTe9dqiCG3wpY0onLpReQBBxoRr0dsrwCoA" target="_blank" rel="noopener">signal</a>
+    <section class="quick-thesis">
+      <div class="container quick-grid">
+        <article class="quick-card"><div class="num mono">01</div><h3>It is not simply “bad parenting.”</h3><p>The weak argument blames parents. The stronger argument studies the conditions that make screens an easy fallback.</p></article>
+        <article class="quick-card"><div class="num mono">02</div><h3>Not all screen time is the same.</h3><p>The real distinction is between purposeful, social use and default pacification that displaces sleep, play, or conversation.</p></article>
+        <article class="quick-card"><div class="num mono">03</div><h3>The issue is ecological.</h3><p>Housing, work pressure, domestic labour, safety, school rhythms, and platform design all push the same choice.</p></article>
+        <article class="quick-card"><div class="num mono">04</div><h3>The solution is design, not scolding.</h3><p>Families need lower-friction alternatives, and institutions need to carry part of the burden.</p></article>
+      </div>
+    </section>
+
+    <section class="section" id="argument">
+      <div class="container section-grid">
+        <aside class="section-side">
+          <p class="label mono">01 · Strengthen the argument</p>
+          <h2>Start by rejecting the easy version.</h2>
+          <p>The article works best when it argues against the lazy interpretation first. That gives the concept credibility.</p>
+        </aside>
+        <div class="section-main">
+          <div class="info-row">
+            <article class="essay-card">
+              <p>There is a weak argument about children and screens: parents are careless, children are addicted, and the fix is discipline. That argument is emotionally satisfying and analytically shallow. It individualises a pattern that is clearly social.</p>
+              <p>The stronger claim is this: <strong>easeparenting emerges when other forms of care become expensive in time, energy, space, or attention.</strong> A screen can keep a child still while a parent finishes a deadline, cooks dinner, takes a call, rests, or simply survives the evening. That does not make the habit harmless. It makes it intelligible.</p>
+              <p>By naming the pattern, the project asks a better question. Not simply, “Why do parents hand over devices?” but “What design of family life makes that move feel so necessary, so ordinary, and so difficult to refuse?”</p>
+            </article>
+            <aside class="quote-card">
+              <blockquote>“The screen is often not the first choice. It is the easiest available choice.”</blockquote>
+              <cite>— Core thesis of the framework</cite>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="pressure">
+      <div class="container section-grid">
+        <aside class="section-side">
+          <p class="label mono">02 · Pressure map</p>
+          <h2>Five pressures produce the same outcome.</h2>
+          <p>Private media routines are often public conditions in disguise.</p>
+        </aside>
+        <div class="section-main">
+          <div class="diagram-card">
+            <h3>How easeparenting is produced</h3>
+            <div class="flow" aria-label="Flow diagram showing the production of easeparenting">
+              <div class="flow-step"><div class="tag mono">Pressure 1</div><h4>Work strain</h4><p>Long hours, remote work bleed, and unstable attention make uninterrupted care difficult.</p></div>
+              <div class="flow-step"><div class="tag mono">Pressure 2</div><h4>Domestic overload</h4><p>Cooking, cleaning, sibling care, and emotional labour compress the adult bandwidth available to children.</p></div>
+              <div class="flow-step"><div class="tag mono">Pressure 3</div><h4>Spatial scarcity</h4><p>Small homes, unsafe streets, and limited play infrastructure reduce the alternatives to sitting still indoors.</p></div>
+              <div class="flow-step"><div class="tag mono">Pressure 4</div><h4>Platform capture</h4><p>Apps are frictionless, sticky, and designed to prolong attention with minimal effort from adults.</p></div>
+              <div class="flow-step"><div class="tag mono">Result</div><h4>Screen-as-care</h4><p>The device becomes a pause button: immediate, portable, repeatable, and socially normalised.</p></div>
+            </div>
+          </div>
+
+          <div class="displacement-grid">
+            <div class="diagram-card">
+              <h3>What gets displaced is the real question</h3>
+              <div class="displacement-list">
+                <div class="disp-item"><h4>Conversation</h4><p>Fewer spontaneous exchanges, fewer shared stories, fewer chances to read mood and response.</p></div>
+                <div class="disp-item"><h4>Boredom</h4><p>Children lose unscripted time — the often-uncomfortable space where imagination and self-direction grow.</p></div>
+                <div class="disp-item"><h4>Movement</h4><p>Quiet screens replace physical play, rough-and-tumble activity, and exploration.</p></div>
+                <div class="disp-item"><h4>Sleep and rhythm</h4><p>Late use and constant stimulation can spill into bedtime and family routines.</p></div>
+                <div class="disp-item"><h4>Shared care</h4><p>The screen quietly becomes the third parent — not in love, but in labour.</p></div>
+              </div>
+            </div>
+            <div class="diagram-card">
+              <h3>A visual wheel of the pattern</h3>
+              <div class="wheel" aria-hidden="true">
+                <span class="wheel-label one mono">Work</span>
+                <span class="wheel-label two mono">Platforms</span>
+                <span class="wheel-label three mono">Housing</span>
+                <span class="wheel-label four mono">Fatigue</span>
+                <span class="wheel-label five mono">Safety</span>
+              </div>
+              <p>None of the pressures alone explains the whole pattern. Together, they make the screen a highly rational convenience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="evidence">
+      <div class="container section-grid">
+        <aside class="section-side">
+          <p class="label mono">03 · Test the idea</p>
+          <h2>The evidence justifies concern, but not panic.</h2>
+          <p>The concept should survive nuance. It is not anti-technology. It is anti-default.</p>
+        </aside>
+        <div class="section-main">
+          <div class="stats-strip">
+            <article class="stats-card">
+              <span class="value">4.6h</span>
+              <h3>Average daily screen exposure</h3>
+              <p>Reported among school-going children in Dhaka in a 2026 icddr,b study summary.</p>
+              <small class="mono">Source cue · icddr,b</small>
+            </article>
+            <article class="stats-card">
+              <span class="value">83%</span>
+              <h3>Exceeded recreational limits</h3>
+              <p>Share of participating Dhaka children reported to be over recommended recreational screen-time thresholds.</p>
+              <small class="mono">Source cue · icddr,b</small>
+            </article>
+            <article class="stats-card">
+              <span class="value">35.1%</span>
+              <h3>Responsive early stimulation</h3>
+              <p>Children aged 24–59 months in Bangladesh receiving early stimulation and responsive care from an adult household member.</p>
+              <small class="mono">Source cue · UNICEF Bangladesh / MICS</small>
+            </article>
+          </div>
+
+          <div class="essay-card">
+            <p>The responsible reading of the research is not that every minute of screen use harms every child. Age, content, co-use, sleep, movement, temperament, and family context matter. A video watched with a parent is not the same as a device used to buy silence. A learning app is not the same as an endless feed.</p>
+            <p>But nuance should not become denial. Repeated, solitary, high-volume, convenience-based screen use is a distinct pattern. <strong>Easeparenting names that pattern.</strong> The term becomes useful precisely because it refuses both extremes: the panic that says all screens are poison and the complacency that says screens are simply modern life.</p>
+          </div>
+
+          <div class="diagram-card">
+            <h3>Not all screen time is equal</h3>
+            <div class="matrix" aria-label="Comparison matrix of two kinds of screen use">
+              <div class="head"></div>
+              <div class="head">Purposeful / shared use</div>
+              <div class="head">Default / pacifying use</div>
+
+              <div class="side">How it feels</div>
+              <div><h4>Guided, bounded, social</h4><p>Often time-limited, contextual, and linked to conversation or learning.</p></div>
+              <div><h4>Frictionless, repetitive, solitary</h4><p>Used to occupy attention quickly with minimal adult input.</p></div>
+
+              <div class="side">What it tends to do</div>
+              <div><h4>Adds to family activity</h4><p>Can support explanation, storytelling, co-viewing, or creation.</p></div>
+              <div><h4>Replaces family activity</h4><p>More likely to displace play, boredom, movement, or talk.</p></div>
+
+              <div class="side">What the framework says</div>
+              <div><h4>Not the main target</h4><p>The term does not condemn all digital use. It asks what kind of use is being normalised.</p></div>
+              <div><h4>Exactly the target</h4><p>This is where a device quietly functions as a substitute caregiver.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="visuals">
+      <div class="container section-grid">
+        <aside class="section-side">
+          <p class="label mono">04 · Photo logic</p>
+          <h2>Use meaningful, subtle visuals.</h2>
+          <p>The photos do not accuse. They reveal the atmosphere in which the concept becomes legible.</p>
+        </aside>
+        <div class="section-main">
+          <div class="photo-panel">
+            <figure class="photo-figure">
+              <img src="assets/easeparenting-photo-1.png" alt="A child uses a tablet while adults are occupied with work and domestic tasks in a home interior." />
+              <figcaption>Daytime version: the child is still, the adults are occupied, the home is functional, and the screen becomes a temporary holding environment.</figcaption>
+            </figure>
+            <figure class="photo-figure">
+              <img src="assets/easeparenting-photo-2.png" alt="A father and child sit with devices in the evening while another adult works in the kitchen." />
+              <figcaption>Evening version: the screen becomes a shared domestic habit — ordinary enough to disappear inside the routine.</figcaption>
+            </figure>
+          </div>
+          <div class="essay-card">
+            <p>These images work because they avoid the melodrama of “caught in the act” stock photography. No one is framed as monstrous. The emphasis is on distributed attention, fatigue, and domestic compression. The design language of the page should do the same: explain the system, not humiliate the family.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="redesign">
+      <div class="container section-grid">
+        <aside class="section-side">
+          <p class="label mono">05 · Establish properly</p>
+          <h2>Move from diagnosis to redesign.</h2>
+          <p>The article should end by making intervention imaginable at the family, school, and policy levels.</p>
+        </aside>
+        <div class="section-main">
+          <div class="policy-grid">
+            <article class="policy-card"><div class="icon">⌂</div><h3>For homes</h3><p>Create two device-light anchors: one meal and one bedtime period. Make books, drawing tools, and physical play more visible than the nearest screen.</p></article>
+            <article class="policy-card"><div class="icon">◌</div><h3>For parents</h3><p>Track the moments screens appear most easily — tantrums, chores, work calls, exhaustion — and design alternatives around those triggers.</p></article>
+            <article class="policy-card"><div class="icon">▣</div><h3>For schools</h3><p>Teach media habits as practical literacy: attention, boredom, algorithms, sleep, and what persuasive interfaces are designed to do.</p></article>
+            <article class="policy-card"><div class="icon">✦</div><h3>For institutions</h3><p>Safe play spaces, childcare, flexible work, and public support matter because less screen dependence is not just a parenting virtue — it is a material possibility.</p></article>
+          </div>
+          <div class="quote-card">
+            <blockquote>“Easeparenting is not a style to celebrate. It is a warning light on the dashboard of modern care.”</blockquote>
+            <cite>— Final position of the article</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="sources">
+      <div class="container section-grid">
+        <aside class="section-side">
+          <p class="label mono">06 · Research base</p>
+          <h2>Selected sources behind the framework.</h2>
+          <p>Kept visible so the concept feels argued, not invented out of thin air.</p>
+        </aside>
+        <div class="section-main">
+          <div class="sources-card">
+            <p>The article can live as a portfolio project, but it becomes stronger when it clearly signals the evidence base that informed the concept.</p>
+            <div class="sources-list">
+              <a href="https://www.icddrb.org/press-releases/dhaka-children-spending-nearly-5-hours-daily-on-screens-linked-to-sleep-deprivation-obesity-and-mental-health-concerns-icddrb-study-14-05-2026">icddr,b — Dhaka children spending nearly five hours daily on screens</a>
+              <a href="https://www.who.int/publications/i/item/9789241550536">WHO — Guidelines on physical activity, sedentary behaviour and sleep for children under 5</a>
+              <a href="https://www.healthychildren.org/English/family-life/Media/Pages/How-to-Make-a-Family-Media-Use-Plan.aspx">American Academy of Pediatrics — Family media plan</a>
+              <a href="https://www.frontiersin.org/journals/child-and-adolescent-psychiatry/articles/10.3389/frcha.2024.1330331/full">Frontiers — Parental distraction and child outcomes</a>
+              <a href="https://www.unicef.org/bangladesh/en/data-situation-children-bangladesh">UNICEF Bangladesh — Data on children in Bangladesh</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p><strong>Easeparenting</strong> — a coined framework and portfolio project by Md. Miraz Hossain.</p>
+      <p class="footnote">This redesign replaces the earlier interactive structure with a visually rich infographic essay, a new type system, a new colour world, and newly generated original photos.</p>
     </div>
-  </div>
-</footer>
-
-<script src="/assets/js/main.js?v=9"></script>
-<script>
-const pressureCopy = {
-  work: {
-    title: 'Parents return home already cognitively spent.',
-    body: 'When work consumes the best hours and the remaining attention, screens become a low-friction way to keep children occupied without another negotiation.'
-  },
-  care: {
-    title: 'Formal care is expensive, scarce, or socially fragile.',
-    body: 'In that gap, the screen behaves like a private babysitter: always available, immediately rewarding, and cheaper than rebuilding a care network.'
-  },
-  city: {
-    title: 'The city makes play harder than scrolling.',
-    body: 'Traffic, apartment living, unsafe streets, and shrinking public space turn outdoor childhood into a logistical problem that parents must solve alone.'
-  }
-};
-
-document.querySelectorAll('#easePressureChips .ease-chip').forEach(button => {
-  button.addEventListener('click', () => {
-    document.querySelectorAll('#easePressureChips .ease-chip').forEach(item => item.classList.toggle('is-active', item === button));
-    const item = pressureCopy[button.dataset.pressure] || pressureCopy.work;
-    document.getElementById('easePressureOutput').innerHTML = `<strong>${item.title}</strong><p>${item.body}</p>`;
-  });
-});
-
-const slider = document.getElementById('easePolicySlider');
-const policyOutput = document.getElementById('easePolicyOutput');
-function updatePolicyLens() {
-  const value = Number(slider.value || 0);
-  policyOutput.style.setProperty('--policy-x', `${value}%`);
-  if (value < 35) {
-    policyOutput.innerHTML = '<strong>The frame collapses into blame.</strong><p>Parents are treated as lazy or careless, so the proposed solution becomes more advice, more guilt, and more individual discipline.</p>';
-  } else if (value < 68) {
-    policyOutput.innerHTML = '<strong>The mixed frame sees pressure.</strong><p>Parents still make choices, but those choices are shaped by time scarcity, childcare gaps, city design, and platform incentives.</p>';
-  } else {
-    policyOutput.innerHTML = '<strong>Redesign the conditions around parents.</strong><p>The practical question becomes: what childcare, work, school, platform, and urban changes would make active parenting easier than passive outsourcing?</p>';
-  }
-}
-if (slider && policyOutput) {
-  slider.addEventListener('input', updatePolicyLens);
-  updatePolicyLens();
-}
-</script>
+  </footer>
 </body>
 </html>
