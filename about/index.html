@@ -19,7 +19,7 @@
 
   .about-portrait-hero {
     position: relative;
-    min-height: min(760px, calc(100vh - 84px));
+    min-height: clamp(560px, 64vh, 660px);
     overflow: hidden;
     background: #b7ada2;
     isolation: isolate;
@@ -113,7 +113,7 @@
   .about-body-stack {
     display: grid;
     gap: clamp(1.25rem, 3vw, 2rem);
-    padding-top: clamp(2rem, 5vw, 4rem);
+    padding-top: clamp(1rem, 3vw, 2.5rem);
   }
 
   .about-profile-grid {
@@ -507,7 +507,7 @@
   </section>
 
   <div class="container-wide about-body-stack">
-    <section class="about-profile-grid reveal">
+    <section class="about-profile-grid">
       <article class="about-story-panel">
         <p class="about-panel-kicker">About</p>
         <h2>A short <em>introduction,</em> because the long one is the rest of the site.</h2>
