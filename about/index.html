@@ -57,20 +57,12 @@
     color: #102027;
   }
 
-  .about-hero-kicker,
-  .about-hero-note,
   .about-panel-kicker,
   .about-door-kicker,
   .about-craft-index {
     font-family: 'DM Mono', monospace;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-  }
-
-  .about-hero-kicker {
-    margin: 0 0 1rem;
-    color: #8f3e2d;
-    font-size: 11px;
   }
 
   .about-hero-title {
@@ -88,23 +80,6 @@
     display: block;
     color: #7a5230;
     font-style: italic;
-  }
-
-  .about-hero-lead {
-    max-width: 48ch;
-    margin: 1.35rem 0 0;
-    color: #25333a;
-    font-size: clamp(18px, 1.8vw, 23px);
-    line-height: 1.62;
-  }
-
-  .about-hero-note {
-    display: inline-flex;
-    margin-top: 1.4rem;
-    padding-top: 0.95rem;
-    border-top: 1px solid rgba(16, 32, 39, 0.22);
-    color: #526065;
-    font-size: 10px;
   }
 
   .about-hero-actions {
@@ -141,14 +116,9 @@
   }
 
   .about-profile-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1.18fr) minmax(280px, 0.82fr);
-    gap: clamp(1rem, 3vw, 1.6rem);
-    align-items: start;
+    display: block;
   }
 
-  .about-story-panel,
-  .about-signal-panel,
   .about-craft-box,
   .about-door-card,
   .about-small-card {
@@ -157,7 +127,9 @@
   }
 
   .about-story-panel {
-    padding: clamp(1.35rem, 3vw, 2rem);
+    max-width: 980px;
+    margin: 0 auto;
+    padding: clamp(0.5rem, 2vw, 1rem) 0 clamp(0.4rem, 2vw, 0.8rem);
   }
 
   .about-panel-kicker {
@@ -178,19 +150,19 @@
   }
 
   .about-story-panel h2 {
-    max-width: 12ch;
-    font-size: clamp(38px, 5vw, 68px);
-    line-height: 0.98;
-    margin-bottom: 1.1rem;
+    max-width: 13ch;
+    font-size: clamp(50px, 7.4vw, 92px);
+    line-height: 0.94;
+    margin-bottom: 1.4rem;
   }
 
   .about-story-body {
     display: grid;
-    gap: 1rem;
+    gap: 1.05rem;
+    max-width: 82ch;
   }
 
   .about-story-body p,
-  .about-signal-panel p,
   .about-craft-head p,
   .about-craft-item p,
   .about-door-card p,
@@ -204,6 +176,15 @@
     font-size: 16px;
   }
 
+  .about-intro-lede {
+    max-width: 27ch;
+    color: var(--text);
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(25px, 3vw, 34px);
+    font-style: italic;
+    line-height: 1.12;
+  }
+
   .about-story-body a {
     color: #c46f58;
     text-decoration: none;
@@ -212,47 +193,6 @@
 
   .about-story-body a:hover {
     border-bottom-color: #c46f58;
-  }
-
-  .about-signal-panel {
-    padding: clamp(1.1rem, 2.5vw, 1.55rem);
-    background:
-      radial-gradient(circle at top right, color-mix(in srgb, #c46f58 13%, transparent), transparent 44%),
-      var(--surface);
-  }
-
-  .about-signal-list {
-    display: grid;
-    gap: 0.85rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .about-signal-list li {
-    padding: 0 0 0.85rem;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .about-signal-list li:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .about-signal-list strong {
-    display: block;
-    margin-bottom: 0.35rem;
-    color: var(--text);
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    line-height: 1.05;
-    font-weight: 400;
-  }
-
-  .about-signal-list span {
-    color: var(--text2);
-    font-size: 14px;
-    line-height: 1.6;
   }
 
   .about-visible-doors {
@@ -486,15 +426,6 @@
       line-height: 0.94;
     }
 
-    .about-hero-lead {
-      color: var(--text2);
-    }
-
-    .about-hero-note {
-      color: var(--text3);
-      border-top-color: var(--border);
-    }
-
     .about-hero-actions a {
       color: var(--text);
       background: var(--surface);
@@ -550,18 +481,15 @@
 
 <main class="about-redesign-page">
   <section class="about-portrait-hero reveal" aria-label="About Md. Miraz Hossain">
-    <img src="/assets/images/portraits/about-suit-portrait.png" alt="Md. Miraz Hossain in a dark suit against a warm neutral wall">
+    <img src="/assets/images/portraits/about-suit-portrait.png" onerror="this.onerror=null;this.src='/assets/images/portraits/about-black-jacket-smile.jpg';" alt="Portrait of Md. Miraz Hossain" loading="eager" fetchpriority="high">
     <div class="container-wide">
       <div class="about-hero-copy">
-        <p class="about-hero-kicker">About · evidence, language, learning</p>
         <h1 class="about-hero-title">Md. Miraz <span>Hossain.</span></h1>
-        <p class="about-hero-lead">I work where journalism, research, teaching, and digital verification meet: turning messy public information into arguments people can inspect.</p>
         <div class="about-hero-actions" aria-label="Primary about links">
           <a href="/research/">Research</a>
           <a href="/interventions/">Interventions</a>
           <a href="/credentials/">Credentials</a>
         </div>
-        <span class="about-hero-note">Dhaka, Bangladesh · journalist · researcher · educator</span>
       </div>
     </div>
   </section>
@@ -569,37 +497,16 @@
   <div class="container-wide about-body-stack">
     <section class="about-profile-grid reveal">
       <article class="about-story-panel">
-        <p class="about-panel-kicker">The short version</p>
-        <h2>Reading systems, then writing them clearly.</h2>
+        <p class="about-panel-kicker">About</p>
+        <h2>A short <em>introduction,</em> because the long one is the rest of the site.</h2>
         <div class="about-story-body">
-          <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among novels, theory, and long arguments over language did not move me away from the practical world. They gave me a sharper way to enter it.</p>
-          <p>That habit moved with me into newsrooms and research. I write about the systems behind what people think they know: algorithmic feeds, misinformation cascades, platform power, evidence trails, and the institutions that shape public attention.</p>
-          <p>I teach, too. Sometimes inside classrooms, sometimes through workshops, and sometimes by designing learning systems for myself and others. The recurring interest is the same: help people see structure, ask better questions, and leave with something usable.</p>
-          <p>The rest of this site is the record: what I have written, what I am researching, where I have taught, and the quieter room <a href="/beyond/">that lives beyond the work</a>.</p>
+          <p class="about-intro-lede">I am a journalist who took a slow detour through literature and never quite came back &mdash; which, on most days, feels like the most useful thing about me.</p>
+          <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among postcolonial novels, narrative theory, and tea-stained photocopies of Heaney did not, as my family briefly feared, ruin me for the practical world. They taught me to read a paragraph the way a mechanic reads an engine &mdash; for what it is doing, and for the small failures it is trying to disguise.</p>
+          <p>That habit moved with me into a newsroom. I now write about the systems behind what people think they know: algorithmic feeds, misinformation cascades, the polite architecture of platform power. I came to research because journalism kept asking questions I could not answer in 1,200 words, and I came back to journalism because research, left alone, can forget who it is for.</p>
+          <p>I teach, too, mostly by accident. The students keep asking smarter questions than I had at their age, so I keep showing up. Outside the work, I run, read late, drink coffee with the seriousness of a discipline, and lose entire afternoons to old films and longer Spanish sentences. I believe, with no evidence whatsoever, that every person I meet on a long bus ride has a story worth slowing down for.</p>
+          <p>The rest of this site is the receipts: what I have written, what I am researching, where I have taught. Somewhere behind that public record is the quieter room that lives <a href="/beyond/">beyond the work</a>. This page is just the introduction you would get if we met somewhere with bad lighting and good coffee.</p>
         </div>
       </article>
-
-      <aside class="about-signal-panel" aria-label="Working signals">
-        <p class="about-panel-kicker">Working signals</p>
-        <ul class="about-signal-list">
-          <li>
-            <strong>Evidence work</strong>
-            <span>OSINT, fact-checking, source tracing, visual verification, and the patience to follow claims back to their roots.</span>
-          </li>
-          <li>
-            <strong>Public writing</strong>
-            <span>Reporting and analysis that tries to keep the sentence alive without letting style outrun proof.</span>
-          </li>
-          <li>
-            <strong>Teaching rooms</strong>
-            <span>Academic English, digital verification, student counselling, and self-directed learning systems.</span>
-          </li>
-          <li>
-            <strong>Systems lens</strong>
-            <span>Looking past individual blame toward incentives, interfaces, institutions, and feedback loops.</span>
-          </li>
-        </ul>
-      </aside>
     </section>
 
     <section class="about-craft-box reveal" aria-label="Craft habits">
