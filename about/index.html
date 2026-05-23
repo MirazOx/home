@@ -60,6 +60,19 @@
     font-style: italic;
   }
 
+  .about-subtitle {
+    margin: 0 0 2.5rem 0;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: clamp(15px, 1.8vw, 17px);
+    line-height: 1.5;
+    color: var(--text2);
+    font-style: italic;
+    font-weight: 400;
+    max-width: 45ch;
+    border-left: 2px solid var(--accent-terracotta);
+    padding-left: 1rem;
+  }
+
   .about-bio-container {
     max-width: 65ch;
   }
@@ -447,7 +460,7 @@
   @media (max-width: 980px) {
     .about-editorial-grid {
       grid-template-columns: 1fr;
-      gap: 3.5rem;
+      gap: 2.5rem;
     }
 
     .about-editorial-left {
@@ -460,7 +473,8 @@
     }
 
     .about-portrait-frame {
-      max-width: 480px;
+      max-width: 420px;
+      aspect-ratio: 3 / 4;
       margin: 0 auto;
     }
 
@@ -471,11 +485,22 @@
 
     .doors-grid {
       grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .door-card {
+      min-height: auto;
+      padding: 2rem 0;
     }
 
     .footer-details-grid {
       grid-template-columns: 1fr;
-      gap: 2.5rem;
+      gap: 2rem;
+      padding: 2.5rem 0 1.5rem 0;
+    }
+
+    .section-divider {
+      margin: 2.5rem 0;
     }
     
     .craft-habit-card {
@@ -485,16 +510,130 @@
 
   @media (max-width: 600px) {
     .about-editorial-layout {
-      padding: 2rem 0;
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+    }
+
+    .about-editorial-grid {
+      gap: 2rem;
     }
 
     .about-title {
-      font-size: 42px;
+      font-size: clamp(36px, 12vw, 48px);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .about-title span {
+      font-size: 0.85em;
+    }
+
+    .about-portrait-frame {
+      max-width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 10px;
+    }
+
+    .about-lede {
+      font-size: clamp(18px, 5vw, 22px);
+      padding-left: 1rem;
+      border-left-width: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-subtitle {
+      font-size: 15px;
+      margin-bottom: 1.75rem;
+      max-width: none;
+    }
+
+    .about-bio-paragraphs p {
+      font-size: 15px;
+      line-height: 1.72;
+      text-align: left;
+    }
+
+    .about-quick-link-btn {
+      padding: 0.9rem 1.1rem;
+      font-size: 13px;
+      border-radius: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 7vw, 36px);
+    }
+
+    .section-subtitle {
+      font-size: 14px;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-divider {
+      margin: 2rem 0;
     }
 
     .craft-habits-grid {
       grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .craft-habit-card {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .craft-habit-card h3 {
+      font-size: 18px;
+      margin-bottom: 0.5rem;
+    }
+
+    .craft-habit-card p {
+      font-size: 13px;
+    }
+
+    .craft-habit-meta {
+      margin-bottom: 0.75rem;
+    }
+
+    .craft-habit-tag {
+      font-size: 10px;
+      padding: 0.25rem 0.55rem;
+    }
+
+    .door-card h2 {
+      font-size: clamp(24px, 7vw, 32px);
+    }
+
+    .door-card p {
+      font-size: 14px;
+    }
+
+    .door-card-bottom {
+      margin-top: 1.25rem;
+      font-size: 10px;
+    }
+
+    .door-pills span {
+      font-size: 9px;
+      padding: 0.3rem 0.55rem;
+    }
+
+    .footer-details-grid {
       gap: 1.5rem;
+      padding: 1.5rem 0 1rem 0;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .about-title {
+      font-size: 32px;
+    }
+
+    .about-quick-link-btn {
+      padding: 0.8rem 1rem;
     }
   }
 </style>
@@ -552,7 +691,7 @@
     <div class="about-editorial-left">
       <h1 class="about-title">Md. Miraz <span>Hossain</span></h1>
       
-      <p style="margin: 0 0 2.5rem 0; font-family: 'Instrument Sans', sans-serif; font-size: clamp(15px, 1.8vw, 17px); line-height: 1.5; color: var(--text2); font-style: italic; font-weight: 400; max-width: 45ch; border-left: 2px solid var(--accent-terracotta); padding-left: 1rem;">
+      <p class="about-subtitle">
         A short introduction, because the long one is the rest of the site.
       </p>
       
