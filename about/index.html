@@ -290,34 +290,38 @@
     padding: 0.75rem 1.35rem;
     border-radius: 99px;
     cursor: pointer;
-    background-color: var(--capsule-color-light);
-    color: var(--capsule-text-light);
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: var(--surface2);
+    color: var(--text2);
+    border: 1px solid var(--border-subtle);
     transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
   }
 
   :root[data-theme="dark"] .craft-habit-capsule {
-    background-color: var(--capsule-color-dark);
-    color: var(--capsule-text-dark);
-    border: 1px solid var(--capsule-border-dark);
+    background-color: var(--surface2);
+    color: var(--text2);
+    border: 1px solid var(--border-subtle);
   }
 
   .craft-habit-capsule:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: var(--accent-terracotta);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   }
 
   .craft-habit-capsule.active {
     transform: translateY(-2px);
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.12);
-    outline: 2px solid var(--capsule-text-light);
-    outline-offset: 2px;
+    background-color: var(--accent-terracotta);
+    color: #ffffff;
+    border-color: var(--accent-terracotta);
+    box-shadow: 0 4px 15px rgba(196, 111, 88, 0.25);
   }
 
   :root[data-theme="dark"] .craft-habit-capsule.active {
-    outline-color: var(--capsule-text-dark);
+    background-color: var(--accent-terracotta);
+    color: #ffffff;
+    border-color: var(--accent-terracotta);
   }
 
   /* Detail Card Display */
@@ -848,24 +852,23 @@
           <h3 class="habits-sidebar-title">Habits of <em>the Craft.</em></h3>
           <p class="habits-sidebar-desc">Practices that make the work move faster, cleaner, and less blindly.</p>
           
-          <!-- Capsules row -->
           <div class="craft-habits-capsules" role="tablist" aria-label="Habits list">
-            <button class="craft-habit-capsule active" data-habit="1" style="--capsule-color-light: #e0f2fe; --capsule-text-light: #0369a1; --capsule-color-dark: rgba(14, 165, 233, 0.15); --capsule-text-dark: #38bdf8; --capsule-border-dark: rgba(14, 165, 233, 0.3);">
+            <button class="craft-habit-capsule active" data-habit="1">
               Touch typing
             </button>
-            <button class="craft-habit-capsule" data-habit="2" style="--capsule-color-light: #ffedd5; --capsule-text-light: #c2410c; --capsule-color-dark: rgba(249, 115, 22, 0.15); --capsule-text-dark: #fb923c; --capsule-border-dark: rgba(249, 115, 22, 0.3);">
+            <button class="craft-habit-capsule" data-habit="2">
               Learning systems
             </button>
-            <button class="craft-habit-capsule" data-habit="3" style="--capsule-color-light: #dcfce7; --capsule-text-light: #15803d; --capsule-color-dark: rgba(16, 185, 129, 0.15); --capsule-text-dark: #34d399; --capsule-border-dark: rgba(16, 185, 129, 0.3);">
+            <button class="craft-habit-capsule" data-habit="3">
               Structuring
             </button>
-            <button class="craft-habit-capsule" data-habit="4" style="--capsule-color-light: #f3e8ff; --capsule-text-light: #6b21a8; --capsule-color-dark: rgba(168, 85, 247, 0.15); --capsule-text-dark: #c084fc; --capsule-border-dark: rgba(168, 85, 247, 0.3);">
+            <button class="craft-habit-capsule" data-habit="4">
               Architecture
             </button>
-            <button class="craft-habit-capsule" data-habit="5" style="--capsule-color-light: #ffe4e6; --capsule-text-light: #be123c; --capsule-color-dark: rgba(244, 63, 94, 0.15); --capsule-text-dark: #fb7185; --capsule-border-dark: rgba(244, 63, 94, 0.3);">
+            <button class="craft-habit-capsule" data-habit="5">
               Analysis
             </button>
-            <button class="craft-habit-capsule" data-habit="6" style="--capsule-color-light: #fef3c7; --capsule-text-light: #b45309; --capsule-color-dark: rgba(245, 158, 111, 0.15); --capsule-text-dark: #fbbf24; --capsule-border-dark: rgba(245, 158, 111, 0.3);">
+            <button class="craft-habit-capsule" data-habit="6">
               Expression
             </button>
           </div>
