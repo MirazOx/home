@@ -95,18 +95,22 @@ function initModernNav() {
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
+    if (!href) return;
 
-    if (href === current || (current === '' && href === '/')) {
+    const normHref = href.replace(/^(\.\.\/)+/g, '').replace(/^\//, '').replace(/\/index\.html$/, '/').replace(/^index\.html$/, '');
+    const normCurrent = current.replace(/^\//, '').replace(/\/index\.html$/, '/').replace(/^index\.html$/, '');
+
+    if (normHref === normCurrent || (normCurrent === '' && normHref === '')) {
       link.classList.add('is-active');
       matched = true;
     }
   });
 
   if (!matched && pageAliases[bodyPage]) {
-    const alias = pageAliases[bodyPage];
+    const alias = pageAliases[bodyPage].replace(/\//g, '');
     navLinks.forEach(link => {
       const href = link.getAttribute('href');
-      if (href === alias) {
+      if (href && href.includes(alias)) {
         link.classList.add('is-active');
       }
     });
