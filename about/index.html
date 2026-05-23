@@ -46,13 +46,15 @@
   }
 
   .about-portrait-frame img {
-    width: 100%;
+    width: auto;
     height: 100%;
-    object-fit: cover;
-    object-position: center 15%;
+    object-fit: contain;
+    object-position: bottom center;
     position: absolute;
-    top: 0;
-    left: 0;
+    bottom: 0;
+    right: 8%;
+    top: auto;
+    left: auto;
     z-index: 1;
     transition: var(--trans);
   }
@@ -61,7 +63,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
     pointer-events: none;
     z-index: 2;
   }
@@ -84,10 +86,11 @@
   }
 
   .about-title span {
-    display: inline;
+    display: block; /* break name into two lines on PC view */
     color: rgba(255, 255, 255, 0.9);
     font-style: italic;
-    margin-left: 0.4rem;
+    margin-left: 0;
+    margin-top: 0.25rem;
   }
 
   /* 3. Quick Navigation Buttons — horizontal row just beneath the hero card */
@@ -147,10 +150,19 @@
   /* 4. Biography Content — Asymmetric two-column editorial layout below links */
   .about-story-container {
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 5rem;
+    grid-template-columns: 1fr 2.1fr; /* slight adjustments for sidebar fit */
+    gap: 4.5rem;
     margin-top: 3.5rem;
     align-items: start;
+  }
+
+  /* Sticky Left Sidebar */
+  .about-story-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    position: sticky;
+    top: 120px;
   }
 
   .about-subtitle {
@@ -163,8 +175,6 @@
     font-weight: 400;
     border-left: 2px solid var(--accent-terracotta);
     padding-left: 1.5rem;
-    position: sticky;
-    top: 120px;
   }
 
   .about-bio-container {
@@ -240,20 +250,40 @@
     margin: 0;
   }
 
-  /* Interactive Craft Habits (Pill Capsules) */
+  /* Interactive Sidebar Craft Habits (Pill Capsules) */
   .craft-habits-interactive {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .habits-sidebar-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 2.5vw, 26px);
+    font-weight: 400;
+    margin: 0 0 0.25rem 0;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  .habits-sidebar-title em {
+    color: var(--accent-terracotta);
+    font-style: italic;
+  }
+
+  .habits-sidebar-desc {
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text2);
+    margin: 0 0 0.5rem 0;
   }
 
   .craft-habits-capsules {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
-    justify-content: center;
+    gap: 0.5rem;
+    justify-content: flex-start; /* left align inside sidebar */
   }
 
   .craft-habit-capsule {
@@ -525,14 +555,14 @@
       margin-top: 2.5rem;
     }
 
+    .about-story-left {
+      position: static;
+      gap: 2.5rem;
+    }
+
     .about-subtitle {
       position: static;
       max-width: none;
-    }
-
-    .craft-habits-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem;
     }
 
     .doors-grid {
@@ -554,10 +584,9 @@
     .section-divider {
       margin: 2.5rem 0;
     }
-    
-    .craft-habit-card {
-      transition-delay: 0s !important;
-   @media (max-width: 600px) {
+  }
+
+  @media (max-width: 600px) {
     .about-editorial-layout {
       padding-top: 0;
       padding-bottom: 2rem;
@@ -575,7 +604,13 @@
     }
 
     .about-portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       object-position: center top;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .about-portrait-frame::after {
@@ -590,7 +625,9 @@
     }
 
     .about-title span {
+      display: inline;
       margin-left: 0.25rem;
+      margin-top: 0;
     }
 
     /* 3. Quick links — horizontal row just beneath the portrait */
@@ -621,6 +658,11 @@
 
     .about-quick-link-btn .arrow {
       display: none; /* hide arrow on mobile */
+    }
+
+    .about-story-left {
+      position: static;
+      gap: 2rem;
     }
 
     /* 4. Subtitle — below the links, normal flow */
@@ -791,12 +833,104 @@
       </a>
     </div>
 
-    <!-- 3. Biography Content (Two-column layout below) -->
+    <!-- 3. Biography & Sidebar Content (Two-column layout below) -->
     <div class="about-story-container">
-      <p class="about-subtitle">
-        A short introduction, because the long one is the rest of the site.
-      </p>
       
+      <!-- Left Sidebar: Subtitle + Sidebar Habits capsules -->
+      <div class="about-story-left">
+        <p class="about-subtitle">
+          A short introduction, because the long one is the rest of the site.
+        </p>
+
+        <!-- Interactive Sidebar Craft Habits capsules -->
+        <div class="craft-habits-interactive" aria-label="Habits of the craft">
+          <h3 class="habits-sidebar-title">Habits of <em>the Craft.</em></h3>
+          <p class="habits-sidebar-desc">Practices that make the work move faster, cleaner, and less blindly.</p>
+          
+          <!-- Capsules row -->
+          <div class="craft-habits-capsules" role="tablist" aria-label="Habits list">
+            <button class="craft-habit-capsule active" data-habit="1" style="--capsule-color-light: #e0f2fe; --capsule-text-light: #0369a1; --capsule-color-dark: rgba(14, 165, 233, 0.15); --capsule-text-dark: #38bdf8; --capsule-border-dark: rgba(14, 165, 233, 0.3);">
+              Touch typing
+            </button>
+            <button class="craft-habit-capsule" data-habit="2" style="--capsule-color-light: #ffedd5; --capsule-text-light: #c2410c; --capsule-color-dark: rgba(249, 115, 22, 0.15); --capsule-text-dark: #fb923c; --capsule-border-dark: rgba(249, 115, 22, 0.3);">
+              Learning systems
+            </button>
+            <button class="craft-habit-capsule" data-habit="3" style="--capsule-color-light: #dcfce7; --capsule-text-light: #15803d; --capsule-color-dark: rgba(16, 185, 129, 0.15); --capsule-text-dark: #34d399; --capsule-border-dark: rgba(16, 185, 129, 0.3);">
+              Structuring
+            </button>
+            <button class="craft-habit-capsule" data-habit="4" style="--capsule-color-light: #f3e8ff; --capsule-text-light: #6b21a8; --capsule-color-dark: rgba(168, 85, 247, 0.15); --capsule-text-dark: #c084fc; --capsule-border-dark: rgba(168, 85, 247, 0.3);">
+              Architecture
+            </button>
+            <button class="craft-habit-capsule" data-habit="5" style="--capsule-color-light: #ffe4e6; --capsule-text-light: #be123c; --capsule-color-dark: rgba(244, 63, 94, 0.15); --capsule-text-dark: #fb7185; --capsule-border-dark: rgba(244, 63, 94, 0.3);">
+              Analysis
+            </button>
+            <button class="craft-habit-capsule" data-habit="6" style="--capsule-color-light: #fef3c7; --capsule-text-light: #b45309; --capsule-color-dark: rgba(245, 158, 111, 0.15); --capsule-text-dark: #fbbf24; --capsule-border-dark: rgba(245, 158, 111, 0.3);">
+              Expression
+            </button>
+          </div>
+
+          <!-- Detail Card Display -->
+          <div class="craft-habit-detail-container">
+            
+            <article class="craft-habit-detail-card active" data-habit-content="1">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">01 / PERFORMANCE</span>
+                <span class="craft-habit-tag" style="background: #0ea5e9;">65+ WPM</span>
+              </div>
+              <h3>Touch typing at thinking speed</h3>
+              <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the flow of thoughts.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="2">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">02 / EDUCATION</span>
+                <span class="craft-habit-tag" style="background: #f97316;">Self-study</span>
+              </div>
+              <h3>Designing my own learning systems</h3>
+              <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="3">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">03 / STRUCTURING</span>
+                <span class="craft-habit-tag" style="background: #10b981;">Systems</span>
+              </div>
+              <h3>Seeing the machinery behind events</h3>
+              <p>Most stories are not isolated incidents. I look for incentives, infrastructure, feedback loops, and the quiet rules underneath.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="4">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">04 / ARCHITECTURE</span>
+                <span class="craft-habit-tag" style="background: #a855f7;">Mess to map</span>
+              </div>
+              <h3>Turning chaos into structure</h3>
+              <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="5">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">05 / ANALYSIS</span>
+                <span class="craft-habit-tag" style="background: #f43f5e;">Verification</span>
+              </div>
+              <h3>Not trusting the first clean answer</h3>
+              <p>Reverse search, source-chain thinking, archive trails, and the stubborn habit of asking where a claim actually came from.</p>
+            </article>
+
+            <article class="craft-habit-detail-card" data-habit-content="6">
+              <div class="detail-card-header">
+                <span class="craft-habit-num">06 / EXPRESSION</span>
+                <span class="craft-habit-tag" style="background: #f59e0b;">Voice</span>
+              </div>
+              <h3>Editing without killing the pulse</h3>
+              <p>I care about clarity, but not the kind that sands every sentence into office furniture.</p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Biography Content -->
       <div class="about-bio-container">
         <div class="about-lede">
           I am a journalist turned researcher. I took a slow detour through literature and never quite came back &mdash; which, on most days, feels like the most useful thing about me.
@@ -813,101 +947,6 @@
         </div>
       </div>
     </div>
-    
-  </section>
-
-  <div class="section-divider"></div>
-
-  <!-- Interactive Craft Habits capsules -->
-  <section aria-label="Craft habits">
-    <div class="section-header">
-      <h2 class="section-title">Habits of <em>the Craft.</em></h2>
-      <p class="section-subtitle">Not the usual software-list version of skills. These are the practices that make the work move faster, cleaner, and less blindly.</p>
-    </div>
-    
-    <div class="craft-habits-interactive">
-      <!-- Capsules row -->
-      <div class="craft-habits-capsules" role="tablist" aria-label="Habits list">
-        <button class="craft-habit-capsule active" data-habit="1" style="--capsule-color-light: #e0f2fe; --capsule-text-light: #0369a1; --capsule-color-dark: rgba(14, 165, 233, 0.15); --capsule-text-dark: #38bdf8; --capsule-border-dark: rgba(14, 165, 233, 0.3);">
-          Touch typing at thinking speed
-        </button>
-        <button class="craft-habit-capsule" data-habit="2" style="--capsule-color-light: #ffedd5; --capsule-text-light: #c2410c; --capsule-color-dark: rgba(249, 115, 22, 0.15); --capsule-text-dark: #fb923c; --capsule-border-dark: rgba(249, 115, 22, 0.3);">
-          Designing my own learning systems
-        </button>
-        <button class="craft-habit-capsule" data-habit="3" style="--capsule-color-light: #dcfce7; --capsule-text-light: #15803d; --capsule-color-dark: rgba(16, 185, 129, 0.15); --capsule-text-dark: #34d399; --capsule-border-dark: rgba(16, 185, 129, 0.3);">
-          Seeing the machinery behind events
-        </button>
-        <button class="craft-habit-capsule" data-habit="4" style="--capsule-color-light: #f3e8ff; --capsule-text-light: #6b21a8; --capsule-color-dark: rgba(168, 85, 247, 0.15); --capsule-text-dark: #c084fc; --capsule-border-dark: rgba(168, 85, 247, 0.3);">
-          Turning chaos into structure
-        </button>
-        <button class="craft-habit-capsule" data-habit="5" style="--capsule-color-light: #ffe4e6; --capsule-text-light: #be123c; --capsule-color-dark: rgba(244, 63, 94, 0.15); --capsule-text-dark: #fb7185; --capsule-border-dark: rgba(244, 63, 94, 0.3);">
-          Not trusting the first clean answer
-        </button>
-        <button class="craft-habit-capsule" data-habit="6" style="--capsule-color-light: #fef3c7; --capsule-text-light: #b45309; --capsule-color-dark: rgba(245, 158, 111, 0.15); --capsule-text-dark: #fbbf24; --capsule-border-dark: rgba(245, 158, 111, 0.3);">
-          Editing without killing the pulse
-        </button>
-      </div>
-
-      <!-- Detail Card Display -->
-      <div class="craft-habit-detail-container">
-        
-        <article class="craft-habit-detail-card active" data-habit-content="1">
-          <div class="detail-card-header">
-            <span class="craft-habit-num">01 / PERFORMANCE</span>
-            <span class="craft-habit-tag" style="background: #0ea5e9;">65+ WPM</span>
-          </div>
-          <h3>Touch typing at thinking speed</h3>
-          <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the flow of thoughts.</p>
-        </article>
-
-        <article class="craft-habit-detail-card" data-habit-content="2">
-          <div class="detail-card-header">
-            <span class="craft-habit-num">02 / EDUCATION</span>
-            <span class="craft-habit-tag" style="background: #f97316;">Self-study</span>
-          </div>
-          <h3>Designing my own learning systems</h3>
-          <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
-        </article>
-
-        <article class="craft-habit-detail-card" data-habit-content="3">
-          <div class="detail-card-header">
-            <span class="craft-habit-num">03 / STRUCTURING</span>
-            <span class="craft-habit-tag" style="background: #10b981;">Systems</span>
-          </div>
-          <h3>Seeing the machinery behind events</h3>
-          <p>Most stories are not isolated incidents. I look for incentives, infrastructure, feedback loops, and the quiet rules underneath.</p>
-        </article>
-
-        <article class="craft-habit-detail-card" data-habit-content="4">
-          <div class="detail-card-header">
-            <span class="craft-habit-num">04 / ARCHITECTURE</span>
-            <span class="craft-habit-tag" style="background: #a855f7;">Mess to map</span>
-          </div>
-          <h3>Turning chaos into structure</h3>
-          <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
-        </article>
-
-        <article class="craft-habit-detail-card" data-habit-content="5">
-          <div class="detail-card-header">
-            <span class="craft-habit-num">05 / ANALYSIS</span>
-            <span class="craft-habit-tag" style="background: #f43f5e;">Verification</span>
-          </div>
-          <h3>Not trusting the first clean answer</h3>
-          <p>Reverse search, source-chain thinking, archive trails, and the stubborn habit of asking where a claim actually came from.</p>
-        </article>
-
-        <article class="craft-habit-detail-card" data-habit-content="6">
-          <div class="detail-card-header">
-            <span class="craft-habit-num">06 / EXPRESSION</span>
-            <span class="craft-habit-tag" style="background: #f59e0b;">Voice</span>
-          </div>
-          <h3>Editing without killing the pulse</h3>
-          <p>I care about clarity, but not the kind that sands every sentence into office furniture.</p>
-        </article>
-
-      </div>
-    </div>
-  </section>
 
   <div class="section-divider"></div>
 
