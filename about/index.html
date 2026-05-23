@@ -510,28 +510,76 @@
 
   @media (max-width: 600px) {
     .about-editorial-layout {
-      padding-top: 1.5rem;
+      padding-top: 0;
       padding-bottom: 2rem;
     }
 
-    .about-editorial-grid {
-      gap: 2rem;
+    /* Dissolve column wrappers so all children become direct grid items */
+    .about-editorial-left,
+    .about-editorial-right {
+      display: contents;
     }
 
+    .about-editorial-grid {
+      gap: 0;
+    }
+
+    /* 1. Portrait — full-bleed hero with gradient scrim */
+    .about-portrait-frame {
+      order: 1;
+      max-width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 0;
+      border: none;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      width: calc(100% + 3rem);
+      box-shadow: none;
+    }
+
+    .about-portrait-frame::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 55%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.15) 60%, transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 2. Name — overlaps the portrait bottom */
     .about-title {
-      font-size: clamp(36px, 12vw, 48px);
+      order: 2;
+      position: relative;
+      z-index: 2;
+      margin-top: -5.5rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      font-size: clamp(36px, 11vw, 48px);
       line-height: 1;
-      margin-bottom: 1rem;
+      color: #ffffff;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
     }
 
     .about-title span {
-      font-size: 0.85em;
+      font-size: 0.88em;
+      color: rgba(255, 255, 255, 0.82);
     }
 
-    .about-portrait-frame {
-      max-width: 100%;
-      aspect-ratio: 4 / 5;
-      border-radius: 10px;
+    /* 3. Subtitle — below the photo, normal flow */
+    .about-subtitle {
+      order: 3;
+      font-size: 15px;
+      margin-top: 0.25rem;
+      margin-bottom: 1.75rem;
+      max-width: none;
+    }
+
+    /* 4. Bio content */
+    .about-bio-container {
+      order: 4;
     }
 
     .about-lede {
@@ -541,16 +589,16 @@
       margin-bottom: 1.5rem;
     }
 
-    .about-subtitle {
-      font-size: 15px;
-      margin-bottom: 1.75rem;
-      max-width: none;
-    }
-
     .about-bio-paragraphs p {
       font-size: 15px;
       line-height: 1.72;
       text-align: left;
+    }
+
+    /* 5. Quick links — pushed to end */
+    .about-quick-links {
+      order: 5;
+      margin-top: 2rem;
     }
 
     .about-quick-link-btn {
@@ -559,6 +607,7 @@
       border-radius: 8px;
     }
 
+    /* Section sizing for phone */
     .section-title {
       font-size: clamp(26px, 7vw, 36px);
     }
@@ -630,6 +679,7 @@
   @media (max-width: 400px) {
     .about-title {
       font-size: 32px;
+      margin-top: -4.5rem;
     }
 
     .about-quick-link-btn {
