@@ -598,9 +598,14 @@
 
     /* 1. Portrait — background photo container card */
     .about-portrait-frame {
-      height: 380px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      width: calc(100% + 3rem);
+      aspect-ratio: 4 / 5;
+      height: auto;
+      border-radius: 0;
+      border: none;
+      box-shadow: none;
     }
 
     .about-portrait-frame img {
@@ -620,8 +625,8 @@
     /* 2. Name — overlayed side-by-side at the bottom of the portrait card */
     .about-title {
       padding: 1.5rem;
-      font-size: clamp(28px, 8vw, 36px);
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      font-size: clamp(36px, 11vw, 48px);
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
     }
 
     .about-title span {
@@ -645,9 +650,9 @@
     .about-quick-link-btn {
       flex: 1;
       justify-content: center;
-      padding: 0.75rem 0.25rem;
-      font-size: clamp(10px, 3.2vw, 12px);
-      border-radius: 6px;
+      padding: 0.9rem 0.5rem;
+      font-size: 13px;
+      border-radius: 8px;
       text-align: center;
     }
 
