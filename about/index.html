@@ -9,802 +9,34 @@
 <meta name="description" content="About Md. Miraz Hossain: journalist, researcher, educator, services, credentials, CV, and contact.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/style.css?v=27">
-<style>
-  .about-redesign-page {
-    padding-bottom: clamp(3rem, 7vw, 6rem);
-  }
-
-  /* Redesigned Editorial Hero Grid */
-  .about-editorial-layout {
-    padding-top: clamp(3rem, 8vw, 6rem);
-    padding-bottom: clamp(3rem, 8vw, 6rem);
-  }
-
-  .about-editorial-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  /* 1. Portrait — Grand Hero background card on PC */
-  .about-portrait-frame {
-    width: 100%;
-    height: 540px;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border-subtle);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    background-color: #b8ad9e; /* matching warm neutral background color */
-    position: relative;
-    transition: var(--trans);
-  }
-
-  :root[data-theme="dark"] .about-portrait-frame {
-    background-color: #2b2724; /* matching dark warm neutral background color */
-  }
-
-  .about-portrait-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: right 45%;
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    transition: var(--trans);
-  }
-
-  .about-portrait-frame::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.1) 50%, transparent 100%);
-    pointer-events: none;
-    z-index: 2;
-  }
-
-  /* 2. Name — overlayed side-by-side on the landscape hero card */
-  .about-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    z-index: 3;
-    padding: clamp(2rem, 4vw, 3.5rem);
-    margin: 0;
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(38px, 5.5vw, 68px);
-    line-height: 0.95;
-    font-weight: 400;
-    color: #ffffff;
-    letter-spacing: -0.02em;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  }
-
-  .about-title span {
-    display: block; /* break name into two lines on PC view */
-    color: rgba(255, 255, 255, 0.9);
-    font-style: italic;
-    margin-left: 0;
-    margin-top: 0.25rem;
-  }
-
-  /* 3. Quick Navigation Buttons — horizontal row just beneath the hero card */
-  .about-quick-links {
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-
-  .about-quick-link-btn {
-    flex: 1;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.25rem 2rem;
-    background: var(--surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 15px;
-    transition: var(--trans);
-  }
-
-  .about-quick-link-btn span.quick-link-label {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .quick-link-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    display: inline-block;
-    flex-shrink: 0;
-  }
-
-  .about-quick-link-btn .arrow {
-    transition: var(--trans);
-  }
-
-  .about-quick-link-btn:hover {
-    background: var(--surface2);
-    border-color: var(--accent-terracotta);
-    transform: translateY(-2px);
-  }
-
-  .about-quick-link-btn:hover .arrow {
-    transform: translateX(4px);
-  }
-
-  /* 4. Biography Content — Asymmetric two-column editorial layout below links */
-  .about-story-container {
-    display: grid;
-    grid-template-columns: 1fr 2.1fr; /* slight adjustments for sidebar fit */
-    gap: 4.5rem;
-    margin-top: 3.5rem;
-    align-items: start;
-  }
-
-  /* Sticky Left Sidebar */
-  .about-story-left {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
-    position: sticky;
-    top: 120px;
-  }
-
-  .about-subtitle {
-    margin: 0;
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: clamp(16px, 1.8vw, 18px);
-    line-height: 1.5;
-    color: var(--text2);
-    font-style: italic;
-    font-weight: 400;
-    border-left: 2px solid var(--accent-terracotta);
-    padding-left: 1.5rem;
-  }
-
-  .about-bio-container {
-    max-width: 68ch;
-  }
-
-  .about-lede {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(22px, 2.5vw, 28px);
-    line-height: 1.35;
-    font-style: italic;
-    color: var(--text);
-    margin-bottom: 2rem;
-    border-left: 3px solid var(--accent-terracotta);
-    padding-left: 1.5rem;
-  }
-
-  .about-bio-paragraphs {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .about-bio-paragraphs p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.8;
-    color: var(--text2);
-    text-align: justify;
-  }
-
-  .about-bio-paragraphs a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1px solid var(--accent-terracotta);
-    font-weight: 500;
-    transition: var(--trans);
-  }
-
-  .about-bio-paragraphs a:hover {
-    color: var(--accent-terracotta);
-    border-bottom-color: var(--text);
-  }
-
-  /* Section Divider Styles */
-  .section-divider {
-    height: 1px;
-    background: var(--border-subtle);
-    margin: 4rem 0;
-  }
-
-  .section-header {
-    margin-bottom: 3rem;
-  }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(32px, 4vw, 48px);
-    line-height: 1.1;
-    font-weight: 400;
-    margin: 0 0 0.75rem 0;
-  }
-
-  .section-title em {
-    color: var(--accent-terracotta);
-    font-style: italic;
-  }
-
-  .section-subtitle {
-    font-size: 15px;
-    color: var(--text2);
-    max-width: 65ch;
-    margin: 0;
-  }
-
-  /* Interactive Sidebar Craft Habits (Pill Capsules) */
-  .craft-habits-interactive {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    width: 100%;
-  }
-
-  .habits-sidebar-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(22px, 2.5vw, 26px);
-    font-weight: 400;
-    margin: 0 0 0.25rem 0;
-    color: var(--text);
-    letter-spacing: -0.01em;
-  }
-
-  .habits-sidebar-title em {
-    color: var(--accent-terracotta);
-    font-style: italic;
-  }
-
-  .habits-sidebar-desc {
-    font-size: 13.5px;
-    line-height: 1.5;
-    color: var(--text2);
-    margin: 0 0 0.5rem 0;
-  }
-
-  .craft-habits-capsules {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    justify-content: flex-start; /* left align inside sidebar */
-  }
-
-  .craft-habit-capsule {
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0.75rem 1.35rem;
-    border-radius: 99px;
-    cursor: pointer;
-    background-color: var(--surface2);
-    color: var(--text2);
-    border: 1px solid var(--border-subtle);
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
-  }
-
-  :root[data-theme="dark"] .craft-habit-capsule {
-    background-color: var(--surface2);
-    color: var(--text2);
-    border: 1px solid var(--border-subtle);
-  }
-
-  .craft-habit-capsule:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent-terracotta);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  }
-
-  .craft-habit-capsule.active {
-    transform: translateY(-2px);
-    font-weight: 600;
-    background-color: var(--accent-terracotta);
-    color: #ffffff;
-    border-color: var(--accent-terracotta);
-    box-shadow: 0 4px 15px rgba(196, 111, 88, 0.25);
-  }
-
-  :root[data-theme="dark"] .craft-habit-capsule.active {
-    background-color: var(--accent-terracotta);
-    color: #ffffff;
-    border-color: var(--accent-terracotta);
-  }
-
-  /* Detail Card Display */
-  .craft-habit-detail-container {
-    position: relative;
-    min-height: 180px;
-    background: var(--surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    overflow: hidden;
-  }
-
-  .craft-habit-detail-card {
-    display: none;
-    padding: 2.5rem;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
-
-  .craft-habit-detail-card.active {
-    display: block;
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .detail-card-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.25rem;
-  }
-
-  .craft-habit-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    color: var(--accent-terracotta);
-    letter-spacing: 0.1em;
-    font-weight: 500;
-  }
-
-  .craft-habit-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #ffffff;
-    padding: 0.4rem 0.85rem;
-    border-radius: 20px;
-  }
-
-  .craft-habit-detail-card h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 26px;
-    line-height: 1.2;
-    font-weight: 400;
-    margin: 0 0 1rem 0;
-    color: var(--text);
-  }
-
-  .craft-habit-detail-card p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--text2);
-    max-width: 75ch;
-  }
-
-  /* Redesigned Doors Grid - Minimalist Top Border style */
-  .doors-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-  }
-
-  .door-card {
-    background: transparent;
-    border: none;
-    border-top: 1px solid var(--border-subtle);
-    border-radius: 0;
-    padding: 2.5rem 0;
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    min-height: 230px;
-    transition: var(--trans);
-  }
-
-  .door-card-top {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .door-card h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(28px, 3.5vw, 36px);
-    margin: 0;
-    font-weight: 400;
-  }
-
-  .door-card p {
-    color: var(--text2);
-    font-size: 15px;
-    margin: 0;
-    line-height: 1.6;
-    max-width: 45ch;
-  }
-
-  .door-pills {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-  }
-
-  .door-pills span {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--text);
-    padding: 0.35rem 0.65rem;
-    background: var(--surface2);
-    border: 1px solid var(--border-subtle);
-    border-radius: 20px;
-  }
-
-  .door-card-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--accent-terracotta);
-  }
-
-  .door-card-bottom .arrow {
-    transition: var(--trans);
-  }
-
-  .door-card:hover {
-    transform: translateY(-2px);
-    border-top-color: var(--accent-terracotta);
-    background: transparent;
-    box-shadow: none;
-  }
-
-  /* Redesigned Minimalist Bottom Grid (Replacing Card Boxes) */
-  .footer-details-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr 1fr;
-    gap: 4rem;
-    padding: 4rem 0 2rem 0;
-  }
-
-  .footer-details-col {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .footer-details-col h3 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    margin: 0 0 1rem 0;
-    font-weight: 400;
-    color: var(--text);
-  }
-
-  .footer-details-col h4 {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-terracotta);
-    margin: 0 0 1.5rem 0;
-    font-weight: 500;
-  }
-
-  .footer-details-col p {
-    color: var(--text2);
-    font-size: 14px;
-    margin: 0;
-    line-height: 1.6;
-    max-width: 35ch;
-  }
-
-  .footer-details-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .footer-details-links a.text-link {
-    color: var(--text2);
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: var(--trans);
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .footer-details-links a.text-link:hover {
-    color: var(--text);
-    transform: translateX(4px);
-  }
-
-  /* Responsive styling for Tablet */
-  @media (max-width: 980px) {
-    .about-portrait-frame {
-      height: 400px;
-    }
-
-    .about-quick-links {
-      gap: 1rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-story-container {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .about-story-left {
-      position: static;
-      gap: 2.5rem;
-    }
-
-    .about-subtitle {
-      position: static;
-      max-width: none;
-    }
-
-    .doors-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .door-card {
-      min-height: auto;
-      padding: 2rem 0;
-    }
-
-    .footer-details-grid {
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 2.5rem 0 1.5rem 0;
-    }
-
-    .section-divider {
-      margin: 2.5rem 0;
-    }
-  }
-
-  @media (max-width: 600px) {
-    .about-editorial-layout {
-      padding-top: 0;
-      padding-bottom: 2rem;
-    }
-
-    .about-editorial-grid {
-      gap: 0;
-    }
-
-    /* 1. Portrait — background photo container card */
-    .about-portrait-frame {
-      margin-left: -0.5rem;
-      margin-right: -0.5rem;
-      width: calc(100% + 1rem);
-      aspect-ratio: 4 / 5;
-      height: auto;
-      border-radius: 16px;
-      border: none;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-    }
-
-    .about-portrait-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: bottom center;
-      position: absolute;
-      inset: 0;
-    }
-
-    .about-portrait-frame::after {
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
-    }
-
-    /* 2. Name — overlayed side-by-side at the bottom of the portrait card */
-    .about-title {
-      padding: 1.5rem;
-      font-size: clamp(36px, 11vw, 48px);
-      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45), 0 1px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    .about-title span {
-      display: inline;
-      margin-left: 0.25rem;
-      margin-top: 0;
-    }
-
-    /* 3. Quick links — horizontal row just beneath the portrait */
-    .about-quick-links {
-      flex-direction: row;
-      gap: 0.5rem;
-      margin-top: 1.25rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .btn-prefix {
-      display: none; /* hide "Explore ", "View ", "Check " to make buttons fit */
-    }
-
-    .about-quick-link-btn {
-      flex: 1;
-      justify-content: center;
-      padding: 0.9rem 0.5rem;
-      font-size: 13px;
-      border-radius: 8px;
-      text-align: center;
-    }
-
-    .about-quick-link-btn span.quick-link-label {
-      gap: 0.35rem;
-      justify-content: center;
-    }
-
-    .about-quick-link-btn .arrow {
-      display: none; /* hide arrow on mobile */
-    }
-
-    .about-story-left {
-      position: static;
-      gap: 2rem;
-    }
-
-    /* 4. Subtitle — below the links, normal flow */
-    .about-subtitle {
-      font-size: 15px;
-      margin-top: 0.5rem;
-      margin-bottom: 1.5rem;
-      max-width: none;
-    }
-
-    .about-lede {
-      font-size: clamp(18px, 5vw, 22px);
-      padding-left: 1rem;
-      border-left-width: 2px;
-      margin-bottom: 1.5rem;
-    }
-
-    .about-bio-paragraphs p {
-      font-size: 15px;
-      line-height: 1.72;
-      text-align: left;
-    }
-
-    /* Section sizing for phone */
-    .section-title {
-      font-size: clamp(26px, 7vw, 36px);
-    }
-
-    .section-subtitle {
-      font-size: 14px;
-    }
-
-    .section-header {
-      margin-bottom: 2rem;
-    }
-
-    .section-divider {
-      margin: 2rem 0;
-    }
-
-    .craft-habits-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .craft-habit-card {
-      padding: 1.25rem 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .craft-habit-card h3 {
-      font-size: 18px;
-      margin-bottom: 0.5rem;
-    }
-
-    .craft-habit-card p {
-      font-size: 13px;
-    }
-
-    .craft-habit-meta {
-      margin-bottom: 0.75rem;
-    }
-
-    .craft-habit-tag {
-      font-size: 10px;
-      padding: 0.25rem 0.55rem;
-    }
-
-    .door-card h2 {
-      font-size: clamp(24px, 7vw, 32px);
-    }
-
-    .door-card p {
-      font-size: 14px;
-    }
-
-    .door-card-bottom {
-      margin-top: 1.25rem;
-      font-size: 10px;
-    }
-
-    .door-pills span {
-      font-size: 9px;
-      padding: 0.3rem 0.55rem;
-    }
-
-    .footer-details-grid {
-      gap: 1.5rem;
-      padding: 1.5rem 0 1rem 0;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .about-title {
-      font-size: clamp(22px, 7vw, 26px);
-    }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body data-page="about">
+<body data-page="about" class="about-page-body">
 
+<!-- ═══════════════ NAV ═══════════════ -->
 <nav class="nav-modern" id="siteNav">
   <div class="nav-inner">
-    <a href="/" class="nav-home" aria-label="Home">
-      <span class="nav-home-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M3 10.5 12 3l9 7.5"></path>
-          <path d="M5 9.5V20h14V9.5"></path>
-        </svg>
-      </span>
-      <span class="nav-home-text">Home</span>
-    </a>
-    <div class="nav-main">
+    <a href="/" class="nav-brand">MIRAZ</a>
+
+    <button class="nav-hamburger" id="navHamburger" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <div class="nav-main" id="navMain">
       <a href="/research/">Research</a>
       <a href="/academic/">Academic</a>
       <a href="/writing/">Reportage</a>
       <a href="/interventions/">Interventions</a>
-      <a href="/about/">About</a>
+      <a href="/about/" class="active">About</a>
     </div>
+
     <div class="nav-actions">
-      <button id="themeToggle" class="nav-theme-toggle" aria-label="Toggle dark mode">
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
         <span class="toggle-track">
           <span class="toggle-thumb">
-            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="4"></circle>
-              <line x1="12" y1="2" x2="12" y2="4"></line>
-              <line x1="12" y1="20" x2="12" y2="22"></line>
-              <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
-              <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
-              <line x1="2" y1="12" x2="4" y2="12"></line>
-              <line x1="20" y1="12" x2="22" y2="12"></line>
-              <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
-              <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
-            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><line x1="12" y1="2" x2="12" y2="4"></line><line x1="12" y1="20" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line><line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="4" y2="12"></line><line x1="20" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line><line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line></svg>
           </span>
         </span>
       </button>
@@ -812,74 +44,58 @@
   </div>
 </nav>
 
-<main class="about-redesign-page container-wide about-editorial-layout">
-  <!-- Dynamic split layout -->
+<main class="container-wide about-editorial-layout">
   <section class="about-editorial-grid" aria-label="About Md. Miraz Hossain">
-    
-    <!-- 1. Grand Hero Container (Photo as background, name overlayed side-by-side) -->
+
+    <!-- 1. Grand Hero Container -->
     <div class="about-portrait-frame">
       <img src="/assets/images/portraits/about-suit-portrait.png" onerror="this.onerror=null;this.src='/assets/images/portraits/about-black-jacket-smile.jpg';" alt="Portrait of Md. Miraz Hossain">
       <h1 class="about-title">Md. Miraz <span>Hossain</span></h1>
     </div>
-    
-    <!-- 2. Quick Links Section (Just beneath the photo) -->
+
+    <!-- 2. Quick Links -->
     <div class="about-quick-links" aria-label="Primary about links">
       <a href="/research/" class="about-quick-link-btn">
-        <span class="quick-link-label"><span class="quick-link-dot" style="background: #0ea5e9;"></span><span class="btn-prefix">Explore </span>Research</span>
+        <span class="quick-link-label"><span class="quick-link-dot" style="background: var(--accent);"></span><span class="btn-prefix">Explore </span>Research</span>
         <span class="arrow">&rarr;</span>
       </a>
       <a href="/interventions/" class="about-quick-link-btn">
-        <span class="quick-link-label"><span class="quick-link-dot" style="background: #c46f58;"></span><span class="btn-prefix">View </span>Interventions</span>
+        <span class="quick-link-label"><span class="quick-link-dot" style="background: var(--accent-bright);"></span><span class="btn-prefix">View </span>Interventions</span>
         <span class="arrow">&rarr;</span>
       </a>
       <a href="/credentials/" class="about-quick-link-btn">
-        <span class="quick-link-label"><span class="quick-link-dot" style="background: #10b981;"></span><span class="btn-prefix">Check </span>Credentials</span>
+        <span class="quick-link-label"><span class="quick-link-dot" style="background: var(--text3);"></span><span class="btn-prefix">Check </span>Credentials</span>
         <span class="arrow">&rarr;</span>
       </a>
     </div>
 
-    <!-- 3. Biography & Sidebar Content (Two-column layout below) -->
+    <!-- 3. Biography & Sidebar -->
     <div class="about-story-container">
-      
-      <!-- Left Sidebar: Subtitle + Sidebar Habits capsules -->
+
+      <!-- Left Sidebar -->
       <div class="about-story-left">
         <p class="about-subtitle">
           A short introduction, because the long one is the rest of the site.
         </p>
 
-        <!-- Interactive Sidebar Craft Habits capsules -->
         <div class="craft-habits-interactive" aria-label="Habits of the craft">
           <h3 class="habits-sidebar-title">Habits of <em>the Craft.</em></h3>
           <p class="habits-sidebar-desc">Practices that make the work move faster, cleaner, and less blindly.</p>
-          
+
           <div class="craft-habits-capsules" role="tablist" aria-label="Habits list">
-            <button class="craft-habit-capsule active" data-habit="1">
-              Touch typing
-            </button>
-            <button class="craft-habit-capsule" data-habit="2">
-              Learning systems
-            </button>
-            <button class="craft-habit-capsule" data-habit="3">
-              Structuring
-            </button>
-            <button class="craft-habit-capsule" data-habit="4">
-              Architecture
-            </button>
-            <button class="craft-habit-capsule" data-habit="5">
-              Analysis
-            </button>
-            <button class="craft-habit-capsule" data-habit="6">
-              Expression
-            </button>
+            <button class="craft-habit-capsule active" data-habit="1">Touch typing</button>
+            <button class="craft-habit-capsule" data-habit="2">Learning systems</button>
+            <button class="craft-habit-capsule" data-habit="3">Structuring</button>
+            <button class="craft-habit-capsule" data-habit="4">Architecture</button>
+            <button class="craft-habit-capsule" data-habit="5">Analysis</button>
+            <button class="craft-habit-capsule" data-habit="6">Expression</button>
           </div>
 
-          <!-- Detail Card Display -->
           <div class="craft-habit-detail-container">
-            
             <article class="craft-habit-detail-card active" data-habit-content="1">
               <div class="detail-card-header">
                 <span class="craft-habit-num">01 / PERFORMANCE</span>
-                <span class="craft-habit-tag" style="background: #0ea5e9;">65+ WPM</span>
+                <span class="craft-habit-tag" style="background: var(--accent); color: var(--bg);">65+ WPM</span>
               </div>
               <h3>Touch typing at thinking speed</h3>
               <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the flow of thoughts.</p>
@@ -888,7 +104,7 @@
             <article class="craft-habit-detail-card" data-habit-content="2">
               <div class="detail-card-header">
                 <span class="craft-habit-num">02 / EDUCATION</span>
-                <span class="craft-habit-tag" style="background: #f97316;">Self-study</span>
+                <span class="craft-habit-tag" style="background: var(--accent-bright); color: var(--bg);">Self-study</span>
               </div>
               <h3>Designing my own learning systems</h3>
               <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
@@ -897,7 +113,7 @@
             <article class="craft-habit-detail-card" data-habit-content="3">
               <div class="detail-card-header">
                 <span class="craft-habit-num">03 / STRUCTURING</span>
-                <span class="craft-habit-tag" style="background: #10b981;">Systems</span>
+                <span class="craft-habit-tag" style="background: var(--text3); color: var(--bg);">Systems</span>
               </div>
               <h3>Seeing the machinery behind events</h3>
               <p>Most stories are not isolated incidents. I look for incentives, infrastructure, feedback loops, and the quiet rules underneath.</p>
@@ -906,7 +122,7 @@
             <article class="craft-habit-detail-card" data-habit-content="4">
               <div class="detail-card-header">
                 <span class="craft-habit-num">04 / ARCHITECTURE</span>
-                <span class="craft-habit-tag" style="background: #a855f7;">Mess to map</span>
+                <span class="craft-habit-tag" style="background: var(--surface2); color: var(--text2); border: 1px solid var(--border);">Mess to map</span>
               </div>
               <h3>Turning chaos into structure</h3>
               <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
@@ -915,7 +131,7 @@
             <article class="craft-habit-detail-card" data-habit-content="5">
               <div class="detail-card-header">
                 <span class="craft-habit-num">05 / ANALYSIS</span>
-                <span class="craft-habit-tag" style="background: #f43f5e;">Verification</span>
+                <span class="craft-habit-tag" style="background: var(--accent-soft); color: var(--accent); border: 1px solid var(--border-subtle);">Verification</span>
               </div>
               <h3>Not trusting the first clean answer</h3>
               <p>Reverse search, source-chain thinking, archive trails, and the stubborn habit of asking where a claim actually came from.</p>
@@ -924,37 +140,37 @@
             <article class="craft-habit-detail-card" data-habit-content="6">
               <div class="detail-card-header">
                 <span class="craft-habit-num">06 / EXPRESSION</span>
-                <span class="craft-habit-tag" style="background: #f59e0b;">Voice</span>
+                <span class="craft-habit-tag" style="background: var(--accent); color: var(--bg);">Voice</span>
               </div>
               <h3>Editing without killing the pulse</h3>
               <p>I care about clarity, but not the kind that sands every sentence into office furniture.</p>
             </article>
-
           </div>
         </div>
       </div>
-      
-      <!-- Right Column: Biography Content -->
+
+      <!-- Right Column: Biography -->
       <div class="about-bio-container">
         <div class="about-lede">
           I am a journalist turned researcher. I took a slow detour through literature and never quite came back &mdash; which, on most days, feels like the most useful thing about me.
         </div>
-        
+
         <div class="about-bio-paragraphs">
           <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among postcolonial novels, narrative theory, and tea-stained photocopies of Heaney did not, as my family briefly feared, ruin me for the practical world. They taught me to read a paragraph the way a mechanic reads an engine &mdash; for what it is doing, and for the small failures it is trying to disguise.</p>
-          
+
           <p>That habit moved with me into a newsroom. I now write about the systems behind what people think they know: algorithmic feeds, misinformation cascades, the polite architecture of platform power. I came to research because journalism kept asking questions I could not answer in 1,200 words, and I came back to journalism because research, left alone, can forget who it is for.</p>
-          
+
           <p>I teach, too, mostly by accident. The students keep asking smarter questions than I had at their age, so I keep showing up. Outside the work, I run, read late, drink coffee with the seriousness of a discipline, and lose entire afternoons to old films and longer Spanish sentences. I believe, with no evidence whatsoever, that every person I meet on a long bus ride has a story worth slowing down for.</p>
-          
+
           <p>The rest of this site is the receipts: what I have written, what I am researching, where I have taught. Somewhere behind that public record is the quieter room that lives <a href="/beyond/">beyond the work</a>. This page is just the introduction you would get if we met somewhere with bad lighting and good coffee.</p>
         </div>
       </div>
     </div>
+  </section>
 
   <div class="section-divider"></div>
 
-  <!-- Redesigned Services & Credentials Doors -->
+  <!-- Services & Credentials Doors -->
   <section class="doors-grid" aria-label="Services and credentials">
     <a class="door-card" href="/services/">
       <div class="door-card-top">
@@ -991,15 +207,15 @@
     </a>
   </section>
 
-  <!-- Redesigned CV & Contact Strip - Minimalist Bottom Grid -->
+  <!-- CV & Contact Strip -->
   <div class="section-divider"></div>
-  
+
   <section class="footer-details-grid" aria-label="CV and contact">
     <div class="footer-details-col">
-      <blockquote style="margin: 0; padding: 0; border: none; font-family: 'DM Serif Display', serif; font-size: 21px; line-height: 1.4; font-style: italic; color: var(--text2);">
+      <blockquote style="margin: 0; padding: 0; border: none; font-family: var(--font-display); font-size: 21px; line-height: 1.4; font-style: italic; color: var(--text2);">
         "What stands in the way becomes the way."
       </blockquote>
-      <cite style="display: block; margin-top: 0.75rem; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-terracotta); font-style: normal;">
+      <cite style="display: block; margin-top: 0.75rem; font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); font-style: normal;">
         &mdash; Marcus Aurelius
       </cite>
     </div>
@@ -1037,28 +253,22 @@
 
 <script src="/assets/js/main.js?v=9"></script>
 <script>
-  // Interactive Capsules click events for Habits of the Craft
-  document.addEventListener("DOMContentLoaded", () => {
-    const capsules = document.querySelectorAll(".craft-habit-capsule");
-    const detailCards = document.querySelectorAll(".craft-habit-detail-card");
+// Interactive Capsules
+document.addEventListener("DOMContentLoaded", () => {
+  const capsules = document.querySelectorAll(".craft-habit-capsule");
+  const detailCards = document.querySelectorAll(".craft-habit-detail-card");
 
-    capsules.forEach(capsule => {
-      capsule.addEventListener("click", () => {
-        const habitId = capsule.getAttribute("data-habit");
-
-        // Deactivate all capsules and detail cards
-        capsules.forEach(c => c.classList.remove("active"));
-        detailCards.forEach(d => d.classList.remove("active"));
-
-        // Activate clicked capsule and its matching detail card
-        capsule.classList.add("active");
-        const activeDetail = document.querySelector(`.craft-habit-detail-card[data-habit-content="${habitId}"]`);
-        if (activeDetail) {
-          activeDetail.classList.add("active");
-        }
-      });
+  capsules.forEach(capsule => {
+    capsule.addEventListener("click", () => {
+      const habitId = capsule.getAttribute("data-habit");
+      capsules.forEach(c => c.classList.remove("active"));
+      detailCards.forEach(d => d.classList.remove("active"));
+      capsule.classList.add("active");
+      const activeDetail = document.querySelector(`.craft-habit-detail-card[data-habit-content="${habitId}"]`);
+      if (activeDetail) activeDetail.classList.add("active");
     });
   });
+});
 </script>
 </body>
 </html>

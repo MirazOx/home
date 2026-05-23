@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Film aesthetics — Beyond the work · Md. Miraz Hossain</title>
-<meta name="description" content="On cinema as a way of looking, not just watching.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css?v=13">
-</head>
-<body data-page="beyond" data-slug="film">
-<!-- ═══════════════ NAV ═══════════════ -->
+import os
+import re
+
+ROOT_DIR = "/Users/miraz/.gemini/antigravity/scratch/miraz-redesign/"
+BEYOND_DIR = os.path.join(ROOT_DIR, "beyond")
+
+STANDARD_NAV = """<!-- ═══════════════ NAV ═══════════════ -->
 <nav class="nav-modern" id="siteNav">
   <div class="nav-inner">
     <a href="/" class="nav-brand">MIRAZ</a>
@@ -39,38 +32,9 @@
       </button>
     </div>
   </div>
-</nav>
+</nav>"""
 
-<main class="beyond-page">
-  <div class="beyond-shell">
-    <section class="beyond-hero reveal">
-      <div class="beyond-hero-media" id="b-hero-media"></div>
-      <div class="beyond-hero-copy">
-        <p class="breadcrumb"><a href="../index.html">Home</a> <span>→</span> <a href="../beyond-the-work.html">Beyond the work</a> <span>→</span> <span id="bc-slug">…</span></p>
-        <p class="page-eyebrow"><span class="beyond-emoji" id="b-icon">🎬</span> Beyond the work</p>
-        <h1 class="page-title" id="b-title">Loading…</h1>
-        <p class="page-subtitle" id="b-subtitle"></p>
-        <div class="beyond-meta-row" id="b-meta"></div>
-      </div>
-    </section>
-
-    <section class="beyond-intro reveal">
-      <p id="b-intro"></p>
-    </section>
-
-    <div id="b-sections" class="beyond-sections"></div>
-
-    <div class="beyond-return reveal">
-      <div class="cta-box">
-        <h3>Return to the shelf</h3>
-        <p>This folder is rendered from <code>content/beyond.json</code>. Update the <em id="b-folder-label">film</em> entry there to change this page.</p>
-        <a href="../beyond-the-work.html" class="hero-cta">back to Beyond the work</a>
-      </div>
-    </div>
-  </div>
-</main>
-
-<footer>
+STANDARD_FOOTER = """<footer>
   <div class="container-wide">
     <p class="footer-text">© 2026 Md. Miraz Hossain · Dhaka, Bangladesh</p>
     <div class="footer-links">
@@ -81,9 +45,46 @@
       <a href="/about/">about</a>
     </div>
   </div>
-</footer>
+</footer>"""
 
-<script src="../assets/js/main.js?v=8"></script>
-<script src="../assets/js/beyond.js"></script>
-</body>
-</html>
+def process_html_file(file_path):
+    print(f"Processing: {file_path}")
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    # Replace Nav
+    # Match <nav class="nav-modern" id="siteNav"> ... </nav> across multiple lines
+    nav_pattern = re.compile(r'<nav class="nav-modern" id="siteNav">.*?</nav>', re.DOTALL)
+    if nav_pattern.search(content):
+        content = nav_pattern.sub(STANDARD_NAV, content)
+    else:
+        print(f"WARNING: Nav not found in {file_path}")
+
+    # Replace Footer
+    # Match <footer> ... </footer> across multiple lines
+    footer_pattern = re.compile(r'<footer>.*?</footer>', re.DOTALL)
+    if footer_pattern.search(content):
+        content = footer_pattern.sub(STANDARD_FOOTER, content)
+    else:
+        print(f"WARNING: Footer not found in {file_path}")
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    print(f"Successfully updated: {file_path}")
+
+def main():
+    # 1. Update index.html in subfolders
+    for root, dirs, files in os.walk(BEYOND_DIR):
+        for file in files:
+            if file == "index.html" and root != BEYOND_DIR:
+                file_path = os.path.join(root, file)
+                process_html_file(file_path)
+
+    # 2. Update the legacy files at the root of beyond/ just in case they are served
+    for file in os.listdir(BEYOND_DIR):
+        if file.endswith(".html") and file != "index.html":
+            file_path = os.path.join(BEYOND_DIR, file)
+            process_html_file(file_path)
+
+if __name__ == "__main__":
+    main()
