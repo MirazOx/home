@@ -11,447 +11,484 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css?v=27">
-<style>
   .about-redesign-page {
     padding-bottom: clamp(3rem, 7vw, 6rem);
     border-top: 1px solid color-mix(in srgb, #b76b4f 48%, transparent);
   }
 
-  .about-portrait-hero {
-    position: relative;
-    min-height: clamp(560px, 64vh, 660px);
-    overflow: hidden;
-    background: #b7ada2;
-    isolation: isolate;
+  /* Redesigned Editorial Hero Grid */
+  .about-editorial-layout {
+    padding: clamp(3rem, 8vw, 6rem) 0;
   }
 
-  .about-portrait-hero img {
-    position: absolute;
-    inset: 0;
+  .about-editorial-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  /* Left Column: Typography & Bio */
+  .about-editorial-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .about-kicker {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-terracotta);
+    margin: 0 0 1.5rem 0;
+  }
+
+  .about-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(48px, 6vw, 84px);
+    line-height: 0.95;
+    font-weight: 400;
+    margin: 0 0 2.5rem 0;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .about-title span {
+    display: block;
+    color: var(--accent-terracotta);
+    font-style: italic;
+  }
+
+  .about-bio-container {
+    max-width: 65ch;
+  }
+
+  .about-lede {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 2.5vw, 28px);
+    line-height: 1.35;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--accent-terracotta);
+    padding-left: 1.5rem;
+  }
+
+  .about-bio-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-bio-paragraphs p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text2);
+    text-align: justify;
+  }
+
+  .about-bio-paragraphs a {
+    color: var(--text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-terracotta);
+    font-weight: 500;
+    transition: var(--trans);
+  }
+
+  .about-bio-paragraphs a:hover {
+    color: var(--accent-terracotta);
+    border-bottom-color: var(--text);
+  }
+
+  /* Right Column: Portrait and Actions */
+  .about-editorial-right {
+    position: sticky;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .about-portrait-frame {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-subtle);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    background: var(--surface);
+    position: relative;
+  }
+
+  .about-portrait-frame img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 22%;
-    filter: saturate(1.08) contrast(1.08);
-    z-index: -2;
+    object-position: center 15%;
+    transition: var(--trans);
   }
 
-  .about-portrait-hero::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background:
-      linear-gradient(90deg, rgba(238, 229, 217, 0.9) 0%, rgba(238, 229, 217, 0.7) 29%, rgba(238, 229, 217, 0.1) 52%, rgba(238, 229, 217, 0) 72%),
-      linear-gradient(180deg, rgba(16, 32, 39, 0), rgba(16, 32, 39, 0.08));
+  .about-portrait-frame:hover img {
+    transform: scale(1.03);
   }
 
-  .about-portrait-hero .container-wide {
-    min-height: inherit;
+  /* Quick Navigation Cards */
+  .about-quick-links {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
-  .about-hero-copy {
-    width: min(610px, 56vw);
-    padding: clamp(3.2rem, 7vw, 6rem) 0;
-    color: #102027;
-  }
-
-  .about-panel-kicker,
-  .about-door-kicker,
-  .about-craft-index {
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.13em;
-    text-transform: uppercase;
-  }
-
-  .about-hero-title {
-    margin: 0;
-    color: #102027;
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(52px, 8vw, 116px);
-    line-height: 0.9;
-    font-weight: 400;
-    letter-spacing: 0;
-    text-wrap: balance;
-  }
-
-  .about-hero-title span {
-    display: block;
-    color: #7a5230;
-    font-style: italic;
-  }
-
-  .about-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.65rem;
-    margin-top: 1.55rem;
-  }
-
-  .about-hero-actions a {
-    min-height: 42px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(16, 32, 39, 0.22);
-    background: rgba(255, 250, 242, 0.54);
-    color: #102027;
-    padding: 0.72rem 0.95rem;
-    text-decoration: none;
-    font-size: 14px;
-    transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-  }
-
-  .about-hero-actions a:hover {
-    transform: translateY(-2px);
-    background: rgba(255, 250, 242, 0.8);
-    border-color: rgba(143, 62, 45, 0.55);
-  }
-
-  .about-body-stack {
-    display: grid;
-    gap: clamp(1.25rem, 3vw, 2rem);
-    padding-top: clamp(1rem, 3vw, 2.5rem);
-  }
-
-  .about-profile-grid {
-    display: block;
-  }
-
-  .about-craft-box,
-  .about-door-card,
-  .about-small-card {
-    border: 1px solid var(--border);
-    background: var(--surface);
-  }
-
-  .about-story-panel {
-    position: relative;
-    max-width: 980px;
-    margin: 0 auto clamp(1.4rem, 3.8vw, 2.8rem);
-    padding: clamp(1.35rem, 3.3vw, 2.6rem);
-    border: 1px solid color-mix(in srgb, #7ea3b6 42%, var(--border));
-    border-radius: 8px;
-    background:
-      radial-gradient(circle at 18% 10%, color-mix(in srgb, #7ea3b6 28%, transparent), transparent 34%),
-      linear-gradient(135deg, color-mix(in srgb, #2dd4bf 12%, transparent), color-mix(in srgb, #8a6fbc 14%, transparent) 58%, color-mix(in srgb, #c46f58 9%, transparent)),
-      color-mix(in srgb, var(--surface) 78%, transparent);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(18px) saturate(1.12);
-  }
-
-  .about-panel-kicker {
-    margin: 0 0 0.8rem;
-    color: #c46f58;
-    font-size: 11px;
-  }
-
-  .about-story-panel h2,
-  .about-craft-head h2,
-  .about-door-card h2,
-  .about-small-card h2 {
-    margin: 0;
-    font-family: 'DM Serif Display', serif;
-    font-weight: 400;
-    letter-spacing: 0;
-    color: var(--text);
-  }
-
-  .about-story-panel h2 {
-    max-width: 13ch;
-    font-size: clamp(50px, 7.4vw, 92px);
-    line-height: 0.94;
-    margin-bottom: 1.4rem;
-  }
-
-  .about-story-body {
-    display: grid;
-    gap: 1.05rem;
-    max-width: 82ch;
-  }
-
-  .about-story-body p,
-  .about-craft-head p,
-  .about-craft-item p,
-  .about-door-card p,
-  .about-small-card p {
-    color: var(--text2);
-    line-height: 1.72;
-  }
-
-  .about-story-body p {
-    margin: 0;
-    font-size: 16px;
-  }
-
-  .about-intro-lede {
-    max-width: 27ch;
-    color: var(--text);
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(25px, 3vw, 34px);
-    font-style: italic;
-    line-height: 1.12;
-  }
-
-  .about-story-body a {
-    color: #c46f58;
-    text-decoration: none;
-    border-bottom: 1px solid color-mix(in srgb, #c46f58 52%, transparent);
-  }
-
-  .about-story-body a:hover {
-    border-bottom-color: #c46f58;
-  }
-
-  .about-visible-doors {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .about-craft-box {
-    padding: clamp(1.25rem, 3vw, 2rem);
-    margin-top: clamp(0.3rem, 1.5vw, 0.9rem);
-    background:
-      radial-gradient(circle at top left, color-mix(in srgb, var(--accent-teal) 10%, transparent), transparent 36%),
-      linear-gradient(135deg, color-mix(in srgb, #c46f58 8%, transparent), transparent 55%),
-      var(--surface);
-  }
-
-  .about-craft-head {
+  .about-quick-link-btn {
     display: flex;
     justify-content: space-between;
-    gap: 1rem;
-    align-items: end;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.9rem;
-    border-bottom: 1px solid var(--border);
+    align-items: center;
+    padding: 1.1rem 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    transition: var(--trans);
   }
 
-  .about-craft-head p {
-    max-width: 54ch;
+  .about-quick-link-btn span.label {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .about-quick-link-btn span.label::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-terracotta);
+  }
+
+  .about-quick-link-btn .arrow {
+    transition: var(--trans);
+  }
+
+  .about-quick-link-btn:hover {
+    background: var(--surface2);
+    border-color: var(--accent-terracotta);
+    transform: translateY(-2px);
+  }
+
+  .about-quick-link-btn:hover .arrow {
+    transform: translateX(4px);
+  }
+
+  /* Section Styles */
+  .section-divider {
+    height: 1px;
+    background: var(--border-subtle);
+    margin: 4rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.1;
+    font-weight: 400;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .section-title em {
+    color: var(--accent-terracotta);
+    font-style: italic;
+  }
+
+  .section-subtitle {
+    font-size: 15px;
+    color: var(--text2);
+    max-width: 65ch;
+    margin: 0;
+  }
+
+  /* Redesigned Craft Habits (Minimalist Index Style) */
+  .craft-habits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  .craft-habit-card {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border-subtle);
+    
+    /* Scroll animation initial state */
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 1.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                transform 1.6s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s ease;
+  }
+
+  .craft-habit-card.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .craft-habit-card:hover {
+    border-bottom-color: var(--accent-terracotta);
+  }
+
+  /* Staggered load animation delays */
+  .craft-habit-card:nth-child(1) { transition-delay: 0.05s; }
+  .craft-habit-card:nth-child(2) { transition-delay: 0.15s; }
+  .craft-habit-card:nth-child(3) { transition-delay: 0.25s; }
+  .craft-habit-card:nth-child(4) { transition-delay: 0.35s; }
+  .craft-habit-card:nth-child(5) { transition-delay: 0.45s; }
+  .craft-habit-card:nth-child(6) { transition-delay: 0.55s; }
+
+  .craft-habit-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .craft-habit-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent-terracotta);
+    letter-spacing: 0.1em;
+  }
+
+  .craft-habit-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    padding: 0.35rem 0.75rem;
+    background: var(--accent-terracotta);
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(196, 111, 88, 0.22);
+    transition: var(--trans);
+  }
+
+  .craft-habit-card h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    line-weight: 1.2;
+    font-weight: 400;
+    margin: 0 0 0.75rem 0;
+    color: var(--text);
+  }
+
+  .craft-habit-card p {
     margin: 0;
     font-size: 14px;
+    line-height: 1.6;
+    color: var(--text2);
   }
 
-  .about-craft-head h2 {
-    font-size: clamp(34px, 4vw, 54px);
-    line-height: 1;
-  }
-
-  .about-craft-head h2 em {
-    color: #c46f58;
-  }
-
-  .about-craft-grid {
+  /* Redesigned Doors Grid - Minimalist Top Border style */
+  .doors-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.85rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
   }
 
-  .about-craft-item {
-    min-height: 178px;
-    padding: 1rem;
-    border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--bg) 74%, transparent);
-  }
-
-  .about-craft-index {
-    display: block;
-    margin-bottom: 1rem;
-    color: #c46f58;
-    font-size: 10px;
-  }
-
-  .about-craft-item h3 {
-    margin: 0 0 0.55rem;
+  .door-card {
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    border-radius: 0;
+    padding: 2.5rem 0;
+    text-decoration: none;
     color: var(--text);
-    font-family: 'DM Serif Display', serif;
-    font-size: 24px;
-    line-height: 1.05;
-    font-weight: 400;
-  }
-
-  .about-craft-item p {
-    margin: 0;
-    font-size: 13.5px;
-  }
-
-  .about-door-card {
-    min-height: 280px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 1.4rem;
-    padding: clamp(1.3rem, 3vw, 2rem);
-    color: var(--text);
-    text-decoration: none;
-    transition: transform var(--trans), border-color var(--trans), background var(--trans);
+    min-height: 230px;
+    transition: var(--trans);
   }
 
-  .about-door-card:hover {
-    transform: translateY(-4px);
-    border-color: color-mix(in srgb, #c46f58 55%, var(--border));
-    background: var(--surface2);
+  .door-card-top {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
-  .about-door-kicker {
+  .door-card h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 3.5vw, 36px);
     margin: 0;
-    color: #c46f58;
-    font-size: 11px;
+    font-weight: 400;
   }
 
-  .about-door-card h2 {
-    margin: 0.65rem 0 0.9rem;
-    font-size: clamp(34px, 4vw, 52px);
-    line-height: 1.02;
-  }
-
-  .about-door-card p {
-    margin: 0;
+  .door-card p {
+    color: var(--text2);
     font-size: 15px;
-    max-width: 58ch;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 45ch;
   }
 
-  .about-door-points,
-  .about-link-row {
+  .door-pills {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.55rem;
+    gap: 0.5rem;
+    margin-top: 1rem;
   }
 
-  .about-door-points {
-    margin-top: 1.25rem;
-  }
-
-  .about-door-points span {
-    padding: 0.42rem 0.62rem;
-    border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--bg) 80%, transparent);
-    color: var(--text2);
+  .door-pills span {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
-    letter-spacing: 0.08em;
     text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    padding: 0.35rem 0.65rem;
+    background: var(--surface2);
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
   }
 
-  .about-door-action {
+  .door-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--accent-terracotta);
+  }
+
+  .door-card-bottom .arrow {
+    transition: var(--trans);
+  }
+
+  .door-card:hover {
+    transform: translateY(-2px);
+    border-top-color: var(--accent-terracotta);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  /* Redesigned Minimalist Bottom Grid (Replacing Card Boxes) */
+  .footer-details-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    gap: 4rem;
+    padding: 4rem 0 2rem 0;
+  }
+
+  .footer-details-col {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer-details-col h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    margin: 0 0 1rem 0;
+    font-weight: 400;
+    color: var(--text);
+  }
+
+  .footer-details-col h4 {
     font-family: 'DM Mono', monospace;
     font-size: 11px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--text);
+    color: var(--accent-terracotta);
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
   }
 
-  .about-small-strip {
-    display: grid;
-    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1fr);
-    gap: 1rem;
-  }
-
-  .about-small-card {
-    padding: 1.15rem;
-  }
-
-  .about-small-card h2 {
-    margin-bottom: 0.35rem;
-    font-size: 28px;
-    line-height: 1.05;
-  }
-
-  .about-small-card p {
-    margin: 0 0 0.9rem;
+  .footer-details-col p {
+    color: var(--text2);
     font-size: 14px;
+    margin: 0;
+    line-height: 1.6;
+    max-width: 35ch;
   }
 
-  .about-link-row a {
-    min-height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.65rem 0.85rem;
-    border: 1px solid var(--border);
-    background: color-mix(in srgb, var(--bg) 78%, transparent);
-    color: var(--text);
+  .footer-details-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-details-links a.text-link {
+    color: var(--text2);
     text-decoration: none;
     font-size: 14px;
+    font-weight: 500;
+    transition: var(--trans);
+    display: inline-flex;
+    align-items: center;
   }
 
-  .about-link-row a:hover {
-    color: #c46f58;
-    border-color: #c46f58;
+  .footer-details-links a.text-link:hover {
+    color: var(--text);
+    transform: translateX(4px);
   }
 
-  @media (min-width: 1500px) {
-    .about-portrait-hero {
-      background: #b7ada2 url("/assets/images/portraits/about-suit-portrait.png") center 22% / cover no-repeat;
-    }
-
-    .about-portrait-hero img {
-      object-fit: contain;
-      object-position: 60% center;
-    }
-  }
-
+  /* Responsive styling */
   @media (max-width: 980px) {
-    .about-profile-grid,
-    .about-visible-doors,
-    .about-craft-grid,
-    .about-small-strip {
+    .about-editorial-grid {
+      grid-template-columns: 1fr;
+      gap: 3.5rem;
+    }
+
+    .about-editorial-right {
+      position: static;
+    }
+
+    .about-portrait-frame {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .craft-habits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .doors-grid {
       grid-template-columns: 1fr;
     }
 
-    .about-craft-head {
-      align-items: start;
-      flex-direction: column;
+    .footer-details-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    
+    .craft-habit-card {
+      transition-delay: 0s !important;
     }
   }
 
-  @media (max-width: 760px) {
-    .about-portrait-hero {
-      min-height: 0;
-      background: var(--bg);
+  @media (max-width: 600px) {
+    .about-editorial-layout {
+      padding: 2rem 0;
     }
 
-    .about-portrait-hero::after {
-      display: none;
+    .about-title {
+      font-size: 42px;
     }
 
-    .about-portrait-hero img {
-      position: relative;
-      z-index: auto;
-      height: auto;
-      aspect-ratio: 3 / 2;
-      object-position: center top;
-    }
-
-    .about-portrait-hero .container-wide {
-      min-height: 0;
-      display: block;
-    }
-
-    .about-hero-copy {
-      width: 100%;
-      padding: 1.35rem 0 2.2rem;
-      color: var(--text);
-    }
-
-    .about-hero-title,
-    .about-hero-title span {
-      color: var(--text);
-    }
-
-    .about-hero-title {
-      font-size: clamp(44px, 15vw, 64px);
-      line-height: 0.94;
-    }
-
-    .about-hero-actions a {
-      color: var(--text);
-      background: var(--surface);
-      border-color: var(--border);
+    .craft-habits-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 </style>
@@ -501,130 +538,193 @@
   </div>
 </nav>
 
-<main class="about-redesign-page">
-  <section class="about-portrait-hero reveal" aria-label="About Md. Miraz Hossain">
-    <img src="/assets/images/portraits/about-suit-portrait.png" onerror="this.onerror=null;this.src='/assets/images/portraits/about-black-jacket-smile.jpg';" alt="Portrait of Md. Miraz Hossain" loading="eager" fetchpriority="high">
-    <div class="container-wide">
-      <div class="about-hero-copy">
-        <h1 class="about-hero-title">Md. Miraz <span>Hossain.</span></h1>
-        <div class="about-hero-actions" aria-label="Primary about links">
-          <a href="/research/">Research</a>
-          <a href="/interventions/">Interventions</a>
-          <a href="/credentials/">Credentials</a>
+<main class="about-redesign-page container-wide about-editorial-layout">
+  <!-- Dynamic split layout -->
+  <section class="about-editorial-grid" aria-label="About Md. Miraz Hossain">
+    
+    <!-- Left column: Biography content -->
+    <div class="about-editorial-left">
+      <p class="about-kicker">[01 / INTRODUCTION]</p>
+      <h1 class="about-title">Md. Miraz <span>Hossain.</span></h1>
+      <p style="margin: 1.25rem 0 2.5rem 0; font-family: 'Instrument Sans', sans-serif; font-size: clamp(15px, 1.8vw, 17px); line-height: 1.5; color: var(--text2); font-style: italic; font-weight: 400; max-width: 45ch; border-left: 2px solid var(--accent-terracotta); padding-left: 1rem;">
+        A short introduction, because the long one is the rest of the site.
+      </p>
+      
+      <div class="about-bio-container">
+        <div class="about-lede">
+          I am a journalist turned researcher. I took a slow detour through literature and never quite came back &mdash; which, on most days, feels like the most useful thing about me.
+        </div>
+        
+        <div class="about-bio-paragraphs">
+          <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among postcolonial novels, narrative theory, and tea-stained photocopies of Heaney did not, as my family briefly feared, ruin me for the practical world. They taught me to read a paragraph the way a mechanic reads an engine &mdash; for what it is doing, and for the small failures it is trying to disguise.</p>
+          
+          <p>That habit moved with me into a newsroom. I now write about the systems behind what people think they know: algorithmic feeds, misinformation cascades, the polite architecture of platform power. I came to research because journalism kept asking questions I could not answer in 1,200 words, and I came back to journalism because research, left alone, can forget who it is for.</p>
+          
+          <p>I teach, too, mostly by accident. The students keep asking smarter questions than I had at their age, so I keep showing up. Outside the work, I run, read late, drink coffee with the seriousness of a discipline, and lose entire afternoons to old films and longer Spanish sentences. I believe, with no evidence whatsoever, that every person I meet on a long bus ride has a story worth slowing down for.</p>
+          
+          <p>The rest of this site is the receipts: what I have written, what I am researching, where I have taught. Somewhere behind that public record is the quieter room that lives <a href="/beyond/">beyond the work</a>. This page is just the introduction you would get if we met somewhere with bad lighting and good coffee.</p>
         </div>
       </div>
     </div>
+    
+    <!-- Right column: Frame-contained portrait and quick actions -->
+    <div class="about-editorial-right">
+      <div class="about-portrait-frame">
+        <img src="/assets/images/portraits/about-suit-portrait.png" onerror="this.onerror=null;this.src='/assets/images/portraits/about-black-jacket-smile.jpg';" alt="Portrait of Md. Miraz Hossain">
+      </div>
+      
+      <div class="about-quick-links" aria-label="Primary about links">
+        <a href="/research/" class="about-quick-link-btn">
+          <span class="label">Explore Research</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="/interventions/" class="about-quick-link-btn">
+          <span class="label">View Interventions</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a href="/credentials/" class="about-quick-link-btn">
+          <span class="label">Check Credentials</span>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+    
   </section>
 
-  <div class="container-wide about-body-stack">
-    <section class="about-profile-grid">
-      <article class="about-story-panel">
-        <p class="about-panel-kicker">About</p>
-        <h2>A short <em>introduction,</em> because the long one is the rest of the site.</h2>
-        <div class="about-story-body">
-          <p class="about-intro-lede">I am a journalist who took a slow detour through literature and never quite came back &mdash; which, on most days, feels like the most useful thing about me.</p>
-          <p>I read English at the University of Dhaka before I learned that what I really wanted was to report. Six years among postcolonial novels, narrative theory, and tea-stained photocopies of Heaney did not, as my family briefly feared, ruin me for the practical world. They taught me to read a paragraph the way a mechanic reads an engine &mdash; for what it is doing, and for the small failures it is trying to disguise.</p>
-          <p>That habit moved with me into a newsroom. I now write about the systems behind what people think they know: algorithmic feeds, misinformation cascades, the polite architecture of platform power. I came to research because journalism kept asking questions I could not answer in 1,200 words, and I came back to journalism because research, left alone, can forget who it is for.</p>
-          <p>I teach, too, mostly by accident. The students keep asking smarter questions than I had at their age, so I keep showing up. Outside the work, I run, read late, drink coffee with the seriousness of a discipline, and lose entire afternoons to old films and longer Spanish sentences. I believe, with no evidence whatsoever, that every person I meet on a long bus ride has a story worth slowing down for.</p>
-          <p>The rest of this site is the receipts: what I have written, what I am researching, where I have taught. Somewhere behind that public record is the quieter room that lives <a href="/beyond/">beyond the work</a>. This page is just the introduction you would get if we met somewhere with bad lighting and good coffee.</p>
+  <div class="section-divider"></div>
+
+  <!-- Redesigned Craft Habits (Minimalist Index Layout) -->
+  <section aria-label="Craft habits">
+    <div class="section-header">
+      <h2 class="section-title">Habits of <em>the Craft.</em></h2>
+      <p class="section-subtitle">Not the usual software-list version of skills. These are the practices that make the work move faster, cleaner, and less blindly.</p>
+    </div>
+    
+    <div class="craft-habits-grid">
+      <article class="craft-habit-card">
+        <div class="craft-habit-meta">
+          <span class="craft-habit-num">01 / PERFORMANCE</span>
+          <span class="craft-habit-tag">65+ WPM</span>
         </div>
+        <h3>Touch typing at thinking speed</h3>
+        <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the flow of thoughts.</p>
       </article>
-    </section>
 
-    <section class="about-craft-box reveal" aria-label="Craft habits">
-      <div class="about-craft-head">
-        <div>
-          <p class="about-door-kicker">Craft habits</p>
-          <h2>Small abilities I am <em>quietly proud of.</em></h2>
+      <article class="craft-habit-card">
+        <div class="craft-habit-meta">
+          <span class="craft-habit-num">02 / EDUCATION</span>
+          <span class="craft-habit-tag">Self-study</span>
         </div>
-        <p>Not the usual software-list version of skills. These are the habits that make the work move faster, cleaner, and less blindly.</p>
-      </div>
-      <div class="about-craft-grid">
-        <article class="about-craft-item">
-          <span class="about-craft-index">65+ WPM</span>
-          <h3>Touch typing at thinking speed</h3>
-          <p>Fast enough that drafting, note-taking, and interview cleanup do not keep interrupting the thought.</p>
-        </article>
-        <article class="about-craft-item">
-          <span class="about-craft-index">Self-study</span>
-          <h3>Designing my own learning systems</h3>
-          <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
-        </article>
-        <article class="about-craft-item">
-          <span class="about-craft-index">Systems</span>
-          <h3>Seeing the machinery behind events</h3>
-          <p>Most stories are not isolated incidents. I look for incentives, infrastructure, feedback loops, and the quiet rules underneath.</p>
-        </article>
-        <article class="about-craft-item">
-          <span class="about-craft-index">Mess to map</span>
-          <h3>Turning chaos into structure</h3>
-          <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
-        </article>
-        <article class="about-craft-item">
-          <span class="about-craft-index">Verification</span>
-          <h3>Not trusting the first clean answer</h3>
-          <p>Reverse search, source-chain thinking, archive trails, and the stubborn habit of asking where a claim actually came from.</p>
-        </article>
-        <article class="about-craft-item">
-          <span class="about-craft-index">Voice</span>
-          <h3>Editing without killing the pulse</h3>
-          <p>I care about clarity, but not the kind that sands every sentence into office furniture.</p>
-        </article>
-      </div>
-    </section>
+        <h3>Designing my own learning systems</h3>
+        <p>I can break a new field into drills, reading loops, feedback, and measurable progress without waiting for a course to rescue me.</p>
+      </article>
 
-    <section class="about-visible-doors reveal" aria-label="Services and credentials">
-      <a class="about-door-card" id="services" href="/services/">
-        <div>
-          <p class="about-door-kicker">Services</p>
-          <h2>Work I can help with.</h2>
-          <p>Clear writing, careful structure, and web presentation for serious work that still needs to feel alive.</p>
-          <div class="about-door-points">
-            <span>Portfolio sites</span>
-            <span>Writing support</span>
-            <span>Research support</span>
-          </div>
+      <article class="craft-habit-card">
+        <div class="craft-habit-meta">
+          <span class="craft-habit-num">03 / STRUCTURING</span>
+          <span class="craft-habit-tag">Systems</span>
         </div>
-        <span class="about-door-action">Open the full service sheet &rarr;</span>
-      </a>
+        <h3>Seeing the machinery behind events</h3>
+        <p>Most stories are not isolated incidents. I look for incentives, infrastructure, feedback loops, and the quiet rules underneath.</p>
+      </article>
 
-      <a class="about-door-card" id="credentials" href="/credentials/">
-        <div>
-          <p class="about-door-kicker">Credentials</p>
-          <h2>Learning is one of my stimulants.</h2>
-          <p>The archive keeps the record: verification, AI, research methods, language, ethics, negotiation, psychology, and public-facing work.</p>
-          <div class="about-door-points">
-            <span>74 listed</span>
-            <span>AI + research</span>
-            <span>Verification</span>
-          </div>
+      <article class="craft-habit-card">
+        <div class="craft-habit-meta">
+          <span class="craft-habit-num">04 / ARCHITECTURE</span>
+          <span class="craft-habit-tag">Mess to map</span>
         </div>
-        <span class="about-door-action">Open credentials &rarr;</span>
-      </a>
-    </section>
+        <h3>Turning chaos into structure</h3>
+        <p>Scattered notes, interviews, PDFs, links, claims: I like making them legible without flattening what made them complicated.</p>
+      </article>
 
-    <section class="about-small-strip reveal" aria-label="CV and contact">
-      <div class="about-small-card" id="cv">
-        <h2>Curriculum vitae</h2>
-        <p>Full record, or one page when time is short.</p>
-        <div class="about-link-row">
-          <a href="/pdfs/miraz_cv.pdf" target="_blank" rel="noopener">Full CV</a>
-          <a href="/pdfs/miraz_cv_one_page.pdf" target="_blank" rel="noopener">One-page CV</a>
+      <article class="craft-habit-card">
+        <div class="craft-habit-meta">
+          <span class="craft-habit-num">05 / ANALYSIS</span>
+          <span class="craft-habit-tag">Verification</span>
+        </div>
+        <h3>Not trusting the first clean answer</h3>
+        <p>Reverse search, source-chain thinking, archive trails, and the stubborn habit of asking where a claim actually came from.</p>
+      </article>
+
+      <article class="craft-habit-card">
+        <div class="craft-habit-meta">
+          <span class="craft-habit-num">06 / EXPRESSION</span>
+          <span class="craft-habit-tag">Voice</span>
+        </div>
+        <h3>Editing without killing the pulse</h3>
+        <p>I care about clarity, but not the kind that sands every sentence into office furniture.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Redesigned Services & Credentials Doors -->
+  <section class="doors-grid" aria-label="Services and credentials">
+    <a class="door-card" href="/services/">
+      <div class="door-card-top">
+        <span class="about-kicker">SERVICES</span>
+        <h2>Work I can help with.</h2>
+        <p>Clear writing, careful structure, and web presentation for serious work that still needs to feel alive.</p>
+        <div class="door-pills">
+          <span>Portfolio sites</span>
+          <span>Writing support</span>
+          <span>Research support</span>
         </div>
       </div>
+      <div class="door-card-bottom">
+        <span>Open the full service sheet</span>
+        <span class="arrow">&rarr;</span>
+      </div>
+    </a>
 
-      <div class="about-small-card" id="contact">
-        <h2>Get in touch</h2>
-        <p>I read everything that lands in the inbox.</p>
-        <div class="about-link-row">
-          <a href="mailto:miraz8395@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://signal.me/#eu/ylklb4x-Gx18h3DzQjtP-vHmFn4lwtTe9dqiCG3wpY0onLpReQBBxoRr0dsrwCoA" target="_blank" rel="noopener">Signal</a>
-          <a href="https://x.com/Miraz8395" target="_blank" rel="noopener">X</a>
+    <a class="door-card" href="/credentials/">
+      <div class="door-card-top">
+        <span class="about-kicker">CREDENTIALS</span>
+        <h2>Learning is one of my stimulants.</h2>
+        <p>The archive keeps the record: verification, AI, research methods, language, ethics, negotiation, psychology, and public-facing work.</p>
+        <div class="door-pills">
+          <span>74 listed</span>
+          <span>AI + research</span>
+          <span>Verification</span>
         </div>
       </div>
-    </section>
-  </div>
+      <div class="door-card-bottom">
+        <span>Open credentials index</span>
+        <span class="arrow">&rarr;</span>
+      </div>
+    </a>
+  </section>
+
+  <!-- Redesigned CV & Contact Strip - Minimalist Bottom Grid -->
+  <div class="section-divider"></div>
+  
+  <section class="footer-details-grid" aria-label="CV and contact">
+    <div class="footer-details-col">
+      <blockquote style="margin: 0; padding: 0; border: none; font-family: 'DM Serif Display', serif; font-size: 21px; line-height: 1.4; font-style: italic; color: var(--text2);">
+        "What stands in the way becomes the way."
+      </blockquote>
+      <cite style="display: block; margin-top: 0.75rem; font-family: 'DM Mono', monospace; font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent-terracotta); font-style: normal;">
+        &mdash; Marcus Aurelius
+      </cite>
+    </div>
+    <div class="footer-details-col">
+      <h4>Curriculum Vitae</h4>
+      <div class="footer-details-links">
+        <a href="/pdfs/miraz_cv.pdf" target="_blank" rel="noopener" class="text-link">Full CV &nbsp;&rarr;</a>
+        <a href="/pdfs/miraz_cv_one_page.pdf" target="_blank" rel="noopener" class="text-link">One-page CV &nbsp;&rarr;</a>
+      </div>
+    </div>
+    <div class="footer-details-col">
+      <h4>Get in Touch</h4>
+      <div class="footer-details-links">
+        <a href="mailto:miraz8395@gmail.com" class="text-link">Email</a>
+        <a href="https://www.linkedin.com/in/miraz-hossain-a6b278180/" target="_blank" rel="noopener" class="text-link">LinkedIn</a>
+        <a href="https://signal.me/#eu/ylklb4x-Gx18h3DzQjtP-vHmFn4lwtTe9dqiCG3wpY0onLpReQBBxoRr0dsrwCoA" target="_blank" rel="noopener" class="text-link">Signal</a>
+        <a href="https://x.com/Miraz8395" target="_blank" rel="noopener" class="text-link">X (Twitter)</a>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>
@@ -641,5 +741,25 @@
 </footer>
 
 <script src="/assets/js/main.js?v=9"></script>
+<script>
+  // Scroll animation using Intersection Observer
+  document.addEventListener("DOMContentLoaded", () => {
+    const cards = document.querySelectorAll(".craft-habit-card");
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // Stop observing once it's visible
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: "0px 0px -50px 0px" // trigger slightly before it enters the viewport fully
+    });
+    
+    cards.forEach(card => observer.observe(card));
+  });
+</script>
 </body>
 </html>
