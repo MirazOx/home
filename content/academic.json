@@ -225,9 +225,15 @@
           "name": "Advanced English Writing Skills",
           "session": "Summer 2024",
           "grade": "A",
-          "workTitle": "Advanced English Writing Portfolio",
-          "type": "Writing portfolio",
-          "desc": "A slot for advanced argumentative writing and rhetorical control."
+          "workTitle": "Feature Page Layout",
+          "type": "Feature writing + layout",
+          "desc": "A feature-writing coursework outcome presented with a publication-style page layout for the Advanced English Writing course.",
+          "resources": [
+            {
+              "label": "Feature Page Layout PDF",
+              "url": "/pdfs/advanced-english-writing-feature-layout.pdf"
+            }
+          ]
         }
       ]
     },
