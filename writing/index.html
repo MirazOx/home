@@ -129,29 +129,27 @@ function renderSelectedWriting(items) {
   if (window.__reInitReveal) window.__reInitReveal();
 }
 
-function loadWriting() {
-  fetch('../content/writing-selected.json?v=3')
-    .then(response => {
-      if (!response.ok) throw new Error('Could not load selected writing');
-      return response.json();
-    })
-    .then(renderSelectedWriting)
-    .catch(() => {
-      const dataEl = document.getElementById('inline-writing-selected-data');
-      if (dataEl) {
-        try {
-          const items = JSON.parse(dataEl.textContent);
-          renderSelectedWriting(items);
-        } catch (e) {
-          selectedWritingEl.innerHTML = '<p class="result-count">Selected writing failed to load.</p>';
-        }
-      } else {
-        selectedWritingEl.innerHTML = '<p class="result-count">Selected writing loads when the site is served over HTTP.</p>';
-      }
-    });
+// Synchronous Hydration first (for offline compatibility & immediate paint before DOMContentLoaded)
+const dataEl = document.getElementById('inline-writing-selected-data');
+if (dataEl) {
+  try {
+    const items = JSON.parse(dataEl.textContent);
+    renderSelectedWriting(items);
+  } catch (e) {
+    console.error('Error parsing inline writing data:', e);
+  }
 }
 
-loadWriting();
+// Asynchronous background update (only if online and served over HTTP/HTTPS to prevent local CORS alerts)
+if (window.location.protocol.startsWith('http')) {
+  fetch('../content/writing-selected.json?v=3')
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error('Network response not ok');
+    })
+    .then(renderSelectedWriting)
+    .catch(err => console.log('Using pre-rendered inline data. Background update skipped.', err));
+}
 </script>
 
 </body>

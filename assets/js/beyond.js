@@ -81,7 +81,20 @@
     if (window.__reInitReveal) window.__reInitReveal();
   }
 
-  fetch('/content/beyond.json')
+  let jsonPath = '../content/beyond.json';
+  const scriptEl = document.querySelector('script[src*="beyond.js"]');
+  if (scriptEl) {
+    const src = scriptEl.getAttribute('src');
+    if (src.startsWith('../../')) {
+      jsonPath = '../../content/beyond.json';
+    } else if (src.startsWith('../')) {
+      jsonPath = '../content/beyond.json';
+    } else {
+      jsonPath = 'content/beyond.json';
+    }
+  }
+
+  fetch(jsonPath)
     .then((response) => response.json())
     .then(render)
     .catch(() => {

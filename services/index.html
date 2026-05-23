@@ -216,25 +216,27 @@ function renderServiceSections(data) {
   if (window.__reInitReveal) window.__reInitReveal();
 }
 
-fetch('../content/services.json')
-  .then(response => {
-    if (!response.ok) throw new Error('Could not load services');
-    return response.json();
-  })
-  .then(renderServiceSections)
-  .catch(() => {
-    const dataEl = document.getElementById('inline-services-data');
-    if (dataEl) {
-      try {
-        const data = JSON.parse(dataEl.textContent);
-        renderServiceSections(data);
-      } catch (e) {
-        document.getElementById('service-sections').innerHTML = '<p class="result-count">Services failed to load.</p>';
-      }
-    } else {
-      document.getElementById('service-sections').innerHTML = '<p class="result-count">Services load when the site is served over HTTP.</p>';
-    }
-  });
+// Synchronous Hydration first (for offline compatibility & immediate paint)
+const dataEl = document.getElementById('inline-services-data');
+if (dataEl) {
+  try {
+    const data = JSON.parse(dataEl.textContent);
+    renderServiceSections(data);
+  } catch (e) {
+    console.error('Error parsing inline services data:', e);
+  }
+}
+
+// Asynchronous background update (only if online and served over HTTP/HTTPS)
+if (window.location.protocol.startsWith('http')) {
+  fetch('../content/services.json')
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error('Network response not ok');
+    })
+    .then(renderServiceSections)
+    .catch(err => console.log('Using pre-rendered inline services data. Background update skipped.', err));
+}
 </script>
 
 </body>

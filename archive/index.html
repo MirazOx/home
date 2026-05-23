@@ -199,31 +199,33 @@ function hydrateFilters(data) {
   document.getElementById(id).addEventListener('change', renderArchive);
 });
 
-fetch('../content/articles.json?v=15')
-  .then(response => {
-    if (!response.ok) throw new Error('Could not load archive');
-    return response.json();
-  })
-  .then(data => {
+// Synchronous Hydration first (for offline compatibility & immediate paint)
+const dataEl = document.getElementById('inline-articles-data');
+if (dataEl) {
+  try {
+    const data = JSON.parse(dataEl.textContent);
     ALL_ARTICLES = data;
     hydrateFilters(data);
     renderArchive();
-  })
-  .catch(() => {
-    const dataEl = document.getElementById('inline-articles-data');
-    if (dataEl) {
-      try {
-        const data = JSON.parse(dataEl.textContent);
-        ALL_ARTICLES = data;
-        hydrateFilters(data);
-        renderArchive();
-      } catch (e) {
-        document.getElementById('count').textContent = 'Archive failed to load.';
-      }
-    } else {
-      document.getElementById('count').textContent = 'Archive loads when the site is served over HTTP.';
-    }
-  });
+  } catch (e) {
+    console.error('Error parsing inline articles data:', e);
+  }
+}
+
+// Asynchronous background update (only if online and served over HTTP/HTTPS)
+if (window.location.protocol.startsWith('http')) {
+  fetch('../content/articles.json?v=15')
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error('Network response not ok');
+    })
+    .then(data => {
+      ALL_ARTICLES = data;
+      hydrateFilters(data);
+      renderArchive();
+    })
+    .catch(err => console.log('Using pre-rendered inline articles data. Background update skipped.', err));
+}
 </script>
 
 </body>

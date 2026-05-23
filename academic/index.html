@@ -282,35 +282,36 @@ function renderCourseMap() {
   host.innerHTML = sections || '<p class="result-count">No coursework matched that search.</p>';
 }
 
-fetch('../content/academic.json?v=13')
-  .then(response => {
-    if (!response.ok) throw new Error('Could not load academic content');
-    return response.json();
-  })
-  .then(data => {
+// Synchronous Hydration first (for offline compatibility & immediate paint)
+const dataEl = document.getElementById('inline-academic-data');
+if (dataEl) {
+  try {
+    const data = JSON.parse(dataEl.textContent);
     academicGroups = data.courseGroups || [];
     renderAcademicFilters(academicGroups);
     renderCourseMap();
     document.getElementById('academicSearch').addEventListener('input', renderCourseMap);
     if (window.__reInitReveal) window.__reInitReveal();
-  })
-  .catch(() => {
-    const dataEl = document.getElementById('inline-academic-data');
-    if (dataEl) {
-      try {
-        const data = JSON.parse(dataEl.textContent);
-        academicGroups = data.courseGroups || [];
-        renderAcademicFilters(academicGroups);
-        renderCourseMap();
-        document.getElementById('academicSearch').addEventListener('input', renderCourseMap);
-        if (window.__reInitReveal) window.__reInitReveal();
-      } catch (e) {
-        document.getElementById('academic-course-map').innerHTML = '<p class="result-count">Academic content failed to load.</p>';
-      }
-    } else {
-      document.getElementById('academic-course-map').innerHTML = '<p class="result-count">Academic work loads when the site is served over HTTP.</p>';
-    }
-  });
+  } catch (e) {
+    console.error('Error parsing inline academic data:', e);
+  }
+}
+
+// Asynchronous background update (only if online and served over HTTP/HTTPS)
+if (window.location.protocol.startsWith('http')) {
+  fetch('../content/academic.json?v=13')
+    .then(response => {
+      if (response.ok) return response.json();
+      throw new Error('Network response not ok');
+    })
+    .then(data => {
+      academicGroups = data.courseGroups || [];
+      renderAcademicFilters(academicGroups);
+      renderCourseMap();
+      if (window.__reInitReveal) window.__reInitReveal();
+    })
+    .catch(err => console.log('Using pre-rendered inline academic data. Background update skipped.', err));
+}
 </script>
 
 </body>
