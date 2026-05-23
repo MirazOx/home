@@ -34,9 +34,14 @@ mirazhossain-site/
 │   └── services.json     Services offered
 ├── pdfs/
 │   ├── miraz_cv.pdf
-│   ├── midterm-project.pdf
+│   ├── miraz_cv_one_page.pdf
+│   ├── advanced-english-writing-feature-layout.pdf
+│   ├── algorithmic-news-feeds-misinformation-susceptibility-v10.pdf
+│   ├── writing-without-writing-v6.pdf
 │   ├── team-data-decoder.pdf
-│   └── comm-research-paper.docx
+│   ├── campus-leader-english-olympiad.pdf
+│   ├── comm-research-paper.docx
+│   └── writing-without-writing-research-proposal.docx
 ```
 
 ## How to update content

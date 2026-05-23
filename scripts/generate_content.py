@@ -414,7 +414,7 @@ academic = {
             "session": "Spring 2026",
             "grade": "A",
             "desc": "Sequential explanatory mixed-methods proposal on algorithmic exposure, trust, and misinformation vulnerability among Dhaka university students.",
-            "file": "pdfs/midterm-project.pdf",
+            "file": "pdfs/algorithmic-news-feeds-misinformation-susceptibility-v10.pdf",
             "fileLabel": "Read proposal",
             "media": "image",
         },

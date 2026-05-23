@@ -181,7 +181,13 @@
           "grade": "A",
           "workTitle": "Academic Argument Portfolio",
           "type": "Writing portfolio",
-          "desc": "Argument structure, source use, and academic prose."
+          "desc": "Argument structure, source use, and academic prose.",
+          "resources": [
+            {
+              "label": "Academic English I Essay",
+              "url": "https://drive.google.com/drive/folders/14GNoW-TgfxKRjMDxoxrBvjWqRmWO1-6_"
+            }
+          ]
         },
         {
           "code": "GEF1201",
@@ -190,7 +196,13 @@
           "grade": "A",
           "workTitle": "Research Writing Portfolio",
           "type": "Writing portfolio",
-          "desc": "A slot for long-form academic writing and source synthesis."
+          "desc": "A slot for long-form academic writing and source synthesis.",
+          "resources": [
+            {
+              "label": "Academic English II Essay",
+              "url": "https://drive.google.com/drive/folders/14GNoW-TgfxKRjMDxoxrBvjWqRmWO1-6_"
+            }
+          ]
         },
         {
           "code": "GEF2101",

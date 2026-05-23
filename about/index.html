@@ -128,9 +128,18 @@
   }
 
   .about-story-panel {
+    position: relative;
     max-width: 980px;
-    margin: 0 auto;
-    padding: clamp(0.5rem, 2vw, 1rem) 0 clamp(0.4rem, 2vw, 0.8rem);
+    margin: 0 auto clamp(1.4rem, 3.8vw, 2.8rem);
+    padding: clamp(1.35rem, 3.3vw, 2.6rem);
+    border: 1px solid color-mix(in srgb, #7ea3b6 42%, var(--border));
+    border-radius: 8px;
+    background:
+      radial-gradient(circle at 18% 10%, color-mix(in srgb, #7ea3b6 28%, transparent), transparent 34%),
+      linear-gradient(135deg, color-mix(in srgb, #2dd4bf 12%, transparent), color-mix(in srgb, #8a6fbc 14%, transparent) 58%, color-mix(in srgb, #c46f58 9%, transparent)),
+      color-mix(in srgb, var(--surface) 78%, transparent);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px) saturate(1.12);
   }
 
   .about-panel-kicker {
@@ -204,6 +213,7 @@
 
   .about-craft-box {
     padding: clamp(1.25rem, 3vw, 2rem);
+    margin-top: clamp(0.3rem, 1.5vw, 0.9rem);
     background:
       radial-gradient(circle at top left, color-mix(in srgb, var(--accent-teal) 10%, transparent), transparent 36%),
       linear-gradient(135deg, color-mix(in srgb, #c46f58 8%, transparent), transparent 55%),
