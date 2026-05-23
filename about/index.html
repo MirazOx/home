@@ -48,7 +48,7 @@
     font-size: clamp(48px, 6vw, 84px);
     line-height: 0.95;
     font-weight: 400;
-    margin: 0 0 2.5rem 0;
+    margin: 0 0 1.25rem 0;
     color: var(--text);
     letter-spacing: -0.02em;
   }
@@ -161,13 +161,12 @@
     gap: 0.75rem;
   }
 
-  .about-quick-link-btn span.quick-link-label::before {
-    content: "";
+  .quick-link-dot {
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--accent-terracotta);
     display: inline-block;
+    flex-shrink: 0;
   }
 
   .about-quick-link-btn .arrow {
@@ -450,7 +449,12 @@
       gap: 3.5rem;
     }
 
+    .about-editorial-left {
+      order: 2;
+    }
+
     .about-editorial-right {
+      order: 1;
       position: static;
     }
 
@@ -545,9 +549,11 @@
     
     <!-- Left column: Biography content -->
     <div class="about-editorial-left">
-      <h1 style="font-family: 'DM Serif Display', serif; font-size: clamp(24px, 4.5vw, 36px); line-height: 1.25; font-style: italic; color: var(--accent-terracotta); font-weight: 400; margin: 0 0 2.5rem 0; border-left: 2px solid var(--accent-terracotta); padding-left: 1.25rem;">
+      <h1 class="about-title">Md. Miraz <span>Hossain</span></h1>
+      
+      <p style="margin: 0 0 2.5rem 0; font-family: 'Instrument Sans', sans-serif; font-size: clamp(15px, 1.8vw, 17px); line-height: 1.5; color: var(--text2); font-style: italic; font-weight: 400; max-width: 45ch; border-left: 2px solid var(--accent-terracotta); padding-left: 1rem;">
         A short introduction, because the long one is the rest of the site.
-      </h1>
+      </p>
       
       <div class="about-bio-container">
         <div class="about-lede">
@@ -574,15 +580,15 @@
       
       <div class="about-quick-links" aria-label="Primary about links">
         <a href="/research/" class="about-quick-link-btn">
-          <span class="quick-link-label">Explore Research</span>
+          <span class="quick-link-label"><span class="quick-link-dot" style="background: #0ea5e9;"></span>Explore Research</span>
           <span class="arrow">&rarr;</span>
         </a>
         <a href="/interventions/" class="about-quick-link-btn">
-          <span class="quick-link-label">View Interventions</span>
+          <span class="quick-link-label"><span class="quick-link-dot" style="background: #c46f58;"></span>View Interventions</span>
           <span class="arrow">&rarr;</span>
         </a>
         <a href="/credentials/" class="about-quick-link-btn">
-          <span class="quick-link-label">Check Credentials</span>
+          <span class="quick-link-label"><span class="quick-link-dot" style="background: #10b981;"></span>Check Credentials</span>
           <span class="arrow">&rarr;</span>
         </a>
       </div>
