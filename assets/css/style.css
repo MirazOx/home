@@ -324,7 +324,7 @@ img { max-width: 100%; display: block; }
 /* Choreographed hero name below the portrait photo */
 .hero-name-choreographed {
   width: 100%;
-  max-width: 850px; /* Expanded for wide layout spacing */
+  max-width: 1000px; /* Scaled up grand display constraint */
   margin-inline: auto;
   margin-bottom: 2rem;
   overflow: visible;
@@ -356,7 +356,7 @@ img { max-width: 100%; display: block; }
 /* Unified handwriting cursive wrap */
 .hero-name-miraz-wrap {
   width: 100%;
-  max-width: 750px; /* Spacious width to display the wide SVG canvas perfectly with zero overlapping! */
+  max-width: 900px; /* Spacious width to display the wide scaled-up SVG perfectly! */
   height: auto;
   overflow: visible;
   display: flex;
@@ -372,7 +372,7 @@ img { max-width: 100%; display: block; }
 
 .letter-svg {
   font-family: 'Caveat', cursive, sans-serif;
-  font-size: 210px; /* Reduced from 280px to perfectly prevent overlapping! */
+  font-size: 230px; /* Scaled up from 210px to make the name bold and grand! */
   font-weight: 700;
   fill: rgba(192, 122, 96, 0); /* Starts fully transparent */
   stroke-dasharray: 1000;
@@ -533,17 +533,17 @@ img { max-width: 100%; display: block; }
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: -0.8rem; /* Cohesive visual baseline spacing overlap */
+  margin-top: -2.5rem; /* Nest cursive lines together beautifully like a real signature! */
   overflow: visible;
 }
 
 /* Solid text "Hossain" */
 .hero-name-hossain {
-  font-family: var(--font-display);
-  font-size: clamp(4.2rem, 8.5vw, 6.4rem); /* Breathtaking massive typography! */
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: clamp(6.0rem, 12vw, 9.2rem); /* Grand cursive calligraphy matching Md. and Miraz! */
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.01em;
   color: var(--text); /* ivory white for dark, charcoal black for light */
   opacity: 0;
   display: inline-block;
