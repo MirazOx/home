@@ -5379,6 +5379,71 @@ footer {
 }
 :root[data-theme="light"] .poster-reveal-shadow { background: linear-gradient(to top, rgba(245,246,244,0.96) 0%, transparent 100%); }
 
+/* ==========================================================
+   RECOGNITION FAN + INTERVENTION LIGHTBOX POLISH
+   ========================================================== */
+.recog-fan-wrap {
+  min-height: clamp(250px, 22vw, 315px);
+  overflow: hidden;
+}
+.recog-fan-card {
+  inset: auto;
+  top: 6%;
+  left: 50%;
+  width: 38%;
+  height: 86%;
+  transform-origin: 50% 96%;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg2);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.28);
+}
+.recog-fan-card.is-front {
+  inset: 0;
+  width: auto;
+  height: auto;
+  left: 0;
+  top: 0;
+  box-shadow: none;
+}
+.recog-fan-card:not(.is-front) {
+  opacity: 0;
+  transform: translateX(-50%) translateY(18px) rotate(0deg) scale(0.7);
+}
+.recog-fan-wrap.is-open .recog-fan-card.is-front {
+  transform: scale(0.82);
+  opacity: 0.16;
+}
+.recog-fan-wrap.is-open .recog-fan-card[data-wing="1"] { opacity: 1; transform: translateX(-106%) translateY(10px) rotate(-20deg) scale(0.72); }
+.recog-fan-wrap.is-open .recog-fan-card[data-wing="2"] { opacity: 1; transform: translateX(-74%) translateY(0) rotate(-7deg) scale(0.78); }
+.recog-fan-wrap.is-open .recog-fan-card[data-wing="3"] { opacity: 1; transform: translateX(-43%) translateY(0) rotate(7deg) scale(0.78); }
+.recog-fan-wrap.is-open .recog-fan-card[data-wing="4"] { opacity: 1; transform: translateX(-5%) translateY(10px) rotate(20deg) scale(0.72); }
+.recog-fan-wrap.is-open .recog-fan-card[data-full] {
+  cursor: zoom-in;
+}
+.recog-fan-wrap.is-open .recog-fan-hint,
+:root[data-theme="light"] .recog-fan-wrap.is-open .recog-fan-hint {
+  background: #b64032;
+  border-color: #f08a75;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(182, 64, 50, 0.35);
+}
+.intervention-focus-media img,
+.lightbox-trigger[data-full] {
+  cursor: zoom-in;
+}
+.lightbox-img {
+  cursor: zoom-out;
+}
+@media (max-width: 600px) {
+  .recog-fan-wrap { min-height: 265px; }
+  .recog-fan-card { width: 40%; height: 84%; }
+  .recog-fan-wrap.is-open .recog-fan-card[data-wing="1"] { transform: translateX(-104%) translateY(10px) rotate(-18deg) scale(0.7); }
+  .recog-fan-wrap.is-open .recog-fan-card[data-wing="2"] { transform: translateX(-73%) translateY(2px) rotate(-6deg) scale(0.76); }
+  .recog-fan-wrap.is-open .recog-fan-card[data-wing="3"] { transform: translateX(-42%) translateY(2px) rotate(6deg) scale(0.76); }
+  .recog-fan-wrap.is-open .recog-fan-card[data-wing="4"] { transform: translateX(-3%) translateY(10px) rotate(18deg) scale(0.7); }
+}
+
 @media print {
   .nav-modern, .lightbox, .toggle-more-btn, .hero-action-row { display: none !important; }
   .hero { min-height: auto; }

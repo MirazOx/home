@@ -293,69 +293,76 @@ function initRotatingTags() {
 
 // ---------- LIGHTBOX ----------
 function initLightbox() {
-  const cards = document.querySelectorAll('.award-card[data-full]');
-  const box = document.getElementById('lightbox');
-
+  const box = document.getElementById("lightbox");
   if (!box) return;
 
-  const img = box.querySelector('.lightbox-img');
-  const cap = box.querySelector('.lightbox-cap');
-  const close = box.querySelector('.lightbox-close');
+  const img = box.querySelector(".lightbox-img");
+  const cap = box.querySelector(".lightbox-cap");
+  const close = box.querySelector(".lightbox-close");
 
-  function open(card) {
-    if (card.querySelector('.is-placeholder')) return;
-
-    const imgEl = card.querySelector('img');
-    if (!imgEl) return;
-
-    const src = card.getAttribute('data-full');
-    const badge = card.querySelector('.award-badge');
-    const note = card.querySelector('.award-note');
-
+  function openImage(src, caption, alt) {
+    if (!src || !img) return;
     img.src = src;
-    img.alt = imgEl.alt || '';
-    cap.textContent = [
-      badge && badge.textContent.trim(),
-      note && note.textContent.trim()
-    ].filter(Boolean).join(' — ');
+    img.alt = alt || caption || "";
+    if (cap) cap.textContent = caption || "";
+    box.classList.add("is-open");
+    box.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
 
-    box.classList.add('is-open');
-    box.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
+  function openTrigger(trigger) {
+    if (trigger.querySelector?.(".is-placeholder")) return;
+    const image = trigger.matches("img") ? trigger : trigger.querySelector("img");
+    const src = trigger.getAttribute("data-lightbox-src") || trigger.getAttribute("data-full") || image?.currentSrc || image?.src;
+    const caption = trigger.getAttribute("data-caption") || image?.alt || "";
+    openImage(src, caption, image?.alt || caption);
   }
 
   function closeBox() {
-    box.classList.remove('is-open');
-    box.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    img.src = '';
+    box.classList.remove("is-open");
+    box.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (img) img.src = "";
   }
 
-  if (cards.length) {
-    cards.forEach(card => {
-      card.addEventListener('click', () => open(card));
-      card.setAttribute('tabindex', '0');
-
-      card.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          open(card);
-        }
-      });
+  document.querySelectorAll(".award-card[data-full], .lightbox-trigger[data-full], [data-lightbox-src]").forEach(trigger => {
+    if (trigger.dataset.lightboxBound === "true") return;
+    trigger.dataset.lightboxBound = "true";
+    trigger.addEventListener("click", () => openTrigger(trigger));
+    if (!trigger.hasAttribute("tabindex")) trigger.setAttribute("tabindex", "0");
+    trigger.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openTrigger(trigger);
+      }
     });
-  }
-
-  if (close) close.addEventListener('click', closeBox);
-
-  box.addEventListener('click', e => {
-    if (e.target === box) closeBox();
   });
 
-  document.addEventListener('keydown', e => {
-    if (e.key === 'Escape') closeBox();
+  document.querySelectorAll(".intervention-focus-media img").forEach(image => {
+    if (image.dataset.lightboxBound === "true") return;
+    image.dataset.lightboxBound = "true";
+    image.classList.add("lightboxable-image");
+    image.setAttribute("tabindex", "0");
+    image.setAttribute("role", "button");
+    image.addEventListener("click", () => openImage(image.currentSrc || image.src, image.alt || "", image.alt || ""));
+    image.addEventListener("keydown", e => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openImage(image.currentSrc || image.src, image.alt || "", image.alt || "");
+      }
+    });
+  });
+
+  if (close) close.addEventListener("click", closeBox);
+
+  box.addEventListener("click", e => {
+    if (e.target === box || e.target === img) closeBox();
+  });
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") closeBox();
   });
 }
-
 // ---------- INIT ----------
 document.addEventListener('DOMContentLoaded', () => {
   bindThemeToggle();
