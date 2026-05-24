@@ -321,18 +321,13 @@ img { max-width: 100%; display: block; }
   z-index: 3;
 }
 
-/* Massive floating name behind the photo */
-.hero-bg-name {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 300%; /* Exactly 3 times bigger than the portrait photo! */
-  max-width: none;
+/* Animated hero name below the portrait photo */
+.hero-name-animated {
+  width: 100%;
+  max-width: 540px; /* Breathtaking size, slightly wider than the portrait photo */
   height: auto;
-  z-index: 2; /* behind hero portrait (z-index: 5) but in front of background */
-  pointer-events: none;
-  user-select: none;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
   overflow: visible;
   display: flex;
   justify-content: center;
@@ -657,7 +652,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .hero { min-height: 90vh; }
-  .hero-bg-name { font-size: clamp(90px, 18vw, 180px); } /* Apple cursive style mobile size balance */
+  .hero-name-animated { max-width: 320px; }
   .hero-portrait { width: 220px; height: 300px; }
   .hero-action-row { flex-direction: column; width: 100%; max-width: 280px; }
   .hero-cta { justify-content: center; }
