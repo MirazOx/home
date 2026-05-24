@@ -324,13 +324,24 @@ img { max-width: 100%; display: block; }
 /* Choreographed hero name below the portrait photo */
 .hero-name-choreographed {
   width: 100%;
-  max-width: 780px; /* Expansive width for full layout */
+  max-width: 850px; /* Expanded for wide layout spacing */
   margin-inline: auto;
   margin-bottom: 2rem;
   overflow: visible;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.hero-name-desktop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-name-mobile {
+  display: none; /* Hidden on desktop by default */
 }
 
 /* Line 1: Md. Miraz (Unified SVG Frame) */
@@ -345,7 +356,7 @@ img { max-width: 100%; display: block; }
 /* Unified handwriting cursive wrap */
 .hero-name-miraz-wrap {
   width: 100%;
-  max-width: 650px; /* Spacious width to display the wide SVG canvas perfectly with zero overlapping! */
+  max-width: 750px; /* Spacious width to display the wide SVG canvas perfectly with zero overlapping! */
   height: auto;
   overflow: visible;
   display: flex;
@@ -361,7 +372,7 @@ img { max-width: 100%; display: block; }
 
 .letter-svg {
   font-family: 'Caveat', cursive, sans-serif;
-  font-size: 280px;
+  font-size: 210px; /* Reduced from 280px to perfectly prevent overlapping! */
   font-weight: 700;
   fill: rgba(192, 122, 96, 0); /* Starts fully transparent */
   stroke-dasharray: 1000;
@@ -387,61 +398,61 @@ img { max-width: 100%; display: block; }
 /* Parent group dropping physics */
 .letters-md-group {
   opacity: 0;
-  transform-origin: 200px 220px;
+  transform-origin: 300px 220px;
   animation: md-drop 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
   animation-delay: 2.3s; /* Drops in as Miraz finishes drawing */
 }
 
 .letters-miraz-group {
-  transform-origin: 550px 220px;
+  transform-origin: 750px 220px;
   overflow: visible;
 }
 
 /* Transform-origins and delays for all 8 letters */
 /* Md. Cursive */
 .letter-M1 {
-  transform-origin: 100px 260px;
+  transform-origin: 160px 260px;
   animation-delay: 2.3s, 3.7s;
 }
 
 .letter-d {
-  transform-origin: 220px 260px;
+  transform-origin: 320px 260px;
   animation-name: journey-i, fillLetterMd; /* Playful cursive bounce */
   animation-delay: 2.5s, 3.9s;
 }
 
 .letter-dot {
-  transform-origin: 270px 260px;
+  transform-origin: 390px 260px;
   animation-name: journey-r, fillLetterMd;
   animation-delay: 2.7s, 4.1s;
 }
 
 /* Miraz Cursive */
 .letter-M2 {
-  transform-origin: 420px 260px;
+  transform-origin: 540px 260px;
   animation-delay: 0s, 2.5s;
 }
 
 .letter-i {
-  transform-origin: 540px 260px;
+  transform-origin: 700px 260px;
   animation-name: journey-i, fillLetterMiraz;
   animation-delay: 0.25s, 2.75s;
 }
 
 .letter-r {
-  transform-origin: 590px 260px;
+  transform-origin: 780px 260px;
   animation-name: journey-r, fillLetterMiraz;
   animation-delay: 0.5s, 3.0s;
 }
 
 .letter-a {
-  transform-origin: 640px 260px;
+  transform-origin: 860px 260px;
   animation-name: journey-a, fillLetterMiraz;
   animation-delay: 0.75s, 3.25s;
 }
 
 .letter-z {
-  transform-origin: 710px 260px;
+  transform-origin: 950px 260px;
   animation-name: journey-z, fillLetterMiraz;
   animation-delay: 1.0s, 3.5s;
 }
@@ -786,26 +797,100 @@ img { max-width: 100%; display: block; }
   24%, 100%{ opacity: 0; transform: translateY(-8px); }
 }
 
+/* Mobile Animated Cursive Signature (Only "Miraz") */
+.hero-name-miraz-wrap-mobile {
+  width: 100%;
+  max-width: 320px; /* Perfectly sized mobile signature */
+  height: auto;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-name-svg-mobile {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  animation: slowFloat 15s ease-in-out infinite alternate;
+}
+
+.letter-svg-mobile {
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: 200px; /* Perfectly sized for mobile spacing */
+  font-weight: 700;
+  fill: rgba(192, 122, 96, 0); /* Starts transparent */
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transform-origin: center;
+  animation-duration: 2.8s, 1.4s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
+  animation-fill-mode: forwards, forwards;
+  stroke: url(#goldGradientMobile);
+  animation-name: journey-M, fillLetterMirazMobile;
+}
+
+.letters-miraz-group-mobile {
+  transform-origin: 300px 150px;
+  overflow: visible;
+}
+
+/* Mobile individual letter animations */
+.letter-M2-mob {
+  transform-origin: 80px 220px;
+  animation-delay: 0s, 2.5s;
+}
+
+.letter-i-mob {
+  transform-origin: 230px 220px;
+  animation-name: journey-i, fillLetterMirazMobile;
+  animation-delay: 0.25s, 2.75s;
+}
+
+.letter-r-mob {
+  transform-origin: 300px 220px;
+  animation-name: journey-r, fillLetterMirazMobile;
+  animation-delay: 0.5s, 3.0s;
+}
+
+.letter-a-mob {
+  transform-origin: 370px 220px;
+  animation-name: journey-a, fillLetterMirazMobile;
+  animation-delay: 0.75s, 3.25s;
+}
+
+.letter-z-mob {
+  transform-origin: 450px 220px;
+  animation-name: journey-z, fillLetterMirazMobile;
+  animation-delay: 1.0s, 3.5s;
+}
+
+@keyframes fillLetterMirazMobile {
+  0% {
+    fill: rgba(192, 122, 96, 0);
+    stroke-width: 4.5px;
+  }
+  100% {
+    fill: url(#goldGradientMobile);
+    stroke-width: 1.5px;
+  }
+}
+
 @media (max-width: 768px) {
   .hero { min-height: 90vh; }
   .hero-name-choreographed {
     max-width: 100%;
     margin-bottom: 1.5rem;
   }
-  .letter-md-color, .hero-name-line-2 {
-    display: none !important; /* Hide Md. letters and Hossain completely on mobile! Locked! */
+  .hero-name-desktop {
+    display: none !important; /* Hide full desktop title completely on phone */
   }
-  .letters-miraz-group {
-    transform: translateX(-150px); /* Center "Miraz" (span x=420 to 780) perfectly on mobile viewports! */
-  }
-  .hero-name-line-1 {
-    width: 100% !important;
-    justify-content: center !important;
-    gap: 0 !important;
-  }
-  .hero-name-miraz-wrap {
-    width: 100% !important;
-    max-width: 300px !important; /* Compact mobile signature */
+  .hero-name-mobile {
+    display: flex !important; /* Show mobile-only title on phone */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: visible;
   }
   .hero-portrait { width: 220px; height: 300px; }
   .hero-action-row { flex-direction: column; width: 100%; max-width: 280px; }

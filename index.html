@@ -53,37 +53,60 @@
     </div>
 
     <h1 class="hero-name-choreographed" aria-label="Md. Miraz Hossain">
-      <!-- Line 1: Md. Miraz (Unified SVG) -->
-      <div class="hero-name-line-1">
-        <div class="hero-name-miraz-wrap">
-          <svg viewBox="0 0 900 350" class="hero-name-svg">
+      <!-- DESKTOP VERSION (Generous Spacing to Prevent Any Overlaps) -->
+      <div class="hero-name-desktop">
+        <div class="hero-name-line-1">
+          <div class="hero-name-miraz-wrap">
+            <svg viewBox="0 0 1200 350" class="hero-name-svg">
+              <defs>
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#ffb090" />
+                  <stop offset="50%" stop-color="#e28c68" />
+                  <stop offset="100%" stop-color="#b0583c" />
+                </linearGradient>
+              </defs>
+              <!-- Md. (Ivory/Charcoal Cursive Group) -->
+              <g class="letters-md-group">
+                <text x="160" y="260" class="letter-svg letter-md-color letter-M1">M</text>
+                <text x="320" y="260" class="letter-svg letter-md-color letter-d">d</text>
+                <text x="390" y="260" class="letter-svg letter-md-color letter-dot">.</text>
+              </g>
+              <!-- Miraz (Copper-Gold Cursive Group) -->
+              <g class="letters-miraz-group">
+                <text x="540" y="260" class="letter-svg letter-miraz-color letter-M2">M</text>
+                <text x="700" y="260" class="letter-svg letter-miraz-color letter-i">i</text>
+                <text x="780" y="260" class="letter-svg letter-miraz-color letter-r">r</text>
+                <text x="860" y="260" class="letter-svg letter-miraz-color letter-a">a</text>
+                <text x="950" y="260" class="letter-svg letter-miraz-color letter-z">z</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="hero-name-line-2">
+          <span class="hero-name-hossain">Hossain</span>
+        </div>
+      </div>
+
+      <!-- MOBILE VERSION (Only Centered Cursive Animated "Miraz") -->
+      <div class="hero-name-mobile">
+        <div class="hero-name-miraz-wrap-mobile">
+          <svg viewBox="0 0 600 300" class="hero-name-svg-mobile">
             <defs>
-              <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="goldGradientMobile" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#ffb090" />
                 <stop offset="50%" stop-color="#e28c68" />
                 <stop offset="100%" stop-color="#b0583c" />
               </linearGradient>
             </defs>
-            <!-- Md. (Ivory/Charcoal Cursive Group) -->
-            <g class="letters-md-group">
-              <text x="100" y="260" class="letter-svg letter-md-color letter-M1">M</text>
-              <text x="220" y="260" class="letter-svg letter-md-color letter-d">d</text>
-              <text x="270" y="260" class="letter-svg letter-md-color letter-dot">.</text>
-            </g>
-            <!-- Miraz (Copper-Gold Cursive Group) -->
-            <g class="letters-miraz-group">
-              <text x="420" y="260" class="letter-svg letter-miraz-color letter-M2">M</text>
-              <text x="540" y="260" class="letter-svg letter-miraz-color letter-i">i</text>
-              <text x="590" y="260" class="letter-svg letter-miraz-color letter-r">r</text>
-              <text x="640" y="260" class="letter-svg letter-miraz-color letter-a">a</text>
-              <text x="710" y="260" class="letter-svg letter-miraz-color letter-z">z</text>
+            <g class="letters-miraz-group-mobile">
+              <text x="80" y="220" class="letter-svg-mobile letter-miraz-color letter-M2-mob">M</text>
+              <text x="230" y="220" class="letter-svg-mobile letter-miraz-color letter-i-mob">i</text>
+              <text x="300" y="220" class="letter-svg-mobile letter-miraz-color letter-r-mob">r</text>
+              <text x="370" y="220" class="letter-svg-mobile letter-miraz-color letter-a-mob">a</text>
+              <text x="450" y="220" class="letter-svg-mobile letter-miraz-color letter-z-mob">z</text>
             </g>
           </svg>
         </div>
-      </div>
-      <!-- Line 2: Hossain -->
-      <div class="hero-name-line-2">
-        <span class="hero-name-hossain">Hossain</span>
       </div>
     </h1>
 
