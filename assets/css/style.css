@@ -321,16 +321,48 @@ img { max-width: 100%; display: block; }
   z-index: 3;
 }
 
-/* Animated hero name below the portrait photo */
-.hero-name-animated {
+/* Choreographed hero name below the portrait photo */
+.hero-name-choreographed {
   width: 100%;
-  max-width: 540px; /* Breathtaking size, slightly wider than the portrait photo */
-  height: auto;
+  max-width: 780px; /* Expansive width for full layout */
   margin-inline: auto;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   overflow: visible;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Line 1: Md. Miraz */
+.hero-name-line-1 {
+  display: flex;
+  align-items: center;
   justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  overflow: visible;
+}
+
+/* Solid text "Md." */
+.hero-name-md {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 6.5vw, 4.8rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--text); /* dynamic ivory white / charcoal black */
+  opacity: 0;
+  display: inline-block;
+  animation: md-drop 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 2.3s; /* Joins as Miraz finishes drawing */
+}
+
+/* Miraz handwriting wrap */
+.hero-name-miraz-wrap {
+  width: clamp(200px, 30vw, 320px); /* Proportional display width next to Md. */
+  height: auto;
+  overflow: visible;
+  display: flex;
   align-items: center;
 }
 
@@ -352,40 +384,40 @@ img { max-width: 100%; display: block; }
   stroke-dashoffset: 1000;
   transform-origin: center;
   /* Staggered entrance, drawing, and fill animations */
-  animation-duration: 2.2s, 1.2s;
-  animation-timing-function: cubic-bezier(0.25, 1, 0.5, 1), ease-in-out;
+  animation-duration: 2.8s, 1.4s; /* Luxuriously slowed down to 2.8s */
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out; /* Premium deceleration curve */
   animation-fill-mode: forwards, forwards;
 }
 
 /* Individual letter delay and custom journey keyframes */
 .letter-M {
-  transform-origin: 180px 240px;
+  transform-origin: 100px 220px;
   animation-name: journey-M, fillLetter;
-  animation-delay: 0s, 2.0s;
+  animation-delay: 0s, 2.5s;
 }
 
 .letter-i {
-  transform-origin: 380px 240px;
+  transform-origin: 190px 220px;
   animation-name: journey-i, fillLetter;
-  animation-delay: 0.3s, 2.3s;
+  animation-delay: 0.2s, 2.7s;
 }
 
 .letter-r {
-  transform-origin: 440px 240px;
+  transform-origin: 230px 220px;
   animation-name: journey-r, fillLetter;
-  animation-delay: 0.6s, 2.6s;
+  animation-delay: 0.4s, 2.9s;
 }
 
 .letter-a {
-  transform-origin: 520px 240px;
+  transform-origin: 280px 220px;
   animation-name: journey-a, fillLetter;
-  animation-delay: 0.9s, 2.9s;
+  animation-delay: 0.6s, 3.1s;
 }
 
 .letter-z {
-  transform-origin: 630px 240px;
+  transform-origin: 340px 220px;
   animation-name: journey-z, fillLetter;
-  animation-delay: 1.2s, 3.2s;
+  animation-delay: 0.8s, 3.3s;
 }
 
 /* Journey paths - letter-by-letter unique trajectories */
@@ -459,15 +491,71 @@ img { max-width: 100%; display: block; }
   }
 }
 
-/* Smooth color fill-in once drawn */
-@keyframes fillLetter {
+}
+
+/* Line 2: Hossain */
+.hero-name-line-2 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: -0.8rem; /* Cohesive visual baseline spacing overlap */
+  overflow: visible;
+}
+
+/* Solid text "Hossain" */
+.hero-name-hossain {
+  font-family: var(--font-display);
+  font-size: clamp(4.2rem, 8.5vw, 6.4rem); /* Breathtaking massive typography! */
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--text); /* ivory white for dark, charcoal black for light */
+  opacity: 0;
+  display: inline-block;
+  animation: hossain-rise 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 2.7s; /* Joins as Md settles */
+}
+
+/* Soft physics bounce and inertial settle keyframes */
+@keyframes md-drop {
   0% {
-    fill: rgba(192, 122, 96, 0);
-    stroke-width: 4.5px;
+    transform: translateY(-120px) scaleY(1.15);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(12px) scaleY(0.9);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(-8px) scaleY(1.03);
+  }
+  85% {
+    transform: translateY(3px) scaleY(0.98);
   }
   100% {
-    fill: url(#goldGradient);
-    stroke-width: 1.5px; /* Elegant thin stroke once filled for ultra-sharp outline definition */
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes hossain-rise {
+  0% {
+    transform: translateY(120px) scaleY(1.15);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-12px) scaleY(0.9);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(8px) scaleY(1.03);
+  }
+  85% {
+    transform: translateY(-3px) scaleY(0.98);
+  }
+  100% {
+    transform: translateY(0) scaleY(1);
+    opacity: 1;
   }
 }
 
@@ -652,7 +740,22 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .hero { min-height: 90vh; }
-  .hero-name-animated { max-width: 320px; }
+  .hero-name-choreographed {
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name-md, .hero-name-line-2 {
+    display: none !important; /* Lock mobile to only Miraz signature! */
+  }
+  .hero-name-line-1 {
+    width: 100% !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+  .hero-name-miraz-wrap {
+    width: 100% !important;
+    max-width: 300px !important; /* Centered compact mobile Miraz */
+  }
   .hero-portrait { width: 220px; height: 300px; }
   .hero-action-row { flex-direction: column; width: 100%; max-width: 280px; }
   .hero-cta { justify-content: center; }
