@@ -313,15 +313,22 @@ img { max-width: 100%; display: block; }
   border-top: 1px solid rgba(255, 255, 255, 0.02);
 }
 
-/* Massive floating name behind everything */
-/* Massive floating name behind everything */
+/* Portrait wrapper for centering name behind it */
+.hero-portrait-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2.5rem;
+  z-index: 3;
+}
+
+/* Massive floating name behind the photo */
 .hero-bg-name {
   position: absolute;
-  top: clamp(170px, 20vw, 250px); /* Vertical center aligned with hero portrait clamp(340px, 40vw, 500px)/2 */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  max-width: 1200px;
+  width: 300%; /* Exactly 3 times bigger than the portrait photo! */
+  max-width: none;
   height: auto;
   z-index: 2; /* behind hero portrait (z-index: 5) but in front of background */
   pointer-events: none;
@@ -345,7 +352,7 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
   fill: rgba(192, 122, 96, 0); /* Starts fully transparent */
   stroke: url(#goldGradient); /* Premium visible rose gold gradient */
-  stroke-width: 3px;
+  stroke-width: 4.5px; /* Thicker outline for extremely sharp visibility */
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   transform-origin: center;
@@ -461,11 +468,11 @@ img { max-width: 100%; display: block; }
 @keyframes fillLetter {
   0% {
     fill: rgba(192, 122, 96, 0);
-    stroke-width: 3px;
+    stroke-width: 4.5px;
   }
   100% {
     fill: url(#goldGradient);
-    stroke-width: 1px; /* Thinner stroke once filled for pristine sharpness */
+    stroke-width: 1.5px; /* Elegant thin stroke once filled for ultra-sharp outline definition */
   }
 }
 
@@ -502,7 +509,6 @@ img { max-width: 100%; display: block; }
   height: clamp(340px, 40vw, 500px);
   border-radius: 200px 200px 24px 24px;
   overflow: hidden;
-  margin-bottom: 2.5rem;
   position: relative;
   z-index: 5; /* Ensure portrait photo stays in front of floating background name */
   box-shadow:
