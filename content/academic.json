@@ -125,7 +125,8 @@
           "workTitle": "Press Freedom on Trial",
           "type": "Comparative legal analysis",
           "desc": "A comparative legal analysis examining how Bangladesh’s Digital Security Act (DSA) and Pakistan’s PECA weaponise cybercrime law against journalism.",
-          "externalUrl": "https://docs.google.com/document/d/1e_NuvtSLw0CsZVwAn1WFPxlj8MQdHqqA/edit"
+          "externalUrl": "https://docs.google.com/document/d/1e_NuvtSLw0CsZVwAn1WFPxlj8MQdHqqA/edit",
+          "linkLabel": "Open analysis"
         },
         {
           "code": "MSJ2201",
@@ -167,7 +168,8 @@
           "workTitle": "The Politics Embedded in Technical Systems",
           "type": "Theory essay",
           "desc": "An analytical coursework essay applying Langdon Winner’s framework of technological politics to algorithmic content distribution systems.",
-          "externalUrl": "https://docs.google.com/document/d/1UWWPnp2y17fgSaoD6apfsgyHTRBdeJ86/edit?usp=sharing&ouid=113101876294563990983&rtpof=true&sd=true"
+          "externalUrl": "https://docs.google.com/document/d/1UWWPnp2y17fgSaoD6apfsgyHTRBdeJ86/edit?usp=sharing&ouid=113101876294563990983&rtpof=true&sd=true",
+          "linkLabel": "Open essay"
         }
       ]
     },
