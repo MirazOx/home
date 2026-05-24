@@ -533,14 +533,14 @@ img { max-width: 100%; display: block; }
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: -2.5rem; /* Nest cursive lines together beautifully like a real signature! */
+  margin-top: -1.2rem; /* Soft overlay nesting for a smaller cursive subtitle */
   overflow: visible;
 }
 
 /* Solid text "Hossain" */
 .hero-name-hossain {
   font-family: 'Caveat', cursive, sans-serif;
-  font-size: clamp(6.0rem, 12vw, 9.2rem); /* Grand cursive calligraphy matching Md. and Miraz! */
+  font-size: clamp(3.5rem, 7vw, 5.2rem); /* Refined, smaller cursive subtitle for visual hierarchy & focal prominence of Miraz! */
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.01em;
