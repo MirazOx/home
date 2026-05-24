@@ -333,33 +333,19 @@ img { max-width: 100%; display: block; }
   align-items: center;
 }
 
-/* Line 1: Md. Miraz */
+/* Line 1: Md. Miraz (Unified SVG Frame) */
 .hero-name-line-1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1.2rem;
   width: 100%;
   overflow: visible;
 }
 
-/* Solid text "Md." */
-.hero-name-md {
-  font-family: var(--font-display);
-  font-size: clamp(3.2rem, 6.5vw, 4.8rem);
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  color: var(--text); /* dynamic ivory white / charcoal black */
-  opacity: 0;
-  display: inline-block;
-  animation: md-drop 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-  animation-delay: 2.3s; /* Joins as Miraz finishes drawing */
-}
-
-/* Miraz handwriting wrap */
+/* Unified handwriting cursive wrap */
 .hero-name-miraz-wrap {
-  width: clamp(200px, 30vw, 320px); /* Proportional display width next to Md. */
+  width: 100%;
+  max-width: 650px; /* Spacious width to display the wide SVG canvas perfectly with zero overlapping! */
   height: auto;
   overflow: visible;
   display: flex;
@@ -378,46 +364,86 @@ img { max-width: 100%; display: block; }
   font-size: 280px;
   font-weight: 700;
   fill: rgba(192, 122, 96, 0); /* Starts fully transparent */
-  stroke: url(#goldGradient); /* Premium visible rose gold gradient */
-  stroke-width: 4.5px; /* Thicker outline for extremely sharp visibility */
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
   transform-origin: center;
   /* Staggered entrance, drawing, and fill animations */
-  animation-duration: 2.8s, 1.4s; /* Luxuriously slowed down to 2.8s */
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out; /* Premium deceleration curve */
+  animation-duration: 2.8s, 1.4s; /* Slower, highly elegant deceleration */
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease-in-out;
   animation-fill-mode: forwards, forwards;
 }
 
-/* Individual letter delay and custom journey keyframes */
-.letter-M {
-  transform-origin: 100px 220px;
-  animation-name: journey-M, fillLetter;
+/* Distinct color definitions inside the cursive script */
+.letter-md-color {
+  stroke: var(--text); /* ivory white in dark theme, charcoal black in light theme */
+  animation-name: journey-M, fillLetterMd;
+}
+
+.letter-miraz-color {
+  stroke: url(#goldGradient); /* vibrant gold-copper gradient */
+  animation-name: journey-M, fillLetterMiraz;
+}
+
+/* Parent group dropping physics */
+.letters-md-group {
+  opacity: 0;
+  transform-origin: 200px 220px;
+  animation: md-drop 1.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 2.3s; /* Drops in as Miraz finishes drawing */
+}
+
+.letters-miraz-group {
+  transform-origin: 550px 220px;
+  overflow: visible;
+}
+
+/* Transform-origins and delays for all 8 letters */
+/* Md. Cursive */
+.letter-M1 {
+  transform-origin: 100px 260px;
+  animation-delay: 2.3s, 3.7s;
+}
+
+.letter-d {
+  transform-origin: 220px 260px;
+  animation-name: journey-i, fillLetterMd; /* Playful cursive bounce */
+  animation-delay: 2.5s, 3.9s;
+}
+
+.letter-dot {
+  transform-origin: 270px 260px;
+  animation-name: journey-r, fillLetterMd;
+  animation-delay: 2.7s, 4.1s;
+}
+
+/* Miraz Cursive */
+.letter-M2 {
+  transform-origin: 420px 260px;
   animation-delay: 0s, 2.5s;
 }
 
 .letter-i {
-  transform-origin: 190px 220px;
-  animation-name: journey-i, fillLetter;
-  animation-delay: 0.2s, 2.7s;
+  transform-origin: 540px 260px;
+  animation-name: journey-i, fillLetterMiraz;
+  animation-delay: 0.25s, 2.75s;
 }
 
 .letter-r {
-  transform-origin: 230px 220px;
-  animation-name: journey-r, fillLetter;
-  animation-delay: 0.4s, 2.9s;
+  transform-origin: 590px 260px;
+  animation-name: journey-r, fillLetterMiraz;
+  animation-delay: 0.5s, 3.0s;
 }
 
 .letter-a {
-  transform-origin: 280px 220px;
-  animation-name: journey-a, fillLetter;
-  animation-delay: 0.6s, 3.1s;
+  transform-origin: 640px 260px;
+  animation-name: journey-a, fillLetterMiraz;
+  animation-delay: 0.75s, 3.25s;
 }
 
 .letter-z {
-  transform-origin: 340px 220px;
-  animation-name: journey-z, fillLetter;
-  animation-delay: 0.8s, 3.3s;
+  transform-origin: 710px 260px;
+  animation-name: journey-z, fillLetterMiraz;
+  animation-delay: 1.0s, 3.5s;
 }
 
 /* Journey paths - letter-by-letter unique trajectories */
@@ -556,6 +582,30 @@ img { max-width: 100%; display: block; }
   100% {
     transform: translateY(0) scaleY(1);
     opacity: 1;
+  }
+}
+
+/* Smooth color fill-in once drawn for Md. (Ivory/Charcoal) */
+@keyframes fillLetterMd {
+  0% {
+    fill: rgba(192, 122, 96, 0);
+    stroke-width: 4.5px;
+  }
+  100% {
+    fill: var(--text); /* dynamic ivory / charcoal color */
+    stroke-width: 1.5px; /* sharp outline definition */
+  }
+}
+
+/* Smooth color fill-in once drawn for Miraz (Copper-Gold Gradient) */
+@keyframes fillLetterMiraz {
+  0% {
+    fill: rgba(192, 122, 96, 0);
+    stroke-width: 4.5px;
+  }
+  100% {
+    fill: url(#goldGradient); /* copper-gold gradient */
+    stroke-width: 1.5px; /* sharp outline definition */
   }
 }
 
@@ -744,8 +794,11 @@ img { max-width: 100%; display: block; }
     max-width: 100%;
     margin-bottom: 1.5rem;
   }
-  .hero-name-md, .hero-name-line-2 {
-    display: none !important; /* Lock mobile to only Miraz signature! */
+  .letter-md-color, .hero-name-line-2 {
+    display: none !important; /* Hide Md. letters and Hossain completely on mobile! Locked! */
+  }
+  .letters-miraz-group {
+    transform: translateX(-150px); /* Center "Miraz" (span x=420 to 780) perfectly on mobile viewports! */
   }
   .hero-name-line-1 {
     width: 100% !important;
@@ -754,7 +807,7 @@ img { max-width: 100%; display: block; }
   }
   .hero-name-miraz-wrap {
     width: 100% !important;
-    max-width: 300px !important; /* Centered compact mobile Miraz */
+    max-width: 300px !important; /* Compact mobile signature */
   }
   .hero-portrait { width: 220px; height: 300px; }
   .hero-action-row { flex-direction: column; width: 100%; max-width: 280px; }
