@@ -319,25 +319,25 @@ img { max-width: 100%; display: block; }
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: var(--font-display);
-  font-size: clamp(100px, 18vw, 260px);
-  font-weight: 400;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--border);
-  letter-spacing: 0.04em;
+  font-family: 'Caveat', cursive, sans-serif;
+  font-size: clamp(140px, 22vw, 340px); /* Script cursive fonts naturally render smaller, so we scale up */
+  font-weight: 700;
+  color: rgba(192, 122, 96, 0.07); /* Apple-style filled copper/gold tint */
+  -webkit-text-stroke: none; /* Filled style */
+  letter-spacing: -0.02em;
   white-space: nowrap;
   z-index: 1;
   user-select: none;
   pointer-events: none;
-  text-transform: uppercase;
+  text-transform: none; /* Cursive script looks beautiful in Title Case / lowercase */
   line-height: 1;
-  opacity: 0.6;
+  opacity: 0.85;
   animation: floatName 22s ease-in-out infinite;
 }
 
 @keyframes floatName {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0px) rotate(0deg); }
-  50%      { transform: translate(-50%, -50%) translateY(-18px) rotate(1.2deg); }
+  0%, 100% { transform: translate(-50%, -50%) translateY(0px) rotate(-1deg); }
+  50%      { transform: translate(-50%, -50%) translateY(-22px) rotate(1.5deg); }
 }
 
 /* Subtle grain overlay */
@@ -377,7 +377,7 @@ img { max-width: 100%; display: block; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 5%; /* Shift photo down so the top arch doesn't cut off his hair/head! */
 }
 
 /* Name beneath photo */
@@ -514,7 +514,7 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 768px) {
   .hero { min-height: 90vh; }
-  .hero-bg-name { font-size: clamp(60px, 15vw, 120px); }
+  .hero-bg-name { font-size: clamp(90px, 18vw, 180px); } /* Apple cursive style mobile size balance */
   .hero-portrait { width: 220px; height: 300px; }
   .hero-action-row { flex-direction: column; width: 100%; max-width: 280px; }
   .hero-cta { justify-content: center; }
@@ -2756,11 +2756,11 @@ footer {
    ABOUT PAGE — Editorial Layouts
    ========================================================== */
 .about-page-body {
-  padding-top: 72px;
+  padding-top: 80px;
 }
 
 .about-editorial-layout {
-  padding-top: clamp(2rem, 5vw, 4rem);
+  padding-top: 1.25rem;
   padding-bottom: 0;
 }
 
@@ -5124,14 +5124,44 @@ footer {
   transform: none;
 }
 .recog-fan-hint {
-  pointer-events: auto;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--bg3);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 8px 20px;
+  border-radius: 100px;
+  z-index: 10;
   cursor: pointer;
+  pointer-events: auto;
+  box-shadow: var(--shadow-lg), 0 0 15px rgba(192, 122, 96, 0.2);
+  transition: all var(--trans);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.recog-fan-hint:hover {
+  background: var(--accent);
+  color: var(--bg);
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: var(--shadow-lg), 0 0 25px rgba(192, 122, 96, 0.4);
 }
 .recog-fan-wrap.is-open .recog-fan-hint {
   background: #b64032;
   border-color: #f08a75;
   color: #fff;
   box-shadow: 0 8px 24px rgba(182, 64, 50, 0.35);
+  transform: translateX(-50%) scale(1);
+}
+.recog-fan-wrap.is-open .recog-fan-hint:hover {
+  transform: translateX(-50%) scale(1.05);
+  background: #d64a3a;
 }
 
 .timeline {
@@ -5382,9 +5412,12 @@ footer {
 /* ==========================================================
    RECOGNITION FAN + INTERVENTION LIGHTBOX POLISH
    ========================================================== */
+.recog-card {
+  overflow: visible !important; /* Allow certificate wings to expand horizontally without clipping */
+}
 .recog-fan-wrap {
   min-height: clamp(250px, 22vw, 315px);
-  overflow: hidden;
+  overflow: visible; /* Prevent wing clipping when cards are spread out */
 }
 .recog-fan-card {
   inset: auto;
@@ -5421,13 +5454,7 @@ footer {
 .recog-fan-wrap.is-open .recog-fan-card[data-full] {
   cursor: zoom-in;
 }
-.recog-fan-wrap.is-open .recog-fan-hint,
-:root[data-theme="light"] .recog-fan-wrap.is-open .recog-fan-hint {
-  background: #b64032;
-  border-color: #f08a75;
-  color: #fff;
-  box-shadow: 0 8px 24px rgba(182, 64, 50, 0.35);
-}
+/* Custom hint handled in primary declaration */
 .intervention-focus-media img,
 .lightbox-trigger[data-full] {
   cursor: zoom-in;
